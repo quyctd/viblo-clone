@@ -1,16 +1,57 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { FooterComponent } from './footer/footer.component';
+import { PostsComponent } from './posts/posts.component';
+import { QuestionsComponent } from './questions/questions.component';
+import { DiscussionsComponent } from './discussions/discussions.component';
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
+import { AuthorsComponent } from './authors/authors.component';
+import { TagsComponent } from './tags/tags.component';
+import { OrgnizationsComponent } from './orgnizations/orgnizations.component';
+import { SearchComponent } from './search/search.component';
+import { SeriesComponent } from './series/series.component';
+import { NewestComponent } from './newest/newest.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavbarComponent,
+    FooterComponent,
+    PostsComponent,
+    QuestionsComponent,
+    DiscussionsComponent,
+    LoginComponent,
+    RegisterComponent,
+    AuthorsComponent,
+    TagsComponent,
+    OrgnizationsComponent,
+    SearchComponent,
+    SeriesComponent,
+    NewestComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    RouterModule.forRoot([
+      { path: '', component : NewestComponent},
+      { path: 'login', component : LoginComponent},
+      { path: 'register', component : RegisterComponent},
+      { path: 'posts', component : PostsComponent},
+      { path: 'questions', component : QuestionsComponent},
+      { path: 'discussion', component : DiscussionsComponent},
+      { path: 'search', component : SearchComponent},
+      { path: 'tags', component : TagsComponent},
+      { path: 'series', component : SeriesComponent},
+      { path: 'orgnizations', component : OrgnizationsComponent},
+      { path: 'authors', component : AuthorsComponent}
+
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]
