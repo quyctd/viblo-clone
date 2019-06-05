@@ -1,3 +1,230 @@
-<p>
-  register works!
-</p>
+<html lang="en" class="gr__accounts_viblo_asia">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title></title>
+
+  <script src="src/assets/register.js" defer=""></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i&amp;subset=vietnamese" rel="stylesheet"
+    type="text/css" />
+
+</head>
+
+<body data-gr-c-s-loaded="true">
+  <div class="viblo">
+    <div class="container my-3">
+      <div class="row">
+        <div class="d-flex justify-content-center py-4 mb-2 col-12">
+          <div class="logo logo--medium">
+            <a href="/" class="router-link-active"><img src="https://viblo.asia/logo_full.svg" alt="Viblo Accounts"
+                class="logo-image" /></a>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="mx-auto col-sm-12 col-md-10 col-lg-8 col-xl-6">
+          <div class="el-card is-always-shadow">
+            <!---->
+            <div class="el-card__body">
+              <h1 class="card-title">
+                Register account for Viblo
+              </h1>
+              <p class="card-subtitle mt-2">
+                Welcome to <strong>Viblo platform</strong>! Join us to find
+                useful information required to improve your skills. Please
+                fill your info into the form below to continue.
+              </p>
+              <div class="pt-4">
+                <form class="el-form" [formGroup]="form">
+                  <!---->
+                  <div [ngClass]="{
+                    'el-form-item' : true,
+                    'is-required' : true,
+                    'is-error' : name.touched && name.invalid,
+                    'is-success' : name.value.trim()!='' && !(name.touched && name.invalid)
+                  }">
+
+                    <!---->
+                    <div class="el-form-item__content">
+                      <div class="el-input">
+                        <input type="text" autocomplete="off" placeholder="Your name" class="el-input__inner" 
+                        id="name" formControlName="name" minlength="4" />
+                      </div>
+                      <div *ngIf="name.touched && name.invalid" class="el-form-item__error">
+                        <div *ngIf="name.errors.required">
+                          Name is required
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div [ngClass]="{
+                        'el-form-item' : true,
+                        'is-required' : true,
+                        'is-error' : email.touched && email.invalid,
+                        'is-success' : email.value.trim()!='' && !(email.touched && email.invalid)
+                        }">
+                        <!---->
+                        <div class="el-form-item__content">
+                          <div class="el-input">
+                            <input type="text" autocomplete="off" title="" placeholder="Your email address"
+                              class="el-input__inner" formControlName="email" />
+                            <div *ngIf="email.touched && email.invalid" class="el-form-item__error">
+                              <div *ngIf="email.errors.required">
+                                Email is required
+                              </div>
+                              <div *ngIf="email.errors.email">
+                                Must be a valid email
+                              </div>
+                            </div>
+                          </div>
+                          <!---->
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div [ngClass]="{
+                        'el-form-item' : true,
+                        'is-required' : true,
+                        'is-error' : username.touched && username.invalid,
+                        'is-success' : username.value.trim()!='' && !(username.touched && username.invalid)
+                        }">
+                        <!---->
+                        <div class="el-form-item__content">
+                          <div class="el-input">
+                            <input type="text" autocomplete="off" placeholder="Username"
+                              class="el-input__inner" formControlName="username" />
+                            
+                            <div *ngIf="username.touched && username.invalid" class="el-form-item__error">
+                              <div *ngIf="username.errors.required">
+                                Username is required
+                              </div>
+                              
+                            </div>
+
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div [ngClass]="{
+                    'el-form-item' : true,
+                    'is-required' : true,
+                    'is-error' : password.touched && password.invalid,
+                    'is-success' : password.value.trim()!='' && !(password.touched && password.invalid)
+                    }">
+                    <!---->
+                    <div class="el-form-item__content">
+                      <div class="el-input">
+                        <!----><input type="password" formControlName="password" autocomplete="off" placeholder="Password"
+                          class="el-input__inner" />
+                        <div *ngIf="password.touched && password.invalid" class="el-form-item__error">
+                          <div *ngIf="password.errors.required">
+                            Password is required
+                          </div>
+                          <div *ngIf="password.errors.minlength">
+                            Password must has at least 6 characters
+                          </div>
+                        </div>
+                      </div>
+                      <!---->
+                    </div>
+                  </div>
+                  <div [ngClass]="{
+                    'el-form-item' : true,
+                    'is-required' : true,
+                    'is-error' : re_password.touched && re_password.invalid,
+                    'is-success' : re_password.value.trim()!='' && !(re_password.touched && re_password.invalid)
+                    }">
+                    <!---->
+                    <div class="el-form-item__content">
+                      <div class="el-input">
+                        <!----><input type="password" autocomplete="off" placeholder="Confirm your password"
+                          class="el-input__inner" formControlName="re_password" />
+                        <div *ngIf="re_password.touched && re_password.invalid" class="el-form-item__error">
+                          <div *ngIf="re_password.errors.required">
+                            Password confirmation is required
+                          </div>
+                          <div *ngIf="form.hasError('passwordsNotEqual')">
+                            Password confirmation does not match
+                          </div>
+                        </div>
+                      </div>
+                      <!---->
+                    </div>
+                  </div>
+                  <div class="el-form-item">
+                    <!---->
+                    <div class="el-form-item__content">
+                      <label role="checkbox" class="el-checkbox mb-0">
+                        <span aria-checked="mixed"
+                          class="el-checkbox__input">
+                          <span class="el-checkbox__inner "></span>
+                          <input type="checkbox"
+                            aria-hidden="true" class="el-checkbox__original" value="" checked />
+                          </span>
+                          <span class="el-checkbox__label"><span>I agree to</span>
+                          <a href="/terms" class="">
+                            Viblo Terms of Service </a>
+                          <!----></span></label>
+                      <!---->
+                    </div>
+                  </div>
+                </form>
+                <div class="text-center">
+                  <button disabled="disabled" type="button" class="el-button w-100 my-2 el-button--primary is-disabled">
+                    <!---->
+                    <!----><span>
+                      Sign up
+                    </span>
+                  </button>
+                </div>
+                <div class="d-flex align-items-center justify-content-between my-3">
+                  <hr class="flex-fill m-0" />
+                  <span class="mx-3">
+                    Or login with
+                  </span>
+                  <hr class="flex-fill m-0" />
+                </div>
+
+                <div class="social-login my-3">
+                  <ul class="list-unstyled d-flex align-items-center justify-content-between flex-wrap mb-0">
+                    <button type="button"
+                      class="el-button social-login__button facebook el-button--default el-button--medium">
+                      <i class="fab fa-facebook-f mr-1"></i><span>
+                        Facebook
+                      </span>
+                    </button>
+                    <button type="button"
+                      class="el-button social-login__button google el-button--default el-button--medium">
+                      <!----><i class="fab fa-google mr-1"></i><span>
+                        Google
+                      </span>
+                    </button>
+                    <button type="button"
+                      class="el-button social-login__button github el-button--default el-button--medium">
+                      <!----><i class="fab fa-github mr-1"></i><span>
+                        Github
+                      </span>
+                    </button>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    window.GLOBALS = { currentUser: null, session: null, messages: null };
+  </script>
+</body>
+
+</html>

@@ -17,6 +17,7 @@ import { OrgnizationsComponent } from './orgnizations/orgnizations.component';
 import { SearchComponent } from './search/search.component';
 import { SeriesComponent } from './series/series.component';
 import { NewestComponent } from './newest/newest.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { NewestComponent } from './newest/newest.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     RouterModule.forRoot([
       { path: '', component : NewestComponent},
       { path: 'login', component : LoginComponent},
