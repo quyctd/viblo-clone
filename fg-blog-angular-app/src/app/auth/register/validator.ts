@@ -1,4 +1,4 @@
-import { FormGroup, FormControl, Validators, FormBuilder, FormGroupDirective, NgForm } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder, FormGroupDirective, NgForm, AbstractControl } from '@angular/forms';
 
 export const NameValidator = [Validators.required, ];
 export const EmailValidator =  [
@@ -15,9 +15,15 @@ export const PasswordValidator =  [
     Validators.minLength(6)
   ];
 
-export function RepeatPasswordValidator(group: FormGroup) {
-    let password = group.controls.password.value;
-    let passwordConfirmation = group.controls.re_password.value;
-
-    return password === passwordConfirmation ? null : { passwordsNotEqual: true };
+export function RepeatPasswordValidator(AC: AbstractControl) {
+    const password = AC.get('password').value;
+    const passwordConfirmation = AC.get('re_password').value;
+    if (passwordConfirmation.trim() === '') {
+      return null;
+    }
+    if (password !== passwordConfirmation) {
+      AC.get('re_password').setErrors( {MatchPassword: true} );
+    } else {
+      return null;
+    }
 }

@@ -1,6 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+
+// Social authen
+import { SocialLoginModule } from 'angularx-social-login';
+import { AuthServiceConfig } from 'angularx-social-login';
+import { provideConfig } from './socialLoginConfig';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +25,7 @@ import { SearchComponent } from './search/search.component';
 import { SeriesComponent } from './series/series.component';
 import { NewestComponent } from './newest/newest.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { PromoBannerComponent } from './promo-banner/promo-banner.component';
 
 @NgModule({
   declarations: [
@@ -34,14 +42,18 @@ import { ReactiveFormsModule } from '@angular/forms';
     OrgnizationsComponent,
     SearchComponent,
     SeriesComponent,
-    NewestComponent
+    NewestComponent,
+    PromoBannerComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    HttpClientModule,
+    SocialLoginModule,
     RouterModule.forRoot([
-      { path: '', component : NewestComponent},
+      { path: '', component : AppComponent},
+      { path: 'newest', component : NewestComponent},
       { path: 'login', component : LoginComponent},
       { path: 'register', component : RegisterComponent},
       { path: 'posts', component : PostsComponent},
@@ -55,7 +67,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 
     ])
   ],
-  providers: [],
+  providers: [
+    {
+      provide: AuthServiceConfig,
+      useFactory: provideConfig
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

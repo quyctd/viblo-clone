@@ -1,17 +1,34 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { NameValidator, EmailValidator, UsernameValidator, PasswordValidator, RepeatPasswordValidator } from './validator';
+import { RegisterService } from '../register.service';
+import {Router} from '@angular/router';
+
+import { AuthService } from 'angularx-social-login';
+import { SocialUser } from 'angularx-social-login';
+import { GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-login';
 
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'],
+  providers: [RegisterService]
 })
 export class RegisterComponent implements OnInit {
-  form: any;
+  form: FormGroup;
+  user: SocialUser;
+  router;
+  isChecked = false;
+  btnDisable = true;
 
-  constructor(private formBuilder: FormBuilder) {
+  // tslint:disable-next-line:variable-name
+  constructor(private formBuilder: FormBuilder, private api: RegisterService, _router: Router, private authService: AuthService) {
+    this.router = _router;
+  }
+
+  ngOnInit() {
+    // Init form
     this.form = this.formBuilder.group({
       name : new FormControl('', NameValidator),
       email : new FormControl('', EmailValidator),
@@ -22,9 +39,12 @@ export class RegisterComponent implements OnInit {
       ]),
     },  {validator: RepeatPasswordValidator }
     );
-  }
 
-  ngOnInit() {
+    // Init authentic
+    this.authService.authState.subscribe((user) => {
+      this.user = user;
+      console.log(user);
+    });
   }
 
   get name() {
@@ -45,5 +65,57 @@ export class RegisterComponent implements OnInit {
 
   get re_password() {
     return this.form.get('re_password');
+  }
+
+  toggleTerm(event) {
+    this.isChecked = !this.isChecked;
+    this.btnDisable = !this.isChecked;
+  }
+
+  doBasicRegister = () => {
+    const formData = {
+      email : this.email.value,
+      username : this.username.value,
+      password: this.password.value,
+      re_password : this.re_password.value
+    };
+    this.api.basicRegister(formData).subscribe(
+      data => {
+        console.log("Success: " + data);
+        this.router.navigateByUrl('/');
+      },
+      error => {
+        console.log("ERROR");
+      }
+    );
+  }
+
+  doFacebookRegister(): void {
+    this.authService.signIn(FacebookLoginProvider.PROVIDER_ID).then(
+        x => {
+          console.log(x);
+          this.router.navigateByUrl('/');
+        },
+        error => {
+          console.log("ERROR");
+        }
+      );
+  }
+
+  doGoogleRegister() {
+    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then(
+      x => {
+        console.log(x);
+        this.router.navigateByUrl('/');
+      },
+      error => {
+        console.log("ERROR");
+      }
+    );
+
+  }
+
+  doGithubRegister() {
+
   }
 }

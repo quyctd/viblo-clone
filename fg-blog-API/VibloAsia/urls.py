@@ -19,4 +19,5 @@ urlpatterns = [
 
     # enable the admin interface
     url(r'^admin/', admin.site.urls),
+    url(r'^api/v1/', include('apps.api.urls')),
 ]

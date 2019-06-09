@@ -1,3 +1,182 @@
-<p>
-  login works!
-</p>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Viblo - Login</title>
+
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i&amp;subset=vietnamese"
+      rel="stylesheet"
+      type="text/css"
+    />
+  </head>
+  <body>
+    <div class="viblo">
+      <div class="container login_fff6887">
+        <div class="row justify-content-center">
+          <div class="col-md-8 col-lg-6 col-xl-5">
+            <div class="el-card is-always-shadow card_39334a8">
+              <div class="el-card__body">
+                <div class="mb-6 text-center">
+                  <img
+                    src="https://viblo.asia/logo_full.svg"
+                    alt="Viblo"
+                    class="logo_0ce2aea"
+                  />
+                </div>
+                <div class="my-4 text-center"><h5>Login to Viblo</h5></div>
+                <div class="login-form">
+                  <div role="alert" *ngIf='!form.hasError' class="el-alert mb-3 el-alert--error">
+                    <!---->
+                    <div class="el-alert__content">
+                      <span class="el-alert__title"
+                        >Wrong username/email or password</span
+                      ><!----><!----><i
+                        class="el-alert__closebtn el-icon-close"
+                        style="display: none;"
+                      ></i>
+                    </div>
+                  </div>
+                  <form class="el-form" [formGroup]="form">
+                    <div
+                      [ngClass]="{
+                      'el-form-item' : true,
+                      'is-required' : true,
+                      'el-form-item--medium' : true,
+                      'is-error' : (username.touched && username.invalid) || (username.errors && username.errors.notMatch)
+                    }"
+                    >
+                      <div class="el-form-item__content">
+                        <div
+                          class="el-input el-input--medium el-input-group el-input-group--prepend"
+                        >
+                          <div class="el-input-group__prepend">
+                            <i aria-hidden="true" class="fa fa-user"></i>
+                          </div>
+                          <input
+                            type="text"
+                            autocomplete="off"
+                            autofocus="autofocus"
+                            placeholder="Username or email"
+                            class="el-input__inner"
+                            formControlName="username"
+                            [formGroup]="form"
+                          />
+                          <div
+                            *ngIf="username.touched && username.invalid"
+                            class="el-form-item__error"
+                          >
+                            <div *ngIf="username.errors.required">
+                              Username/Email is required
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div [ngClass]="{
+                        'el-form-item' : true,
+                        'is-required' : true,
+                        'el-form-item--medium' : true,
+                        'is-error' : (password.touched && password.invalid) || (password.errors && password.errors.notMatch)
+                      }">
+                      <div class="el-form-item__content">
+                        <div
+                          class="el-input el-input--medium el-input-group el-input-group--prepend"
+                        >
+                          <div class="el-input-group__prepend">
+                            <i aria-hidden="true" class="fa fa-lock"></i>
+                          </div>
+                          <input
+                            type="password"
+                            autocomplete="off"
+                            placeholder="Password"
+                            class="el-input__inner"
+                            formControlName="password"
+                            [formGroup]="form"
+                          />
+                          <div
+                            *ngIf="password.touched && password.invalid"
+                            class="el-form-item__error"
+                          >
+                            <div *ngIf="password.errors.required">
+                              Password is required
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                  <button
+                    type="button"
+                    class="el-button w-100 el-button--primary"
+                    (click)='doLogin()'
+                  >
+                    <span>
+                      Login
+                    </span>
+                  </button>
+                  <div class="d-flex justify-content-between my-2">
+                    <a routerLink="/forgot-password" class=""
+                      ><small>Forgot your password?</small></a
+                    >
+                    <a routerLink="/register" class=""
+                      ><small>Create account</small></a
+                    >
+                  </div>
+                  <div
+                    class="d-flex align-items-center justify-content-between my-4"
+                  >
+                    <hr class="flex-fill m-0" />
+                    <span class="mx-3">
+                      Or login with
+                    </span>
+                    <hr class="flex-fill m-0" />
+                  </div>
+
+                  <div class="social-login">
+                    <ul
+                      class="list-unstyled d-flex align-items-center justify-content-between flex-wrap mb-0"
+                    >
+                      <button
+                        type="button"
+                        class="el-button social-login__button facebook el-button--default el-button--medium"
+                      >
+                        <i class="fab fa-facebook-f mr-1"></i
+                        ><span>
+                          Facebook
+                        </span>
+                      </button>
+                      <button
+                        type="button"
+                        class="el-button social-login__button google el-button--default el-button--medium"
+                      >
+                        <i class="fab fa-google mr-1"></i
+                        ><span>
+                          Google
+                        </span>
+                      </button>
+                      <button
+                        type="button"
+                        class="el-button social-login__button github el-button--default el-button--medium"
+                      >
+                        <i class="fab fa-github mr-1"></i
+                        ><span>
+                          Github
+                        </span>
+                      </button>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript">
+      window.GLOBALS = { currentUser: null, session: null, messages: null };
+    </script>
+  </body>
+</html>

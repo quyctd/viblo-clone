@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title></title>
 
-  <script src="src/assets/register.js" defer=""></script>
 
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i&amp;subset=vietnamese" rel="stylesheet"
     type="text/css" />
@@ -50,7 +49,7 @@
                     <div class="el-form-item__content">
                       <div class="el-input">
                         <input type="text" autocomplete="off" placeholder="Your name" class="el-input__inner" 
-                        id="name" formControlName="name" minlength="4" />
+                        id="name" formControlName="name" minlength="4" [formGroup]="form" />
                       </div>
                       <div *ngIf="name.touched && name.invalid" class="el-form-item__error">
                         <div *ngIf="name.errors.required">
@@ -72,7 +71,7 @@
                         <div class="el-form-item__content">
                           <div class="el-input">
                             <input type="text" autocomplete="off" title="" placeholder="Your email address"
-                              class="el-input__inner" formControlName="email" />
+                              class="el-input__inner" formControlName="email" [formGroup]="form"/>
                             <div *ngIf="email.touched && email.invalid" class="el-form-item__error">
                               <div *ngIf="email.errors.required">
                                 Email is required
@@ -97,7 +96,7 @@
                         <div class="el-form-item__content">
                           <div class="el-input">
                             <input type="text" autocomplete="off" placeholder="Username"
-                              class="el-input__inner" formControlName="username" />
+                              class="el-input__inner" formControlName="username" [formGroup]="form"/>
                             
                             <div *ngIf="username.touched && username.invalid" class="el-form-item__error">
                               <div *ngIf="username.errors.required">
@@ -122,7 +121,7 @@
                     <div class="el-form-item__content">
                       <div class="el-input">
                         <!----><input type="password" formControlName="password" autocomplete="off" placeholder="Password"
-                          class="el-input__inner" />
+                          class="el-input__inner" [formGroup]="form"/>
                         <div *ngIf="password.touched && password.invalid" class="el-form-item__error">
                           <div *ngIf="password.errors.required">
                             Password is required
@@ -145,15 +144,19 @@
                     <div class="el-form-item__content">
                       <div class="el-input">
                         <!----><input type="password" autocomplete="off" placeholder="Confirm your password"
-                          class="el-input__inner" formControlName="re_password" />
+                          class="el-input__inner" formControlName="re_password" [formGroup]="form"/>
                         <div *ngIf="re_password.touched && re_password.invalid" class="el-form-item__error">
                           <div *ngIf="re_password.errors.required">
                             Password confirmation is required
                           </div>
-                          <div *ngIf="form.hasError('passwordsNotEqual')">
+                          
+                        </div>
+                        <div *ngIf="re_password.errors" class="el-form-item__error">
+                          <div *ngIf="re_password.errors.MatchPassword">
                             Password confirmation does not match
                           </div>
                         </div>
+                        
                       </div>
                       <!---->
                     </div>
@@ -163,8 +166,8 @@
                     <div class="el-form-item__content">
                       <label role="checkbox" class="el-checkbox mb-0">
                         <span aria-checked="mixed"
-                          class="el-checkbox__input">
-                          <span class="el-checkbox__inner "></span>
+                          class="el-checkbox__input" [ngClass]="isChecked ? 'is-checked' : ''">
+                          <span class="el-checkbox__inner "  (click)="toggleTerm()"></span>
                           <input type="checkbox"
                             aria-hidden="true" class="el-checkbox__original" value="" checked />
                           </span>
@@ -177,7 +180,8 @@
                   </div>
                 </form>
                 <div class="text-center">
-                  <button disabled="disabled" type="button" class="el-button w-100 my-2 el-button--primary is-disabled">
+                  <button [disabled]="btnDisable" type="button" class="el-button w-100 my-2 el-button--primary"
+                  [ngClass]="btnDisable ? 'is-disabled' : ''" (click)="doBasicRegister()" >
                     <!---->
                     <!----><span>
                       Sign up
@@ -194,19 +198,19 @@
 
                 <div class="social-login my-3">
                   <ul class="list-unstyled d-flex align-items-center justify-content-between flex-wrap mb-0">
-                    <button type="button"
+                    <button type="button" (click)="doFacebookRegister()"
                       class="el-button social-login__button facebook el-button--default el-button--medium">
                       <i class="fab fa-facebook-f mr-1"></i><span>
                         Facebook
                       </span>
                     </button>
-                    <button type="button"
+                    <button type="button" (click)="doGoogleRegister()"
                       class="el-button social-login__button google el-button--default el-button--medium">
                       <!----><i class="fab fa-google mr-1"></i><span>
                         Google
                       </span>
                     </button>
-                    <button type="button"
+                    <button type="button" (click)="doGithubRegister()"
                       class="el-button social-login__button github el-button--default el-button--medium">
                       <!----><i class="fab fa-github mr-1"></i><span>
                         Github
