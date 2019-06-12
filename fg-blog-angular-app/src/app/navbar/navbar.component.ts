@@ -18,4 +18,8 @@ export class NavbarComponent implements OnInit {
     this.router.navigateByUrl('/login');
   }
 
+  btnLogout() {
+    this.router.navigateByUrl('/login');
+  }
+
 }

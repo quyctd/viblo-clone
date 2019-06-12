@@ -1,27 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 
-import { LoginService } from '../login.service';
+import { AuthService as MyAuthService } from '../auth.service';
 import {Router} from '@angular/router';
 
 import { AuthService } from 'angularx-social-login';
-import { SocialUser } from 'angularx-social-login';
-import { GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-login';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  providers: [LoginService]
+  providers: [MyAuthService]
 
 })
 export class LoginComponent implements OnInit {
   form: FormGroup;
-  user: SocialUser;
   router;
 
   // tslint:disable-next-line:variable-name
-  constructor(private formBuilder: FormBuilder, private api: LoginService, _router: Router, private authService: AuthService) {
+  constructor(private formBuilder: FormBuilder, private api: MyAuthService, _router: Router, private authService: AuthService) {
     this.router = _router;
   }
   ngOnInit() {
@@ -30,6 +27,15 @@ export class LoginComponent implements OnInit {
         password : new FormControl('', [ Validators.required, Validators.minLength(6)]),
       }
     );
+
+    // Init authentic
+    // this.authService.authState.subscribe((user) => {
+    //   this.api.user = user;
+    //   console.log(user);
+    //   if (user) {
+    //     this.router.navigateByUrl('/newest');
+    //   }
+    // });
   }
 
   get username() {
@@ -42,7 +48,6 @@ export class LoginComponent implements OnInit {
 
   doLogin(): void {
     const formUser = this.username.value;
-    
     const formData = {
       username : this.ValidateEmail(formUser) ? "" : formUser,
       email : this.ValidateEmail(formUser) ? formUser : "",

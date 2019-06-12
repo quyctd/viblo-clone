@@ -26,6 +26,7 @@ import { SeriesComponent } from './series/series.component';
 import { NewestComponent } from './newest/newest.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PromoBannerComponent } from './promo-banner/promo-banner.component';
+import { LogoutComponent } from './auth/logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { PromoBannerComponent } from './promo-banner/promo-banner.component';
     SearchComponent,
     SeriesComponent,
     NewestComponent,
-    PromoBannerComponent
+    PromoBannerComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
@@ -63,7 +65,8 @@ import { PromoBannerComponent } from './promo-banner/promo-banner.component';
       { path: 'tags', component : TagsComponent},
       { path: 'series', component : SeriesComponent},
       { path: 'orgnizations', component : OrgnizationsComponent},
-      { path: 'authors', component : AuthorsComponent}
+      { path: 'authors', component : AuthorsComponent},
+      { path: 'logout', component : LogoutComponent},
 
     ])
   ],

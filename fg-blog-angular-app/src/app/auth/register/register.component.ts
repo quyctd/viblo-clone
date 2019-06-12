@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { NameValidator, EmailValidator, UsernameValidator, PasswordValidator, RepeatPasswordValidator } from './validator';
-import { RegisterService } from '../register.service';
+import { AuthService as MyAuthService } from '../auth.service';
 import {Router} from '@angular/router';
 
 import { AuthService } from 'angularx-social-login';
@@ -13,7 +13,7 @@ import { GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-logi
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
-  providers: [RegisterService]
+  providers: [MyAuthService]
 })
 export class RegisterComponent implements OnInit {
   form: FormGroup;
@@ -23,7 +23,7 @@ export class RegisterComponent implements OnInit {
   btnDisable = true;
 
   // tslint:disable-next-line:variable-name
-  constructor(private formBuilder: FormBuilder, private api: RegisterService, _router: Router, private authService: AuthService) {
+  constructor(private formBuilder: FormBuilder, private api: MyAuthService, _router: Router, private authService: AuthService) {
     this.router = _router;
   }
 
@@ -44,6 +44,9 @@ export class RegisterComponent implements OnInit {
     this.authService.authState.subscribe((user) => {
       this.user = user;
       console.log(user);
+      if (user) {
+        this.router.navigateByUrl('/newest');
+      }
     });
   }
 

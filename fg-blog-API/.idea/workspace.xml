@@ -2,35 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26a4d0dc-4929-46d9-b9f9-d9014f22a95d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/apps/api/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/api/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/api/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/api/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/api/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/api/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/api/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/api/views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/authen/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/authen/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/authen/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/authen/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/authen/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/authen/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/authen/serializers.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/authen/social_views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/authen/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/authen/urls.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apps/authen/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VibloAsia/settings/common.py" beforeDir="false" afterPath="$PROJECT_DIR$/VibloAsia/settings/common.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VibloAsia/settings/development.py" beforeDir="false" afterPath="$PROJECT_DIR$/VibloAsia/settings/development.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VibloAsia/settings/production.py" beforeDir="false" afterPath="$PROJECT_DIR$/VibloAsia/settings/production.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VibloAsia/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/VibloAsia/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/auth/register/register.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/auth/register/register.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/auth/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/auth/login/login.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/auth/register/register.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/auth/register/register.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/auth/register/validator.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/auth/register/validator.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fg-blog-angular-app/tslint.json" beforeDir="false" afterPath="$PROJECT_DIR$/../fg-blog-angular-app/tslint.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -46,7 +20,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/authen/social_views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
+            <state relative-caret-position="210">
               <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
               <folding>
                 <element signature="e#0#80#0" expanded="true" />
@@ -58,7 +32,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/authen/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
+            <state relative-caret-position="180">
               <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
               <folding>
                 <element signature="e#16#53#0" expanded="true" />
@@ -82,7 +56,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/authen/serializers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="45">
+            <state relative-caret-position="30">
               <caret line="3" selection-start-line="3" selection-end-line="3" />
               <folding>
                 <element signature="e#23#61#0" expanded="true" />
@@ -94,8 +68,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/VibloAsia/settings/development.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="663">
-              <caret line="98" column="43" selection-start-line="98" selection-start-column="28" selection-end-line="98" selection-end-column="43" />
+            <state relative-caret-position="184">
+              <caret line="87" column="68" selection-start-line="87" selection-start-column="68" selection-end-line="87" selection-end-column="68" />
             </state>
           </provider>
         </entry>
@@ -103,7 +77,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/VibloAsia/settings/common.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="618">
+            <state relative-caret-position="1125">
               <caret line="76" column="29" selection-start-line="76" selection-start-column="29" selection-end-line="76" selection-end-column="29" />
             </state>
           </provider>
@@ -131,7 +105,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" fullScreen="true">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="width" value="1440" />
     <option name="height" value="900" />
   </component>
@@ -141,7 +115,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -192,6 +165,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -232,18 +206,18 @@
       <updated>1559741158687</updated>
       <workItem from="1559741160254" duration="649000" />
       <workItem from="1559968645685" duration="251000" />
-      <workItem from="1559969009603" duration="14230000" />
+      <workItem from="1559969009603" duration="14231000" />
+      <workItem from="1560356664055" duration="560000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15130000" />
+    <option name="totallyTimeSpent" value="15691000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="23" width="1440" height="813" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25679544" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26037195" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -257,7 +231,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32891566" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.28554216" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.28432733" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32891566" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -373,23 +347,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/VibloAsia/settings/common.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="618">
-          <caret line="76" column="29" selection-start-line="76" selection-start-column="29" selection-end-line="76" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/authen/serializers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-          <folding>
-            <element signature="e#23#61#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/anaconda3/envs/viblo/lib/python3.7/site-packages/rest_auth/registration/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -402,10 +359,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/authen/social_views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
+        <state relative-caret-position="210">
           <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
           <folding>
             <element signature="e#0#80#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/authen/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+          <folding>
+            <element signature="e#16#53#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -420,20 +387,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/authen/urls.py">
+    <entry file="file://$PROJECT_DIR$/apps/authen/serializers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+        <state relative-caret-position="30">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
           <folding>
-            <element signature="e#16#53#0" expanded="true" />
+            <element signature="e#23#61#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VibloAsia/settings/common.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1125">
+          <caret line="76" column="29" selection-start-line="76" selection-start-column="29" selection-end-line="76" selection-end-column="29" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/VibloAsia/settings/development.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="663">
-          <caret line="98" column="43" selection-start-line="98" selection-start-column="28" selection-end-line="98" selection-end-column="43" />
+        <state relative-caret-position="184">
+          <caret line="87" column="68" selection-start-line="87" selection-start-column="68" selection-end-line="87" selection-end-column="68" />
         </state>
       </provider>
     </entry>

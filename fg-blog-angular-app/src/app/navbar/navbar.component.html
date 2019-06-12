@@ -41,11 +41,11 @@
         <span class="flyout announcement-flyout mr-1">
           <div role="tooltip" id="el-popover-7899" aria-hidden="true" class="el-popover el-popper flyout__popper"
             style="width:undefinedpx;display:none;">
-            
+
             <div class="flyout__header">
               <div class="d-flex align-items-center justify-content-between">
                 <span class="text-dark">Announcements</span>
-                
+
               </div>
             </div>
             <div class="flyout__body">
@@ -82,15 +82,15 @@
           <div class="el-badge">
             <button type="button" class="el-button text-muted el-button--text">
               <i class="fa fa-info"></i>
-              
+
             </button>
-            
+
           </div>
         </span>
-        
+
       </div>
       <div class="main-navbar__group">
-        
+
         <button type="button" class="el-button el-button--text" (click)="btnSignin()">
           <i class="fa fa-sign-in"></i><span>
             Sign In/Sign up
@@ -100,11 +100,10 @@
 
       <div class="main-navbar__group">
         <div class="mr-1 el-dropdown">
-          <button type="button"
-            class="el-button text-muted py-0 el-button--text el-dropdown-selfdefine" style="font-size:1.2rem;"
-            data-tippy="" data-original-title="Write" aria-haspopup="list" aria-controls="dropdown-menu-1056"
-            role="button" tabindex="0">
-              <i class="el-icon-edit"></i>
+          <button type="button" class="el-button text-muted py-0 el-button--text el-dropdown-selfdefine"
+            style="font-size:1.2rem;" data-tippy="" data-original-title="Write" aria-haspopup="list"
+            aria-controls="dropdown-menu-1056" role="button" tabindex="0">
+            <i class="el-icon-edit"></i>
           </button>
           <ul class="el-dropdown-menu el-popper publish-dropdown el-dropdown-menu--wide el-dropdown-menu--medium"
             style="display:none;" id="dropdown-menu-1056">
@@ -117,12 +116,13 @@
             <li tabindex="-1" class="el-dropdown-menu__item el-dropdown-menu__item--divided"><a href="/questions/ask"
                 class="link link--plain"><i class="fa fa-question-circle mr-05"></i> Ask question
               </a></li>
-            
+
           </ul>
-        </div> <span>
+        </div> 
+        <span>
           <div role="tooltip" id="el-popover-4305" aria-hidden="true"
             class="el-popover el-popper user-menu__popper border" style="width:undefinedpx;display:none;" tabindex="0">
-            
+
             <div class="user-menu__top d-flex justify-content-between"><img
                 src="https://cdn.viblo.asia/_nuxt/img/0bca52a.png" class="avatar rounded-circle"
                 style="height:70px;width:70px;">
@@ -136,7 +136,7 @@
                   </div>
                 </div> <a href="https://accounts.viblo.asia" target="_blank"><button type="button"
                     class="el-button user-menu__edit-btn el-button--primary el-button--medium">
-                    
+
                     <span>
                       Edit
                     </span></button></a>
@@ -152,7 +152,7 @@
             <div class="user-menu__menu-item"><a href="/settings/appearances" class="link link--plain"><i
                   class="fa fa-cog"></i> Preferences
               </a></div>
-            
+
             <hr>
             <div class="user-menu__menu-item"><a href="https://accounts.viblo.asia/logout?service=viblo"><i
                   class="fa fa-sign-out-alt"></i> Sign out
@@ -161,6 +161,10 @@
             class="avatar avatar--md rounded-circle el-popover__reference" aria-describedby="el-popover-4305"
             tabindex="0">
         </span>
+
+        <div class="user-menu__menu-item"><a routerLink="/logout"><i
+          class="fa fa-sign-out-alt"></i> Sign out
+      </a></div>
       </div>
     </div>
   </div>
