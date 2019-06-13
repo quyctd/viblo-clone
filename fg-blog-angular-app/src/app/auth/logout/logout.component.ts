@@ -22,7 +22,7 @@ export class LogoutComponent implements OnInit {
       data => {
         this.api.user = null;
         this.router.navigateByUrl('/login');
-        console.log("Login success");
+        console.log("Logout success");
       },
       error => {
         console.log("Logout error" + error);

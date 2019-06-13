@@ -84,6 +84,7 @@ export class RegisterComponent implements OnInit {
     };
     this.api.basicRegister(formData).subscribe(
       data => {
+        this.api.user = data;
         console.log("Success: " + data);
         this.router.navigateByUrl('/');
       },
@@ -105,7 +106,7 @@ export class RegisterComponent implements OnInit {
       );
   }
 
-  doGoogleRegister() {
+  doGoogleRegister(): void {
     this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then(
       x => {
         console.log(x);

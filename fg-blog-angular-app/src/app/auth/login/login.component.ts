@@ -5,6 +5,8 @@ import { AuthService as MyAuthService } from '../auth.service';
 import {Router} from '@angular/router';
 
 import { AuthService } from 'angularx-social-login';
+import { GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-login';
+
 
 @Component({
   selector: 'app-login',
@@ -70,6 +72,51 @@ export class LoginComponent implements OnInit {
         return (true);
       }
     return (false);
+  }
+
+  doFacebookRegister(): void {
+    this.authService.signIn(FacebookLoginProvider.PROVIDER_ID).then(
+        x => {
+          const authToken = x.authToken;
+          this.api.loginFacebook(authToken).subscribe(
+            data => {
+              console.log(data);
+              this.router.navigateByUrl('/newest');
+            },
+            error => {
+              console.log("Login error");
+            }
+          );
+        },
+        error => {
+          console.log("ERROR");
+        }
+      );
+  }
+
+  doGoogleRegister() {
+    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then(
+      x => {
+        const authToken = x.authToken;
+        this.api.loginGoogle(authToken).subscribe(
+          data => {
+            console.log(data);
+            this.router.navigateByUrl('/newest');
+          },
+          error => {
+            console.log("Login error");
+          }
+        );
+      },
+      error => {
+        console.log("ERROR");
+      }
+    );
+
+  }
+
+  doGithubRegister() {
+
   }
 
 }

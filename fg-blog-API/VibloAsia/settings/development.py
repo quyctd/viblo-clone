@@ -92,8 +92,8 @@ AUTHENTICATION_BACKENDS = (
 
 
 #Google login
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY ='671755523680-nu5lvkkosf6g4dv88rts7oabfkaed1hj.apps.googleusercontent.com'
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '8okGGrjXKlvX28Gxryet8Nql' #Paste Secret Key
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY ='671755523680-kl8oatubi2m7andl8pstad21t9eneoqf.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'M1hDXZbe-M7LVRnJe25dWPXe' #Paste Secret Key
 
 #Facebook login
 SOCIAL_AUTH_FACEBOOK_KEY = '836707276705341'
