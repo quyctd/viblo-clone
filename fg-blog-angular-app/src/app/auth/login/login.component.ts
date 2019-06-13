@@ -12,7 +12,6 @@ import { GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-logi
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  providers: [MyAuthService]
 
 })
 export class LoginComponent implements OnInit {

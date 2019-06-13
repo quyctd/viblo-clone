@@ -2,16 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26a4d0dc-4929-46d9-b9f9-d9014f22a95d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/VibloAsia/settings/development.py" beforeDir="false" afterPath="$PROJECT_DIR$/VibloAsia/settings/development.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/auth/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/auth/auth.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/auth/login.service.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/auth/login.service.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/auth/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/auth/login/login.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/auth/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/auth/login/login.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/auth/register.service.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/auth/register.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/auth/logout/logout.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/auth/logout/logout.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/auth/register/register.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/auth/register/register.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/navbar/navbar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/navbar/navbar.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/navbar/navbar.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/navbar/navbar.component.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -214,12 +209,12 @@
       <workItem from="1559741160254" duration="649000" />
       <workItem from="1559968645685" duration="251000" />
       <workItem from="1559969009603" duration="14231000" />
-      <workItem from="1560356664055" duration="1127000" />
+      <workItem from="1560356664055" duration="1402000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16258000" />
+    <option name="totallyTimeSpent" value="16533000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="813" extended-state="6" />

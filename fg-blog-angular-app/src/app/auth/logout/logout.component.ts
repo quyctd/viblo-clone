@@ -6,7 +6,6 @@ import { AuthService as MyAuthService } from '../auth.service';
   selector: 'app-logout',
   templateUrl: './logout.component.html',
   styleUrls: ['./logout.component.css'],
-  providers: [MyAuthService]
 })
 export class LogoutComponent implements OnInit {
 
@@ -20,7 +19,6 @@ export class LogoutComponent implements OnInit {
   ngOnInit() {
     this.api.logout().subscribe(
       data => {
-        this.api.user = null;
         this.router.navigateByUrl('/login');
         console.log("Logout success");
       },

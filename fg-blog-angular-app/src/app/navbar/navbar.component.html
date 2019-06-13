@@ -28,7 +28,7 @@
       <a href="/search" class="link text-muted hidden-md-up mr-1"><i aria-hidden="true" class="fa fa-search"></i></a>
       <div class="sb hidden-sm-down flex-fill mr-1">
         <input placeholder="Search Viblo" value="" class="sb__input" />
-        <button class="btn btn-primary" style="display:;">
+        <button class="btn btn-primary" style="display:none;">
           <i class="fa fa-search"></i>
         </button>
         <i aria-hidden="true" class="fa fa-circle-o-notch fa-spin sb-icon" style="display:none;"></i>
@@ -89,7 +89,7 @@
         </span>
 
       </div>
-      <div class="main-navbar__group">
+      <div *ngIf="!user" class="main-navbar__group">
 
         <button type="button" class="el-button el-button--text" (click)="btnSignin()">
           <i class="fa fa-sign-in"></i><span>
@@ -98,7 +98,7 @@
         </button>
       </div>
 
-      <div class="main-navbar__group">
+      <div *ngIf="user" class="main-navbar__group">
         <div class="mr-1 el-dropdown">
           <button type="button" class="el-button text-muted py-0 el-button--text el-dropdown-selfdefine"
             style="font-size:1.2rem;" data-tippy="" data-original-title="Write" aria-haspopup="list"

@@ -13,7 +13,6 @@ import { GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-logi
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
-  providers: [MyAuthService]
 })
 export class RegisterComponent implements OnInit {
   form: FormGroup;
@@ -40,14 +39,14 @@ export class RegisterComponent implements OnInit {
     },  {validator: RepeatPasswordValidator }
     );
 
-    // Init authentic
-    this.authService.authState.subscribe((user) => {
-      this.user = user;
-      console.log(user);
-      if (user) {
-        this.router.navigateByUrl('/newest');
-      }
-    });
+    // // Init authentic
+    // this.authService.authState.subscribe((user) => {
+    //   this.user = user;
+    //   console.log(user);
+    //   if (user) {
+    //     this.router.navigateByUrl('/newest');
+    //   }
+    // });
   }
 
   get name() {
@@ -84,7 +83,6 @@ export class RegisterComponent implements OnInit {
     };
     this.api.basicRegister(formData).subscribe(
       data => {
-        this.api.user = data;
         console.log("Success: " + data);
         this.router.navigateByUrl('/');
       },
@@ -97,8 +95,16 @@ export class RegisterComponent implements OnInit {
   doFacebookRegister(): void {
     this.authService.signIn(FacebookLoginProvider.PROVIDER_ID).then(
         x => {
-          console.log(x);
-          this.router.navigateByUrl('/');
+          const authToken = x.authToken;
+          this.api.loginFacebook(authToken).subscribe(
+            data => {
+              console.log(data);
+              this.router.navigateByUrl('/newest');
+            },
+            error => {
+              console.log("Login error");
+            }
+          );
         },
         error => {
           console.log("ERROR");
@@ -106,11 +112,19 @@ export class RegisterComponent implements OnInit {
       );
   }
 
-  doGoogleRegister(): void {
+  doGoogleRegister() {
     this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then(
       x => {
-        console.log(x);
-        this.router.navigateByUrl('/');
+        const authToken = x.authToken;
+        this.api.loginGoogle(authToken).subscribe(
+          data => {
+            console.log(data);
+            this.router.navigateByUrl('/newest');
+          },
+          error => {
+            console.log("Login error");
+          }
+        );
       },
       error => {
         console.log("ERROR");
