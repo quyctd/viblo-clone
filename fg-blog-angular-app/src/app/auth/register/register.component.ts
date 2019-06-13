@@ -84,10 +84,17 @@ export class RegisterComponent implements OnInit {
     this.api.basicRegister(formData).subscribe(
       data => {
         console.log("Success: " + data);
-        this.router.navigateByUrl('/');
+        this.router.navigateByUrl('/newest');
       },
       error => {
-        console.log("ERROR");
+        console.log("ERROR", error);
+        if ( error.error.email) {
+          this.email.setErrors({ emailExist : true });
+        }
+        if (error.error.username) {
+          this.username.setErrors({ usernameExist : error.error.username[0]});
+
+        }
       }
     );
   }

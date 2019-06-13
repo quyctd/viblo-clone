@@ -23,6 +23,7 @@
     "@fortawesome/free-brands-svg-icons": "^5.9.0",
     "@fortawesome/free-regular-svg-icons": "^5.9.0",
     "@fortawesome/free-solid-svg-icons": "^5.9.0",
+    "@ng-bootstrap/ng-bootstrap": "^4.2.1",
     "angularx-social-login": "^1.2.7",
     "auth0-js": "^9.10.4",
     "core-js": "^2.5.4",

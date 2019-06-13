@@ -58,7 +58,7 @@ export class LoginComponent implements OnInit {
       data => {
         console.log("Logged in");
         console.log(data);
-        this.router.navigateByUrl('/');
+        this.router.navigateByUrl('/newest');
       },
       error => {
         console.log("Login error");

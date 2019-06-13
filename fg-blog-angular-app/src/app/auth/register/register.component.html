@@ -79,6 +79,9 @@
                               <div *ngIf="email.errors.email">
                                 Must be a valid email
                               </div>
+                              <div *ngIf="email.errors.emailExist">
+                                The email has already been taken.
+                              </div>
                             </div>
                           </div>
                           <!---->
@@ -102,7 +105,9 @@
                               <div *ngIf="username.errors.required">
                                 Username is required
                               </div>
-                              
+                              <div *ngIf="username.errors.usernameExist">
+                                {{ username.errors.usernameExist }}
+                              </div>
                             </div>
 
                           </div>
@@ -115,7 +120,7 @@
                     'el-form-item' : true,
                     'is-required' : true,
                     'is-error' : password.touched && password.invalid,
-                    'is-success' : password.value.trim()!='' && !(password.touched && password.invalid)
+                    'is-success' : password.value.trim()!='' && !(password.errors)
                     }">
                     <!---->
                     <div class="el-form-item__content">
@@ -137,8 +142,8 @@
                   <div [ngClass]="{
                     'el-form-item' : true,
                     'is-required' : true,
-                    'is-error' : re_password.touched && re_password.invalid,
-                    'is-success' : re_password.value.trim()!='' && !(re_password.touched && re_password.invalid)
+                    'is-error' : (re_password.errors && re_password.value.trim()!='') || (re_password.touched && re_password.invalid),
+                    'is-success' : re_password.value.trim()!='' && !(re_password.errors)
                     }">
                     <!---->
                     <div class="el-form-item__content">

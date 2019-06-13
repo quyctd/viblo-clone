@@ -8,6 +8,8 @@ import { SocialLoginModule } from 'angularx-social-login';
 import { AuthServiceConfig } from 'angularx-social-login';
 import { provideConfig } from './socialLoginConfig';
 
+// 3rd party lib
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -53,6 +55,7 @@ import { LogoutComponent } from './auth/logout/logout.component';
     ReactiveFormsModule,
     HttpClientModule,
     SocialLoginModule,
+    NgbModule.forRoot(),
     RouterModule.forRoot([
       { path: '', component : AppComponent},
       { path: 'newest', component : NewestComponent},

@@ -15,7 +15,8 @@ export class AuthService {
 
   login(formData): Observable<any> {
     const body = { username : formData.username, email: formData.email, password: formData.password};
-    return this.http.post(this.baseurl + '/accounts/login/', body, {headers : this.httpHeaders});
+    this.user = this.http.post(this.baseurl + '/accounts/login/', body, {headers : this.httpHeaders});
+    return this.user;
   }
 
   basicRegister(formData): Observable<any> {
