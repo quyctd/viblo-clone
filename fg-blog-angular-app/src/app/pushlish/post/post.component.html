@@ -1,0 +1,20 @@
+<form action="" [formGroup]="form">
+  
+  <simplemde formControlName='simplemde'  [(ngModel)]="demo"></simplemde>
+  <textarea name="" id="area-mde" cols="30" rows="10" hidden></textarea>
+  <button (click)="logging()">Submit</button>
+
+</form>
+
+<script>
+
+  function getValue() {
+
+    var simplemde = document.getElementsByName('simplemde')[0];
+    var textarea = document.getElementById('area-mde');
+
+    var codeMirror = simplemde.nextAll('.CodeMirror')[0].CodeMirror;
+    console.log(codemirror.getDoc().getValue());
+  }
+
+</script>

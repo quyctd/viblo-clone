@@ -10,6 +10,8 @@ import { provideConfig } from './socialLoginConfig';
 
 // 3rd party lib
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SimplemdeModule } from 'ngx-simplemde';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,9 +28,11 @@ import { OrgnizationsComponent } from './orgnizations/orgnizations.component';
 import { SearchComponent } from './search/search.component';
 import { SeriesComponent } from './series/series.component';
 import { NewestComponent } from './newest/newest.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { PromoBannerComponent } from './promo-banner/promo-banner.component';
 import { LogoutComponent } from './auth/logout/logout.component';
+
+import { PostComponent as PublishPostComponent } from './pushlish/post/post.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +51,8 @@ import { LogoutComponent } from './auth/logout/logout.component';
     SeriesComponent,
     NewestComponent,
     PromoBannerComponent,
-    LogoutComponent
+    LogoutComponent,
+    PublishPostComponent
   ],
   imports: [
     BrowserModule,
@@ -55,6 +60,10 @@ import { LogoutComponent } from './auth/logout/logout.component';
     ReactiveFormsModule,
     HttpClientModule,
     SocialLoginModule,
+    FormsModule,
+    SimplemdeModule.forRoot({
+      autosave: { enabled: true, uniqueId: 'MyUniqueID' }
+    }),
     NgbModule.forRoot(),
     RouterModule.forRoot([
       { path: '', component : AppComponent},
@@ -70,6 +79,7 @@ import { LogoutComponent } from './auth/logout/logout.component';
       { path: 'orgnizations', component : OrgnizationsComponent},
       { path: 'authors', component : AuthorsComponent},
       { path: 'logout', component : LogoutComponent},
+      { path: 'publish/post', component : PublishPostComponent}
 
     ])
   ],

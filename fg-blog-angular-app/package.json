@@ -27,6 +27,7 @@
     "angularx-social-login": "^1.2.7",
     "auth0-js": "^9.10.4",
     "core-js": "^2.5.4",
+    "ngx-simplemde": "^1.0.0",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
     "zone.js": "~0.8.26"
