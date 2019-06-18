@@ -3,4 +3,5 @@ from apps.authen import social_views
 
 urlpatterns = [
     path('authen/', include('apps.authen.urls')),
+    path('post/', include('apps.post.urls')),
 ]

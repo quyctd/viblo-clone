@@ -48,6 +48,8 @@ INSTALLED_APPS = DEFAULT_APPS + [
     'allauth',
     'allauth.account',
     'rest_auth.registration',
+    'taggit',
+    'taggit_serializer',
 
     # Social authentic
     'social_django',
@@ -58,6 +60,9 @@ INSTALLED_APPS = DEFAULT_APPS + [
 
     'apps.api',
     'apps.authen',
+    'apps.base',
+    'apps.post',
+    'apps.discussion',
     'corsheaders',
 ]
 
@@ -90,6 +95,8 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
 
+#Taggit
+TAGGIT_CASE_INSENSITIVE = True
 
 #Google login
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY ='671755523680-kl8oatubi2m7andl8pstad21t9eneoqf.apps.googleusercontent.com'
