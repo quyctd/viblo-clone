@@ -15,13 +15,17 @@ export class NavbarComponent implements OnInit {
   postDropPos = 0;
 
 
-  constructor(private router: Router, private api: AuthService) { }
+  constructor( private router: Router, private api: AuthService) { }
 
   ngOnInit() {
   }
 
   get user() {
     return this.api.user;
+  }
+
+  get currentUser() {
+    return localStorage.getItem('currentUser');
   }
 
   toggleUserIcon(event) {

@@ -58,6 +58,8 @@ export class LoginComponent implements OnInit {
       data => {
         console.log("Logged in");
         console.log(data);
+        localStorage.setItem('currentUser', JSON.stringify({ token: data.key}));
+
         this.router.navigateByUrl('/newest');
       },
       error => {
@@ -80,6 +82,8 @@ export class LoginComponent implements OnInit {
           this.api.loginFacebook(authToken).subscribe(
             data => {
               console.log(data);
+              localStorage.setItem('currentUser', JSON.stringify({ token: data.key}));
+
               this.router.navigateByUrl('/newest');
             },
             error => {
@@ -100,6 +104,8 @@ export class LoginComponent implements OnInit {
         this.api.loginGoogle(authToken).subscribe(
           data => {
             console.log(data);
+            localStorage.setItem('currentUser', JSON.stringify({ token: data.key}));
+            
             this.router.navigateByUrl('/newest');
           },
           error => {

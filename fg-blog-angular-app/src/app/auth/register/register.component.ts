@@ -22,7 +22,7 @@ export class RegisterComponent implements OnInit {
   btnDisable = true;
 
   // tslint:disable-next-line:variable-name
-  constructor(private formBuilder: FormBuilder, private api: MyAuthService, _router: Router, private authService: AuthService) {
+  constructor( private formBuilder: FormBuilder, private api: MyAuthService, _router: Router, private authService: AuthService) {
     this.router = _router;
   }
 
@@ -69,12 +69,13 @@ export class RegisterComponent implements OnInit {
     return this.form.get('re_password');
   }
 
+
   toggleTerm(event) {
     this.isChecked = !this.isChecked;
     this.btnDisable = !this.isChecked;
   }
 
-  doBasicRegister = () => {
+  doBasicRegister(): void {
     const formData = {
       email : this.email.value,
       username : this.username.value,
@@ -84,6 +85,7 @@ export class RegisterComponent implements OnInit {
     this.api.basicRegister(formData).subscribe(
       data => {
         console.log("Success: " + data);
+        localStorage.setItem('currentUser', JSON.stringify({ token: data.key}));
         this.router.navigateByUrl('/newest');
       },
       error => {
@@ -106,6 +108,7 @@ export class RegisterComponent implements OnInit {
           this.api.loginFacebook(authToken).subscribe(
             data => {
               console.log(data);
+              localStorage.setItem('currentUser', JSON.stringify({ token: data.key}));
               this.router.navigateByUrl('/newest');
             },
             error => {
@@ -126,6 +129,7 @@ export class RegisterComponent implements OnInit {
         this.api.loginGoogle(authToken).subscribe(
           data => {
             console.log(data);
+            localStorage.setItem('currentUser', JSON.stringify({ token: data.key}));
             this.router.navigateByUrl('/newest');
           },
           error => {

@@ -52,7 +52,8 @@ import { PostComponent as PublishPostComponent } from './pushlish/post/post.comp
     NewestComponent,
     PromoBannerComponent,
     LogoutComponent,
-    PublishPostComponent
+    PublishPostComponent,
+
   ],
   imports: [
     BrowserModule,
