@@ -265,7 +265,7 @@ body {
 
 .episode[data-v-610b5e24] {
 	display: flex;
-	align-items: start;
+	align-items: flex-start;
 	padding: .5rem .5rem .5rem 2rem
 }
 
