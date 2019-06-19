@@ -1,6 +1,7 @@
 import { Component, OnInit, HostListener, Input, AfterViewInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { PublishPostService } from '../publish-post.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-post',
@@ -10,12 +11,16 @@ import { PublishPostService } from '../publish-post.service';
 export class PostComponent implements OnInit, AfterViewInit {
 
   form: FormGroup;
+  router;
   publishDropdown = false;
   isClickFeatureImage = false;
   isCanPublish = false;
   isSaved = false;
 
-  constructor(private formBuilder: FormBuilder, public publishService: PublishPostService) { }
+  // tslint:disable-next-line:variable-name
+  constructor(private formBuilder: FormBuilder, public publishService: PublishPostService, _router: Router) {
+    this.router = _router;
+   }
 
   ngOnInit() {
     this.form = this.formBuilder.group({
@@ -24,6 +29,13 @@ export class PostComponent implements OnInit, AfterViewInit {
       tags : new FormControl('')
     });
     this.form.valueChanges.subscribe(formData => this.autoSaveForm());
+
+    // Init authentic
+    console.log(localStorage.getItem('currentToken'));
+    if (localStorage.getItem('currentToken') == null) {
+      console.log("Do change route here");
+      this.router.navigateByUrl('/login');
+    }
   }
 
   autoSaveForm() {

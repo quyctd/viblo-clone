@@ -84,7 +84,7 @@
           </div>
         </span>
       </div>
-      <div *ngIf="!currentUser" class="main-navbar__group">
+      <div *ngIf="!currentToken" class="main-navbar__group">
         <button type="button" class="el-button el-button--text" (click)="btnSignin()">
           <i class="fa fa-sign-in"></i><span>
             Sign In/Sign up
@@ -92,7 +92,7 @@
         </button>
       </div>
 
-      <div *ngIf="currentUser" class="main-navbar__group">
+      <div *ngIf="currentToken" class="main-navbar__group">
         <div class="mr-1 el-dropdown">
           <button type="button" class="el-button text-muted py-0 el-button--text el-dropdown-selfdefine"
             style="font-size:1.2rem;" data-tippy="" data-original-title="Write" aria-haspopup="list"
@@ -177,7 +177,7 @@
               <!---->
               <hr />
               <div class="user-menu__menu-item">
-                <a routerLink="https://accounts.viblo.asia/logout?service=viblo"><i class="fa fa-sign-out-alt"></i> Sign out
+                <a routerLink="/logout"><i class="fa fa-sign-out-alt"></i> Sign out
                 </a>
               </div>
               <div x-arrow="" class="popper__arrow" style="left: 224px;"></div>

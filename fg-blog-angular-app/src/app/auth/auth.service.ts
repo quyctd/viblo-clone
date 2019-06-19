@@ -41,4 +41,12 @@ export class AuthService {
     this.user = null;
     return this.http.post(this.baseurl + '/accounts/logout/', {}, {headers: this.httpHeaders});
   }
+
+  getUserDataFromToken(token): Observable<any> {
+    const auth = 'Token ' + token;
+    const headers = new HttpHeaders({'Content-Type': 'application/json', Authorization: auth});
+
+    // tslint:disable-next-line:object-literal-shorthand
+    return this.http.get(this.baseurl + '/token/token_to_user/', {headers: headers});
+  }
 }

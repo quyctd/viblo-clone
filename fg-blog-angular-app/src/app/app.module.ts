@@ -71,7 +71,6 @@ import { PublishTagComponent } from './publish/publish-tag/publish-tag.component
     SimplemdeModule.forRoot(),
     NgbModule.forRoot(),
     RouterModule.forRoot([
-      { path: '', component : AppComponent},
       { path: 'newest', component : NewestComponent},
       { path: 'login', component : LoginComponent},
       { path: 'register', component : RegisterComponent},
@@ -84,7 +83,8 @@ import { PublishTagComponent } from './publish/publish-tag/publish-tag.component
       { path: 'orgnizations', component : OrgnizationsComponent},
       { path: 'authors', component : AuthorsComponent},
       { path: 'logout', component : LogoutComponent},
-      { path: 'publish/post', component : PublishPostComponent}
+      { path: 'publish/post', component : PublishPostComponent},
+      { path: '**', redirectTo: "/newest"}
 
     ])
   ],

@@ -30,13 +30,9 @@ export class LoginComponent implements OnInit {
     );
 
     // Init authentic
-    // this.authService.authState.subscribe((user) => {
-    //   this.api.user = user;
-    //   console.log(user);
-    //   if (user) {
-    //     this.router.navigateByUrl('/newest');
-    //   }
-    // });
+    if (localStorage.getItem('currentToken') != null) {
+      this.router.navigateByUrl('/newest');
+    }
   }
 
   get username() {
@@ -58,8 +54,8 @@ export class LoginComponent implements OnInit {
       data => {
         console.log("Logged in");
         console.log(data);
-        localStorage.setItem('currentUser', JSON.stringify({ token: data.key}));
-
+        localStorage.setItem('currentToken', JSON.stringify({ token: data.key}));
+        this.getUserData(data.key);
         this.router.navigateByUrl('/newest');
       },
       error => {
@@ -82,8 +78,8 @@ export class LoginComponent implements OnInit {
           this.api.loginFacebook(authToken).subscribe(
             data => {
               console.log(data);
-              localStorage.setItem('currentUser', JSON.stringify({ token: data.key}));
-
+              localStorage.setItem('currentToken', JSON.stringify({ token: data.key}));
+              this.getUserData(data.key);
               this.router.navigateByUrl('/newest');
             },
             error => {
@@ -104,7 +100,8 @@ export class LoginComponent implements OnInit {
         this.api.loginGoogle(authToken).subscribe(
           data => {
             console.log(data);
-            localStorage.setItem('currentUser', JSON.stringify({ token: data.key}));
+            this.getUserData(data.key);
+            localStorage.setItem('currentToken', JSON.stringify({ token: data.key}));
             this.router.navigateByUrl('/newest');
           },
           error => {
@@ -121,6 +118,18 @@ export class LoginComponent implements OnInit {
 
   doGithubRegister() {
 
+  }
+
+  getUserData(token) {
+    this.api.getUserDataFromToken(token).subscribe(
+      data => {
+        console.log(data);
+        localStorage.setItem('currentUser', JSON.stringify({ id: data.id}));
+      },
+      error => {
+        console.log("Error");
+      }
+    );
   }
 
 }

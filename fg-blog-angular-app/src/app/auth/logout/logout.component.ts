@@ -19,6 +19,7 @@ export class LogoutComponent implements OnInit {
   ngOnInit() {
     this.api.logout().subscribe(
       data => {
+        localStorage.removeItem('currentToken');
         localStorage.removeItem('currentUser');
         this.router.navigateByUrl('/login');
         console.log("Logout success");

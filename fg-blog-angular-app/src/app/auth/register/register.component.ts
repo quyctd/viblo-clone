@@ -39,14 +39,10 @@ export class RegisterComponent implements OnInit {
     },  {validator: RepeatPasswordValidator }
     );
 
-    // // Init authentic
-    // this.authService.authState.subscribe((user) => {
-    //   this.user = user;
-    //   console.log(user);
-    //   if (user) {
-    //     this.router.navigateByUrl('/newest');
-    //   }
-    // });
+    // Init authentic
+    if (localStorage.getItem('currentToken') != null) {
+      this.router.navigateByUrl('/newest');
+    }
   }
 
   get name() {
@@ -85,7 +81,8 @@ export class RegisterComponent implements OnInit {
     this.api.basicRegister(formData).subscribe(
       data => {
         console.log("Success: " + data);
-        localStorage.setItem('currentUser', JSON.stringify({ token: data.key}));
+        localStorage.setItem('currentToken', JSON.stringify({ token: data.key}));
+        this.getUserData(data.key);
         this.router.navigateByUrl('/newest');
       },
       error => {
@@ -108,7 +105,8 @@ export class RegisterComponent implements OnInit {
           this.api.loginFacebook(authToken).subscribe(
             data => {
               console.log(data);
-              localStorage.setItem('currentUser', JSON.stringify({ token: data.key}));
+              localStorage.setItem('currentToken', JSON.stringify({ token: data.key}));
+              this.getUserData(data.key);
               this.router.navigateByUrl('/newest');
             },
             error => {
@@ -129,7 +127,8 @@ export class RegisterComponent implements OnInit {
         this.api.loginGoogle(authToken).subscribe(
           data => {
             console.log(data);
-            localStorage.setItem('currentUser', JSON.stringify({ token: data.key}));
+            localStorage.setItem('currentToken', JSON.stringify({ token: data.key}));
+            this.getUserData(data.key);
             this.router.navigateByUrl('/newest');
           },
           error => {
@@ -146,5 +145,16 @@ export class RegisterComponent implements OnInit {
 
   doGithubRegister() {
 
+  }
+
+  getUserData(token) {
+    this.api.getUserDataFromToken(token).subscribe(
+      data => {
+        localStorage.setItem('currentUser', JSON.stringify({ id: data.id}));
+      },
+      error => {
+        console.log("Error");
+      }
+    );
   }
 }

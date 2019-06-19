@@ -24,8 +24,8 @@ export class NavbarComponent implements OnInit {
     return this.api.user;
   }
 
-  get currentUser() {
-    return localStorage.getItem('currentUser');
+  get currentToken() {
+    return localStorage.getItem('currentToken');
   }
 
   toggleUserIcon(event) {
