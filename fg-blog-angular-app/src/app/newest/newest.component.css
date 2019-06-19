@@ -1,5 +1,3 @@
-@import './../utils/main.css';
-
 .company-status[data-v-00d2565a] {
 	display: flex;
 	align-items: center;
@@ -561,21 +559,6 @@
 	color: #909399
 }
 
-.el-message .el-icon-success {
-	color: #67c23a
-}
-
-.el-message .el-icon-error {
-	color: #f56c6c
-}
-
-.el-message .el-icon-info {
-	color: #909399
-}
-
-.el-message .el-icon-warning {
-	color: #e6a23c
-}
 
 .el-message-fade-enter,
 .el-message-fade-leave-active {
@@ -672,10 +655,6 @@
 
 .el-button::-moz-focus-inner {
 	border: 0
-}
-
-.el-button [class*=el-icon-]+span {
-	margin-left: 5px
 }
 
 .el-button.is-plain:focus,
@@ -805,68 +784,6 @@
 	color: #8cc5ff;
 	background-color: #ecf5ff;
 	border-color: #d9ecff
-}
-
-.el-button--success {
-	color: #fff;
-	background-color: #67c23a;
-	border-color: #67c23a
-}
-
-.el-button--success:focus,
-.el-button--success:hover {
-	background: #85ce61;
-	border-color: #85ce61;
-	color: #fff
-}
-
-.el-button--success.is-active,
-.el-button--success:active {
-	background: #5daf34;
-	border-color: #5daf34;
-	color: #fff
-}
-
-.el-button--success:active {
-	outline: 0
-}
-
-.el-button--success.is-disabled,
-.el-button--success.is-disabled:active,
-.el-button--success.is-disabled:focus,
-.el-button--success.is-disabled:hover {
-	color: #fff;
-	background-color: #b3e19d;
-	border-color: #b3e19d
-}
-
-.el-button--success.is-plain {
-	color: #67c23a;
-	background: #f0f9eb;
-	border-color: #c2e7b0
-}
-
-.el-button--success.is-plain:focus,
-.el-button--success.is-plain:hover {
-	background: #67c23a;
-	border-color: #67c23a;
-	color: #fff
-}
-
-.el-button--success.is-plain:active {
-	background: #5daf34;
-	border-color: #5daf34;
-	color: #fff;
-	outline: 0
-}
-
-.el-button--success.is-plain.is-disabled,
-.el-button--success.is-plain.is-disabled:active,
-.el-button--success.is-plain.is-disabled:focus,
-.el-button--success.is-plain.is-disabled:hover {
-	color: #a4da89;
-	background-color: #f0f9eb;
-	border-color: #e1f3d8
 }
 
 .el-button--warning {
@@ -1193,19 +1110,6 @@
 	border-right-color: hsla(0, 0%, 100%, .5)
 }
 
-.el-button-group .el-button--success:first-child {
-	border-right-color: hsla(0, 0%, 100%, .5)
-}
-
-.el-button-group .el-button--success:last-child {
-	border-left-color: hsla(0, 0%, 100%, .5)
-}
-
-.el-button-group .el-button--success:not(:first-child):not(:last-child) {
-	border-left-color: hsla(0, 0%, 100%, .5);
-	border-right-color: hsla(0, 0%, 100%, .5)
-}
-
 .el-button-group .el-button--warning:first-child {
 	border-right-color: hsla(0, 0%, 100%, .5)
 }
@@ -1343,21 +1247,6 @@
 	padding-right: 12px
 }
 
-.el-message-box__status.el-icon-success {
-	color: #67c23a
-}
-
-.el-message-box__status.el-icon-info {
-	color: #909399
-}
-
-.el-message-box__status.el-icon-warning {
-	color: #e6a23c
-}
-
-.el-message-box__status.el-icon-error {
-	color: #f56c6c
-}
 
 .el-message-box__message {
 	margin: 0
@@ -1513,26 +1402,6 @@
 	cursor: pointer;
 	color: #909399;
 	font-size: 16px
-}
-
-.el-notification__closeBtn:hover {
-	color: #606266
-}
-
-.el-notification .el-icon-success {
-	color: #67c23a
-}
-
-.el-notification .el-icon-error {
-	color: #f56c6c
-}
-
-.el-notification .el-icon-info {
-	color: #909399
-}
-
-.el-notification .el-icon-warning {
-	color: #e6a23c
 }
 
 .el-notification-fade-enter.right {
@@ -1822,13 +1691,6 @@
 	color: #409eff
 }
 
-.el-checkbox-button__inner [class*=el-icon-] {
-	line-height: .9
-}
-
-.el-checkbox-button__inner [class*=el-icon-]+span {
-	margin-left: 5px
-}
 
 .el-checkbox-button__original {
 	opacity: 0;
@@ -2140,14 +2002,6 @@
 
 .el-radio-button__inner:hover {
 	color: #409eff
-}
-
-.el-radio-button__inner [class*=el-icon-] {
-	line-height: .9
-}
-
-.el-radio-button__inner [class*=el-icon-]+span {
-	margin-left: 5px
 }
 
 .el-radio-button:first-child .el-radio-button__inner {
