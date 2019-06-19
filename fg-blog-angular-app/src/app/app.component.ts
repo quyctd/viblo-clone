@@ -15,7 +15,7 @@ export class AppComponent {
   }
 
   ngOnInit() {
-    this.router.navigateByUrl('/newest');
+    // this.router.navigateByUrl('/newest');
   }
 
 }

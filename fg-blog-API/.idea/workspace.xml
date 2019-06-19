@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="26a4d0dc-4929-46d9-b9f9-d9014f22a95d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/apps/api/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/api/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/authen/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/authen/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/authen/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/authen/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/authen/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/authen/views.py" afterDir="false" />
-    </list>
+    <list default="true" id="26a4d0dc-4929-46d9-b9f9-d9014f22a95d" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,8 +61,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/apps/authen/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
+            <state relative-caret-position="435">
+              <caret line="29" column="17" lean-forward="true" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
               <folding>
                 <element signature="e#17#52#0" expanded="true" />
               </folding>
@@ -254,12 +249,12 @@
       <workItem from="1559969009603" duration="14231000" />
       <workItem from="1560356664055" duration="2663000" />
       <workItem from="1560528426614" duration="906000" />
-      <workItem from="1560836885707" duration="14868000" />
+      <workItem from="1560836885707" duration="17035000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="33568000" />
+    <option name="totallyTimeSpent" value="35735000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="813" extended-state="6" />
@@ -566,8 +561,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/authen/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="37" lean-forward="true" selection-start-line="37" selection-end-line="37" />
+        <state relative-caret-position="435">
+          <caret line="29" column="17" lean-forward="true" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
           <folding>
             <element signature="e#17#52#0" expanded="true" />
           </folding>

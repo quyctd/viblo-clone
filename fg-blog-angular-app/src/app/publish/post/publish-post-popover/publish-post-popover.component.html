@@ -1,0 +1,95 @@
+<div
+  role="tooltip"
+  id="el-popover-6806"
+  aria-hidden="false"
+  tabindex="0"
+  x-placement="bottom-end"
+  [ngClass]="{
+    'el-popover': true,
+    'el-popper': true,
+    'publish-dropdown': publishDropdown
+  }"
+  style="width: 350px; display: none;"
+>
+  <!---->
+  <div x-arrow="" class="popper__arrow" style="left: 289.695px;"></div>
+  <div class="el-popover__title">
+    Publish your post
+  </div>
+  <!---->
+  <div class="publish-popover__visibility">
+    <label class="d-block mb-05">Visibility:</label>
+    <div role="radiogroup" class="el-radio-group">
+      <label role="radio" tabindex="-1" class="el-radio d-block mb-05"
+        ><span class="el-radio__input"
+          ><span class="el-radio__inner"></span
+          ><input
+            type="radio"
+            aria-hidden="true"
+            name="visibility"
+            tabindex="-1"
+            class="el-radio__original"
+            value="public"/></span
+        ><span class="el-radio__label">
+          Public
+          <!----></span
+        ></label
+      >
+      <label role="radio" tabindex="-1" class="el-radio d-block ml-0 mb-05"
+        ><span class="el-radio__input"
+          ><span class="el-radio__inner"></span
+          ><input
+            type="radio"
+            aria-hidden="true"
+            name="visibility"
+            tabindex="-1"
+            class="el-radio__original"
+            value="draft_public"/></span
+        ><span class="el-radio__label">
+          Unlisted
+          <!----></span
+        ></label
+      >
+      <label
+        role="radio"
+        aria-checked="true"
+        tabindex="0"
+        class="el-radio d-block ml-0 mb-05 is-checked"
+        ><span class="el-radio__input is-checked"
+          ><span class="el-radio__inner"></span
+          ><input
+            type="radio"
+            aria-hidden="true"
+            name="visibility"
+            tabindex="-1"
+            class="el-radio__original"
+            value="draft"/></span
+        ><span class="el-radio__label">
+          Private draft
+          <!----></span
+        ></label
+      >
+    </div>
+    <hr class="my-05" />
+    <div class="mb-05 text-left">
+      <span class="visibility-explain"
+        ><i aria-hidden="true" class="fa fa-lock"></i>
+        Only you can see this post. Your draft is already saved automatically as
+        you type.
+      </span>
+    </div>
+    <button
+      type="button"
+      class="el-button el-button--primary el-button--small is-plain"
+    >
+      <!----><!----><span>
+        Save draft
+      </span>
+    </button>
+    <button type="button" class="el-button el-button--default el-button--small">
+      <!----><!----><span>
+        Submit to organization
+      </span>
+    </button>
+  </div>
+</div>

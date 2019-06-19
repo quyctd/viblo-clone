@@ -5612,10 +5612,6 @@ img.emoji {
   display: block;
 }
 
-.el-tag .el-icon-close:hover {
-  background-color: #5488c7;
-  color: #fff;
-}
 
 .el-tag--info {
   background-color: rgba(144, 147, 153, 0.1);

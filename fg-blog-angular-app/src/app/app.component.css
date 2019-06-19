@@ -9285,10 +9285,6 @@ a.text-dark:hover {
 	display: block;
 }
 
-.el-tag .el-icon-close:hover {
-	background-color: #409eff;
-	color: #fff;
-}
 
 .el-tag--info {
 	background-color: rgba(144, 147, 153, 0.1);

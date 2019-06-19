@@ -105,7 +105,6 @@ export class LoginComponent implements OnInit {
           data => {
             console.log(data);
             localStorage.setItem('currentUser', JSON.stringify({ token: data.key}));
-            
             this.router.navigateByUrl('/newest');
           },
           error => {

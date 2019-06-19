@@ -11,6 +11,7 @@ import { provideConfig } from './socialLoginConfig';
 // 3rd party lib
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SimplemdeModule } from 'ngx-simplemde';
+import { ClickOutsideModule } from 'ng-click-outside';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -32,7 +33,9 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { PromoBannerComponent } from './promo-banner/promo-banner.component';
 import { LogoutComponent } from './auth/logout/logout.component';
 
-import { PostComponent as PublishPostComponent } from './pushlish/post/post.component';
+import { PostComponent as PublishPostComponent } from './publish/post/post.component';
+import { PublishPostPopoverComponent } from './publish/post/publish-post-popover/publish-post-popover.component';
+import { PublishTagComponent } from './publish/publish-tag/publish-tag.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +56,8 @@ import { PostComponent as PublishPostComponent } from './pushlish/post/post.comp
     PromoBannerComponent,
     LogoutComponent,
     PublishPostComponent,
+    PublishPostPopoverComponent,
+    PublishTagComponent,
 
   ],
   imports: [
@@ -62,9 +67,8 @@ import { PostComponent as PublishPostComponent } from './pushlish/post/post.comp
     HttpClientModule,
     SocialLoginModule,
     FormsModule,
-    SimplemdeModule.forRoot({
-      autosave: { enabled: true, uniqueId: 'MyUniqueID' }
-    }),
+    ClickOutsideModule,
+    SimplemdeModule.forRoot(),
     NgbModule.forRoot(),
     RouterModule.forRoot([
       { path: '', component : AppComponent},

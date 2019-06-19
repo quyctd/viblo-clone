@@ -1,16 +1,16 @@
 <header class="main-navbar main-navbar__group py-1">
   <div class="main-navbar__container container px-md-0">
     <div class="main-navbar__left">
-      <a href="/newest" class="main-navbar__logo d-block mr-lg-5 nuxt-link-exact-active active"><img
+      <a routerLink="/newest" class="main-navbar__logo d-block mr-lg-5 nuxt-link-exact-active active"><img
           src="https://cdn.viblo.asia/_nuxt/img/fbfe575.svg" alt="Viblo" /></a>
       <ul class="main-menu list-unstyled hidden-md-down">
         <li class="main-menu__item">
-          <a href="/newest" class="link nuxt-link-exact-active active">
+          <a routerLink="/newest" class="link nuxt-link-exact-active active">
             Posts
           </a>
         </li>
         <li class="main-menu__item">
-          <a href="/questions" class="link">
+          <a routerLink="/questions" class="link">
             <div class="el-badge badge-has-new">
               Questions
               <sup class="el-badge__content el-badge__content--undefined is-fixed" style="display:none;"></sup>
@@ -18,14 +18,14 @@
           </a>
         </li>
         <li class="main-menu__item">
-          <a href="/discussion" class="link">
+          <a routerLink="/discussion" class="link">
             Discussions
           </a>
         </li>
       </ul>
     </div>
     <div class="main-navbar__right">
-      <a href="/search" class="link text-muted hidden-md-up mr-1"><i aria-hidden="true" class="fa fa-search"></i></a>
+      <a routerLink="/search" class="link text-muted hidden-md-up mr-1"><i aria-hidden="true" class="fa fa-search"></i></a>
       <div class="sb hidden-sm-down flex-fill mr-1">
         <input placeholder="Search Viblo" value="" class="sb__input" />
         <button class="btn btn-primary" style="display:none;">
@@ -71,7 +71,7 @@
             </div>
             <div class="flyout__footer">
               <div class="text-right">
-                <a href="/announcements" class="announcement-flyout__all">
+                <a routerLink="/announcements" class="announcement-flyout__all">
                   All Announcements
                 </a>
               </div>
@@ -97,7 +97,7 @@
           <button type="button" class="el-button text-muted py-0 el-button--text el-dropdown-selfdefine"
             style="font-size:1.2rem;" data-tippy="" data-original-title="Write" aria-haspopup="list"
             aria-controls="dropdown-menu-1056" role="button" tabindex="0" (click)="togglePostIcon($event)">
-            <i class="el-icon-edit"></i>
+            <i class="far fa-edit"></i>
           </button>
 
           <ul class="el-dropdown-menu el-popper publish-dropdown el-dropdown-menu--wide el-dropdown-menu--medium"
@@ -113,15 +113,15 @@
             style="display: none;"
             x-placement="bottom-end">
             <li tabindex="-1" class="el-dropdown-menu__item">
-              <a href="/publish/post" class="link link--plain"><i class="fa fa-pencil mr-05"></i> Write post
+              <a routerLink="/publish/post/" class="link link--plain"><i class="fa fa-pencil mr-05"></i> Write post
               </a>
             </li>
             <li tabindex="-1" class="el-dropdown-menu__item el-dropdown-menu__item--divided">
-              <a href="/publish/series" class="link link--plain"><i class="fa fa-list-ul mr-05"></i> New series
+              <a routerLink="/publish/series" class="link link--plain"><i class="fa fa-list-ul mr-05"></i> New series
               </a>
             </li>
             <li tabindex="-1" class="el-dropdown-menu__item el-dropdown-menu__item--divided">
-              <a href="/questions/ask" class="link link--plain"><i class="fa fa-question-circle mr-05"></i> Ask question
+              <a routerLink="/questions/ask" class="link link--plain"><i class="fa fa-question-circle mr-05"></i> Ask question
               </a>
             </li>
             <!---->
@@ -152,7 +152,7 @@
                       @quyctd
                     </div>
                   </div>
-                  <a href="https://accounts.viblo.asia" target="_blank"><button type="button"
+                  <a routerLink="https://accounts.viblo.asia" target="_blank"><button type="button"
                       class="el-button user-menu__edit-btn el-button--primary el-button--medium">
                       <!---->
                       <!----><span>
@@ -163,21 +163,21 @@
               </div>
               <hr />
               <div class="user-menu__menu-item">
-                <a href="/u/quyctd" class="link link--plain"><i class="fa fa-file-text-o"></i> My contents
+                <a routerLink="/u/quyctd" class="link link--plain"><i class="fa fa-file-text-o"></i> My contents
                 </a>
               </div>
               <div class="user-menu__menu-item">
-                <a href="/settings/organizations" class="link link--plain"><i class="fa fa-building"></i> Organizations
+                <a routerLink="/settings/organizations" class="link link--plain"><i class="fa fa-building"></i> Organizations
                 </a>
               </div>
               <div class="user-menu__menu-item">
-                <a href="/settings/appearances" class="link link--plain"><i class="fa fa-cog"></i> Preferences
+                <a routerLink="/settings/appearances" class="link link--plain"><i class="fa fa-cog"></i> Preferences
                 </a>
               </div>
               <!---->
               <hr />
               <div class="user-menu__menu-item">
-                <a href="https://accounts.viblo.asia/logout?service=viblo"><i class="fa fa-sign-out-alt"></i> Sign out
+                <a routerLink="https://accounts.viblo.asia/logout?service=viblo"><i class="fa fa-sign-out-alt"></i> Sign out
                 </a>
               </div>
               <div x-arrow="" class="popper__arrow" style="left: 224px;"></div>

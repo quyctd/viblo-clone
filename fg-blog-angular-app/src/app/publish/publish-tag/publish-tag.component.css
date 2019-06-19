@@ -1,0 +1,257 @@
+.company-status[data-v-00d2565a] {
+	display: flex;
+	align-items: center;
+	line-height: 22px;
+	color: #9b9b9b
+}
+
+.btn-follow[data-v-00d2565a] {
+	margin-top: -10px;
+	margin-left: 25px;
+	padding: 2px 10px
+}
+
+.user-name[data-v-00d2565a] {
+	font-size: 1.3rem
+}
+
+.user-stats[data-v-00d2565a] {
+	color: #9b9b9b;
+	display: flex;
+	justify-content: flex-start
+}
+
+.user-stats span[data-v-00d2565a] {
+	flex-shrink: 0
+}
+
+.user-stats span[data-v-00d2565a]:not(:first-child) {
+	margin-left: 1rem
+}
+
+@media (min-width:576px) {
+	.hero[data-v-00d2565a] {
+		width: 100px
+	}
+	.user-name[data-v-00d2565a] {
+		font-size: 2rem
+	}
+}
+
+.members-list {
+	position: relative
+}
+
+.members-avatar {
+	padding: 5px
+}
+
+.seemore-button {
+	position: absolute;
+	left: 30%;
+	top: 85%
+}
+
+.survey__input-header span {
+	display: block
+}
+
+.survey__input-header .title {
+	float: left
+}
+
+.survey__input-header .title .title-name {
+	font-size: 16px;
+	display: inline
+}
+
+.survey__input-header .title .required {
+	color: #f56c6c;
+	display: inline
+}
+
+.survey__input-header .example {
+	float: left;
+	clear: both;
+	font-size: 13px
+}
+
+.survey-tags-input {
+	float: left;
+	clear: both
+}
+
+.survey-tags-input .el-tag+.el-tag {
+	margin-left: 10px
+}
+
+.survey-tags-input .button-new-tag {
+	margin-left: 10px;
+	height: 32px;
+	line-height: 30px;
+	padding-top: 0;
+	padding-bottom: 0
+}
+
+.survey-tags-input__autocomplete {
+	width: 200px;
+	margin-left: 10px;
+	vertical-align: bottom
+}
+
+.tags-input__inner {
+	display: flex!important;
+	flex-wrap: wrap;
+	align-items: center;
+	padding: 0;
+	background-color: #fff;
+	height: auto!important
+}
+
+.tags-input__inner:focus-within {
+	border-color: #409eff
+}
+
+.tags-input__tag {
+	margin-left: .5rem;
+	margin-top: 5px;
+	margin-bottom: 5px
+}
+
+.tags-input__autocomplete {
+	flex-grow: 1
+}
+
+.tags-input__autocomplete input {
+	width: 100%;
+	border: none;
+	background-color: initial
+}
+
+.tags-moderation__tag-suggestion-popper {
+	z-index: 2021!important
+}
+
+.technical-skills .icon-edit-skill[data-v-4a550ec8] {
+	font-size: 1rem;
+	position: relative;
+	top: -3px
+}
+
+.profile-tabs {
+	border: solid #d6d6d7;
+	border-width: 1px 0 0
+}
+
+@media (min-width:992px) {
+	.profile-tabs {
+		box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .1)
+	}
+}
+
+@media (max-width:991.98px) {
+	.profile-tabs {
+		border-width: 6px 0 1px
+	}
+}
+
+.draft-status {
+	color: #4bcd9f;
+	margin-right: .3rem
+}
+
+.post-feed-item-draft {
+	padding: .5rem;
+	border-bottom: 1px solid #d6d6d7
+}
+
+.post-feed-item-draft .text-time {
+	margin-left: .35rem;
+	font-size: .8rem
+}
+
+.post-title-header {
+	word-break: break-all
+}
+
+.survey-option {
+	float: left;
+	clear: both;
+	width: 100%
+}
+
+.survey-option .checkbox__option {
+	width: 100%;
+	display: inline-flex
+}
+
+.survey-option .checkbox__option .el-checkbox__label {
+	width: 100%;
+	display: flex;
+	flex-direction: row
+}
+
+.survey-option .checkbox__option-label {
+	margin-right: 10px;
+	min-width: 20px
+}
+
+.survey-option .checkbox__option-input {
+	width: 97%;
+	margin-top: -10px
+}
+
+.technical-survey .el-step__head.is-process {
+	color: #5488c7;
+	border-color: #5488c7
+}
+
+.technical-survey .el-step__title.is-process {
+	color: #5488c7
+}
+
+.survey__title {
+	margin: 0;
+	text-align: center
+}
+
+.survey__body {
+	font-size: 1rem
+}
+
+.survey__description {
+	margin-bottom: 1rem
+}
+
+.survey__content-header {
+	text-transform: uppercase;
+	font-size: 1.8rem;
+	color: #5488c7
+}
+
+.survey__content-body p {
+	font-size: 1.1rem;
+	margin: 0 0 .2rem
+}
+
+.el-tag--medium .el-icon-close {
+     transform: scale(.8);
+ }
+
+ .el-tag--info .el-tag__close {
+     color: #909399;
+ }
+
+ .el-tag .el-icon-close {
+     border-radius: 50%;
+     text-align: center;
+     position: relative;
+     cursor: pointer;
+     font-size: 12px;
+     height: 16px;
+     width: 16px;
+     line-height: 16px;
+     vertical-align: middle;
+     top: -1px;
+     right: -5px;
+ }
