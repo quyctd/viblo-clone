@@ -12,9 +12,7 @@ class BasePost(models.Model):
 
     author = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
     create_time = models.DateTimeField(auto_now_add=True, blank=True)
+    updated_time = models.DateTimeField(auto_now=True, blank=True)
 
     def __str__(self):
         return str(self.id)
-
-
-

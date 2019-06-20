@@ -66,6 +66,8 @@ INSTALLED_APPS = DEFAULT_APPS + [
     'corsheaders',
 ]
 
+# Time zone
+TIME_ZONE = "Asia/Ho_Chi_Minh"
 
 SITE_ID = 2
 
