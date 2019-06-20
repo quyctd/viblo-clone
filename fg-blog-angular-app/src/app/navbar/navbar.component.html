@@ -146,10 +146,10 @@
                 <div class="flex-fill overflow-hidden">
                   <div class="user-menu__info">
                     <div class="text-primary font-weight-bold text-truncate">
-                      Quý Đinh
+                      {{ currentUser.name }}
                     </div>
                     <div class="text-muted text-truncate">
-                      @quyctd
+                      @{{ currentUser.username }}
                     </div>
                   </div>
                   <a routerLink="https://accounts.viblo.asia" target="_blank"><button type="button"

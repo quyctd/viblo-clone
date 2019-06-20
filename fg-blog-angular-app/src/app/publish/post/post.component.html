@@ -1,12 +1,3 @@
-<!-- <app-navbar></app-navbar>
-<form action="" [formGroup]="form">
-
-  <simplemde formControlName='simplemde' [(ngModel)]="demo"></simplemde>
-  <textarea name="" id="area-mde" cols="30" rows="10" hidden></textarea>
-  <button (click)="logging()">Submit</button>
-
-</form> -->
-
 <div id="__nuxt">
   <div id="__layout">
     <div id="app-container" class="dark">
@@ -47,8 +38,11 @@
               <div class="el-form-item__content">
                 <div class="tags-input">
                   <div class="tags-input__inner el-input__inner">
-                    <div *ngFor="let tag of publishService.listTag">
-                      <app-publish-tag [inputTag]="tag" [postType]="'post'"></app-publish-tag>
+                    <div *ngFor="let tag of postApi.listTag">
+                      <app-publish-tag
+                        [inputTag]="tag"
+                        [postType]="'post'"
+                      ></app-publish-tag>
                     </div>
                     <div
                       aria-haspopup="listbox"
@@ -156,12 +150,12 @@
                   </div>
                 </div>
                 <button
-                  [disabled] = "!isCanPublish"
+                  [disabled]="!isCanPublish"
                   type="button"
                   [ngClass]="{
-                    'el-button' : true,
-                    'el-button--default' : true,
-                    'el-popover__reference' : true,
+                    'el-button': true,
+                    'el-button--default': true,
+                    'el-popover__reference': true,
                     'is-disabled': !isCanPublish
                   }"
                   (click)="toggleFeatureImage($event)"
@@ -193,9 +187,132 @@
                   something to publish.
                   <div x-arrow="" class="popper__arrow"></div>
                 </div>
-                <app-publish-post-popover
+                <div
                   *ngIf="isCanPublish"
-                ></app-publish-post-popover>
+                  role="tooltip"
+                  id="el-popover-6806"
+                  aria-hidden="false"
+                  tabindex="0"
+                  x-placement="bottom-end"
+                  [ngClass]="{
+                    'el-popover': true,
+                    'el-popper': true,
+                    'publish-dropdown': publishDropdown
+                  }"
+                  style="width: 350px; display: none;"
+                >
+                  <!---->
+                  <div
+                    x-arrow=""
+                    class="popper__arrow"
+                    style="left: 289.695px;"
+                  ></div>
+                  <div class="el-popover__title">
+                    Publish your post
+                  </div>
+                  <!---->
+                  <div class="publish-popover__visibility">
+                    <label class="d-block mb-05">Visibility:</label>
+                    <div role="radiogroup" class="el-radio-group">
+                      <label
+                        role="radio"
+                        tabindex="-1"
+                        [ngClass]="{
+                          'el-radio' : true,
+                          'd-block' : true,
+                          'mb-05' : true,
+                          'is-checked': visibility.value == 'public'
+                        }"
+                        ><span [ngClass]="{'el-radio__input': true, 'is-checked': visibility.value == 'public'}"
+                          ><span class="el-radio__inner"></span
+                          ><input
+                            type="radio"
+                            aria-hidden="true"
+                            name="visibility"
+                            tabindex="-1"
+                            class="el-radio__original"
+                            formControlName="visibility"
+                            value="public"/></span
+                        ><span class="el-radio__label">
+                          Public
+                          <!----></span
+                        ></label
+                      >
+                      <label
+                        role="radio"
+                        tabindex="-1"
+                        [ngClass]="{
+                          'el-radio' : true,
+                          'd-block' : true,
+                          'mb-05' : true,
+                          'is-checked': visibility.value == 'draft_public'
+                        }"
+                        ><span [ngClass]="{'el-radio__input': true, 'is-checked': visibility.value == 'draft_public'}"
+                          ><span class="el-radio__inner"></span
+                          ><input
+                            type="radio"
+                            aria-hidden="true"
+                            name="visibility"
+                            tabindex="-1"
+                            class="el-radio__original"
+                            formControlName="visibility"
+                            value="draft_public"/></span
+                        ><span class="el-radio__label">
+                          Unlisted
+                          <!----></span
+                        ></label
+                      >
+                      <label
+                        role="radio"
+                        aria-checked="true"
+                        tabindex="0"
+                        [ngClass]="{
+                          'el-radio' : true,
+                          'd-block' : true,
+                          'mb-05' : true,
+                          'is-checked': visibility.value == 'draft'
+                        }"
+                        ><span [ngClass]="{'el-radio__input': true, 'is-checked': visibility.value == 'draft'}"
+                          ><span class="el-radio__inner"></span
+                          ><input
+                            type="radio"
+                            aria-hidden="true"
+                            name="visibility"
+                            tabindex="-1"
+                            class="el-radio__original"
+                            formControlName="visibility"
+                            value="draft"/></span
+                        ><span class="el-radio__label">
+                          Private draft
+                          <!----></span
+                        ></label
+                      >
+                    </div>
+                    <hr class="my-05" />
+                    <div class="mb-05 text-left">
+                      <span class="visibility-explain"
+                        ><i aria-hidden="true" class="{{visibilityExplain.icon}}"></i>
+                        {{ visibilityExplain.detail }}
+                      </span>
+                    </div>
+                    <button
+                      type="button"
+                      class="el-button el-button--primary el-button--small is-plain"
+                    >
+                      <!----><!----><span>
+                        {{ visibilityExplain.btnText }}
+                      </span>
+                    </button>
+                    <!-- <button
+                      type="button"
+                      class="el-button el-button--default el-button--small"
+                    >
+                      <span>
+                        Submit to organization
+                      </span>
+                    </button> -->
+                  </div>
+                </div>
                 <button
                   (click)="togglePublish($event)"
                   (clickOutside)="clickOutsidePublish($event)"
@@ -205,16 +322,23 @@
                   aria-describedby="el-popover-6806"
                 >
                   <span>
-                    Publish
+                    {{ isSaved ? "Save" : "Publish" }}
                     <i class="fas fa-angle-down"></i
                   ></span>
                 </button>
               </span>
             </div>
           </div>
-          <div *ngIf="isSaved" class="d-flex align-items-center justify-content-end"><div class="mr-05"><span>
-              Saved about 2 hours ago
-          </span></div></div>
+          <div
+            *ngIf="isSaved"
+            class="d-flex align-items-center justify-content-end"
+          >
+            <div class="mr-05">
+              <span>
+                Saved about 2 hours ago
+              </span>
+            </div>
+          </div>
           <div class="el-form-item mt-1 mb-0 is-required">
             <simplemde
               formControlName="simplemde"

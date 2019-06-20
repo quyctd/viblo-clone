@@ -1,95 +1,84 @@
-import { Component, OnInit, HostListener, Input, AfterViewInit } from '@angular/core';
+import { Component, OnInit, HostListener, AfterViewInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
-import { PublishPostService } from '../publish-post.service';
-import {Router} from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { PostManageService } from './post-manage.service';
 import { auditTime } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-publish-post',
-  templateUrl: './post.component.html',
-  styleUrls: ['./post.component.css']
+  selector: 'app-post-manage',
+  templateUrl: '../publish/post/post.component.html',
+  styleUrls: ['../publish/post/post.component.css']
 })
-export class PostComponent implements OnInit, AfterViewInit {
+export class PostManageComponent implements OnInit, AfterViewInit {
 
   form: FormGroup;
   router;
   publishDropdown = false;
   isClickFeatureImage = false;
-  isCanPublish = false;
-  isSaved = false;
+  isCanPublish = true;
+  isSaved = true;
+  id: number;
+  sub: any;
+  postData: any;
 
   // tslint:disable-next-line:variable-name
-  constructor(public formBuilder: FormBuilder, public postApi: PublishPostService, _router: Router) {
+  constructor(public formBuilder: FormBuilder, public postApi: PostManageService, _router: Router, private route: ActivatedRoute) {
     this.router = _router;
-   }
+  }
 
   ngOnInit() {
+    // Init authentic
+    if (localStorage.getItem('currentToken') == null) {
+      this.router.navigateByUrl('/login');
+    }
+
     this.form = this.formBuilder.group({
       simplemde : new FormControl(""),
       title : new FormControl(""),
       tags : new FormControl(""),
       visibility: new FormControl("draft")
-
     });
-    this.form.valueChanges.pipe(auditTime(2000)).subscribe(formData => this.autoSaveForm(formData));
 
-    // Init authentic
-    if (localStorage.getItem('currentToken') == null) {
-      this.router.navigateByUrl('/login');
-    }
+    this.sub = this.route.params.subscribe( params => {
+      // tslint:disable-next-line:no-string-literal
+      this.id = +params['id'];
+    });
+    console.log("ID route: ", this.id);
+    this.getPostDataWithId(this.id);
+
+    this.form.valueChanges.pipe(auditTime(2000)).subscribe(formData => this.autoSaveForm());
+
   }
 
-  get currentToken() {
-    return JSON.parse(localStorage.getItem('currentToken'));
+  ngAfterViewInit() {
+    const codeMirrorEle = (document.querySelector('.CodeMirror') as HTMLElement);
+    const finalHeight = window.innerHeight - codeMirrorEle.getBoundingClientRect().top - 20;
+    codeMirrorEle.style.height = finalHeight + "px";
   }
 
-  get currentUser() {
-    return JSON.parse(localStorage.getItem('currentUser'));
-  }
-
-
-  autoSaveForm(formData) {
-    console.log("FormData", formData, this.isSaved);
+  autoSaveForm() {
+    console.log("Auto save....");
+    const formData = {title: this.title.value,
+      tags: this.postApi.listTag,
+      content: this.simplemde.value,
+      status: this.visibility.value,
+      author: this.postData.author
+    };
     const formValid = this.checkValidForm();
-    if (!formValid) {
-      if (!this.isSaved) {
-        this.isCanPublish = false;
-      }
-      return;
-    } else {
-      this.isCanPublish = true;
-      if (this.isSaved) {
-        this.doUpdatePost();
-      } else {
-        this.doCreatePost();
-      }
+    if (formValid) {
+      this.doUpdatePost(formData);
     }
   }
 
-  doCreatePost() {
-    const title = this.title.value;
-    const tags = this.postApi.listTag;
-    const content = this.simplemde.value;
-    const author = this.currentUser.id;
-    // tslint:disable-next-line:object-literal-shorthand
-    const formData = {title: title, tags: tags, content: content, author: author};
-    this.postApi.createPost(formData).subscribe(
+  doUpdatePost(formData) {
+    this.postApi.updatePost(this.id, formData).subscribe(
       data => {
-        console.log("Create success", data);
-        this.isSaved = true;
-        const postId = data.id;
-        const nextUrl = `posts/${postId}/edit`;
-        this.router.navigateByUrl(nextUrl);
+        console.log(data);
       },
       error => {
-        console.log("Login error");
+        console.log("ERROR ", error);
       }
     );
-  }
-
-  doUpdatePost() {
-    const formData = {};
-    console.log("Donothing for now");
   }
 
   checkValidForm() {
@@ -101,18 +90,26 @@ export class PostComponent implements OnInit, AfterViewInit {
     } else { return false; }
   }
 
-  ngAfterViewInit() {
-    const codeMirrorEle = (document.querySelector('.CodeMirror') as HTMLElement);
-    const finalHeight = window.innerHeight - codeMirrorEle.getBoundingClientRect().top - 20;
-    codeMirrorEle.style.height = finalHeight + "px";
-  }
-
   @HostListener('window:resize', ['$event'])
   onResize(event) {
-    // this.innerWidth = window.innerWidth;
     const codeMirrorEle = (document.querySelector('.CodeMirror') as HTMLElement);
     const finalHeight = window.innerHeight - codeMirrorEle.getBoundingClientRect().top - 35;
     codeMirrorEle.style.height = finalHeight + "px";
+  }
+
+  updateDisplayInfo(data) {
+    this.form.controls.title.setValue(data.title);
+    this.postApi.listTag = data.tags;
+    this.form.controls.simplemde.setValue(data.content);
+    this.form.controls.visibility.setValue(data.status);
+  }
+
+  get currentToken() {
+    return JSON.parse(localStorage.getItem('currentToken'));
+  }
+
+  get currentUser() {
+    return JSON.parse(localStorage.getItem('currentUser'));
   }
 
   get simplemde() {
@@ -130,6 +127,21 @@ export class PostComponent implements OnInit, AfterViewInit {
   get tags() {
     return this.form.get('tags');
   }
+
+  getPostDataWithId(id) {
+    this.postApi.getPostData(id).subscribe(
+      data => {
+        console.log(data);
+        this.postData = data;
+        this.updateDisplayInfo(data);
+      },
+      error => {
+        console.log("ERROR: ", error);
+        this.router.navigateByUrl('publish/post');
+      }
+    );
+  }
+
 
   togglePublish(event) {
     this.publishDropdown = !this.publishDropdown;

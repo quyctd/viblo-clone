@@ -9,9 +9,9 @@ from apps.base.models import BasePost
 # Create your models here.
 
 STATUS_CHOICES = (
-        ("Private draft", -1),
-        ('Unlisted', 0),
-        ('Public', 1)
+        ("draft", "draft"),
+        ('draft_public', "draft_public"),
+        ('public', "public")
 )
 
 
@@ -31,8 +31,3 @@ class Post(BasePost):
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
         super(Post, self).save(*args, **kwargs)
-
-
-
-
-

@@ -18,7 +18,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
-import { PostsComponent } from './posts/posts.component';
+import { PostManageComponent } from './post-manage/post-manage.component';
 import { QuestionsComponent } from './questions/questions.component';
 import { DiscussionsComponent } from './discussions/discussions.component';
 import { LoginComponent } from './auth/login/login.component';
@@ -42,7 +42,7 @@ import { PublishTagComponent } from './publish/publish-tag/publish-tag.component
     AppComponent,
     NavbarComponent,
     FooterComponent,
-    PostsComponent,
+    PostManageComponent,
     QuestionsComponent,
     DiscussionsComponent,
     LoginComponent,
@@ -74,7 +74,7 @@ import { PublishTagComponent } from './publish/publish-tag/publish-tag.component
       { path: 'newest', component : NewestComponent},
       { path: 'login', component : LoginComponent},
       { path: 'register', component : RegisterComponent},
-      { path: 'posts', component : PostsComponent},
+      { path: 'posts/:id/edit', component : PostManageComponent},
       { path: 'questions', component : QuestionsComponent},
       { path: 'discussion', component : DiscussionsComponent},
       { path: 'search', component : SearchComponent},

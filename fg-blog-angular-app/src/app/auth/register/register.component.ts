@@ -73,6 +73,7 @@ export class RegisterComponent implements OnInit {
 
   doBasicRegister(): void {
     const formData = {
+      name: this.name.value,
       email : this.email.value,
       username : this.username.value,
       password: this.password.value,
@@ -150,7 +151,7 @@ export class RegisterComponent implements OnInit {
   getUserData(token) {
     this.api.getUserDataFromToken(token).subscribe(
       data => {
-        localStorage.setItem('currentUser', JSON.stringify({ id: data.id}));
+        localStorage.setItem('currentUser', JSON.stringify({ id: data.id, name: data.name, username: data.username, email: data.email}));
       },
       error => {
         console.log("Error");

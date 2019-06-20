@@ -25,7 +25,11 @@ export class NavbarComponent implements OnInit {
   }
 
   get currentToken() {
-    return localStorage.getItem('currentToken');
+    return JSON.parse(localStorage.getItem('currentToken'));
+  }
+
+  get currentUser() {
+    return JSON.parse(localStorage.getItem('currentUser'));
   }
 
   toggleUserIcon(event) {
@@ -40,8 +44,6 @@ export class NavbarComponent implements OnInit {
     } else {
       userDropEle.style.display = 'none';
     }
-    console.log(target.getBoundingClientRect());
-    console.log(userDropEle.getBoundingClientRect());
     this.userDropPos = target.getBoundingClientRect().left - userDropEle.getBoundingClientRect().width + 37;
     userDropEle.style.left = this.userDropPos + "px";
 

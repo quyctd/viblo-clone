@@ -10,5 +10,4 @@ class PostSerializer(TaggitSerializer, serializers.ModelSerializer):
 
     class Meta:
         model = models.Post
-        fields = ('tags', 'title', "feature_image", 'content', 'author', 'status')
-
+        fields = '__all__'

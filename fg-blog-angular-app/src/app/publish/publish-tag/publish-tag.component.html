@@ -1,9 +1,6 @@
 <span *ngIf="showTag" class="el-tag el-tag--info el-tag--medium tags-input__tag">
   <span>{{tag}} </span> <i [ngClass]="{
     'el-tag__close' : true,
-    'el-icon-close' : true,
-    'fas': true,
-    'fa-times-circle': hoverClose,
-    'fa-times': !hoverClose
-  }" (mouseover)="changeClass()" (mouseout)="changeClass()" (click)="doRemoveTag()"></i>
+    'el-icon-close' : true
+  }" (click)="doRemoveTag()"></i>
 </span>

@@ -22,10 +22,6 @@ export class PublishTagComponent implements OnInit {
     }
   }
 
-  changeClass() {
-    this.hoverClose = !this.hoverClose;
-  }
-
   doRemoveTag() {
     console.log("Remove tag");
     this.showTag = false;

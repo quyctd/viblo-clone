@@ -52,8 +52,6 @@ export class LoginComponent implements OnInit {
     };
     this.api.login(formData).subscribe(
       data => {
-        console.log("Logged in");
-        console.log(data);
         localStorage.setItem('currentToken', JSON.stringify({ token: data.key}));
         this.getUserData(data.key);
         this.router.navigateByUrl('/newest');
@@ -123,8 +121,7 @@ export class LoginComponent implements OnInit {
   getUserData(token) {
     this.api.getUserDataFromToken(token).subscribe(
       data => {
-        console.log(data);
-        localStorage.setItem('currentUser', JSON.stringify({ id: data.id}));
+        localStorage.setItem('currentUser', JSON.stringify({ id: data.id, name: data.name, username: data.username, email: data.email}));
       },
       error => {
         console.log("Error");
