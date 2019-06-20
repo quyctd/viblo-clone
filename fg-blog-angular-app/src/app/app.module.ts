@@ -34,7 +34,6 @@ import { PromoBannerComponent } from './promo-banner/promo-banner.component';
 import { LogoutComponent } from './auth/logout/logout.component';
 
 import { PostComponent as PublishPostComponent } from './publish/post/post.component';
-import { PublishPostPopoverComponent } from './publish/post/publish-post-popover/publish-post-popover.component';
 import { PublishTagComponent } from './publish/publish-tag/publish-tag.component';
 
 @NgModule({
@@ -56,7 +55,6 @@ import { PublishTagComponent } from './publish/publish-tag/publish-tag.component
     PromoBannerComponent,
     LogoutComponent,
     PublishPostComponent,
-    PublishPostPopoverComponent,
     PublishTagComponent,
 
   ],
