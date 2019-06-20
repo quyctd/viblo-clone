@@ -19,7 +19,7 @@ class Post(BasePost):
     title = models.CharField(max_length=2048)
     tags = TaggableManager()
     feature_image = models.CharField(max_length=2048, blank=True)
-    status = models.CharField(max_length=64, choices=STATUS_CHOICES, default=STATUS_CHOICES[0])
+    status = models.CharField(max_length=64, choices=STATUS_CHOICES, default=STATUS_CHOICES[0][0])
     slug = models.SlugField(max_length=2048, blank=True)
 
     views = models.PositiveIntegerField(default=0, validators=[MinValueValidator(0)])

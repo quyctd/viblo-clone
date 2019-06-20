@@ -17,6 +17,7 @@ export class PostComponent implements OnInit, AfterViewInit {
   isClickFeatureImage = false;
   isCanPublish = false;
   isSaved = false;
+  savedTime = "";
 
   // tslint:disable-next-line:variable-name
   constructor(public formBuilder: FormBuilder, public postApi: PublishPostService, _router: Router) {

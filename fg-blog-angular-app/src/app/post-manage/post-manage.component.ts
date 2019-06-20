@@ -3,6 +3,8 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 import { Router, ActivatedRoute } from '@angular/router';
 import { PostManageService } from './post-manage.service';
 import { auditTime } from 'rxjs/operators';
+import { calTimeDifference } from '../utils/utils';
+import { PublishTagComponent } from '../publish/publish-tag/publish-tag.component';
 
 @Component({
   selector: 'app-post-manage',
@@ -20,6 +22,8 @@ export class PostManageComponent implements OnInit, AfterViewInit {
   id: number;
   sub: any;
   postData: any;
+  savedTime = "";
+  lastSavedTime = new Date();
 
   // tslint:disable-next-line:variable-name
   constructor(public formBuilder: FormBuilder, public postApi: PostManageService, _router: Router, private route: ActivatedRoute) {
@@ -58,6 +62,7 @@ export class PostManageComponent implements OnInit, AfterViewInit {
 
   autoSaveForm() {
     console.log("Auto save....");
+    this.savedTime = calTimeDifference(this.lastSavedTime);
     const formData = {title: this.title.value,
       tags: this.postApi.listTag,
       content: this.simplemde.value,
@@ -74,6 +79,7 @@ export class PostManageComponent implements OnInit, AfterViewInit {
     this.postApi.updatePost(this.id, formData).subscribe(
       data => {
         console.log(data);
+        this.lastSavedTime = new Date();
       },
       error => {
         console.log("ERROR ", error);
@@ -102,6 +108,7 @@ export class PostManageComponent implements OnInit, AfterViewInit {
     this.postApi.listTag = data.tags;
     this.form.controls.simplemde.setValue(data.content);
     this.form.controls.visibility.setValue(data.status);
+    this.savedTime = calTimeDifference(data.updated_time);
   }
 
   get currentToken() {

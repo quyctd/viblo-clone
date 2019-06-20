@@ -42,6 +42,7 @@
                       <app-publish-tag
                         [inputTag]="tag"
                         [postType]="'post'"
+                        (remover)="autoSaveForm()"
                       ></app-publish-tag>
                     </div>
                     <div
@@ -335,7 +336,7 @@
           >
             <div class="mr-05">
               <span>
-                Saved about 2 hours ago
+                Saved {{ savedTime }} ago
               </span>
             </div>
           </div>

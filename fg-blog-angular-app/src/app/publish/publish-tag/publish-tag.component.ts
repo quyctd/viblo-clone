@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { PublishPostService } from '../publish-post.service';
+import { PostManageService } from '../../post-manage/post-manage.service';
 
 @Component({
   selector: 'app-publish-tag',
@@ -13,8 +14,9 @@ export class PublishTagComponent implements OnInit {
   tag = "";
   @Input() inputTag: string;
   @Input() postType: string;
+  @Output() remover = new EventEmitter<string>();
 
-  constructor(private publishPostService: PublishPostService) {}
+  constructor(private publishPostService: PublishPostService, private postManageService: PostManageService) {}
 
   ngOnInit() {
     if (this.inputTag) {
@@ -33,7 +35,16 @@ export class PublishTagComponent implements OnInit {
           break;
         }
       }
+
+      for (let i = 0; i < this.postManageService.listTag.length; i++) {
+        if (this.postManageService.listTag[i] === this.tag) {
+          this.postManageService.listTag.splice(i, 1);
+          break;
+        }
+      }
     }
+
+    this.remover.next("removeTag");
   }
 
 }
