@@ -1,6 +1,7 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { PostManageService } from '../post-manage.service';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-post-detail',
@@ -24,7 +25,7 @@ export class PostDetailComponent implements OnInit {
     });
 
     this.getPostDataWithId(this.id);
-    this.getAuthorData(3);
+    this.getAuthorData(this.id);
   }
 
   getPostDataWithId(id) {
@@ -38,15 +39,14 @@ export class PostDetailComponent implements OnInit {
         this.router.navigateByUrl('newest');
       }
     );
-    // this.getAuthorData(this.postData.author);
   }
 
   get userData() {
     return JSON.parse(localStorage.getItem('currentUser'));
   }
 
-  getAuthorData(authorId) {
-    this.postApi.getAuthorData(authorId).subscribe(
+  getAuthorData(postId) {
+    this.postApi.getAuthorData(postId).subscribe(
       data => {
         console.log("Author data: ", data);
         this.authorData = data;

@@ -1,10 +1,8 @@
 # users/views.py
-from rest_framework import generics, viewsets, authentication
+from rest_framework import generics, authentication
 from rest_framework.authtoken.models import Token
 from rest_framework.response import Response
-import json
 from rest_framework.views import APIView
-from django.core import serializers as dj_serializer
 
 from . import models
 from . import serializers
@@ -41,6 +39,3 @@ class TokenToUser(APIView):
             return Response(self.queryset)
 
 
-class UserViewSet(viewsets.ModelViewSet):
-    queryset = models.CustomUser.objects.all()
-    serializer_class = serializers.UserSerializer
