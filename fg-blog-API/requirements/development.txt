@@ -1,15 +1,23 @@
-# coverage measures code coverage of Python programs
-# See http://coverage.readthedocs.io/en/latest/
-coverage
-
-# **tox** automates testing
-# See https://tox.readthedocs.io/en/latest/index.html
-tox
-
-# **Sphinx** is used to create documentation
-# See http://www.sphinx-doc.org/en/stable/tutorial.html
-Sphinx
-
-# **flake8** is used to check for PEP8 compliance
-# See http://flake8.pycqa.org/en/latest/index.html
-flake8
+certifi==2019.3.9
+chardet==3.0.4
+defusedxml==0.6.0
+Django==2.2.2
+django-allauth==0.39.1
+django-cors-headers==3.0.2
+django-rest-auth==0.9.5
+django-taggit==1.1.0
+django-taggit-serializer==0.1.7
+djangorestframework==3.9.4
+idna==2.8
+oauthlib==3.0.1
+PyJWT==1.7.1
+python3-openid==3.1.0
+pytz==2019.1
+requests==2.22.0
+requests-oauthlib==1.2.0
+rest-social-auth==2.2.0
+six==1.12.0
+social-auth-app-django==3.1.0
+social-auth-core==3.2.0
+sqlparse==0.3.0
+urllib3==1.25.3
