@@ -1,7 +1,7 @@
 <div id="__nuxt">
   <div id="__layout">
     <div id="app-container" class="dark">
-      <app-navbar style="z-index: 9!important"></app-navbar>
+      <app-navbar style="z-index: 9!important" class="sticky-top"></app-navbar>
       <div class="pt-1 post-publish container-fluid bg-light">
         <form class="el-form" [formGroup]="form">
           <div class="el-form-item is-required">
@@ -23,7 +23,7 @@
                 />
                 <div *ngIf="isCanPublish" class="el-input-group__append">
                   <a
-                    href="/p/WAyK84xnKxX"
+                    href="/p/{{ postData.id }}"
                     title="Open this post in the new tab"
                     target="_blank"
                   >
@@ -299,6 +299,7 @@
                     <button
                       type="button"
                       class="el-button el-button--primary el-button--small is-plain"
+                      routerLink="/p/{{ postData.id }}"
                     >
                       <!----><!----><span>
                         {{ visibilityExplain.btnText }}

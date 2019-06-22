@@ -1,0 +1,184 @@
+<div id="__layout">
+  <div id="app-container" class="dark">
+    <app-navbar class="sticky-top"></app-navbar>
+    <div id="main-content">
+      <div>
+        <app-promo-banner></app-promo-banner>
+        <div class="container post-body position-relative">
+          <div class="row">
+            <app-article-actions></app-article-actions>
+            <div class="post-body__main col-lg-10 col-xl-8">
+              <article class="post-content">
+                <header class="mb-2">
+                  <div class="d-sm-flex align-items-start mb-2">
+                    <div class="post-author mb-2 mb-sm-0">
+                      <a routerLink="/u/quyctd" class="mr-05">
+                        <div class="d-inline-block">
+                          <img data-v-fa4ddde2="" src="https://cdn.viblo.asia/_nuxt/img/0bca52a.png"
+                            class="avatar avatar--lg" />
+                        </div>
+                      </a>
+                      <div class="post-author__info overflow-hidden mr-1">
+                        <div class="d-flex">
+                          <div class="overflow-hidden flex-fix mr-05">
+                            <a routerLink="/u/quyctd" class="text-bold post-author__name">
+                              Quý Đinh
+                            </a>
+                            <span class="text-muted">@{{ authorData.username }}</span>
+                          </div>
+                          <a routerLink="https://accounts.viblo.asia/profile/personal" target="_blank">
+                            <button type="button" class="el-button el-button--default el-button--mini-mini">
+                              <span>Edit</span>
+                            </button>
+                          </a>
+                        </div>
+                        <div class="stats">
+                          <span class="stats-item text-muted" data-tippy="" data-original-title="Reputations: 2"><i
+                              aria-hidden="true" class="stats-item__icon fa fa-star"></i>
+                            2 </span><span class="stats-item text-muted" data-tippy=""
+                            data-original-title="Followers: 0"><i aria-hidden="true"
+                              class="stats-item__icon fa fa-user-plus"></i>
+                            0 </span><span class="stats-item text-muted" data-tippy="" data-original-title="Posts: 0"><i
+                              aria-hidden="true" class="stats-item__icon fa fa-pencil"></i>
+                            0
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="post-meta d-flex flex-column flex-wrap align-items-sm-end">
+                      <div class="text-muted">
+                        <span *ngIf="postData.status=='draft'">
+                          <i aria-hidden="true" class="fa fa-lock"></i> Draft
+                        </span>
+                        <span *ngIf="postData.status=='draft_public'">
+                            <i aria-hidden="true" class="fa fa-eye-slash"></i> Unlisted
+                        </span>
+                        <span *ngIf="postData.status=='public'">
+                            Published
+                        </span>
+                      </div>
+                      <div class="d-flex align-items-center">
+                        <div class="post-meta__item mr-1" data-tippy="" data-original-title="Views: 0">
+                          <i aria-hidden="true" class="far fa-eye post-meta__icon"></i>
+                          <span>0</span>
+                        </div>
+                        <div class="post-meta__item mr-1" data-tippy="" data-original-title="Scroll to Comments">
+                          <button type="button" class="el-button el-button--text">
+                            <i class="fa fa-comments-o post-meta__icon"></i><span>
+                              0
+                            </span>
+                          </button>
+                        </div>
+                        <div class="post-meta__item" data-tippy="" data-original-title="Show all Clips">
+                          <button type="button" class="el-button el-button--text">
+                            <i class="fa fa-paperclip post-meta__icon"></i><span>
+                              0
+                            </span>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <h1 class="article-content__title">
+                    {{ postData.title ? postData.title : "Not found" }}
+                  </h1>
+                </header>
+                <div class="d-md-flex align-items-top justify-content-between">
+                  <div class="tags">
+                    <a *ngFor="let tag of postData.tags" routerLink="/tags/{{tag}}" class="el-tag tag_3wKND el-tag--info el-tag--medium">
+                      {{tag}}
+                    </a>
+                   
+                  </div>
+                  <div class="post__menu">
+                    <div ngbDropdown class="el-dropdown">
+                      <button type="button" class="el-button text-muted p-0 el-button--text el-dropdown-selfdefine"
+                        data-tippy="" data-original-title="Show more actions" aria-haspopup="list"
+                        aria-controls="dropdown-menu-17" role="button" tabindex="0" id="dropdownBasic1"
+                        ngbDropdownToggle>
+                        <i class="post__menu__more fas fa-ellipsis-h"></i>
+                      </button>
+                      <ul ngbDropdownMenu aria-labelledby="dropdownBasic1"
+                        class="el-dropdown-menu el-popper el-dropdown-menu--medium" id="dropdown-menu-17">
+                        <li *ngIf="postData.author == userData.id" tabindex="-1" class="el-dropdown-menu__item">
+                          <a routerLink="/posts/{{ postData.id }}/edit" class="link link--plain"><i aria-hidden="true"
+                              class="fa fa-edit pr-0 mr-05"></i>Edit
+                          </a>
+                        </li>
+                        <li *ngIf="postData.author == userData.id" tabindex="-1" class="el-dropdown-menu__item">
+                          <i aria-hidden="true" class="fa fa-trash pr-0 mr-05"></i>
+                          Delete this post
+                        </li>
+                        <li *ngIf="postData.author != userData.id" tabindex="-1" class="el-dropdown-menu__item">
+                          <i aria-hidden="true" class="fa fa-flag-o pr-0 mr-05"></i>
+                          Report
+                        </li>
+                        <li tabindex="-1" class="el-dropdown-menu__item">
+                          <i aria-hidden="true" class="fa fa-magic pr-0 mr-05"></i>Highlighting code blocks
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-1"></div>
+                <div class="md-contents article-content__body my-2 flex-fill">
+                  <markdown [data]="postData.content"></markdown>
+                </div>
+                <div class="post-footer d-flex align-items-center justify-content-end mb-2">
+                  <div data-v-a12f229c="" class="social-sharing mr-1 social-sharing--vertical social-sharing--medium">
+                    <a data-v-a12f229c="" tooltip-placement="bottom"
+                      routerLink="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fviblo.asia%2Fp%2Fthis-is-first-post-E375zgRRKGW&amp;title=this%20is%20first%20post"
+                      target="_blank" class="link link--muted" data-tippy=""
+                      data-original-title="Share a link to this page on Facebook"><i data-v-a12f229c=""
+                        aria-hidden="true" class="fa fa-facebook"></i></a>
+                    <a data-v-a12f229c="" tooltip-placement="bottom"
+                      routerLink="https://twitter.com/intent/tweet?url=https://viblo.asia/p/this-is-first-post-E375zgRRKGW&amp;text=this%20is%20first%20post&amp;hashtags=hh%2CDjango%2CWeb"
+                      target="_blank" class="link link--muted" data-tippy=""
+                      data-original-title="Share a link to this page on Twitter"><i data-v-a12f229c=""
+                        aria-hidden="true" class="fa fa-twitter"></i></a>
+                  </div>
+                  <div class="post__menu">
+                    <div ngbDropdown class="el-dropdown">
+                      <button type="button" class="el-button text-muted p-0 el-button--text el-dropdown-selfdefine"
+                        data-tippy="" data-original-title="Show more actions" aria-haspopup="list"
+                        aria-controls="dropdown-menu-3418" role="button" tabindex="0" id="dropdownBasic2"
+                        ngbDropdownToggle>
+                        <i class="post__menu__more fas fa-ellipsis-h"></i>
+                      </button>
+                      <ul ngbDropdownMenu aria-labelledby="dropdownBasic2"
+                        class="el-dropdown-menu el-popper el-dropdown-menu--medium" id="dropdown-menu-3418">
+                        <li tabindex="-1" class="el-dropdown-menu__item">
+                          <a routerLink="/posts/{{ postData.id }}/edit" class="link link--plain"><i aria-hidden="true"
+                              class="fa fa-edit pr-0 mr-05"></i>Edit
+                          </a>
+                        </li>
+                        <li tabindex="-1" class="el-dropdown-menu__item">
+                          <i aria-hidden="true" class="fa fa-trash pr-0 mr-05"></i>
+                          Delete this post
+                        </li>
+                        <li tabindex="-1" class="el-dropdown-menu__item">
+                          <i aria-hidden="true" class="fa fa-magic pr-0 mr-05"></i>Highlighting code blocks
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <div class="post-body__right hidden-lg-down col-xl-3">
+              <div class="sticky-sidebar post-sidebar post-body__sidebar">
+                <div class="sticky-sidebar__inner" style="width: 255px;">
+                  <app-table-of-contents></app-table-of-contents>
+                  <br />
+                  <app-suggest-orgnizations></app-suggest-orgnizations>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <app-article-comments></app-article-comments>
+      </div>
+    </div>
+    <app-footer></app-footer>
+  </div>
+</div>

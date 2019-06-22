@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { PublishPostService } from '../publish-post.service';
-import { PostManageService } from '../../post-manage/post-manage.service';
+import { PostManageService } from '../../post/post-manage.service';
 
 @Component({
   selector: 'app-publish-tag',

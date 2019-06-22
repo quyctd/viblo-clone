@@ -1,15 +1,15 @@
 import { Component, OnInit, HostListener, AfterViewInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { PostManageService } from './post-manage.service';
+import { PostManageService } from '../post-manage.service';
 import { auditTime } from 'rxjs/operators';
-import { calTimeDifference } from '../utils/utils';
-import { PublishTagComponent } from '../publish/publish-tag/publish-tag.component';
+import { calTimeDifference } from '../../utils/utils';
+import { PublishTagComponent } from '../../publish/publish-tag/publish-tag.component';
 
 @Component({
   selector: 'app-post-manage',
-  templateUrl: '../publish/post/post.component.html',
-  styleUrls: ['../publish/post/post.component.css']
+  templateUrl: '../../publish/post/post.component.html',
+  styleUrls: ['../../publish/post/post.component.css']
 })
 export class PostManageComponent implements OnInit, AfterViewInit {
 

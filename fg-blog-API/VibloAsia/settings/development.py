@@ -15,11 +15,6 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 
-CORS_ORIGIN_WHITELIST = [
-    "http://localhost:4200",
-    "http://127.0.0.1:4200"
-]
-
 # adjust the minimal login
 LOGIN_URL = 'core_login'
 LOGIN_REDIRECT_URL = '/'
@@ -86,6 +81,9 @@ REST_FRAMEWORK = {
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 MIDDLEWARE += ['corsheaders.middleware.CorsMiddleware']
+
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
 
 AUTHENTICATION_BACKENDS = (
     'social_core.backends.open_id.OpenIdAuth',  # for Google authentication

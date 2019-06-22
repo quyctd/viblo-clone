@@ -9,6 +9,7 @@ import { AuthServiceConfig } from 'angularx-social-login';
 import { provideConfig } from './socialLoginConfig';
 
 // 3rd party lib
+import { MarkdownModule } from 'ngx-markdown';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SimplemdeModule } from 'ngx-simplemde';
 import { ClickOutsideModule } from 'ng-click-outside';
@@ -18,7 +19,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
-import { PostManageComponent } from './post-manage/post-manage.component';
+import { PostManageComponent } from './post/post-manage/post-manage.component';
 import { QuestionsComponent } from './questions/questions.component';
 import { DiscussionsComponent } from './discussions/discussions.component';
 import { LoginComponent } from './auth/login/login.component';
@@ -35,6 +36,11 @@ import { LogoutComponent } from './auth/logout/logout.component';
 
 import { PostComponent as PublishPostComponent } from './publish/post/post.component';
 import { PublishTagComponent } from './publish/publish-tag/publish-tag.component';
+import { PostDetailComponent } from './post/post-detail/post-detail.component';
+import { TableOfContentsComponent } from './article-partial/table-of-contents/table-of-contents.component';
+import { SuggestOrgnizationsComponent } from './article-partial/suggest-orgnizations/suggest-orgnizations.component';
+import { ArticleActionsComponent } from './article-partial/article-actions/article-actions.component';
+import { ArticleCommentsComponent } from './article-partial/article-comments/article-comments.component';
 
 @NgModule({
   declarations: [
@@ -56,6 +62,11 @@ import { PublishTagComponent } from './publish/publish-tag/publish-tag.component
     LogoutComponent,
     PublishPostComponent,
     PublishTagComponent,
+    PostDetailComponent,
+    TableOfContentsComponent,
+    SuggestOrgnizationsComponent,
+    ArticleActionsComponent,
+    ArticleCommentsComponent,
 
   ],
   imports: [
@@ -66,13 +77,15 @@ import { PublishTagComponent } from './publish/publish-tag/publish-tag.component
     SocialLoginModule,
     FormsModule,
     ClickOutsideModule,
+    NgbModule,
+    MarkdownModule.forRoot(),
     SimplemdeModule.forRoot(),
-    NgbModule.forRoot(),
     RouterModule.forRoot([
       { path: 'newest', component : NewestComponent},
       { path: 'login', component : LoginComponent},
       { path: 'register', component : RegisterComponent},
       { path: 'posts/:id/edit', component : PostManageComponent},
+      { path: 'p/:id', component: PostDetailComponent},
       { path: 'questions', component : QuestionsComponent},
       { path: 'discussion', component : DiscussionsComponent},
       { path: 'search', component : SearchComponent},

@@ -39,3 +39,8 @@ class TokenToUser(APIView):
                 return Response(self.queryset)
         else:
             return Response(self.queryset)
+
+
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = models.CustomUser.objects.all()
+    serializer_class = serializers.UserSerializer

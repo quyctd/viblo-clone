@@ -1,0 +1,175 @@
+.content-outline {
+	padding: 0;
+	display: block;
+	margin-bottom: 0;
+	list-style: none
+}
+
+.content-outline__item {
+	line-height: 1.2;
+	list-style: none;
+	padding: 5px 0;
+	font-size: .9rem;
+	color: #495057
+}
+
+.content-outline__item .link {
+	display: block
+}
+
+.content-outline__item .link.active {
+	z-index: 10;
+	font-weight: 700;
+	position: relative;
+	color: #5488c7
+}
+
+.content-outline__item .link.active:before {
+	top: 0;
+	left: 0;
+	width: 3px;
+	content: "";
+	height: 100%;
+	position: absolute;
+	background: #5488c7
+}
+
+.content-outline__item--level-1>a {
+	padding-left: .5rem
+}
+
+.content-outline__item--level-2>a {
+	padding-left: 1rem
+}
+
+.content-outline__item--level-3>a {
+	padding-left: 1.75rem
+}
+
+.sticky-sidebar {
+	min-height: 90%;
+	position: relative
+}
+
+.sticky-sidebar__inner {
+	position: relative;
+	transition: width .45s cubic-bezier(.23, 1, .32, 1) 0ms;
+	padding-bottom: 30px
+}
+
+.sticky-sidebar__inner.docked {
+	position: fixed
+}
+
+.sticky-sidebar__inner.docked.top {
+	top: 0
+}
+
+.sticky-sidebar__inner.docked.bottom {
+	bottom: 0
+}
+
+.sticky-sidebar__inner.rested {
+	position: absolute;
+	bottom: 0
+}
+
+.el-popover__title {
+	word-break: break-all
+}
+
+.tags .tag[data-v-8b2d814c]:not(:last-child) {
+	margin-right: 5px
+}
+
+.tags .tag.badge-primary[data-v-8b2d814c]:focus,
+.tags .tag.badge-primary[data-v-8b2d814c]:hover {
+	color: #fff
+}
+
+.tags .tag[data-v-8b2d814c] {
+	font-size: 90%;
+	margin-bottom: 0;
+	max-width: 200px
+}
+
+@media (max-width:767.98px) {
+	.tags .tag[data-v-8b2d814c] {
+		font-size: .7rem
+	}
+}
+
+.post-title--inline {
+	display: flex;
+	flex-wrap: wrap
+}
+
+.post-title--inline h3 {
+	font-size: 1.1rem
+}
+
+.post-title--inline .fa-play-circle {
+	font-size: 1rem;
+	margin-right: .2rem
+}
+
+.post-reading_time {
+	color: #9b9b9b;
+	font-weight: 400
+}
+
+.post-reading_time.is-divide:before {
+	content: "-";
+	margin-right: .5rem
+}
+
+.post-reading_time.is-divide--fit:before {
+	margin-right: unset
+}
+
+.copyUrl_13z_m i {
+	color: #9b9b9b;
+	transform: rotate(-45deg)
+}
+
+.post-feed-item {
+	display: flex;
+	align-items: flex-start;
+	padding: .5rem;
+	border-bottom: 1px solid #d6d6d7
+}
+
+.post-feed-item__info {
+	width: 100%
+}
+
+.post-feed-item .post-meta--inline {
+	display: flex;
+	flex-wrap: wrap;
+	font-size: .8rem;
+	margin-bottom: .25rem
+}
+
+.post-feed-item .commentators .avatar img {
+	width: 1.3rem
+}
+
+.post-feed-item .pinned-icon {
+	margin-left: auto;
+	font-size: 1rem;
+	color: #5488c7;
+	transform: rotate(15deg)
+}
+
+.post-right-menu {
+	list-style-type: none
+}
+
+.post-right-menu>li a {
+	color: #0b1a33;
+	text-decoration: none
+}
+
+.post-right-menu>li a:hover {
+	color: #5488c7
+}
