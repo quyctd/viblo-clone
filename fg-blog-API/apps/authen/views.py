@@ -6,6 +6,7 @@ from rest_framework.views import APIView
 
 from . import models
 from . import serializers
+from rest_auth.registration.views import RegisterView
 
 
 class UserListView(generics.ListCreateAPIView):
@@ -38,4 +39,7 @@ class TokenToUser(APIView):
         else:
             return Response(self.queryset)
 
+
+class CustomRegistrationView(RegisterView):
+    serializer_class = serializers.CustomRegistrationSerializer
 

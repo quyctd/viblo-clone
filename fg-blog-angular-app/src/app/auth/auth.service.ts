@@ -22,7 +22,7 @@ export class AuthService {
   basicRegister(formData): Observable<any> {
     // tslint:disable-next-line:max-line-length
     const body = { name: formData.name, username : formData.username, email: formData.email, password1: formData.password, password2: formData.re_password};
-    this.user = this.http.post(this.baseurl + '/accounts/registration/', body, {headers : this.httpHeaders});
+    this.user = this.http.post(this.baseurl + '/accounts/register/', body, {headers : this.httpHeaders});
     return this.user;
   }
 

@@ -18,5 +18,6 @@ urlpatterns = [
     path('login/google/', social_views.GoogleLogin.as_view(), name='gg_login'),
     path('login/github/', social_views.GithubLogin.as_view(), name='gh_login'),
     path('token/token_to_user/',  views.TokenToUser.as_view()),
+    path('accounts/register/', views.CustomRegistrationView.as_view(), name="rest_name_register")
 
 ]
