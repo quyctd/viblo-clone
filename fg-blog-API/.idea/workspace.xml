@@ -2,12 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26a4d0dc-4929-46d9-b9f9-d9014f22a95d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/base/base.service.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/base/base.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/newest/newest-discussions/newest-discussions.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/newest/newest-discussions/newest-discussions.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/newest/newest-discussions/newest-discussions.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/newest/newest-discussions/newest-discussions.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/newest/newest-posts/newest-post.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/newest/newest-posts/newest-posts.service.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/newest/newest-posts/newest-posts.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/newest/newest-questions/newest-questions.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/newest/newest-questions/newest-questions.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/newest/newest-questions/newest-questions.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/newest/newest-questions/newest-questions.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/assets/logo.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/authen/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/authen/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/authen/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/authen/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/authen/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/authen/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/post/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/post/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/post/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/post/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/post/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/post/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements/development.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements/development.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/auth/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/auth/auth.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/auth/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/auth/login/login.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/auth/register/register.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/auth/register/register.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/newest/newest.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/newest/newest-posts/newest-post.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/newest/newest.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/newest/newest-posts/newest-post.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/newest/newest.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/newest/newest-posts/newest-post.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/newest/newest.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/post/post-detail/post-detail.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/post/post-detail/post-detail.component.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -21,77 +42,33 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/VibloAsia/settings/development.py">
+        <entry file="file://$PROJECT_DIR$/apps/post/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="484">
-              <caret line="70" selection-start-line="70" selection-end-line="70" />
+            <state relative-caret-position="-7">
+              <caret line="12" column="44" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/apps/authen/urls.py">
+        <entry file="file://$PROJECT_DIR$/apps/post/serializers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="483">
-              <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+            <state relative-caret-position="212">
+              <caret line="26" selection-start-line="26" selection-end-line="26" />
               <folding>
-                <element signature="e#16#44#0" expanded="true" />
+                <element signature="e#22#60#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/authen/serializers.py">
+        <entry file="file://$PROJECT_DIR$/apps/authen/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="399">
-              <caret line="19" column="48" lean-forward="true" selection-start-line="19" selection-start-column="48" selection-end-line="19" selection-end-column="48" />
+            <state relative-caret-position="264">
+              <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
               <folding>
-                <element signature="e#23#61#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/authen/social_views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="4" selection-start-line="4" selection-end-line="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/api/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="1" selection-start-line="1" selection-end-line="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/authen/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="45" selection-start-line="45" selection-end-line="45" />
-              <folding>
-                <element signature="e#17#68#0" expanded="true" />
-                <element signature="e#307#399#0" />
-                <element signature="e#434#1326#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/post/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="17" column="17" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
-              <folding>
-                <element signature="e#17#74#0" expanded="true" />
+                <element signature="e#0#28#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -100,8 +77,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/post/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="6" column="32" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
+            <state relative-caret-position="-7">
+              <caret line="10" column="36" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
               <folding>
                 <element signature="e#17#36#0" expanded="true" />
               </folding>
@@ -128,20 +105,20 @@
         <option value="$PROJECT_DIR$/VibloAsia/settings/common.py" />
         <option value="$PROJECT_DIR$/apps/authen/social_views.py" />
         <option value="$PROJECT_DIR$/apps/post/forms.py" />
-        <option value="$PROJECT_DIR$/apps/post/models.py" />
         <option value="$PROJECT_DIR$/apps/post/admin.py" />
         <option value="$PROJECT_DIR$/apps/base/admin.py" />
-        <option value="$PROJECT_DIR$/apps/post/serializers.py" />
         <option value="$PROJECT_DIR$/apps/base/models.py" />
-        <option value="$PROJECT_DIR$/apps/authen/models.py" />
         <option value="$PROJECT_DIR$/apps/api/urls.py" />
         <option value="$PROJECT_DIR$/apps/authen/admin.py" />
         <option value="$PROJECT_DIR$/apps/post/urls.py" />
-        <option value="$PROJECT_DIR$/apps/post/views.py" />
         <option value="$PROJECT_DIR$/apps/authen/serializers.py" />
         <option value="$PROJECT_DIR$/apps/authen/views.py" />
         <option value="$PROJECT_DIR$/VibloAsia/settings/development.py" />
         <option value="$PROJECT_DIR$/apps/authen/urls.py" />
+        <option value="$PROJECT_DIR$/apps/post/views.py" />
+        <option value="$PROJECT_DIR$/apps/authen/models.py" />
+        <option value="$PROJECT_DIR$/apps/post/models.py" />
+        <option value="$PROJECT_DIR$/apps/post/serializers.py" />
       </list>
     </option>
   </component>
@@ -175,6 +152,23 @@
               <item name="apps" type="462c0819:PsiDirectoryNode" />
               <item name="authen" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="fg-blog-API" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fg-blog-API" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="base" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fg-blog-API" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fg-blog-API" type="462c0819:PsiDirectoryNode" />
+              <item name="apps" type="462c0819:PsiDirectoryNode" />
+              <item name="post" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fg-blog-API" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fg-blog-API" type="462c0819:PsiDirectoryNode" />
+              <item name="requirements" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -190,7 +184,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -227,7 +221,7 @@
       <option name="port" value="8000" />
       <option name="host" value="" />
       <option name="additionalOptions" value="" />
-      <option name="browserUrl" value="http://127.0.0.1:8000/" />
+      <option name="browserUrl" value="" />
       <option name="runTestServer" value="false" />
       <option name="runNoReload" value="false" />
       <option name="useCustomRunCommand" value="false" />
@@ -257,18 +251,18 @@
       <workItem from="1561309775744" duration="30000" />
       <workItem from="1561309829112" duration="72000" />
       <workItem from="1561309944001" duration="29000" />
-      <workItem from="1561310027949" duration="1692000" />
+      <workItem from="1561310027949" duration="8117000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43918000" />
+    <option name="totallyTimeSpent" value="50343000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2932761" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2761087" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -282,7 +276,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32891566" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" weight="0.29036143" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.2899263" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32891566" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -395,31 +389,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/post/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/requirements/development.txt">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/discussion/tests.py">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/post/serializers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="21" lean-forward="true" selection-start-column="21" selection-end-column="21" />
-          <folding>
-            <element signature="e#22#60#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$USER_HOME$/anaconda3/envs/viblo/lib/python3.7/site-packages/rest_framework/authtoken/views.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -449,16 +420,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/base/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/authen/migrations/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -479,42 +440,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/authen/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" selection-start-line="13" selection-end-line="13" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/authen/admin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" selection-start-line="15" selection-end-line="15" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/post/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="32" selection-start-line="6" selection-start-column="32" selection-end-line="6" selection-end-column="32" />
-          <folding>
-            <element signature="e#17#36#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/post/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="17" column="17" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
-          <folding>
-            <element signature="e#17#74#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -555,13 +486,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/VibloAsia/settings/development.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="70" selection-start-line="70" selection-end-line="70" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/VibloAsia/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="441">
@@ -579,12 +503,84 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/apps/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/apps/authen/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="483">
           <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
           <folding>
             <element signature="e#16#44#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VibloAsia/settings/development.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="70" selection-start-line="70" selection-end-line="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/post/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7">
+          <caret line="10" column="36" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
+          <folding>
+            <element signature="e#17#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/post/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7">
+          <caret line="12" column="44" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/base/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="13" column="66" lean-forward="true" selection-start-line="13" selection-start-column="66" selection-end-line="13" selection-end-column="66" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/post/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="370">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/authen/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements/development.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-111" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/post/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="26" selection-start-line="26" selection-end-line="26" />
+          <folding>
+            <element signature="e#22#60#0" expanded="true" />
           </folding>
         </state>
       </provider>

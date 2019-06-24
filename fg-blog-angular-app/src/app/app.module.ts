@@ -29,7 +29,7 @@ import { TagsComponent } from './tags/tags.component';
 import { OrgnizationsComponent } from './orgnizations/orgnizations.component';
 import { SearchComponent } from './search/search.component';
 import { SeriesComponent } from './series/series.component';
-import { NewestComponent } from './newest/newest.component';
+import { NewestPostComponent } from './newest/newest-posts/newest-post.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { PromoBannerComponent } from './promo-banner/promo-banner.component';
 import { LogoutComponent } from './auth/logout/logout.component';
@@ -41,6 +41,8 @@ import { TableOfContentsComponent } from './article-partial/table-of-contents/ta
 import { SuggestOrgnizationsComponent } from './article-partial/suggest-orgnizations/suggest-orgnizations.component';
 import { ArticleActionsComponent } from './article-partial/article-actions/article-actions.component';
 import { ArticleCommentsComponent } from './article-partial/article-comments/article-comments.component';
+import { NewestQuestionsComponent } from './newest/newest-questions/newest-questions.component';
+import { NewestDiscussionsComponent } from './newest/newest-discussions/newest-discussions.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +59,7 @@ import { ArticleCommentsComponent } from './article-partial/article-comments/art
     OrgnizationsComponent,
     SearchComponent,
     SeriesComponent,
-    NewestComponent,
+    NewestPostComponent,
     PromoBannerComponent,
     LogoutComponent,
     PublishPostComponent,
@@ -67,6 +69,8 @@ import { ArticleCommentsComponent } from './article-partial/article-comments/art
     SuggestOrgnizationsComponent,
     ArticleActionsComponent,
     ArticleCommentsComponent,
+    NewestQuestionsComponent,
+    NewestDiscussionsComponent,
 
   ],
   imports: [
@@ -81,7 +85,7 @@ import { ArticleCommentsComponent } from './article-partial/article-comments/art
     MarkdownModule.forRoot(),
     SimplemdeModule.forRoot(),
     RouterModule.forRoot([
-      { path: 'newest', component : NewestComponent},
+      { path: 'newest', component : NewestPostComponent},
       { path: 'login', component : LoginComponent},
       { path: 'register', component : RegisterComponent},
       { path: 'posts/:id/edit', component : PostManageComponent},

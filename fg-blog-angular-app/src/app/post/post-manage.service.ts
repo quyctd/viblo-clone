@@ -23,8 +23,4 @@ export class PostManageService {
     return this.http.put(this.baseUrl + id + "/", body, {headers : this.httpHeaders});
   }
 
-  getAuthorData(id): Observable<any> {
-    return this.http.get(this.baseUrl + 'author/' + id + "/", {headers : this.httpHeaders});
-  }
-
 }

@@ -11,6 +11,7 @@ import { switchMap } from 'rxjs/operators';
 export class PostDetailComponent implements OnInit {
 
   id: number;
+  url: any;
   sub: any;
   postData = {};
   authorData = {};
@@ -18,14 +19,13 @@ export class PostDetailComponent implements OnInit {
   constructor(private postApi: PostManageService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-
+    this.url = this.router.url;
     this.sub = this.route.params.subscribe( params => {
       // tslint:disable-next-line:no-string-literal
       this.id = +params['id'];
     });
 
     this.getPostDataWithId(this.id);
-    this.getAuthorData(this.id);
   }
 
   getPostDataWithId(id) {
@@ -43,18 +43,6 @@ export class PostDetailComponent implements OnInit {
 
   get userData() {
     return JSON.parse(localStorage.getItem('currentUser'));
-  }
-
-  getAuthorData(postId) {
-    this.postApi.getAuthorData(postId).subscribe(
-      data => {
-        console.log("Author data: ", data);
-        this.authorData = data;
-      },
-      error => {
-        console.log("getAuthorData ERROR: ", error);
-      }
-    );
   }
 
 }

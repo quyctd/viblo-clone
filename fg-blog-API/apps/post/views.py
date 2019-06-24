@@ -9,7 +9,7 @@ from apps.authen import models as auth_models, serializers as auth_serializers
 
 
 class PostViewSet(viewsets.ModelViewSet):
-    queryset = models.Post.objects.all()
+    queryset = models.Post.objects.all().order_by('-create_time')
     serializer_class = serializers.PostSerializer
 
 

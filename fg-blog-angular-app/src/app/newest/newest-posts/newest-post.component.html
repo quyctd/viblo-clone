@@ -1,8 +1,3 @@
-<head data-n-head="">
-  <title data-n-head="true">Newest post - Viblo</title>
-  
-
-</head>
 
 <div class="progress" style="width:0%;height:2px;background-color:#5488c7;opacity:0;" data-v-11f278b6></div>
 <div id="__layout">
@@ -81,8 +76,8 @@
                   <a title="With preview contents" class="link"><i aria-hidden="true"
                       class="fa fa-newspaper-o"></i></a>
                 </div>
-                <div class="post-feed-item">
-                  <a href="/u/ducnm92" class="mr-05"><img
+                <div *ngFor='let post of newestPost' class="post-feed-item">
+                  <a href="/u/{{post.author.username}}" class="mr-05"><img
                       src="https://images.viblo.asia/avatar/0bef0ab2-d77f-4288-a840-f307ab6eaba5.jpg" srcset="
                           https://images.viblo.asia/avatar-retina/0bef0ab2-d77f-4288-a840-f307ab6eaba5.jpg 2x
                         " class="avatar avatar--md" data-v-fa4ddde2 /></a>
@@ -101,11 +96,11 @@
                                         https://images.viblo.asia/avatar-retina/0bef0ab2-d77f-4288-a840-f307ab6eaba5.jpg 2x
                                       " class="avatar avatar--xl" data-v-fa4ddde2 /></a>
                                 <div class="col-9">
-                                  <a href="/u/ducnm92">
-                                    Nguyen Manh Duc
+                                  <a href="/u/{{ post.author.username }}">
+                                    {{ post.author.name ? post.author.name : 'Admin' }}
                                   </a>
                                   <br />
-                                  <span class="text-muted">@ducnm92</span>
+                                  <span class="text-muted">@{{ post.author.username }}</span>
                                   <div>
                                     <div class="stats mt-05">
                                       <span title="Reputations: 122" class="stats-item text-muted"><i
@@ -135,8 +130,8 @@
                               </div>
                             </div>
                           </div>
-                          <a href="/u/ducnm92" class="mr-05">
-                            Nguyen Manh Duc
+                          <a href="/u/{{ post.author.username }}" class="mr-05">
+                            {{ post.author.name ? post.author.name : 'Admin' }}
                           </a>
                         </span>
 
@@ -160,27 +155,28 @@
                     </div>
                     <div class="post-title--inline">
                       <h3 class="word-break mr-05">
-                        <a href="/p/kham-pha-android-viewpager2-jvElaGVoKkw" class="link">Khám phá Android
-                          ViewPager2</a>
+                        <a href="/p/{{ post.id }}" class="link">{{ post.title }}</a>
                       </h3>
                       <div class="tags" data-v-8b2d814c>
-                        <a href="/tags/viewpager" class="el-tag tag_3wKND el-tag--info el-tag--mini"
+                        <a *ngFor="let tag of post.tags" href="/tags/{{ tag }}" class="el-tag tag_3wKND el-tag--info el-tag--mini"
                           data-v-8b2d814c>
-                          ViewPager </a><a href="/tags/android" class="el-tag tag_3wKND el-tag--info el-tag--mini"
-                          data-v-8b2d814c>
-                          Android
-                        </a>
+                          {{ tag }} </a>
+                          
                       </div>
                     </div>
 
                     <div class="d-flex justify-content-between">
                       <div class="d-flex">
                         <div class="stats">
-                          <span title="Views: 3" class="stats-item text-muted"><i aria-hidden="true"
-                              class="stats-item__icon fa fa-eye"></i>
-                            3 </span><span title="Clips: 0" class="stats-item text-muted"><i aria-hidden="true"
+                          <span title="Views: 3" class="stats-item text-muted">
+                            <i aria-hidden="true" class="stats-item__icon fa fa-eye"></i>
+                            3 
+                          </span>
+                          <span title="Clips: 0" class="stats-item text-muted"><i aria-hidden="true"
                               class="stats-item__icon fa fa-paperclip"></i>
-                            0 </span><span title="Comments: 0" class="stats-item text-muted"><i aria-hidden="true"
+                            0 
+                          </span>
+                          <span title="Comments: 0" class="stats-item text-muted"><i aria-hidden="true"
                               class="stats-item__icon fa fa-comments"></i>
                             0
                           </span>
