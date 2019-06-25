@@ -66,7 +66,7 @@ export class RegisterComponent implements OnInit {
   }
 
 
-  toggleTerm(event) {
+  toggleTerm() {
     this.isChecked = !this.isChecked;
     this.btnDisable = !this.isChecked;
   }
