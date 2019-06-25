@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="26a4d0dc-4929-46d9-b9f9-d9014f22a95d" name="Default Changelist" comment="" />
+    <list default="true" id="26a4d0dc-4929-46d9-b9f9-d9014f22a95d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/VibloAsia/settings/development.py" beforeDir="false" afterPath="$PROJECT_DIR$/VibloAsia/settings/development.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/VibloAsia/settings/production.py" beforeDir="false" afterPath="$PROJECT_DIR$/VibloAsia/settings/production.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/base/base.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/base/base.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/post/post-manage/post-manage.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/post/post-manage/post-manage.component.ts" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +27,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/post/serializers.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="97">
@@ -30,6 +35,24 @@
               <folding>
                 <element signature="e#22#60#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/VibloAsia/settings/development.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="161">
+              <caret line="77" column="61" selection-start-line="77" selection-start-column="61" selection-end-line="77" selection-end-column="61" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/VibloAsia/settings/production.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="269">
+              <caret line="74" column="61" selection-start-line="74" selection-start-column="61" selection-end-line="74" selection-end-column="61" />
             </state>
           </provider>
         </entry>
@@ -97,12 +120,13 @@
         <option value="$PROJECT_DIR$/apps/post/urls.py" />
         <option value="$PROJECT_DIR$/apps/authen/serializers.py" />
         <option value="$PROJECT_DIR$/apps/authen/views.py" />
-        <option value="$PROJECT_DIR$/VibloAsia/settings/development.py" />
         <option value="$PROJECT_DIR$/apps/authen/urls.py" />
         <option value="$PROJECT_DIR$/apps/post/views.py" />
         <option value="$PROJECT_DIR$/apps/authen/models.py" />
         <option value="$PROJECT_DIR$/apps/post/models.py" />
         <option value="$PROJECT_DIR$/apps/post/serializers.py" />
+        <option value="$PROJECT_DIR$/VibloAsia/settings/development.py" />
+        <option value="$PROJECT_DIR$/VibloAsia/settings/production.py" />
       </list>
     </option>
   </component>
@@ -152,6 +176,17 @@
               <item name="fg-blog-API" type="b2602c69:ProjectViewProjectNode" />
               <item name="fg-blog-API" type="462c0819:PsiDirectoryNode" />
               <item name="requirements" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fg-blog-API" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fg-blog-API" type="462c0819:PsiDirectoryNode" />
+              <item name="VibloAsia" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="fg-blog-API" type="b2602c69:ProjectViewProjectNode" />
+              <item name="fg-blog-API" type="462c0819:PsiDirectoryNode" />
+              <item name="VibloAsia" type="462c0819:PsiDirectoryNode" />
+              <item name="settings" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -236,23 +271,23 @@
       <workItem from="1561309829112" duration="72000" />
       <workItem from="1561309944001" duration="29000" />
       <workItem from="1561310027949" duration="8303000" />
-      <workItem from="1561390177283" duration="3508000" />
+      <workItem from="1561390177283" duration="3537000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="54037000" />
+    <option name="totallyTimeSpent" value="54066000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27968526" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27968526" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32771084" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3280098" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3280098" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -290,9 +325,6 @@
           <caret line="21" column="39" lean-forward="true" selection-start-line="21" selection-start-column="39" selection-end-line="21" selection-end-column="39" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/VibloAsia/settings/production.py">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$USER_HOME$/anaconda3/envs/viblo/lib/python3.7/site-packages/django/apps/config.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -479,13 +511,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/VibloAsia/settings/development.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="70" selection-start-line="70" selection-end-line="70" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/base/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="312">
@@ -565,6 +590,20 @@
           <folding>
             <element signature="e#22#60#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VibloAsia/settings/development.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="77" column="61" selection-start-line="77" selection-start-column="61" selection-end-line="77" selection-end-column="61" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VibloAsia/settings/production.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="74" column="61" selection-start-line="74" selection-start-column="61" selection-end-line="74" selection-end-column="61" />
         </state>
       </provider>
     </entry>

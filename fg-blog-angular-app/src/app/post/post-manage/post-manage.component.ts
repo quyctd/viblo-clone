@@ -5,6 +5,7 @@ import { PostManageService } from '../post-manage.service';
 import { auditTime } from 'rxjs/operators';
 import { calTimeDifference } from '../../utils/utils';
 import { PublishTagComponent } from '../../publish/publish-tag/publish-tag.component';
+import { AnonymousSubject } from 'rxjs/internal/Subject';
 
 @Component({
   selector: 'app-post-manage',
@@ -24,6 +25,7 @@ export class PostManageComponent implements OnInit, AfterViewInit {
   postData: any;
   savedTime = "";
   lastSavedTime = new Date();
+  customize: any;
 
   // tslint:disable-next-line:variable-name
   constructor(public formBuilder: FormBuilder, public postApi: PostManageService, _router: Router, private route: ActivatedRoute) {
