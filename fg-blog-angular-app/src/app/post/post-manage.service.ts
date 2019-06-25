@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 export class PostManageService {
 
   listTag = [];
-  baseUrl = 'http://127.0.0.1:8000/api/v1/post/';
+  baseUrl = environment.baseUrl + 'post/';
   token = "Token " + JSON.parse(localStorage.getItem('currentToken')).token;
   httpHeaders = new HttpHeaders({'Content-Type': 'application/json', Authorization: this.token});
 

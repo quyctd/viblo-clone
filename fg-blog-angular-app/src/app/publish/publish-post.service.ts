@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ import { Observable } from 'rxjs';
 export class PublishPostService {
 
   listTag = [];
-  baseurl = 'http://127.0.0.1:8000/api/v1/post/';
+  baseurl = environment.baseUrl + 'post/';
 
   constructor(private http: HttpClient) { }
 
