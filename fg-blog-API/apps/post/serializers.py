@@ -16,26 +16,36 @@ class AuthorSerializer(serializers.ModelSerializer):
 
 class PostSerializer(TaggitSerializer, serializers.ModelSerializer):
     tags = TagListSerializerField()
-    author = AuthorSerializer()
+    author_data = serializers.SerializerMethodField()
     toc = serializers.SerializerMethodField()
+
+    def get_author_data(self, obj):
+        author = obj.author
+        serial = UserSerializer(author)
+        return serial.data
 
     def get_toc(self, obj):
         content = obj.content
         md = markdown.Markdown(extensions=['toc'])
         html = md.convert(content)
         toc = md.toc_tokens
-        ret = self.flatten_toc(toc)
+        ret = flatten_toc(toc)
         return ret
-
-    def flatten_toc(self, toc):
-        if len(toc) == 0:
-            return toc
-        if isinstance(toc[0]['children'], list):
-            heading = {"level": toc[0]['level'], 'id': toc[0]['id'], 'name': toc[0]['name']}
-            child = toc[0]['children']
-            return [heading] + self.flatten_toc(child)
-        return toc[:1] + self.flatten_toc(toc[1:])
 
     class Meta:
         model = models.Post
         fields = '__all__'
+
+
+def flatten_toc(toc):
+    if len(toc) == 0:
+        return toc
+    if isinstance(toc[0]['children'], list):
+        item = toc[0]
+        level = item['level']
+        id = item['id'].replace("_", "-")
+        name = item['name'].replace("_", "-")
+        heading = {"level": level, 'id': id, 'name': name}
+        child = toc[0]['children']
+        return [heading] + flatten_toc(child) + flatten_toc(toc[1:])
+    return toc[:1] + flatten_toc(toc[1:])

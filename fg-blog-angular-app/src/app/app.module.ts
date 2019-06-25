@@ -13,7 +13,7 @@ import { MarkdownModule } from 'ngx-markdown';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SimplemdeModule } from 'ngx-simplemde';
 import { ClickOutsideModule } from 'ng-click-outside';
-
+import {StickyModule} from 'ng2-sticky-kit';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -43,6 +43,7 @@ import { ArticleActionsComponent } from './article-partial/article-actions/artic
 import { ArticleCommentsComponent } from './article-partial/article-comments/article-comments.component';
 import { NewestQuestionsComponent } from './newest/newest-questions/newest-questions.component';
 import { NewestDiscussionsComponent } from './newest/newest-discussions/newest-discussions.component';
+import { SafeHtml } from './post/post-detail/safeHtml.pipe';
 
 @NgModule({
   declarations: [
@@ -71,7 +72,7 @@ import { NewestDiscussionsComponent } from './newest/newest-discussions/newest-d
     ArticleCommentsComponent,
     NewestQuestionsComponent,
     NewestDiscussionsComponent,
-
+    SafeHtml
   ],
   imports: [
     BrowserModule,
@@ -82,6 +83,7 @@ import { NewestDiscussionsComponent } from './newest/newest-discussions/newest-d
     FormsModule,
     ClickOutsideModule,
     NgbModule,
+    StickyModule,
     MarkdownModule.forRoot(),
     SimplemdeModule.forRoot(),
     RouterModule.forRoot([

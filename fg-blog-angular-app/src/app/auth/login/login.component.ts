@@ -122,6 +122,7 @@ export class LoginComponent implements OnInit {
     this.api.getUserDataFromToken(token).subscribe(
       data => {
         localStorage.setItem('currentUser', JSON.stringify({ id: data.id, name: data.name, username: data.username, email: data.email}));
+        console.log(localStorage.getItem('currentUser'));
       },
       error => {
         console.log("Error");

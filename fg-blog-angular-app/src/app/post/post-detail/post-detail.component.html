@@ -21,10 +21,10 @@
                       <div class="post-author__info overflow-hidden mr-1">
                         <div class="d-flex">
                           <div class="overflow-hidden flex-fix mr-05">
-                            <a routerLink="/u/{{ postData.author.username }}" class="text-bold post-author__name">
-                              {{ postData.author.username ? postData.author.username : 'Admin'}}
+                            <a routerLink="/u/{{ postData.author_data.username }}" class="text-bold post-author__name">
+                              {{ postData.author_data.username ? postData.author_data.username : 'Admin'}}
                             </a>
-                            <span class="text-muted">@{{ postData.author.username }}</span>
+                            <span class="text-muted">@{{ postData.author_data.username }}</span>
                           </div>
                           <a routerLink="https://accounts.viblo.asia/profile/personal" target="_blank">
                             <button type="button" class="el-button el-button--default el-button--mini-mini">
@@ -171,11 +171,13 @@
             </div>
             <div class="post-body__right hidden-lg-down col-xl-3">
               <div class="sticky-sidebar post-sidebar post-body__sidebar">
-                <div class="sticky-sidebar__inner" style="width: 255px;">
-                  <app-table-of-contents [toc]="postData.toc" url="/p/{{postData.id}}"></app-table-of-contents>
-                  <br />
-                  <app-suggest-orgnizations></app-suggest-orgnizations>
-                </div>
+
+                  <div class="sticky-sidebar__inner" style="width: 255px;">
+                    <app-table-of-contents [toc]="postData.toc" url="/p/{{postData.id}}"></app-table-of-contents>
+                    <br />
+                    <app-suggest-orgnizations></app-suggest-orgnizations>
+                  </div>
+
               </div>
             </div>
           </div>

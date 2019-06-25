@@ -20,10 +20,6 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
   }
 
-  get user() {
-    return this.api.user;
-  }
-
   get currentToken() {
     return JSON.parse(localStorage.getItem('currentToken'));
   }

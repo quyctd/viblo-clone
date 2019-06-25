@@ -2,33 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26a4d0dc-4929-46d9-b9f9-d9014f22a95d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/base/base.service.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/base/base.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/newest/newest-discussions/newest-discussions.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/newest/newest-discussions/newest-discussions.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/newest/newest-discussions/newest-discussions.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/newest/newest-discussions/newest-discussions.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/newest/newest-posts/newest-post.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/newest/newest-posts/newest-posts.service.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/newest/newest-posts/newest-posts.service.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/newest/newest-questions/newest-questions.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/newest/newest-questions/newest-questions.component.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/newest/newest-questions/newest-questions.component.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/newest/newest-questions/newest-questions.component.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/assets/logo.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/post/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/post/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/post/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/post/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements/development.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements/development.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/auth/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/auth/auth.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/auth/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/auth/login/login.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/auth/register/register.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/auth/register/register.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/newest/newest.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/newest/newest-posts/newest-post.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/newest/newest.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/newest/newest-posts/newest-post.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/newest/newest.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/newest/newest-posts/newest-post.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/newest/newest.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/post/post-detail/post-detail.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/post/post-detail/post-detail.component.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -44,7 +19,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/post/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-7">
+            <state relative-caret-position="144">
               <caret line="12" column="44" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
             </state>
           </provider>
@@ -53,8 +28,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/apps/post/serializers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="26" selection-start-line="26" selection-end-line="26" />
+            <state relative-caret-position="337">
+              <caret line="31" column="30" lean-forward="true" selection-start-line="31" selection-start-column="30" selection-end-line="31" selection-end-column="30" />
               <folding>
                 <element signature="e#22#60#0" expanded="true" />
               </folding>
@@ -63,9 +38,21 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/apps/authen/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="35" column="48" lean-forward="true" selection-start-line="35" selection-start-column="48" selection-end-line="35" selection-end-column="48" />
+              <folding>
+                <element signature="e#17#68#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/authen/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
+            <state relative-caret-position="216">
               <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
@@ -77,7 +64,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/post/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-7">
+            <state relative-caret-position="192">
               <caret line="10" column="36" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
               <folding>
                 <element signature="e#17#36#0" expanded="true" />
@@ -251,18 +238,19 @@
       <workItem from="1561309775744" duration="30000" />
       <workItem from="1561309829112" duration="72000" />
       <workItem from="1561309944001" duration="29000" />
-      <workItem from="1561310027949" duration="8117000" />
+      <workItem from="1561310027949" duration="8303000" />
+      <workItem from="1561390177283" duration="3124000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="50343000" />
+    <option name="totallyTimeSpent" value="53653000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2761087" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27968526" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -450,18 +438,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/authen/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="45" selection-start-line="45" selection-end-line="45" />
-          <folding>
-            <element signature="e#17#68#0" expanded="true" />
-            <element signature="e#307#399#0" />
-            <element signature="e#434#1326#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/api/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="21">
@@ -473,16 +449,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-97">
           <caret line="9" column="54" lean-forward="true" selection-start-line="9" selection-start-column="54" selection-end-line="9" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/authen/serializers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="19" column="48" lean-forward="true" selection-start-line="19" selection-start-column="48" selection-end-line="19" selection-end-column="48" />
-          <folding>
-            <element signature="e#23#61#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -523,23 +489,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/post/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="10" column="36" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
-          <folding>
-            <element signature="e#17#36#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/post/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7">
-          <caret line="12" column="44" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/base/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="312">
@@ -560,9 +509,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/requirements/development.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-111" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/post/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="12" column="44" selection-start-line="12" selection-start-column="44" selection-end-line="12" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/apps/authen/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
+        <state relative-caret-position="216">
           <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
@@ -570,15 +531,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/requirements/development.txt">
+    <entry file="file://$PROJECT_DIR$/apps/post/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-111" />
+        <state relative-caret-position="192">
+          <caret line="10" column="36" selection-start-line="10" selection-start-column="36" selection-end-line="10" selection-end-column="36" />
+          <folding>
+            <element signature="e#17#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/authen/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="19" column="48" lean-forward="true" selection-start-line="19" selection-start-column="48" selection-end-line="19" selection-end-column="48" />
+          <folding>
+            <element signature="e#23#61#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/authen/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="35" column="48" lean-forward="true" selection-start-line="35" selection-start-column="48" selection-end-line="35" selection-end-column="48" />
+          <folding>
+            <element signature="e#17#68#0" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/post/serializers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="26" selection-start-line="26" selection-end-line="26" />
+        <state relative-caret-position="337">
+          <caret line="31" column="30" lean-forward="true" selection-start-line="31" selection-start-column="30" selection-end-line="31" selection-end-column="30" />
           <folding>
             <element signature="e#22#60#0" expanded="true" />
           </folding>
