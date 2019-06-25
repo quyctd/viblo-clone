@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 import { PublishPostService } from '../publish-post.service';
 import {Router} from '@angular/router';
 import { auditTime } from 'rxjs/operators';
+import { SimplemdeModule } from 'ngx-simplemde';
 
 @Component({
   selector: 'app-publish-post',
@@ -18,6 +19,7 @@ export class PostComponent implements OnInit, AfterViewInit {
   isCanPublish = false;
   isSaved = false;
   savedTime = "";
+  customize: any;
 
   // tslint:disable-next-line:variable-name
   constructor(public formBuilder: FormBuilder, public postApi: PublishPostService, _router: Router) {
