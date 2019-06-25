@@ -21,10 +21,10 @@
                       <div class="post-author__info overflow-hidden mr-1">
                         <div class="d-flex">
                           <div class="overflow-hidden flex-fix mr-05">
-                            <a routerLink="/u/{{ postData.author_data.username }}" class="text-bold post-author__name">
+                            <a routerLink="/u/{{ postData.author_data.username ? postData.author_data.username : 'Admin'}}" class="text-bold post-author__name">
                               {{ postData.author_data.username ? postData.author_data.username : 'Admin'}}
                             </a>
-                            <span class="text-muted">@{{ postData.author_data.username }}</span>
+                            <span class="text-muted">@{{ postData.author_data.username ? postData.author_data.username : 'Admin'}}</span>
                           </div>
                           <a routerLink="https://accounts.viblo.asia/profile/personal" target="_blank">
                             <button type="button" class="el-button el-button--default el-button--mini-mini">
@@ -47,13 +47,13 @@
                     </div>
                     <div class="post-meta d-flex flex-column flex-wrap align-items-sm-end">
                       <div class="text-muted">
-                        <span *ngIf="postData.status=='draft'">
+                        <span *ngIf="postData['status']=='draft'">
                           <i aria-hidden="true" class="fa fa-lock"></i> Draft
                         </span>
-                        <span *ngIf="postData.status=='draft_public'">
+                        <span *ngIf="postData['status']=='draft_public'">
                             <i aria-hidden="true" class="fa fa-eye-slash"></i> Unlisted
                         </span>
-                        <span *ngIf="postData.status=='public'">
+                        <span *ngIf="postData['status']=='public'">
                             Published
                         </span>
                       </div>
