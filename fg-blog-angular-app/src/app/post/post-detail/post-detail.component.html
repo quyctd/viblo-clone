@@ -21,10 +21,10 @@
                       <div class="post-author__info overflow-hidden mr-1">
                         <div class="d-flex">
                           <div class="overflow-hidden flex-fix mr-05">
-                            <a routerLink="/u/{{ postData.author_data.username ? postData.author_data.username : 'Admin'}}" class="text-bold post-author__name">
-                              {{ postData.author_data.username ? postData.author_data.username : 'Admin'}}
+                            <a routerLink="/u/{{ postData['author_data']['username'] ? postData['author_data']['username'] : 'Admin'}}" class="text-bold post-author__name">
+                              {{ postData['author_data']['username'] }}
                             </a>
-                            <span class="text-muted">@{{ postData.author_data.username ? postData.author_data.username : 'Admin'}}</span>
+                            <span class="text-muted">@{{ postData['author_data']['username'] }}</span>
                           </div>
                           <a routerLink="https://accounts.viblo.asia/profile/personal" target="_blank">
                             <button type="button" class="el-button el-button--default el-button--mini-mini">
@@ -58,9 +58,9 @@
                         </span>
                       </div>
                       <div class="d-flex align-items-center">
-                        <div class="post-meta__item mr-1" data-tippy="" data-original-title="Views: postData.views">
+                        <div class="post-meta__item mr-1" data-tippy="" data-original-title="Views: postData['views']">
                           <i aria-hidden="true" class="far fa-eye post-meta__icon"></i>
-                          <span>{{ postData.views }}</span>
+                          <span>{{ postData['views'] }}</span>
                         </div>
                         <div class="post-meta__item mr-1" data-tippy="" data-original-title="Scroll to Comments">
                           <button type="button" class="el-button el-button--text">
@@ -72,7 +72,7 @@
                         <div class="post-meta__item" data-tippy="" data-original-title="Show all Clips">
                           <button type="button" class="el-button el-button--text">
                             <i class="fa fa-paperclip post-meta__icon"></i><span>
-                              {{ postData.clips }}
+                              {{ postData['clips'] }}
                             </span>
                           </button>
                         </div>
@@ -80,12 +80,12 @@
                     </div>
                   </div>
                   <h1 class="article-content__title">
-                    {{ postData.title ? postData.title : "Not found" }}
+                    {{ postData['title'] ? postData['title'] : "Not found" }}
                   </h1>
                 </header>
                 <div class="d-md-flex align-items-top justify-content-between">
                   <div class="tags">
-                    <a *ngFor="let tag of postData.tags" routerLink="/tags/{{tag}}" class="el-tag tag_3wKND el-tag--info el-tag--medium">
+                    <a *ngFor="let tag of postData['tags']" routerLink="/tags/{{tag}}" class="el-tag tag_3wKND el-tag--info el-tag--medium">
                       {{tag}}
                     </a>
                    
@@ -100,16 +100,16 @@
                       </button>
                       <ul ngbDropdownMenu aria-labelledby="dropdownBasic1"
                         class="el-dropdown-menu el-popper el-dropdown-menu--medium" id="dropdown-menu-17">
-                        <li *ngIf="postData.author == userData.id" tabindex="-1" class="el-dropdown-menu__item">
-                          <a routerLink="/posts/{{ postData.id }}/edit" class="link link--plain"><i aria-hidden="true"
+                        <li *ngIf="postData['author'] == userData['id'] " tabindex="-1" class="el-dropdown-menu__item">
+                          <a routerLink="/posts/{{ postData['id'] }}/edit" class="link link--plain"><i aria-hidden="true"
                               class="fa fa-edit pr-0 mr-05"></i>Edit
                           </a>
                         </li>
-                        <li *ngIf="postData.author == userData.id" tabindex="-1" class="el-dropdown-menu__item">
+                        <li *ngIf="postData['author'] == userData['id'] " tabindex="-1" class="el-dropdown-menu__item">
                           <i aria-hidden="true" class="fa fa-trash pr-0 mr-05"></i>
                           Delete this post
                         </li>
-                        <li *ngIf="postData.author != userData.id" tabindex="-1" class="el-dropdown-menu__item">
+                        <li *ngIf="postData['author'] != userData['id'] " tabindex="-1" class="el-dropdown-menu__item">
                           <i aria-hidden="true" class="fa fa-flag-o pr-0 mr-05"></i>
                           Report
                         </li>
@@ -122,7 +122,7 @@
                 </div>
                 <div class="mt-1"></div>
                 <div class="md-contents article-content__body my-2 flex-fill">
-                  <markdown [data]="postData.content"></markdown>
+                  <markdown [data]="postData['content']"></markdown>
                 </div>
                 <div class="post-footer d-flex align-items-center justify-content-end mb-2">
                   <div data-v-a12f229c="" class="social-sharing mr-1 social-sharing--vertical social-sharing--medium">
@@ -147,16 +147,16 @@
                       </button>
                       <ul ngbDropdownMenu aria-labelledby="dropdownBasic2"
                         class="el-dropdown-menu el-popper el-dropdown-menu--medium" id="dropdown-menu-3418">
-                        <li *ngIf="postData.author == userData.id" tabindex="-1" class="el-dropdown-menu__item">
-                          <a routerLink="/posts/{{ postData.id }}/edit" class="link link--plain"><i aria-hidden="true"
+                        <li *ngIf="postData['author'] == userData['id'] " tabindex="-1" class="el-dropdown-menu__item">
+                          <a routerLink="/posts/{{ postData['id'] }}/edit" class="link link--plain"><i aria-hidden="true"
                               class="fa fa-edit pr-0 mr-05"></i>Edit
                           </a>
                         </li>
-                        <li *ngIf="postData.author == userData.id" tabindex="-1" class="el-dropdown-menu__item">
+                        <li *ngIf="postData['author'] == userData['id'] " tabindex="-1" class="el-dropdown-menu__item">
                           <i aria-hidden="true" class="fa fa-trash pr-0 mr-05"></i>
                           Delete this post
                         </li>
-                        <li *ngIf="postData.author != userData.id" tabindex="-1" class="el-dropdown-menu__item">
+                        <li *ngIf="postData['author'] != userData['id'] " tabindex="-1" class="el-dropdown-menu__item">
                           <i aria-hidden="true" class="fa fa-flag-o pr-0 mr-05"></i>
                           Report
                         </li>
@@ -173,7 +173,7 @@
               <div class="sticky-sidebar post-sidebar post-body__sidebar">
 
                   <div class="sticky-sidebar__inner" style="width: 255px;">
-                    <app-table-of-contents [toc]="postData.toc" url="/p/{{postData.id}}"></app-table-of-contents>
+                    <app-table-of-contents [toc]="postData['toc']" url="/p/{{postData['id'] }}"></app-table-of-contents>
                     <br />
                     <app-suggest-orgnizations></app-suggest-orgnizations>
                   </div>
