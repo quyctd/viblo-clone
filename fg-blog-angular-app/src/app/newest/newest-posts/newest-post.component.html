@@ -72,9 +72,12 @@
 
               <div class="post-feed">
                 <div class="post-layout-switcher">
-                  <a title="Only title" class="link active"><i aria-hidden="true" class="fa fa-th-list"></i></a>
-                  <a title="With preview contents" class="link"><i aria-hidden="true"
-                      class="fa fa-newspaper-o"></i></a>
+                  <a title="Only title" (click)="switchLayout()" [ngClass]="{'link': true, 'active': !switcherLayout }">
+                    <i aria-hidden="true" class="fa fa-th-list"></i>
+                  </a>
+                  <a title="With preview contents" (click)="switchLayout()" [ngClass]="{'link': true, 'active': switcherLayout }">
+                    <i aria-hidden="true" class="fa fa-newspaper-o"></i>
+                  </a>
                 </div>
                 <div *ngFor='let post of newestPost' class="post-feed-item">
                   <a href="/u/{{post.author_data.username}}" class="mr-05"><img
@@ -160,17 +163,19 @@
                           
                       </div>
                     </div>
-
+                    <div *ngIf="switcherLayout" class="md-contents" [innerHtml]='post.preview_content'>
+                      
+                    </div>
                     <div class="d-flex justify-content-between">
                       <div class="d-flex">
                         <div class="stats">
-                          <span title="Views: 3" class="stats-item text-muted">
+                          <span title="Views: {{ post.views }}" class="stats-item text-muted">
                             <i aria-hidden="true" class="stats-item__icon fa fa-eye"></i>
-                            3 
+                            {{ post.views }}
                           </span>
                           <span title="Clips: 0" class="stats-item text-muted"><i aria-hidden="true"
                               class="stats-item__icon fa fa-paperclip"></i>
-                            0 
+                              {{ post.clips }} 
                           </span>
                           <span title="Comments: 0" class="stats-item text-muted"><i aria-hidden="true"
                               class="stats-item__icon fa fa-comments"></i>

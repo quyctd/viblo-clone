@@ -18,6 +18,7 @@ class PostSerializer(TaggitSerializer, serializers.ModelSerializer):
     tags = TagListSerializerField()
     author_data = serializers.SerializerMethodField()
     toc = serializers.SerializerMethodField()
+    preview_content = serializers.SerializerMethodField()
 
     def get_author_data(self, obj):
         author = obj.author
@@ -31,6 +32,13 @@ class PostSerializer(TaggitSerializer, serializers.ModelSerializer):
         toc = md.toc_tokens
         ret = flatten_toc(toc)
         return ret
+
+    def get_preview_content(self, obj):
+        prev_content = obj.content[:200]
+        md = markdown.Markdown()
+        html = md.convert(prev_content)
+        html = html.replace('h1', 'p').replace('h2', 'p').replace('h3', 'p')
+        return html
 
     class Meta:
         model = models.Post

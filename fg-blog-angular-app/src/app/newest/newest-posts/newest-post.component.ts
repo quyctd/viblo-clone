@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class NewestPostComponent implements OnInit {
 
   newestPost: [];
+  switcherLayout = false; // false is Only title, true is with preview
 
   constructor(private api: NewestPostsService, private router: Router) { }
 
@@ -30,6 +31,10 @@ export class NewestPostComponent implements OnInit {
         console.log('Get newest post: ', error);
       }
     );
+  }
+
+  switchLayout() {
+    this.switcherLayout = !this.switcherLayout;
   }
 
 }

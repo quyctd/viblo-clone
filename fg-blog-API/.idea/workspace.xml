@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26a4d0dc-4929-46d9-b9f9-d9014f22a95d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/apps/post/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/post/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/post/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/post/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/post/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/post/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/newest/newest-posts/newest-post.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/newest/newest-posts/newest-post.component.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,8 +20,22 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/post/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="651">
-              <caret line="35" selection-start-line="35" selection-end-line="35" />
+            <state relative-caret-position="312">
+              <caret line="19" column="45" lean-forward="true" selection-start-line="19" selection-start-column="45" selection-end-line="19" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/apps/post/serializers.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="299">
+              <caret line="36" column="39" selection-start-line="36" selection-start-column="39" selection-end-line="36" selection-end-column="39" />
+              <folding>
+                <element signature="e#22#60#0" expanded="true" />
+                <element signature="e#696#782#0" />
+                <element signature="e#1106#1532#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -57,10 +73,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/apps/post/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
+            <state relative-caret-position="740">
               <caret line="35" column="25" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
@@ -86,18 +102,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-1622">
               <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/apps/authen/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
-              <caret line="19" column="43" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
-              <folding>
-                <element signature="e#17#68#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -152,14 +156,14 @@
         <option value="$PROJECT_DIR$/apps/authen/admin.py" />
         <option value="$PROJECT_DIR$/apps/post/urls.py" />
         <option value="$PROJECT_DIR$/apps/authen/views.py" />
-        <option value="$PROJECT_DIR$/apps/post/serializers.py" />
         <option value="$PROJECT_DIR$/VibloAsia/settings/development.py" />
         <option value="$PROJECT_DIR$/VibloAsia/settings/production.py" />
         <option value="$PROJECT_DIR$/apps/authen/urls.py" />
         <option value="$PROJECT_DIR$/apps/authen/serializers.py" />
         <option value="$PROJECT_DIR$/apps/authen/models.py" />
-        <option value="$PROJECT_DIR$/apps/post/views.py" />
         <option value="$PROJECT_DIR$/apps/post/models.py" />
+        <option value="$PROJECT_DIR$/apps/post/views.py" />
+        <option value="$PROJECT_DIR$/apps/post/serializers.py" />
       </list>
     </option>
   </component>
@@ -310,12 +314,12 @@
       <workItem from="1561309829112" duration="72000" />
       <workItem from="1561309944001" duration="29000" />
       <workItem from="1561310027949" duration="8303000" />
-      <workItem from="1561390177283" duration="8215000" />
+      <workItem from="1561390177283" duration="9117000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="58744000" />
+    <option name="totallyTimeSpent" value="59646000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -326,7 +330,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32771084" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3280098" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.25061426" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -335,7 +339,7 @@
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32891566" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="11" visible="true" weight="0.2899263" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.2899263" />
       <window_info anchor="bottom" id="Python Console" order="12" weight="0.32891566" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -548,16 +552,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/apps/post/serializers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
-          <caret line="21" column="35" lean-forward="true" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
-          <folding>
-            <element signature="e#22#60#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/apps/authen/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
@@ -585,13 +579,6 @@
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/apps/post/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="651">
-          <caret line="35" selection-start-line="35" selection-end-line="35" />
         </state>
       </provider>
     </entry>
@@ -641,10 +628,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/post/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
+        <state relative-caret-position="740">
           <caret line="35" column="25" selection-start-line="35" selection-start-column="25" selection-end-line="35" selection-end-column="25" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/post/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="312">
+          <caret line="19" column="45" lean-forward="true" selection-start-line="19" selection-start-column="45" selection-end-line="19" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/apps/post/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="36" column="39" selection-start-line="36" selection-start-column="39" selection-end-line="36" selection-end-column="39" />
+          <folding>
+            <element signature="e#22#60#0" expanded="true" />
+            <element signature="e#696#782#0" />
+            <element signature="e#1106#1532#0" />
           </folding>
         </state>
       </provider>
