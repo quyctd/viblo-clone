@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NewestPostsService } from './newest-posts.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-newest',
@@ -10,9 +11,12 @@ export class NewestPostComponent implements OnInit {
 
   newestPost: [];
 
-  constructor(private api: NewestPostsService) { }
+  constructor(private api: NewestPostsService, private router: Router) { }
 
   ngOnInit() {
+    if (this.router.url == "/") {
+      this.router.navigateByUrl('/newest');
+    }
     this.getNewestPost();
   }
 

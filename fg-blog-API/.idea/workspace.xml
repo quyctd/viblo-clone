@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="26a4d0dc-4929-46d9-b9f9-d9014f22a95d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/auth/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/auth/auth.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/base/base.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/base/base.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/post/post-manage.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/post/post-manage.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/publish/publish-post.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/publish/publish-post.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fg-blog-angular-app/src/environments/environment.prod.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/environments/environment.prod.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fg-blog-angular-app/src/environments/environment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/environments/environment.ts" afterDir="false" />
-    </list>
+    <list default="true" id="26a4d0dc-4929-46d9-b9f9-d9014f22a95d" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

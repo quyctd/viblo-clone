@@ -87,6 +87,7 @@ import { SafeHtml } from './post/post-detail/safeHtml.pipe';
     MarkdownModule.forRoot(),
     SimplemdeModule.forRoot(),
     RouterModule.forRoot([
+      { path: '', component : NewestPostComponent},
       { path: 'newest', component : NewestPostComponent},
       { path: 'login', component : LoginComponent},
       { path: 'register', component : RegisterComponent},
@@ -101,7 +102,6 @@ import { SafeHtml } from './post/post-detail/safeHtml.pipe';
       { path: 'authors', component : AuthorsComponent},
       { path: 'logout', component : LogoutComponent},
       { path: 'publish/post', component : PublishPostComponent},
-      { path: '**', redirectTo: "/newest"}
 
     ])
   ],
