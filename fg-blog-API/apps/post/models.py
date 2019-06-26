@@ -5,6 +5,7 @@ from django.template.defaultfilters import slugify
 from apps.authen.models import CustomUser
 from django.core.validators import MinValueValidator
 from apps.base.models import BasePost
+import jsonfield
 
 # Create your models here.
 
@@ -23,6 +24,7 @@ class Post(BasePost):
     slug = models.SlugField(max_length=2048, blank=True)
 
     views = models.PositiveIntegerField(default=0, validators=[MinValueValidator(0)])
+    views_id = jsonfield.JSONField(default={"view_users": []})
     clips = models.PositiveIntegerField(default=0, validators=[MinValueValidator(0)])
 
     def __str__(self):
@@ -30,4 +32,5 @@ class Post(BasePost):
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
+        self.views = len(self.views_id['view_users'])
         super(Post, self).save(*args, **kwargs)

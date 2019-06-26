@@ -33,6 +33,10 @@ export class PostDetailComponent implements OnInit {
       data => {
         console.log(data);
         this.postData = data;
+        if (data.status === 'draft') {
+          this.router.navigateByUrl('/404');
+        }
+        this.updateViewPost();
       },
       error => {
         console.log("ERROR: ", error);
@@ -43,6 +47,39 @@ export class PostDetailComponent implements OnInit {
 
   get userData() {
     return JSON.parse(localStorage.getItem('currentUser'));
+  }
+
+  updateViewPost() {
+    // tslint:disable:no-string-literal
+    // tslint:disable:variable-name
+    const viewUserId = this.userData.id;
+    // tslint:disable-next-line:triple-equals
+    if (viewUserId == this.postData['author']) {
+      return;
+    }
+    const view_users = this.postData['views_id']['view_users'];
+    if (view_users.includes(viewUserId)) {
+      return;
+    }
+    // tslint:disable-next-line:variable-name
+    const new_view_users = {view_users: [].concat(view_users.push(viewUserId) || [])};
+    const formData = {
+      author: this.postData['author'],
+      content: this.postData['content'],
+      tags: this.postData['tags'],
+      title: this.postData['title'],
+      views_id: new_view_users
+    };
+    console.log(formData);
+    this.postApi.updatePost(this.id, formData).subscribe(
+      data => {
+        console.log("Update success", data);
+        this.postData['views'] = data.views;
+      },
+      error => {
+        console.log("Update error", error);
+      }
+    );
   }
 
 }

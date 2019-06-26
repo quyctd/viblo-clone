@@ -14,6 +14,7 @@ export class NewestPostComponent implements OnInit {
   constructor(private api: NewestPostsService, private router: Router) { }
 
   ngOnInit() {
+    // tslint:disable-next-line:triple-equals
     if (this.router.url == "/") {
       this.router.navigateByUrl('/newest');
     }
