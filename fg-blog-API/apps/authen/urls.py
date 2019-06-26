@@ -7,10 +7,10 @@ from rest_framework import routers
 from django.conf.urls import url, include
 
 router = routers.DefaultRouter()
-# router.register(r'users', views.UserViewSet)
+router.register(r'users', views.UserListView.as_view(), base_name="list_user")
 
 urlpatterns = [
-    # url(r'^', include(router.urls)),
+    # url(r'^$', include(router.urls)),
 
     path('accounts/', include('rest_auth.urls')),
     path('accounts/registration/', include('rest_auth.registration.urls')),

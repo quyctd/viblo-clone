@@ -121,7 +121,9 @@ export class LoginComponent implements OnInit {
   getUserData(token) {
     this.api.getUserDataFromToken(token).subscribe(
       data => {
-        localStorage.setItem('currentUser', JSON.stringify({ id: data.id, name: data.name, username: data.username, email: data.email}));
+        console.log(data);
+        const nameOfUser = data.name ? data.name : data.username;
+        localStorage.setItem('currentUser', JSON.stringify({ id: data.id, name: nameOfUser, username: data.username, email: data.email}));
         console.log(localStorage.getItem('currentUser'));
       },
       error => {

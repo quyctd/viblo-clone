@@ -13,7 +13,7 @@ class UserSerializer(serializers.ModelSerializer):
 class TokenUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.CustomUser
-        fields = ('id', 'name', 'username', 'email')
+        fields = '__all__'
 
 
 class CustomRegistrationSerializer(RegisterSerializer):
