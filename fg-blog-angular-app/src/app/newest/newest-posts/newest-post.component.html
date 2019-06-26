@@ -77,7 +77,7 @@
                       class="fa fa-newspaper-o"></i></a>
                 </div>
                 <div *ngFor='let post of newestPost' class="post-feed-item">
-                  <a href="/u/{{post.author.username}}" class="mr-05"><img
+                  <a href="/u/{{post.author_data.username}}" class="mr-05"><img
                       src="../../../assets/user_avatar.jpg" srcset="../../../assets/user_avatar.jpg" class="avatar avatar--md" data-v-fa4ddde2 /></a>
                   <div class="post-feed-item__info">
                     <div class="post-meta--inline">
@@ -92,11 +92,11 @@
                                     src="../../../assets/user_avatar.jpg"
                                     srcset="../../../assets/user_avatar.jpg" class="avatar avatar--xl" data-v-fa4ddde2 /></a>
                                 <div class="col-9">
-                                  <a href="/u/{{ post.author.username }}">
-                                    {{ post.author.name ? post.author.name : 'Admin' }}
+                                  <a href="/u/{{ post.author_data.username }}">
+                                    {{ post.author_data.name ? post.author_data.name : 'Admin' }}
                                   </a>
                                   <br />
-                                  <span class="text-muted">@{{ post.author.username }}</span>
+                                  <span class="text-muted">@{{ post.author_data.username }}</span>
                                   <div>
                                     <div class="stats mt-05">
                                       <span title="Reputations: 122" class="stats-item text-muted"><i
@@ -126,8 +126,8 @@
                               </div>
                             </div>
                           </div>
-                          <a href="/u/{{ post.author.username }}" class="mr-05">
-                            {{ post.author.name ? post.author.name : 'Admin' }}
+                          <a href="/u/{{ post.author_data.username }}" class="mr-05">
+                            {{ post.author_data.name ? post.author_data.name : 'Admin' }}
                           </a>
                         </span>
 
