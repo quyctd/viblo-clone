@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26a4d0dc-4929-46d9-b9f9-d9014f22a95d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/apps/base/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/base/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/post/post-detail/post-detail.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/post/post-detail/post-detail.component.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -312,12 +312,12 @@
       <workItem from="1561309829112" duration="72000" />
       <workItem from="1561309944001" duration="29000" />
       <workItem from="1561310027949" duration="8303000" />
-      <workItem from="1561390177283" duration="11585000" />
+      <workItem from="1561390177283" duration="11873000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62114000" />
+    <option name="totallyTimeSpent" value="62402000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />

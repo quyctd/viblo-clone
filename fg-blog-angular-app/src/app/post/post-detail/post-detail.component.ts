@@ -52,19 +52,20 @@ export class PostDetailComponent implements OnInit {
   updateViewPost() {
     // tslint:disable:no-string-literal
     // tslint:disable:variable-name
+
     const viewUserId = this.userData.id;
     // tslint:disable-next-line:triple-equals
     if (viewUserId == this.postData['author']) {
       return;
     }
-    const view_users = this.postData['views_id']['view_users'];
+    // tslint:disable-next-line:prefer-const
+    let view_users = this.postData['views_id']['view_users'];
     if (view_users.includes(viewUserId)) {
       return;
     }
-    // tslint:disable-next-line:variable-name
-    console.log(view_users);
-    console.log(viewUserId);
-    const new_view_users = {view_users: [].concat(view_users.push(viewUserId) || [])};
+    view_users.push(viewUserId);
+    // tslint:disable-next-line:object-literal-shorthand
+    const new_view_users = {view_users: view_users};
     const formData = {
       author: this.postData['author'],
       content: this.postData['content'],
