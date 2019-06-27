@@ -62,6 +62,8 @@ export class PostDetailComponent implements OnInit {
       return;
     }
     // tslint:disable-next-line:variable-name
+    console.log(view_users);
+    console.log(viewUserId);
     const new_view_users = {view_users: [].concat(view_users.push(viewUserId) || [])};
     const formData = {
       author: this.postData['author'],
@@ -73,7 +75,6 @@ export class PostDetailComponent implements OnInit {
     console.log(formData);
     this.postApi.updatePost(this.id, formData).subscribe(
       data => {
-        console.log("Update success", data);
         this.postData['views'] = data.views;
       },
       error => {

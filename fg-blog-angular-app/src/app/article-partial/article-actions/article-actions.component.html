@@ -1,13 +1,13 @@
 <div class="p-0 hidden-md-down col-lg-1">
   <div class="post-actions d-flex flex-column align-items-center mx-auto">
     <div class="votes votes--side post-actions__vote mb-1">
-      <button class="icon-btn vote" data-tippy="" data-original-title="You cannot vote your own content">
+      <button [ngClass]="{'icon-btn': true, 'vote': true, 'voted': isUpVote}" data-tippy="" (click)="toggleUpvote()" [attr.data-original-title]="upVoteText">
         <i aria-hidden="true" class="fa fa-caret-up"></i>
       </button>
-      <div class="points text-muted">
-        0
+      <div [ngClass]="{'points': true, 'text-muted': !isVote, 'text-primary': isVote, 'text-bold': isVote}">
+        {{voteString}}
       </div>
-      <button class="icon-btn vote" data-tippy="" data-original-title="You cannot vote your own content">
+      <button [ngClass]="{'icon-btn': true, 'vote': true, 'voted': isDownVote}" data-tippy="" (click)="toggleDownvote()" [attr.data-original-title]="downVoteText">
         <i aria-hidden="true" class="fa fa-caret-down"></i>
       </button>
     </div>
