@@ -43,7 +43,7 @@ import { ArticleActionsComponent } from './article-partial/article-actions/artic
 import { ArticleCommentsComponent } from './article-partial/article-comments/article-comments.component';
 import { NewestQuestionsComponent } from './newest/newest-questions/newest-questions.component';
 import { NewestDiscussionsComponent } from './newest/newest-discussions/newest-discussions.component';
-import { SafeHtml } from './post/post-detail/safeHtml.pipe';
+import { NotfoundComponent } from './errors/notfound/notfound.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +72,7 @@ import { SafeHtml } from './post/post-detail/safeHtml.pipe';
     ArticleCommentsComponent,
     NewestQuestionsComponent,
     NewestDiscussionsComponent,
-    SafeHtml
+    NotfoundComponent
   ],
   imports: [
     BrowserModule,
@@ -102,7 +102,7 @@ import { SafeHtml } from './post/post-detail/safeHtml.pipe';
       { path: 'authors', component : AuthorsComponent},
       { path: 'logout', component : LogoutComponent},
       { path: 'publish/post', component : PublishPostComponent},
-
+      { path: '404', component: NotfoundComponent}
     ])
   ],
   providers: [

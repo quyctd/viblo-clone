@@ -54,7 +54,7 @@
                             <i aria-hidden="true" class="fa fa-eye-slash"></i> Unlisted
                         </span>
                         <span *ngIf="postData['status']=='public'">
-                            Published
+                            Published on {{getTimePublish(postData['create_time']) }} - {{ getReadTime(postData['content']) }} min read
                         </span>
                       </div>
                       <div class="d-flex align-items-center">

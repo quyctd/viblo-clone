@@ -1,5 +1,5 @@
 # users/views.py
-from rest_framework import viewsets
+from rest_framework import viewsets, generics
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
@@ -53,3 +53,14 @@ class PostClipFindView(APIView):
                 return Response({'status': True, 'clip_id': post_clip.id})
             else:
                 return Response({'status': False, 'clip_id': None})
+
+
+class NewestPostList(generics.ListAPIView):
+
+    serializer_class = serializers.PostSerializer
+
+    def get_queryset(self):
+        """
+        This view should return a list of all the newest post.
+        """
+        return models.Post.objects.filter(status="public").order_by('-create_time')

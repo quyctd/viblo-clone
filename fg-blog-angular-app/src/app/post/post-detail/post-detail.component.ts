@@ -1,7 +1,7 @@
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { PostManageService } from '../post-manage.service';
-import { switchMap } from 'rxjs/operators';
+import { calTimeDifference, calReadTime } from '../../utils/utils';
 
 @Component({
   selector: 'app-post-detail',
@@ -84,7 +84,15 @@ export class PostDetailComponent implements OnInit {
   }
 
   receiveClipEvent(clips) {
-    this.postData.clips = clips;
+    this.postData['clips'] = clips;
+  }
+
+  getTimePublish(publishDay) {
+    return calTimeDifference(publishDay);
+  }
+
+  getReadTime(content) {
+    return calReadTime(content);
   }
 }
 

@@ -14,6 +14,6 @@ export class NewestPostsService extends BaseService {
   }
 
   getNewestPost(): Observable<any> {
-    return this.http.get(this.baseUrl, {headers: this.httpHeaders});
+    return this.http.get(this.baseUrl + "newest/", {headers: this.httpHeaders});
   }
 }
