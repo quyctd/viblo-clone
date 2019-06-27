@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NewestPostsService } from './newest-posts.service';
 import { Router } from '@angular/router';
+import { calTimeDifference, calReadTime } from '../../utils/utils';
 
 @Component({
   selector: 'app-newest',
@@ -35,6 +36,14 @@ export class NewestPostComponent implements OnInit {
 
   switchLayout() {
     this.switcherLayout = !this.switcherLayout;
+  }
+
+  getTimePublish(publishDay) {
+    return calTimeDifference(publishDay);
+  }
+
+  getReadTime(content) {
+    return calReadTime(content);
   }
 
 }

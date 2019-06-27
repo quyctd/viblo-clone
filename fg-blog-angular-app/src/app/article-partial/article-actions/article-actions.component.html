@@ -12,7 +12,7 @@
       </button>
     </div>
     <div data-v-7647d65c="" class="subscribe mb-2">
-      <button data-v-7647d65c="" type="button" class="el-button post-actions__clip el-button--default" data-tippy=""
+      <button data-v-7647d65c="" type="button" (click)="toggleClipPost()" [ngClass]="{'el-button':true, 'post-actions__clip':true, 'el-button--default':true, 'clipped': isClip}" data-tippy=""
         data-original-title="Clip this post">
         <i class="fa fa-paperclip"></i>
       </button>

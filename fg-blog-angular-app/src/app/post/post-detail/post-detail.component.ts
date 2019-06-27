@@ -33,7 +33,7 @@ export class PostDetailComponent implements OnInit {
       data => {
         console.log(data);
         this.postData = data;
-        if (data.status === 'draft') {
+        if (data.status === 'draft' && this.userData.id !== data.author) {
           this.router.navigateByUrl('/404');
         }
         this.updateViewPost();
@@ -73,7 +73,6 @@ export class PostDetailComponent implements OnInit {
       title: this.postData['title'],
       views_id: new_view_users
     };
-    console.log(formData);
     this.postApi.updatePost(this.id, formData).subscribe(
       data => {
         this.postData['views'] = data.views;
@@ -84,5 +83,8 @@ export class PostDetailComponent implements OnInit {
     );
   }
 
+  receiveClipEvent(clips) {
+    this.postData.clips = clips;
+  }
 }
 

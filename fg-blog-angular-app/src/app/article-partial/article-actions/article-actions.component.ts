@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { PostManageService } from 'src/app/post/post-manage.service';
 import { Router } from '@angular/router';
 
@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class ArticleActionsComponent implements OnInit {
 
   @Input() postId: any;
+  @Output() clipEvent = new EventEmitter<any>();
   voteNumber = 0;
   voteString = "";
   isUpVote = false;
@@ -19,11 +20,14 @@ export class ArticleActionsComponent implements OnInit {
   isVote = false;
   userIsAuthor = false;
   postData: any;
+  isClip = false;
+  clipId = null;
 
   constructor(private postApi: PostManageService, private router: Router) { }
 
   ngOnInit() {
     this.getPostDataWithId(this.postId);
+    this.getPostClipData(this.postId, this.currentUser.id);
   }
 
   getPostDataWithId(id) {
@@ -38,6 +42,18 @@ export class ArticleActionsComponent implements OnInit {
       error => {
         console.log("ERROR: ", error);
         this.router.navigateByUrl('newest');
+      }
+    );
+  }
+
+  getPostClipData(postId, userId) {
+    this.postApi.findPostClipData(postId, userId).subscribe(
+      data => {
+        this.isClip = data.status;
+        this.clipId = data.clip_id;
+      },
+      error => {
+        console.log("Error", error);
       }
     );
   }
@@ -175,5 +191,40 @@ export class ArticleActionsComponent implements OnInit {
         console.log("Error: ", error);
       }
     );
+  }
+
+  toggleClipPost() {
+    if (this.userIsAuthor) {
+      this.isClip = !this.isClip;
+      return;
+    } else {
+      if (this.isClip) {
+        // do delete in model
+        this.postApi.deletePostClip(this.clipId).subscribe(
+          data => {
+            this.isClip = false;
+            this.clipId = null;
+            this.postData.clips -= 1;
+            this.clipEvent.emit(this.postData.clips);
+          },
+          error => {
+            console.log("Error: ", error);
+          }
+        );
+      } else {
+        // do create in model
+        this.postApi.createPostClip(this.postId, this.currentUser.id).subscribe(
+          data => {
+            this.isClip = true;
+            this.clipId = data.id;
+            this.postData.clips += 1;
+            this.clipEvent.emit(this.postData.clips);
+          },
+          error => {
+            console.log("Error", error);
+          }
+        );
+      }
+    }
   }
 }

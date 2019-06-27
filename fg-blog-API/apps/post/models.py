@@ -33,4 +33,26 @@ class Post(BasePost):
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
         self.views = len(self.views_id['view_users'])
+        self.clips = PostClipsUser.objects.filter(post=self.id).count()
         super(Post, self).save(*args, **kwargs)
+
+
+class PostClipsUser(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    user = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return str("User: %d - Post: %d" % (self.user.id, self.post.id))
+
+    def save(self, *args, **kwargs):
+        super(PostClipsUser, self).save(*args, **kwargs)
+        clips = PostClipsUser.objects.filter(post=self.post.id).count()
+        post = Post.objects.get(id=self.post.id)
+        post.clips = clips
+        post.save(update_fields=["clips"])
+
+    def delete(self, *args, **kwargs):
+        super(PostClipsUser, self).delete(*args, **kwargs)
+        post = Post.objects.get(id=self.post.id)
+        post.clips -= 1
+        post.save(update_fields=["clips"])

@@ -57,3 +57,9 @@ def flatten_toc(toc):
         child = toc[0]['children']
         return [heading] + flatten_toc(child) + flatten_toc(toc[1:])
     return toc[:1] + flatten_toc(toc[1:])
+
+
+class PostClipSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.PostClipsUser
+        fields = '__all__'

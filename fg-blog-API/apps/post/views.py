@@ -9,7 +9,7 @@ from apps.authen import models as auth_models, serializers as auth_serializers
 
 
 class PostViewSet(viewsets.ModelViewSet):
-    queryset = models.Post.objects.filter(status='public').order_by('-create_time')
+    queryset = models.Post.objects.all().order_by('-create_time')
     serializer_class = serializers.PostSerializer
 
 
@@ -34,3 +34,22 @@ class AuthorOfPostView(APIView):
         else:
             return Response({"error": "Post id is not provided"})
 
+
+class PostClipViewSet(viewsets.ModelViewSet):
+    queryset = models.PostClipsUser.objects.all()
+    serializer_class = serializers.PostClipSerializer
+
+
+class PostClipFindView(APIView):
+
+    @staticmethod
+    def get(request, *args, **kwargs):
+        post_id = kwargs.get('post_id', None)
+        user_id = kwargs.get('user_id', None)
+        if post_id and user_id:
+            post_clip = models.PostClipsUser.objects.filter(post=post_id, user=user_id).first()
+
+            if post_clip:
+                return Response({'status': True, 'clip_id': post_clip.id})
+            else:
+                return Response({'status': False, 'clip_id': None})

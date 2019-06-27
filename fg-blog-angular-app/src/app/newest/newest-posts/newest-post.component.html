@@ -139,10 +139,10 @@
                       <div class="post-meta d-inline-flex align-items-center flex-wrap">
                         <div class="text-muted mr-05">
                           <span title="Jun 9th, 5:14 PM" class="mr-05">
-                            in about 6 hours
+                            {{getTimePublish(post.create_time) }}
                           </span>
                           <span title="6 min read" class="text-muted post-reading_time mr-05 is-divide">
-                            6 min read
+                            {{getReadTime(post.content)}} min read
                           </span>
                           <button title="Copy URL" class="icon-btn copyUrl_13z_m">
                             <i aria-hidden="true" class="fa fa-link"></i>
@@ -189,7 +189,7 @@
                           <i aria-hidden="true" class="fa fa-caret-up"></i><i aria-hidden="true"
                             class="fa fa-caret-down"></i>
                         </div>
-                        <span class="text-muted">0</span>
+                        <span class="text-muted">{{ post.vote }}</span>
                       </div>
                     </div>
                   </div>

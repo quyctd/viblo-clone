@@ -1,5 +1,6 @@
+const CHAR_PER_MINUTE = 400;
 
-function dhm(ms: number) {
+function formatInDays(ms: number) {
      let days2: any = Math.floor(ms / (24 * 60 * 60 * 1000));
      const daysms: any = ms % (24 * 60 * 60 * 1000);
      let hours2: any = Math.floor((daysms) / (60 * 60 * 1000));
@@ -62,6 +63,101 @@ function ISODateString(d) {
          + pad(d.getUTCSeconds()) + 'Z';
 }
 
+function formatWeekDate(d) {
+     // tslint:disable:variable-name
+     d = new Date(d);
+     // determine days
+     const d_names = new Array("Sunday", "Monday", "Tuesday",
+     "Wednesday", "Thursday", "Friday", "Saturday");
+
+     const curr_day = d.getDay();
+     // determine the time hours
+     let a_p = "";
+     let curr_hour = d.getUTCHours();
+     if (curr_hour < 12) {
+     a_p = "AM";
+     } else {
+     a_p = "PM";
+     }
+     if (curr_hour == 0) {
+          curr_hour = 12;
+     }
+     if (curr_hour > 12) {
+          curr_hour = curr_hour - 12;
+     }
+     curr_hour = (curr_hour < 10) ? "0" + curr_hour : curr_hour;
+
+     let curr_minute = d.getUTCMinutes();
+     curr_minute = (curr_minute < 10) ? "0" + curr_minute : curr_minute;
+
+     return d_names[curr_day] + ", " + curr_hour + ":" + curr_minute + " " + a_p;
+}
+
+function formatMediumDate(d) {
+     d = new Date(d);
+     // tslint:disable:variable-name
+     const m_names = new Array("January", "February", "March",
+     "April", "May", "June", "July", "August", "September",
+     "October", "November", "December");
+
+     const curr_date = d.getDate();
+     let sup = "";
+     if (curr_date == 1 || curr_date == 21 || curr_date == 31) {
+     sup = "st";
+     } else if (curr_date == 2 || curr_date == 22) {
+     sup = "nd";
+     } else if (curr_date == 3 || curr_date == 23) {
+     sup = "rd";
+     } else {
+     sup = "th";
+     }
+     const curr_month = d.getMonth();
+
+     // determine the time hours
+     let a_p = "";
+     let curr_hour = d.getUTCHours();
+     if (curr_hour < 12) {
+     a_p = "AM";
+     } else {
+     a_p = "PM";
+     }
+     if (curr_hour == 0) {
+          curr_hour = 12;
+     }
+     if (curr_hour > 12) {
+          curr_hour = curr_hour - 12;
+     }
+     curr_hour = (curr_hour < 10) ? "0" + curr_hour : curr_hour;
+
+     let curr_minute = d.getUTCMinutes();
+     curr_minute = (curr_minute < 10) ? "0" + curr_minute : curr_minute;
+     return m_names[curr_month] + " " + curr_date + sup + ", " + curr_hour + ":" + curr_minute + " " + a_p;
+}
+
+function formatFarDate(d) {
+     // tslint:disable:variable-name
+     const m_names = new Array("January", "February", "March",
+     "April", "May", "June", "July", "August", "September",
+     "October", "November", "December");
+
+     d = new Date(d);
+     const curr_date = d.getDate();
+     let sup = "";
+     if (curr_date == 1 || curr_date == 21 || curr_date == 31) {
+     sup = "st";
+     } else if (curr_date == 2 || curr_date == 22) {
+     sup = "nd";
+     } else if (curr_date == 3 || curr_date == 23) {
+     sup = "rd";
+     } else {
+     sup = "th";
+     }
+     const curr_month = d.getMonth();
+     const curr_year = d.getFullYear();
+
+     return m_names[curr_month] + " " + curr_date + sup + ", " + curr_year;
+}
+
 export function calTimeDifference(updateTime) {
      updateTime = new Date(updateTime);
      const d = new Date();
@@ -72,9 +168,28 @@ export function calTimeDifference(updateTime) {
 
      // find the difference between the original post date/time and the current date/time (in milliseconds)
      const responseTimeFinal = Math.abs(finalCurrentTime - finalPostDateTime);
-
-     // pass the milliseconds from responseTimeFinal into the dhm function to convert it back to a date
-     const timeDifference = dhm(responseTimeFinal);
-
+     const days: any = Math.floor(responseTimeFinal / (24 * 60 * 60 * 1000));
+     let timeDifference: any;
+     if (days >= 1) {
+          if (updateTime.getFullYear() == d.getFullYear()) {
+               if (updateTime.getMonth() == d.getMonth() && Math.abs(updateTime.getDate() - d.getDate()) < 7 ) {
+                    timeDifference = formatWeekDate(updateTime);
+               } else {
+                    timeDifference = formatMediumDate(updateTime);
+               }
+          } else {
+               timeDifference = formatFarDate(updateTime);
+          }
+     } else {
+          // pass the milliseconds from responseTimeFinal into the dhm function to convert it back to a date
+          timeDifference = formatInDays(responseTimeFinal);
+     }
      return timeDifference;  // final result
+}
+
+export function calReadTime(document) {
+     const documentWithoutSpace = document.replace(/\s/g, '');
+     const documentLen = documentWithoutSpace.length;
+     const readTime = Math.round(documentLen / CHAR_PER_MINUTE);
+     return readTime;
 }

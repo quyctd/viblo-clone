@@ -24,4 +24,17 @@ export class PostManageService {
     return this.http.put(this.baseUrl + id + "/", body, {headers : this.httpHeaders});
   }
 
+  findPostClipData(postId, userId): Observable<any> {
+    return this.http.get(this.baseUrl + "clips/find/" + postId + "/" + userId + "/", {headers : this.httpHeaders});
+  }
+
+  createPostClip(postId, userId): Observable<any> {
+    const body = {post: postId, user: userId};
+    return this.http.post(this.baseUrl + "clips/", body, {headers : this.httpHeaders});
+  }
+
+  deletePostClip(clipId): Observable<any> {
+    return this.http.delete(this.baseUrl + "clips/" + clipId + "/", {headers: this.httpHeaders});
+  }
+
 }
