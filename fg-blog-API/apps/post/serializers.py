@@ -35,10 +35,8 @@ class PostSerializer(TaggitSerializer, serializers.ModelSerializer):
 
     def get_preview_content(self, obj):
         prev_content = obj.content[:200]
-        md = markdown.Markdown()
-        html = md.convert(prev_content)
-        html = html.replace('h1', 'p').replace('h2', 'p').replace('h3', 'p')
-        return html
+        prev_content = prev_content.replace("### ", " ").replace("## ", " ").replace("# ", " ")
+        return prev_content
 
     class Meta:
         model = models.Post

@@ -94,39 +94,12 @@
 
       <div *ngIf="currentToken" class="main-navbar__group">
         <div class="mr-1 el-dropdown">
-          <button type="button" class="el-button text-muted py-0 el-button--text el-dropdown-selfdefine"
+          <button appCustomDropdown type="button" class="el-button text-muted py-0 el-button--text el-dropdown-selfdefine"
             style="font-size:1.2rem;" data-tippy="" data-original-title="Write" aria-haspopup="list"
-            aria-controls="dropdown-menu-1056" role="button" tabindex="0" (click)="togglePostIcon($event)">
+            aria-controls="dropdown-menu-1056" role="button" tabindex="0">
             <i class="far fa-edit"></i>
           </button>
-
-          <ul class="el-dropdown-menu el-popper publish-dropdown el-dropdown-menu--wide el-dropdown-menu--medium"
-            [ngClass]="{
-              'el-dropdown-menu': true,
-              'el-popper': true,
-              'publish-dropdown': true,
-              'el-dropdown-menu--wide': true,
-              'el-dropdown-menu--medium': true,
-              'post_menu_show' : postDropDown
-            }"
-            id="dropdown-menu-1056"
-            style="display: none;"
-            x-placement="bottom-end">
-            <li tabindex="-1" class="el-dropdown-menu__item">
-              <a routerLink="/publish/post/" class="link link--plain"><i class="fa fa-pencil mr-05"></i> Write post
-              </a>
-            </li>
-            <li tabindex="-1" class="el-dropdown-menu__item el-dropdown-menu__item--divided">
-              <a routerLink="/publish/series" class="link link--plain"><i class="fa fa-list-ul mr-05"></i> New series
-              </a>
-            </li>
-            <li tabindex="-1" class="el-dropdown-menu__item el-dropdown-menu__item--divided">
-              <a routerLink="/questions/ask" class="link link--plain"><i class="fa fa-question-circle mr-05"></i> Ask question
-              </a>
-            </li>
-            <!---->
-            <div x-arrow="" class="popper__arrow" style="left: 129px;"></div>
-          </ul>
+          
         </div>
         <div>
           <span>
@@ -183,11 +156,37 @@
               <div x-arrow="" class="popper__arrow" style="left: 224px;"></div>
             </div>
             <img src="https://cdn.viblo.asia/_nuxt/img/0bca52a.png"
-              class="avatar avatar--md rounded-circle el-popover__reference" aria-describedby="el-popover-2686"
-              tabindex="0" (click)="toggleUserIcon($event)" (clickOutside)="clickOutsideUserIcon($event)"/>
+              class="avatar avatar--md rounded-circle el-popover__reference" aria-controls="el-popover-2686"
+              tabindex="0" appCustomDropdown/>
           </span>
         </div>
       </div>
     </div>
   </div>
 </header>
+<ul
+  [ngClass]="{
+    'el-dropdown-menu': true,
+    'el-popper': true,
+    'publish-dropdown': true,
+    'el-dropdown-menu--wide': true,
+    'el-dropdown-menu--medium': true,
+    'post_menu_show' : true
+  }" id="dropdown-menu-1056"
+  style="display: none;"
+  x-placement="bottom-end">
+  <li tabindex="-1" class="el-dropdown-menu__item">
+    <a routerLink="/publish/post/" class="link link--plain"><i class="fa fa-pencil mr-05"></i> Write post
+    </a>
+  </li>
+  <li tabindex="-1" class="el-dropdown-menu__item el-dropdown-menu__item--divided">
+    <a routerLink="/publish/series" class="link link--plain"><i class="fa fa-list-ul mr-05"></i> New series
+    </a>
+  </li>
+  <li tabindex="-1" class="el-dropdown-menu__item el-dropdown-menu__item--divided">
+    <a routerLink="/questions/ask" class="link link--plain"><i class="fa fa-question-circle mr-05"></i> Ask question
+    </a>
+  </li>
+  <!---->
+  <div x-arrow="" class="popper__arrow" style="left: 129px;"></div>
+</ul>

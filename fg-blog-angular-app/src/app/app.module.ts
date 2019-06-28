@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 // Social authen
 import { SocialLoginModule } from 'angularx-social-login';
@@ -44,6 +45,7 @@ import { ArticleCommentsComponent } from './article-partial/article-comments/art
 import { NewestQuestionsComponent } from './newest/newest-questions/newest-questions.component';
 import { NewestDiscussionsComponent } from './newest/newest-discussions/newest-discussions.component';
 import { NotfoundComponent } from './errors/notfound/notfound.component';
+import { CustomDropdownDirective } from './utils/custom-dropdown.directive';
 
 @NgModule({
   declarations: [
@@ -72,13 +74,15 @@ import { NotfoundComponent } from './errors/notfound/notfound.component';
     ArticleCommentsComponent,
     NewestQuestionsComponent,
     NewestDiscussionsComponent,
-    NotfoundComponent
+    NotfoundComponent,
+    CustomDropdownDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
     SocialLoginModule,
     FormsModule,
     ClickOutsideModule,
