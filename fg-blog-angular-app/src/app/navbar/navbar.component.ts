@@ -45,6 +45,17 @@ export class NavbarComponent implements OnInit {
 
   }
 
+  clickOutsideUserIcon(event) {
+    const target = event.target;
+    const userDropEle = document.getElementById("el-popover-2686");
+    if (userDropEle.contains(target)) {
+      return;
+    } else {
+      this.userDropDown = false;
+      userDropEle.style.display = 'none';
+    }
+  }
+
   togglePostIcon(event) {
     this.postDropDown = !this.postDropDown;
 

@@ -6,6 +6,25 @@ from rest_framework.views import APIView
 from . import models
 from . import serializers
 from apps.authen import models as auth_models, serializers as auth_serializers
+from rest_framework.pagination import PageNumberPagination
+
+
+class CustomPagination(PageNumberPagination):
+    page_size = 20
+    page_size_query_param = 'page_size'
+    max_page_size = 10000
+
+    def get_paginated_response(self, data):
+        return Response({
+            'links': {
+                'next': self.get_next_link(),
+                'previous': self.get_previous_link()
+            },
+            'count': self.page.paginator.count,
+            'page_size': self.page_size,
+            'num_pages': self.page.paginator.num_pages,
+            'results': data
+        })
 
 
 class PostViewSet(viewsets.ModelViewSet):
@@ -58,6 +77,7 @@ class PostClipFindView(APIView):
 class NewestPostList(generics.ListAPIView):
 
     serializer_class = serializers.PostSerializer
+    pagination_class = CustomPagination
 
     def get_queryset(self):
         """

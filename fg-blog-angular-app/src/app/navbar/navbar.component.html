@@ -135,9 +135,9 @@
                 'el-popover': true,
                 'el-popper': true,
                 'user-menu__popper': true,
-                border: true,
-                user_menu_show: userDropDown,
-                user_menu_hide: !userDropDown
+                'border': true,
+                'user_menu_show': userDropDown,
+                'user_menu_hide': !userDropDown
               }" style="display: none;" x-placement="bottom-end">
               <!---->
               <div class="user-menu__top d-flex justify-content-between">
@@ -184,7 +184,7 @@
             </div>
             <img src="https://cdn.viblo.asia/_nuxt/img/0bca52a.png"
               class="avatar avatar--md rounded-circle el-popover__reference" aria-describedby="el-popover-2686"
-              tabindex="0" (click)="toggleUserIcon($event)" />
+              tabindex="0" (click)="toggleUserIcon($event)" (clickOutside)="clickOutsideUserIcon($event)"/>
           </span>
         </div>
       </div>

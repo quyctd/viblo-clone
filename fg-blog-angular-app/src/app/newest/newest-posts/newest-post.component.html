@@ -13,7 +13,7 @@
                 <ul class="feed-links">
 
                   <li class="feedbar-item nuxt-link-exact-active active active">
-                    <a href="/newest" class="feed-link">
+                    <a routerLink="/newest" class="feed-link">
                       <div class="el-badge badge-has-new">
                         Newest
                         <sup class="el-badge__content el-badge__content--undefined is-fixed"
@@ -22,7 +22,7 @@
                     </a>
                   </li>
                   <li class="feedbar-item">
-                    <a href="/series" class="feed-link">
+                    <a routerLink="/series" class="feed-link">
                       <div class="el-badge badge-has-new">
                         Series
                         <sup class="el-badge__content el-badge__content--undefined is-fixed"
@@ -31,7 +31,7 @@
                     </a>
                   </li>
                   <li class="feedbar-item">
-                    <a href="/editors-choice" class="feed-link">
+                    <a routerLink="/editors-choice" class="feed-link">
                       <div class="el-badge badge-has-new">
                         Editors' Choice
                         <sup class="el-badge__content el-badge__content--undefined is-fixed"
@@ -40,7 +40,7 @@
                     </a>
                   </li>
                   <li class="feedbar-item">
-                    <a href="/trending" class="feed-link">
+                    <a routerLink="/trending" class="feed-link">
                       <div class="el-badge badge-has-new">
                         Trending
                         <sup class="el-badge__content el-badge__content--undefined is-fixed"
@@ -49,7 +49,7 @@
                     </a>
                   </li>
                   <li class="feedbar-item">
-                    <a href="/videos" class="feed-link">
+                    <a routerLink="/videos" class="feed-link">
                       <div class="el-badge badge-has-new">
                         Videos
                         <sup class="el-badge__content el-badge__content--undefined is-fixed"
@@ -80,7 +80,7 @@
                   </a>
                 </div>
                 <div *ngFor='let post of newestPost' class="post-feed-item">
-                  <a href="/u/{{post.author_data.username}}" class="mr-05"><img
+                  <a routerLink="/u/{{post.author_data.username}}" class="mr-05"><img
                       src="../../../assets/user_avatar.jpg" srcset="../../../assets/user_avatar.jpg" class="avatar avatar--md" data-v-fa4ddde2 /></a>
                   <div class="post-feed-item__info">
                     <div class="post-meta--inline">
@@ -91,11 +91,11 @@
 
                             <div>
                               <div class="d-flex flex-row justify-content-around">
-                                <a href="/u/ducnm92" class="mr-05 col-3"><img
+                                <a routerLink="/u/ducnm92" class="mr-05 col-3"><img
                                     src="../../../assets/user_avatar.jpg"
                                     srcset="../../../assets/user_avatar.jpg" class="avatar avatar--xl" data-v-fa4ddde2 /></a>
                                 <div class="col-9">
-                                  <a href="/u/{{ post.author_data.username }}">
+                                  <a routerLink="/u/{{ post.author_data.username }}">
                                     {{ post.author_data.name ? post.author_data.name : 'Admin' }}
                                   </a>
                                   <br />
@@ -129,7 +129,7 @@
                               </div>
                             </div>
                           </div>
-                          <a href="/u/{{ post.author_data.username }}" class="mr-05">
+                          <a routerLink="/u/{{ post.author_data.username }}" class="mr-05">
                             {{ post.author_data.name ? post.author_data.name : 'Admin' }}
                           </a>
                         </span>
@@ -154,10 +154,10 @@
                     </div>
                     <div class="post-title--inline">
                       <h3 class="word-break mr-05">
-                        <a href="/p/{{ post.id }}" class="link">{{ post.title }}</a>
+                        <a routerLink="/p/{{ post.id }}" class="link">{{ post.title }}</a>
                       </h3>
                       <div class="tags" data-v-8b2d814c>
-                        <a *ngFor="let tag of post.tags" href="/tags/{{ tag }}" class="el-tag tag_3wKND el-tag--info el-tag--mini"
+                        <a *ngFor="let tag of post.tags" routerLink="/tags/{{ tag }}" class="el-tag tag_3wKND el-tag--info el-tag--mini"
                           data-v-8b2d814c>
                           {{ tag }} </a>
                           
@@ -197,34 +197,71 @@
 
                 <ul class="pagination">
                   <li class="page-item">
-                    <a class="disabled"><i aria-hidden="true" class="fa fa-angle-left"></i></a>
+                      <a *ngIf="previousPage != 0" routerLink="/newest" [queryParams]="{page:previousPage}" ><i aria-hidden="true" class="fa fa-angle-left"></i></a>
+                      <a *ngIf="previousPage == 0" class="disabled" rel="next"><i aria-hidden="true" class="fa fa-angle-left"></i></a>
                   </li>
-                  <li>
-                    <a href="/newest" class="nuxt-link-exact-active  active">
-                      1
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/newest?page=2">
-                      2
-                    </a>
-                  </li>                      
-                  <li>
-                    <a class="disabled">...</a>
 
-                  </li>
-                  <li>
-                    <a href="/newest?page=980">
-                      980
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/newest?page=981">
-                      981
-                    </a>
-                  </li>
+                  <ng-container *ngIf="numPages <= 13">
+                      <li *ngFor="let page of counter(numPages)">
+                          <a routerLink="/newest" [queryParams]="{page:page}" [ngClass]="{'active': page == currPage}">
+                            {{page}}
+                          </a>
+                      </li>
+                    </ng-container>
+                  
+                  <ng-container *ngIf="numPages > 13 && currPage <= 6" >
+                    <ng-container *ngFor="let page of counter(numPages)">
+                      <!-- Display 1, 2, 3, 4, 5, 6, 7, 8, .., 100, 101 -->
+                      <li *ngIf="page < 9 || page > numPages - 2">
+                        <a routerLink="/newest" [queryParams]="{page:page}" [ngClass]="{'active': page == currPage}">
+                          {{page}}
+                        </a>
+                      </li>
+                      <li *ngIf="page == 9">
+                        <a class="disabled">...</a>
+                      </li>
+                    </ng-container>
+                  </ng-container>
+
+                  <ng-container *ngIf="numPages > 13 && currPage > 6 && currPage < numPages - 5" >
+                    <ng-container *ngFor="let page of counter(numPages)">
+                      <!-- Display 1, 2, .., 4, 5, 6, 7, 8, 9, 10 .. , 100, 101 -->
+                      <li *ngIf="(page < 3) || (page > (numPages - 2))">
+                        <a routerLink="/newest" [queryParams]="{page:page}" [ngClass]="{'active': page == currPage}">
+                          {{page}}
+                        </a>
+                      </li>
+                      <li *ngIf="page == 3 || page == numPages - 2">
+                        <a class="disabled">...</a>
+                      </li>
+
+                      <li *ngIf="page > currPage - 4 && page < currPage - -4">
+                          <a routerLink="/newest" [queryParams]="{page:page}" [ngClass]="{'active': page == currPage}">
+                            {{page}}
+                          </a>
+                        </li>
+                    </ng-container>
+                  </ng-container>
+
+                  <ng-container *ngIf="numPages > 13 && currPage >= numPages - 5" >
+                    <ng-container *ngFor="let page of counter(numPages)">
+                      <!-- Display 1, 2, .., 93, 94, 95, 96, 97, 98, 99, 100, 101 -->
+                      <li *ngIf="page < 3 || page > numPages - 9">
+                        <a routerLink="/newest" [queryParams]="{page:page}" [ngClass]="{'active': page == currPage}">
+                          {{page}}
+                        </a>
+                      </li>
+                      <li *ngIf="page == 3">
+                        <a class="disabled">...</a>
+                      </li>
+                      
+                    </ng-container>
+                  </ng-container>
+                
+                  
                   <li class="page-item">
-                    <a href="/newest?page=2" rel="next"><i aria-hidden="true" class="fa fa-angle-right"></i></a>
+                    <a *ngIf="nextPage != 0" routerLink="/newest" [queryParams]="{page:nextPage}" ><i aria-hidden="true" class="fa fa-angle-right"></i></a>
+                    <a *ngIf="nextPage == 0" class="disabled" rel="next"><i aria-hidden="true" class="fa fa-angle-right"></i></a>
                   </li>
                 </ul>
               </div>
@@ -235,7 +272,7 @@
                   <div class="main-feed__sidebar">
                     <div class="main-feed__sidebar__questions-feed">
                       <div class="section-title">
-                        <a href="/questions">
+                        <a routerLink="/questions">
                           <h4 class="text-uppercase">
                             Newest questions
                           </h4>
@@ -243,7 +280,7 @@
                         <hr class="section-title__filler" />
                       </div>
                       <div class="sidebar__feed-item">
-                        <a href="/q/hoi-lap-trinh-web-DVK2n63rKLj" class="link word-break">
+                        <a routerLink="/q/hoi-lap-trinh-web-DVK2n63rKLj" class="link word-break">
                           <h4>hỏi lập trình web</h4>
                         </a>
                         <div class="sidebar__feed-item__info">
@@ -266,7 +303,7 @@
                           </div>
                         </div>
                         <div class="sidebar__feed-item__subtitle">
-                          <a href="/u/jonyu" class="link link--plain text-muted">
+                          <a routerLink="/u/jonyu" class="link link--plain text-muted">
                             hồ
                           </a>
                         </div>
@@ -275,7 +312,7 @@
                     </div>
                     <div class="main-feed__sidebar__top-organizations mb-4">
                       <div class="section-title">
-                        <a href="/organizations">
+                        <a routerLink="/organizations">
                           <h4 class="text-uppercase">
                             Top Organizations
                           </h4>
@@ -286,11 +323,11 @@
                         <div class="organization-container">
                           <div class="sidebar__organization">
                             <div class="sidebar__organization__row">
-                              <a href="/o/awesome-ars-academia-cebu" class="d-flex"><img
+                              <a routerLink="/o/awesome-ars-academia-cebu" class="d-flex"><img
                                   src="../../../assets/orgnization.png"
                                   srcset="../../../assets/orgnization.png 2x" class="avatar avatar--xl avatar--rect avatar--ognzt" data-v-fa4ddde2 /></a>
                               <div class="d-flex flex-column justify-content-center">
-                                <a href="/o/awesome-ars-academia-cebu" class="word-break">
+                                <a routerLink="/o/awesome-ars-academia-cebu" class="word-break">
                                   Sun* Cebu Branch / Awesome Ars Academia
                                   Cebu
                                 </a>
@@ -313,7 +350,7 @@
                     </div>
                     <div class="main-feed__sidebar__top-authors mb-4">
                       <div class="section-title">
-                        <a href="/authors">
+                        <a routerLink="/authors">
                           <h4 class="text-uppercase">
                             Top authors
                           </h4>
@@ -324,11 +361,11 @@
                         <div class="user-container">
                           <div class="sidebar__user">
                             <div class="sidebar__user__row">
-                              <a href="/u/loda-kun"><img
+                              <a routerLink="/u/loda-kun"><img
                                   src="../../../assets/topauthor.png"
                                   srcset="../../../assets/topauthor.png" class="avatar avatar--xl" data-v-fa4ddde2 /></a>
                               <div class="d-flex flex-column justify-content-center">
-                                <a href="/u/loda-kun">
+                                <a routerLink="/u/loda-kun">
                                   Nguyen Hoang Nam
                                 </a>
                                 <span class="d-block">@loda-kun</span>
@@ -367,7 +404,7 @@
       </div>
     </div>
     <app-footer></app-footer>
-    <a id="top-btn" href="javascript:void(0);" class="hidden-sm-down"><i aria-hidden="true"
+    <a id="top-btn" routerLink="javascript:void(0);" class="hidden-sm-down"><i aria-hidden="true"
         class="fa fa-arrow-up"></i></a>
   </div>
 </div>

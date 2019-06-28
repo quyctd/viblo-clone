@@ -161,7 +161,6 @@ function formatFarDate(d) {
 export function calTimeDifference(updateTime) {
      updateTime = new Date(updateTime);
      const d = new Date();
-     console.log(d, typeof(d));
      // parse both time stamps into dates
      const finalCurrentTime = Date.parse(ISODateString(d));
      const finalPostDateTime = Date.parse(ISODateString(updateTime));
