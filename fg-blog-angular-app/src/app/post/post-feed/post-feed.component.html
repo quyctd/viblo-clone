@@ -1,0 +1,131 @@
+<div *ngIf="posts?.length == 0" class="text-center font-weight-bold text-muted my-05">There is
+    nothing here.</div>
+<div *ngIf="posts?.length != 0" class="post-feed">
+  <div class="post-layout-switcher">
+    <a title="Only title" (click)="switchLayout()" [ngClass]="{'link': true, 'active': !switcherLayout }">
+      <i aria-hidden="true" class="fa fa-th-list"></i>
+    </a>
+    <a title="With preview contents" (click)="switchLayout()"
+      [ngClass]="{'link': true, 'active': switcherLayout }">
+      <i aria-hidden="true" class="fa fa-newspaper-o"></i>
+    </a>
+  </div>
+
+  <div *ngFor='let post of posts' class="post-feed-item">
+    <a routerLink="/u/{{post.author_data.username}}" class="mr-05"><img
+        src="../../../assets/user_avatar.jpg" srcset="../../../assets/user_avatar.jpg"
+        class="avatar avatar--md" data-v-fa4ddde2 /></a>
+    <div class="post-feed-item__info">
+      <div class="post-meta--inline">
+        <div class="user--inline d-inline-flex flex-shrink-0">
+          <span>
+            <div role="tooltip" id="el-popover-6962" aria-hidden="true" class="el-popover el-popper"
+              style="width:320px;display:none;">
+
+              <div>
+                <div class="d-flex flex-row justify-content-around">
+                  <a routerLink="/u/ducnm92" class="mr-05 col-3"><img
+                      src="../../../assets/user_avatar.jpg" srcset="../../../assets/user_avatar.jpg"
+                      class="avatar avatar--xl" data-v-fa4ddde2 /></a>
+                  <div class="col-9">
+                    <a routerLink="/u/{{ post.author_data.username }}">
+                      {{ post.author_data.name ? post.author_data.name : 'Admin' }}
+                    </a>
+                    <br />
+                    <span class="text-muted">@{{ post.author_data.username }}</span>
+                    <div>
+                      <div class="stats mt-05">
+                        <span title="Reputations: 122" class="stats-item text-muted"><i aria-hidden="true"
+                            class="stats-item__icon fa fa-star"></i>
+                          122 </span><span title="Posts: 11" class="stats-item text-muted"><i
+                            aria-hidden="true" class="stats-item__icon fa fa-pencil"></i>
+                          11 </span><span title="Followers: 3" class="stats-item text-muted"><i
+                            aria-hidden="true" class="stats-item__icon fa fa-user-plus"></i>
+                          3 </span><span title="Total post views: undefined"
+                          class="stats-item text-muted"><i aria-hidden="true"
+                            class="stats-item__icon fa fa-eye"></i>
+                          0
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-between align-items-center border-top mt-1 pt-05">
+                  <ul class="list-unstyled mb-0 d-flex align-items-center participants--xs">
+
+                  </ul>
+                  <div class="subscribe">
+                    <button class="btn btn-follow">
+                      Follow
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <a routerLink="/u/{{ post.author_data.username }}" class="mr-05">
+              {{ post.author_data.name ? post.author_data.name : 'Admin' }}
+            </a>
+          </span>
+
+        </div>
+
+        <div class="post-meta d-inline-flex align-items-center flex-wrap">
+          <div class="text-muted mr-05">
+            <span title="{{ getTimePublish(post.create_time) }}" class="mr-05">
+              {{ getTimePublish(post.create_time) }}
+            </span>
+            <span title="{{ getReadTime(post.content) }} min read"
+              class="text-muted post-reading_time mr-05 is-divide">
+              {{ getReadTime(post.content) }} min read
+            </span>
+            <button title="Copy URL" class="icon-btn copyUrl_13z_m">
+              <i aria-hidden="true" class="fa fa-link"></i>
+            </button>
+          </div>
+
+
+        </div>
+      </div>
+      <div class="post-title--inline">
+        <h3 class="word-break mr-05">
+          <a routerLink="/p/{{ post.id }}" class="link">{{ post.title }}</a>
+        </h3>
+        <div class="tags" data-v-8b2d814c>
+          <a *ngFor="let tag of post.tags" routerLink="/tags/{{ tag }}"
+            class="el-tag tag_3wKND el-tag--info el-tag--mini" data-v-8b2d814c>
+            {{ tag }} </a>
+
+        </div>
+      </div>
+      <div *ngIf="switcherLayout" class="md-contents">
+        <markdown [data]="post['preview_content']"></markdown>
+      </div>
+      <div class="d-flex justify-content-between">
+        <div class="d-flex">
+          <div class="stats">
+            <span title="Views: {{ post.views }}" class="stats-item text-muted">
+              <i aria-hidden="true" class="stats-item__icon fa fa-eye"></i>
+              {{ post.views }}
+            </span>
+            <span title="Clips: 0" class="stats-item text-muted"><i aria-hidden="true"
+                class="stats-item__icon fa fa-paperclip"></i>
+              {{ post.clips }}
+            </span>
+            <span title="Comments: 0" class="stats-item text-muted"><i aria-hidden="true"
+                class="stats-item__icon fa fa-comments"></i>
+              0
+            </span>
+          </div>
+
+        </div>
+        <div title="Score" class="points">
+          <div class="carets">
+            <i aria-hidden="true" class="fa fa-caret-up"></i><i aria-hidden="true"
+              class="fa fa-caret-down"></i>
+          </div>
+          <span class="text-muted">{{ post.vote }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,24 @@
+<div id="__layout">
+  <div id="app-container" class="default">
+    <app-navbar class="sticky-top"></app-navbar>
+    <div id="main-content">
+      <div>
+        <app-promo-banner></app-promo-banner>
+        <app-post-feed-links [currRoute]="'followings'"></app-post-feed-links>
+
+        <div class="container">
+          <div class="row pt-3 pb-1">
+            <div class="col-lg-9">
+              <app-post-feed [posts]="followPost"></app-post-feed>
+              <app-pagination *ngIf="followPost.length != 0" [currRoute]="'followings'" [previousPage]="previousPage" [nextPage]="nextPage" [numPages]='numPages' [currPage]="currPage"></app-pagination>
+            </div>
+            <div class="col-lg-3 hidden-md-down">
+              <app-post-suggestion></app-post-suggestion>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <app-footer></app-footer>
+  </div>
+</div>

@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="26a4d0dc-4929-46d9-b9f9-d9014f22a95d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/apps/post/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/post/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/newest/newest-posts/newest-post.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/newest/newest-posts/newest-post.component.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -253,12 +252,12 @@
       <workItem from="1561309829112" duration="72000" />
       <workItem from="1561309944001" duration="29000" />
       <workItem from="1561310027949" duration="8303000" />
-      <workItem from="1561390177283" duration="22493000" />
+      <workItem from="1561390177283" duration="22686000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="73022000" />
+    <option name="totallyTimeSpent" value="73215000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />

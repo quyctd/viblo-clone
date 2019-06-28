@@ -18,8 +18,8 @@ import {StickyModule} from 'ng2-sticky-kit';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { FooterComponent } from './footer/footer.component';
+import { NavbarComponent } from './base/navbar/navbar.component';
+import { FooterComponent } from './base/footer/footer.component';
 import { PostManageComponent } from './post/post-manage/post-manage.component';
 import { QuestionsComponent } from './questions/questions.component';
 import { DiscussionsComponent } from './discussions/discussions.component';
@@ -30,9 +30,9 @@ import { TagsComponent } from './tags/tags.component';
 import { OrgnizationsComponent } from './orgnizations/orgnizations.component';
 import { SearchComponent } from './search/search.component';
 import { SeriesComponent } from './series/series.component';
-import { NewestPostComponent } from './newest/newest-posts/newest-post.component';
+import { NewestPostComponent } from './post/newest-posts/newest-post.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { PromoBannerComponent } from './promo-banner/promo-banner.component';
+import { PromoBannerComponent } from './base/promo-banner/promo-banner.component';
 import { LogoutComponent } from './auth/logout/logout.component';
 
 import { PostComponent as PublishPostComponent } from './publish/post/post.component';
@@ -42,10 +42,15 @@ import { TableOfContentsComponent } from './article-partial/table-of-contents/ta
 import { SuggestOrgnizationsComponent } from './article-partial/suggest-orgnizations/suggest-orgnizations.component';
 import { ArticleActionsComponent } from './article-partial/article-actions/article-actions.component';
 import { ArticleCommentsComponent } from './article-partial/article-comments/article-comments.component';
-import { NewestQuestionsComponent } from './newest/newest-questions/newest-questions.component';
-import { NewestDiscussionsComponent } from './newest/newest-discussions/newest-discussions.component';
-import { NotfoundComponent } from './errors/notfound/notfound.component';
+import { NewestQuestionsComponent } from './questions/newest-questions/newest-questions.component';
+import { NewestDiscussionsComponent } from './discussions/newest-discussions/newest-discussions.component';
+import { NotfoundComponent } from './base/notfound/notfound.component';
 import { CustomDropdownDirective } from './utils/custom-dropdown.directive';
+import { PostFeedLinksComponent } from './post/post-feed-links/post-feed-links.component';
+import { PostFollowingsComponent } from './post/post-followings/post-followings.component';
+import { PostSuggestionComponent } from './post/post-suggestion/post-suggestion.component';
+import { PostFeedComponent } from './post/post-feed/post-feed.component';
+import { PaginationComponent } from './base/pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -75,7 +80,12 @@ import { CustomDropdownDirective } from './utils/custom-dropdown.directive';
     NewestQuestionsComponent,
     NewestDiscussionsComponent,
     NotfoundComponent,
-    CustomDropdownDirective
+    CustomDropdownDirective,
+    PostFeedLinksComponent,
+    PostFollowingsComponent,
+    PostSuggestionComponent,
+    PostFeedComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,
@@ -93,6 +103,7 @@ import { CustomDropdownDirective } from './utils/custom-dropdown.directive';
     RouterModule.forRoot([
       { path: '', component : NewestPostComponent},
       { path: 'newest', component : NewestPostComponent},
+      { path: 'followings', component : PostFollowingsComponent},
       { path: 'login', component : LoginComponent},
       { path: 'register', component : RegisterComponent},
       { path: 'posts/:id/edit', component : PostManageComponent},

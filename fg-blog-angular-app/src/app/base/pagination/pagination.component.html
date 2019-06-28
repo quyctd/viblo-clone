@@ -1,0 +1,73 @@
+<ul class="pagination">
+  <li class="page-item">
+    <a *ngIf="previousPage != 0" routerLink="/{{currRoute}}" [queryParams]="{page:previousPage}"><i
+        aria-hidden="true" class="fa fa-angle-left"></i></a>
+    <a *ngIf="previousPage == 0" class="disabled" rel="next"><i aria-hidden="true"
+        class="fa fa-angle-left"></i></a>
+  </li>
+
+  <ng-container *ngIf="numPages <= 13">
+    <li *ngFor="let page of counter(numPages)">
+      <a routerLink="/{{currRoute}}" [queryParams]="{page:page}" [ngClass]="{'active': page == currPage}">
+        {{page}}
+      </a>
+    </li>
+  </ng-container>
+
+  <ng-container *ngIf="numPages > 13 && currPage <= 6">
+    <ng-container *ngFor="let page of counter(numPages)">
+      <!-- Display 1, 2, 3, 4, 5, 6, 7, 8, .., 100, 101 -->
+      <li *ngIf="page < 9 || page > numPages - 2">
+        <a routerLink="/{{currRoute}}" [queryParams]="{page:page}" [ngClass]="{'active': page == currPage}">
+          {{page}}
+        </a>
+      </li>
+      <li *ngIf="page == 9">
+        <a class="disabled">...</a>
+      </li>
+    </ng-container>
+  </ng-container>
+
+  <ng-container *ngIf="numPages > 13 && currPage > 6 && currPage < numPages - 5">
+    <ng-container *ngFor="let page of counter(numPages)">
+      <!-- Display 1, 2, .., 4, 5, 6, 7, 8, 9, 10 .. , 100, 101 -->
+      <li *ngIf="(page < 3) || (page > (numPages - 2))">
+        <a routerLink="/{{currRoute}}" [queryParams]="{page:page}" [ngClass]="{'active': page == currPage}">
+          {{page}}
+        </a>
+      </li>
+      <li *ngIf="page == 3 || page == numPages - 2">
+        <a class="disabled">...</a>
+      </li>
+
+      <li *ngIf="page > currPage - 4 && page < currPage - -4">
+        <a routerLink="/{{currRoute}}" [queryParams]="{page:page}" [ngClass]="{'active': page == currPage}">
+          {{page}}
+        </a>
+      </li>
+    </ng-container>
+  </ng-container>
+
+  <ng-container *ngIf="numPages > 13 && currPage >= numPages - 5">
+    <ng-container *ngFor="let page of counter(numPages)">
+      <!-- Display 1, 2, .., 93, 94, 95, 96, 97, 98, 99, 100, 101 -->
+      <li *ngIf="page < 3 || page > numPages - 9">
+        <a routerLink="/{{currRoute}}" [queryParams]="{page:page}" [ngClass]="{'active': page == currPage}">
+          {{page}}
+        </a>
+      </li>
+      <li *ngIf="page == 3">
+        <a class="disabled">...</a>
+      </li>
+
+    </ng-container>
+  </ng-container>
+
+
+  <li class="page-item">
+    <a *ngIf="nextPage != 0" routerLink="/{{currRoute}}" [queryParams]="{page:nextPage}"><i aria-hidden="true"
+        class="fa fa-angle-right"></i></a>
+    <a *ngIf="nextPage == 0" class="disabled" rel="next"><i aria-hidden="true"
+        class="fa fa-angle-right"></i></a>
+  </li>
+</ul>

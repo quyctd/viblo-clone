@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NewestPostsService } from './newest-posts.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { calTimeDifference, calReadTime } from '../../utils/utils';
 
 @Component({
   selector: 'app-newest',
@@ -16,7 +15,6 @@ export class NewestPostComponent implements OnInit {
   pageSize: number;
   nextPage: number;
   previousPage: number;
-  switcherLayout = false; // false is Only title, true is with preview
 
   constructor(private api: NewestPostsService, private router: Router, private activatedRoute: ActivatedRoute) { }
 
@@ -50,23 +48,6 @@ export class NewestPostComponent implements OnInit {
         this.router.navigateByUrl('/newest');
       }
     );
-  }
-
-  counter(i: number) {
-    const arr = Array.from({length: i}, (v, k) => k + 1);
-    return arr;
-  }
-
-  switchLayout() {
-    this.switcherLayout = !this.switcherLayout;
-  }
-
-  getTimePublish(publishDay) {
-    return calTimeDifference(publishDay);
-  }
-
-  getReadTime(content) {
-    return calReadTime(content);
   }
 
 }
