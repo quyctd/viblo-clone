@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { PostManageService } from 'src/app/post/post-manage.service';
 import { Router } from '@angular/router';
+import { AuthService } from 'angularx-social-login';
 
 @Component({
   selector: 'app-article-actions',
@@ -11,6 +12,7 @@ export class ArticleActionsComponent implements OnInit {
 
   @Input() postId: any;
   @Output() clipEvent = new EventEmitter<any>();
+  @Output() voteEvent = new EventEmitter<any>();
   voteNumber = 0;
   voteString = "";
   isUpVote = false;
@@ -23,7 +25,7 @@ export class ArticleActionsComponent implements OnInit {
   isClip = false;
   clipId = null;
 
-  constructor(private postApi: PostManageService, private router: Router) { }
+  constructor(private postApi: PostManageService, private userApi: AuthService, private router: Router) { }
 
   ngOnInit() {
     this.getPostDataWithId(this.postId);
@@ -186,6 +188,7 @@ export class ArticleActionsComponent implements OnInit {
       data => {
         this.voteNumber = data.vote;
         this.formatVoteString();
+        this.voteEvent.emit(data.author_data.reputations);
       },
       error => {
         console.log("Error: ", error);

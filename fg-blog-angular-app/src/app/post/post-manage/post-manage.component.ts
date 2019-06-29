@@ -4,8 +4,6 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { PostManageService } from '../post-manage.service';
 import { auditTime } from 'rxjs/operators';
 import { calTimeDifference } from '../../utils/utils';
-import { PublishTagComponent } from '../../publish/publish-tag/publish-tag.component';
-import { AnonymousSubject } from 'rxjs/internal/Subject';
 
 @Component({
   selector: 'app-post-manage',
@@ -18,7 +16,7 @@ export class PostManageComponent implements OnInit, AfterViewInit {
   router;
   publishDropdown = false;
   isClickFeatureImage = false;
-  isCanPublish = true;
+  isCanPublish = false;
   isSaved = true;
   id: number;
   sub: any;
@@ -26,6 +24,7 @@ export class PostManageComponent implements OnInit, AfterViewInit {
   savedTime = "";
   lastSavedTime = new Date();
   customize: any;
+  visibility = 'draft';
 
   // tslint:disable-next-line:variable-name
   constructor(public formBuilder: FormBuilder, public postApi: PostManageService, _router: Router, private route: ActivatedRoute) {
@@ -41,8 +40,7 @@ export class PostManageComponent implements OnInit, AfterViewInit {
     this.form = this.formBuilder.group({
       simplemde : new FormControl(""),
       title : new FormControl(""),
-      tags : new FormControl(""),
-      visibility: new FormControl("draft")
+      tags : new FormControl("")
     });
 
     this.sub = this.route.params.subscribe( params => {
@@ -68,7 +66,6 @@ export class PostManageComponent implements OnInit, AfterViewInit {
     const formData = {title: this.title.value,
       tags: this.postApi.listTag,
       content: this.simplemde.value,
-      status: this.visibility.value,
       author: this.postData.author
     };
     const formValid = this.checkValidForm();
@@ -109,7 +106,7 @@ export class PostManageComponent implements OnInit, AfterViewInit {
     this.form.controls.title.setValue(data.title);
     this.postApi.listTag = data.tags;
     this.form.controls.simplemde.setValue(data.content);
-    this.form.controls.visibility.setValue(data.status);
+    this.visibility = data.status;
     this.savedTime = calTimeDifference(data.updated_time);
   }
 
@@ -123,10 +120,6 @@ export class PostManageComponent implements OnInit, AfterViewInit {
 
   get simplemde() {
     return this.form.get('simplemde');
-  }
-
-  get visibility() {
-    return this.form.get('visibility');
   }
 
   get title() {
@@ -143,6 +136,8 @@ export class PostManageComponent implements OnInit, AfterViewInit {
         console.log(data);
         this.postData = data;
         this.updateDisplayInfo(data);
+        this.isCanPublish = true;
+        this.visibility = data.status;
       },
       error => {
         console.log("ERROR: ", error);
@@ -220,13 +215,37 @@ export class PostManageComponent implements OnInit, AfterViewInit {
 
   get visibilityExplain() {
     // tslint:disable:triple-equals
-    if (this.visibility.value == 'draft') {
+    if (this.visibility == 'draft') {
       // tslint:disable:max-line-length
       return {icon: "fa fa-lock", detail: "Only you can see this post. Your draft is already saved automatically as you type.", btnText : "Save draft"};
-    } else if (this.visibility.value == 'draft_public') {
+    } else if (this.visibility == 'draft_public') {
       return {icon: "fa fa-eye-slash", detail: "Only those with the link to this post can see it.", btnText : "Save draft"};
     } else {
       return {icon: "fa fa-globe", detail: "Everyone can see your post.", btnText : "Publish"};
     }
+  }
+
+  changeVisibility(status) {
+    this.visibility = status;
+  }
+
+  doUpdatePostStatus() {
+    const formData = {title: this.title.value,
+      tags: this.postApi.listTag,
+      content: this.simplemde.value,
+      author: this.postData.author,
+      status: this.visibility
+    };
+    this.postApi.updatePost(this.id, formData).subscribe(
+      data => {
+        console.log(data);
+        this.lastSavedTime = new Date();
+        const nextUrl = '/p/' + this.id;
+        this.router.navigateByUrl(nextUrl);
+      },
+      error => {
+        console.log("ERROR ", error);
+      }
+    );
   }
 }

@@ -35,7 +35,11 @@ INSTALLED_APPS = DEFAULT_APPS + [
     'django.contrib.sites',
 
     # 3rd party app
-
+    'corsheaders',
+    'taggit',
+    'taggit_serializer',
+    'mptt',
+    
     # basic authen
     'rest_framework',
     'rest_framework.authtoken',
@@ -43,8 +47,6 @@ INSTALLED_APPS = DEFAULT_APPS + [
     'allauth',
     'allauth.account',
     'rest_auth.registration',
-    'taggit',
-    'taggit_serializer',
 
     # Social authentic
     'social_django',
@@ -58,7 +60,6 @@ INSTALLED_APPS = DEFAULT_APPS + [
     'apps.base',
     'apps.post',
     'apps.discussion',
-    'corsheaders',
 ]
 
 # Time zone

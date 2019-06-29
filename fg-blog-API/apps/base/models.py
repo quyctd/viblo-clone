@@ -24,3 +24,5 @@ class BasePost(models.Model):
             vote_count += value
         self.vote = vote_count
         super(BasePost, self).save(*args, **kwargs)
+        self.author.save()
+

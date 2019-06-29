@@ -16,6 +16,7 @@ export class PostDetailComponent implements OnInit {
   postData = {};
   authorData = {};
 
+  // tslint:disable-next-line:max-line-length
   constructor(private postApi: PostManageService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
@@ -47,6 +48,10 @@ export class PostDetailComponent implements OnInit {
 
   get userData() {
     return JSON.parse(localStorage.getItem('currentUser'));
+  }
+
+  get currToken() {
+    return JSON.parse(localStorage.getItem('currentToken'));
   }
 
   updateViewPost() {
@@ -85,6 +90,11 @@ export class PostDetailComponent implements OnInit {
 
   receiveClipEvent(clips) {
     this.postData['clips'] = clips;
+  }
+
+  receiveVoteEvent(reputations) {
+    console.log("Receive reputations");
+    this.postData['author_data']['reputations'] = reputations;
   }
 
   getTimePublish(publishDay) {

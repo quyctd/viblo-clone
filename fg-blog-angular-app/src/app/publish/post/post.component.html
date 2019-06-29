@@ -6,27 +6,15 @@
         <form class="el-form" [formGroup]="form">
           <div class="el-form-item is-required">
             <div class="el-form-item__content">
-              <div
-                [ngClass]="{
+              <div [ngClass]="{
                   'el-input': true,
                   'el-input-group': isCanPublish,
                   'el-input-group--append': isCanPublish
-                }"
-              >
-                <input
-                  type="text"
-                  autocomplete="off"
-                  placeholder="Title"
-                  formControlName="title"
-                  value=""
-                  class="el-input__inner"
-                />
+                }">
+                <input type="text" autocomplete="off" placeholder="Title" formControlName="title" value=""
+                  class="el-input__inner" />
                 <div *ngIf="isCanPublish" class="el-input-group__append">
-                  <a
-                    href="/p/{{ postData.id }}"
-                    title="Open this post in the new tab"
-                    target="_blank"
-                  >
+                  <a title="Open this post in the new tab" routerLink="/p/{{ postData.id }}">
                     <i class="fa fa-external-link"></i>
                   </a>
                 </div>
@@ -39,64 +27,31 @@
                 <div class="tags-input">
                   <div class="tags-input__inner el-input__inner">
                     <div *ngFor="let tag of postApi.listTag">
-                      <app-publish-tag
-                        [inputTag]="tag"
-                        [postType]="'post'"
-                        (remover)="autoSaveForm()"
-                      ></app-publish-tag>
+                      <app-publish-tag [inputTag]="tag" [postType]="'post'" (remover)="autoSaveForm()">
+                      </app-publish-tag>
                     </div>
-                    <div
-                      aria-haspopup="listbox"
-                      role="combobox"
-                      aria-owns="el-autocomplete-1602"
-                      class="el-autocomplete tags-input__autocomplete"
-                    >
+                    <div aria-haspopup="listbox" role="combobox" aria-owns="el-autocomplete-1602"
+                      class="el-autocomplete tags-input__autocomplete">
                       <div class="el-input">
-                        <input
-                          type="text"
-                          autocomplete="off"
-                          valuekey="value"
-                          formControlName="tags"
+                        <input type="text" autocomplete="off" valuekey="value" formControlName="tags"
                           placeholder="Tag your post. Maximum 5 tags. At least 1 tag!"
                           fetchsuggestions='function(input,t){return input?Object(l.getTags)({src:"typeahead",q:input}).then(function(t){return t.data}).then(t):t([])}'
-                          debounce="300"
-                          placement="bottom-start"
-                          popperappendtobody="true"
-                          value=""
-                          class="el-input__inner"
-                          role="textbox"
-                          aria-autocomplete="list"
-                          aria-controls="id"
-                          aria-activedescendant="el-autocomplete-1602-item--1"
-                          (keyup.enter)="addTag($event)"
-                        />
+                          debounce="300" placement="bottom-start" popperappendtobody="true" value=""
+                          class="el-input__inner" role="textbox" aria-autocomplete="list" aria-controls="id"
+                          aria-activedescendant="el-autocomplete-1602-item--1" (keyup.enter)="addTag($event)" />
                       </div>
-                      <div
-                        role="region"
-                        class="el-autocomplete-suggestion el-popper"
-                        style="display:none;"
-                      >
+                      <div role="region" class="el-autocomplete-suggestion el-popper" style="display:none;">
                         <div class="el-scrollbar">
                           <div
-                            class="el-autocomplete-suggestion__wrap el-scrollbar__wrap el-scrollbar__wrap--hidden-default"
-                          >
-                            <ul
-                              class="el-scrollbar__view el-autocomplete-suggestion__list"
-                              role="listbox"
-                              id="el-autocomplete-1602"
-                            ></ul>
+                            class="el-autocomplete-suggestion__wrap el-scrollbar__wrap el-scrollbar__wrap--hidden-default">
+                            <ul class="el-scrollbar__view el-autocomplete-suggestion__list" role="listbox"
+                              id="el-autocomplete-1602"></ul>
                           </div>
                           <div class="el-scrollbar__bar is-horizontal">
-                            <div
-                              class="el-scrollbar__thumb"
-                              style="transform: translateX(0%);"
-                            ></div>
+                            <div class="el-scrollbar__thumb" style="transform: translateX(0%);"></div>
                           </div>
                           <div class="el-scrollbar__bar is-vertical">
-                            <div
-                              class="el-scrollbar__thumb"
-                              style="transform: translateY(0%);"
-                            ></div>
+                            <div class="el-scrollbar__thumb" style="transform: translateY(0%);"></div>
                           </div>
                         </div>
                       </div>
@@ -107,107 +62,62 @@
             </div>
             <div class="d-flex align-items-top">
               <span class="mx-1">
-                <div
-                  role="tooltip"
-                  id="el-popover-2400"
-                  aria-hidden="true"
-                  class="el-popover el-popper feature-image-popover"
-                  style="width:400px;display:none;"
-                  tabindex="0"
-                >
+                <div role="tooltip" id="el-popover-2400" aria-hidden="true"
+                  class="el-popover el-popper feature-image-popover" style="width:400px;display:none;" tabindex="0">
                   Upload a high-quality image will make it more inviting to
                   readers. By default, the first image in your post will be used
                   instead.
                   <hr />
                   <div class="d-flex justify-content-between">
-                    <button
-                      type="button"
-                      class="el-button el-button--primary el-button--small"
-                    >
-                      <i class="fa fa-upload"></i
-                      ><span>
+                    <button type="button" class="el-button el-button--primary el-button--small">
+                      <i class="fa fa-upload"></i><span>
                         Upload
                       </span>
                     </button>
-                    <button
-                      type="button"
-                      class="el-button el-button--primary el-button--small is-plain"
-                    >
-                      <i class="fa fa-terminal"></i
-                      ><span>
+                    <button type="button" class="el-button el-button--primary el-button--small is-plain">
+                      <i class="fa fa-terminal"></i><span>
                         Enter image url
                       </span>
                     </button>
-                    <button
-                      disabled="disabled"
-                      type="button"
-                      class="el-button el-button--default el-button--small is-disabled is-plain"
-                    >
-                      <i class="fa fa-times"></i
-                      ><span>
+                    <button disabled="disabled" type="button"
+                      class="el-button el-button--default el-button--small is-disabled is-plain">
+                      <i class="fa fa-times"></i><span>
                         Remove image
                       </span>
                     </button>
                   </div>
                 </div>
-                <button
-                  [disabled]="!isCanPublish"
-                  type="button"
-                  [ngClass]="{
+                <button [disabled]="!isCanPublish" type="button" [ngClass]="{
                     'el-button': true,
                     'el-button--default': true,
                     'el-popover__reference': true,
                     'is-disabled': !isCanPublish
-                  }"
-                  (click)="toggleFeatureImage($event)"
-                  (clickOutside)="clickOutsideFeatureImage($event)"
-                  aria-describedby="el-popover-2400"
-                  tabindex="0"
-                >
+                  }" (click)="toggleFeatureImage($event)" (clickOutside)="clickOutsideFeatureImage($event)"
+                  aria-describedby="el-popover-2400" tabindex="0">
                   <span>
                     Change feature image
                   </span>
                 </button>
               </span>
               <span class="publish-popover">
-                <div
-                  *ngIf="!isCanPublish"
-                  [ngClass]="{
+                <div *ngIf="!isCanPublish" [ngClass]="{
                     'el-popover': true,
                     'el-popper': true,
                     'publish-dropdown': publishDropdown
-                  }"
-                  role="tooltip"
-                  id="el-popover-6806"
-                  aria-hidden="true"
-                  style="display:none;"
-                  tabindex="0"
-                  x-placement="bottom-end"
-                >
+                  }" role="tooltip" id="el-popover-6806" aria-hidden="true" style="display:none;" tabindex="0"
+                  x-placement="bottom-end">
                   Add a title, pick up at least a tag and start writing
                   something to publish.
                   <div x-arrow="" class="popper__arrow"></div>
                 </div>
-                <div
-                  *ngIf="isCanPublish"
-                  role="tooltip"
-                  id="el-popover-6806"
-                  aria-hidden="false"
-                  tabindex="0"
-                  x-placement="bottom-end"
-                  [ngClass]="{
+                <div *ngIf="isCanPublish" role="tooltip" id="el-popover-6806" aria-hidden="false" tabindex="0"
+                  x-placement="bottom-end" [ngClass]="{
                     'el-popover': true,
                     'el-popper': true,
                     'publish-dropdown': publishDropdown
-                  }"
-                  style="width: 350px; display: none;"
-                >
+                  }" style="width: 350px; display: none;">
                   <!---->
-                  <div
-                    x-arrow=""
-                    class="popper__arrow"
-                    style="left: 289.695px;"
-                  ></div>
+                  <div x-arrow="" class="popper__arrow" style="left: 289.695px;"></div>
                   <div class="el-popover__title">
                     Publish your post
                   </div>
@@ -215,93 +125,52 @@
                   <div class="publish-popover__visibility">
                     <label class="d-block mb-05">Visibility:</label>
                     <div role="radiogroup" class="el-radio-group">
-                      <label
-                        role="radio"
-                        tabindex="-1"
-                        [ngClass]="{
+                      <label role="radio" tabindex="-1" [ngClass]="{
                           'el-radio' : true,
                           'd-block' : true,
                           'mb-05' : true,
                           'is-checked': visibility.value == 'public'
-                        }"
-                        ><span [ngClass]="{'el-radio__input': true, 'is-checked': visibility.value == 'public'}"
-                          ><span class="el-radio__inner"></span
-                          ><input
-                            type="radio"
-                            aria-hidden="true"
-                            name="visibility"
-                            tabindex="-1"
-                            class="el-radio__original"
-                            formControlName="visibility"
-                            value="public"/></span
-                        ><span class="el-radio__label">
+                        }" (click)="changeVisibility('public')"><span
+                          [ngClass]="{'el-radio__input': true, 'is-checked': visibility == 'public'}"><span
+                            class="el-radio__inner"></span><input type="radio" aria-hidden="true" name="visibility"
+                            tabindex="-1" class="el-radio__original"
+                            value="public" /></span><span class="el-radio__label">
                           Public
-                          <!----></span
-                        ></label
-                      >
-                      <label
-                        role="radio"
-                        tabindex="-1"
-                        [ngClass]="{
+                          <!----></span></label>
+                      <label role="radio" tabindex="-1" [ngClass]="{
                           'el-radio' : true,
                           'd-block' : true,
                           'mb-05' : true,
                           'is-checked': visibility.value == 'draft_public'
-                        }"
-                        ><span [ngClass]="{'el-radio__input': true, 'is-checked': visibility.value == 'draft_public'}"
-                          ><span class="el-radio__inner"></span
-                          ><input
-                            type="radio"
-                            aria-hidden="true"
-                            name="visibility"
-                            tabindex="-1"
-                            class="el-radio__original"
-                            formControlName="visibility"
-                            value="draft_public"/></span
-                        ><span class="el-radio__label">
+                        }" (click)="changeVisibility('draft_public')"><span
+                          [ngClass]="{'el-radio__input': true, 'is-checked': visibility == 'draft_public'}"><span
+                            class="el-radio__inner"></span><input type="radio" aria-hidden="true" name="visibility"
+                            tabindex="-1" class="el-radio__original"
+                            value="draft_public" /></span><span class="el-radio__label">
                           Unlisted
-                          <!----></span
-                        ></label
-                      >
-                      <label
-                        role="radio"
-                        aria-checked="true"
-                        tabindex="0"
-                        [ngClass]="{
+                          <!----></span></label>
+                      <label role="radio" aria-checked="true" tabindex="0" [ngClass]="{
                           'el-radio' : true,
                           'd-block' : true,
                           'mb-05' : true,
                           'is-checked': visibility.value == 'draft'
-                        }"
-                        ><span [ngClass]="{'el-radio__input': true, 'is-checked': visibility.value == 'draft'}"
-                          ><span class="el-radio__inner"></span
-                          ><input
-                            type="radio"
-                            aria-hidden="true"
-                            name="visibility"
-                            tabindex="-1"
-                            class="el-radio__original"
-                            formControlName="visibility"
-                            value="draft"/></span
-                        ><span class="el-radio__label">
+                        }" (click)="changeVisibility('draft')"><span [ngClass]="{'el-radio__input': true, 'is-checked': visibility == 'draft'}"><span
+                            class="el-radio__inner"></span><input type="radio" aria-hidden="true" name="visibility"
+                            tabindex="-1" class="el-radio__original"
+                            value="draft" /></span><span class="el-radio__label">
                           Private draft
-                          <!----></span
-                        ></label
-                      >
+                          <!----></span></label>
                     </div>
                     <hr class="my-05" />
                     <div class="mb-05 text-left">
-                      <span class="visibility-explain"
-                        ><i aria-hidden="true" class="{{visibilityExplain.icon}}"></i>
+                      <span class="visibility-explain"><i aria-hidden="true" class="{{visibilityExplain.icon}}"></i>
                         {{ visibilityExplain.detail }}
                       </span>
                     </div>
-                    <button
-                      type="button"
-                      class="el-button el-button--primary el-button--small is-plain"
-                      routerLink="/p/{{ postData.id }}"
-                    >
-                      <!----><!----><span>
+                    <button type="button" class="el-button el-button--primary el-button--small is-plain"
+                      (click)="doUpdatePostStatus()">
+                      <!---->
+                      <!----><span>
                         {{ visibilityExplain.btnText }}
                       </span>
                     </button>
@@ -315,26 +184,17 @@
                     </button> -->
                   </div>
                 </div>
-                <button
-                  (click)="togglePublish($event)"
-                  (clickOutside)="clickOutsidePublish($event)"
-                  type="button"
-                  tabindex="0"
-                  class="el-button publish-button el-button--default el-popover__reference"
-                  aria-describedby="el-popover-6806"
-                >
+                <button (click)="togglePublish($event)" (clickOutside)="clickOutsidePublish($event)" type="button"
+                  tabindex="0" class="el-button publish-button el-button--default el-popover__reference"
+                  aria-describedby="el-popover-6806">
                   <span>
                     {{ isSaved ? "Save" : "Publish" }}
-                    <i class="fas fa-angle-down"></i
-                  ></span>
+                    <i class="fas fa-angle-down"></i></span>
                 </button>
               </span>
             </div>
           </div>
-          <div
-            *ngIf="isSaved"
-            class="d-flex align-items-center justify-content-end"
-          >
+          <div *ngIf="isSaved" class="d-flex align-items-center justify-content-end">
             <div class="mr-05">
               <span>
                 Saved {{ savedTime }} ago
@@ -342,10 +202,7 @@
             </div>
           </div>
           <div class="el-form-item mt-1 mb-0 is-required">
-            <simplemde
-              formControlName="simplemde"
-              [(ngModel)]="customize"
-              [options]="{
+            <simplemde formControlName="simplemde" [(ngModel)]="customize" [options]="{
                 toolbar: [
                   'bold',
                   'italic',
@@ -374,8 +231,7 @@
                   '|',
                   'guide'
                 ]
-              }"
-            ></simplemde>
+              }"></simplemde>
           </div>
         </form>
       </div>

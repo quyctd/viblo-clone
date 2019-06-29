@@ -118,7 +118,7 @@ export class LoginComponent implements OnInit {
 
   }
 
-  getUserData(token) {
+  public getUserData(token) {
     this.api.getUserDataFromToken(token).subscribe(
       data => {
         console.log(data);

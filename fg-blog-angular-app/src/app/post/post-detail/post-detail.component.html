@@ -6,7 +6,7 @@
         <app-promo-banner></app-promo-banner>
         <div class="container post-body position-relative">
           <div class="row">
-            <app-article-actions (clipEvent)="receiveClipEvent($event)" [postId]='id'></app-article-actions>
+            <app-article-actions (clipEvent)="receiveClipEvent($event)" (voteEvent)="receiveVoteEvent($event)" [postId]='id'></app-article-actions>
             <div class="post-body__main col-lg-10 col-xl-8">
               <article class="post-content">
                 <header class="mb-2">
@@ -26,16 +26,16 @@
                             </a>
                             <span class="text-muted">@{{ postData['author_data']['username'] }}</span>
                           </div>
-                          <a routerLink="https://accounts.viblo.asia/profile/personal" target="_blank">
+                          <a routerLink="/u/edit" target="_blank">
                             <button type="button" class="el-button el-button--default el-button--mini-mini">
                               <span>Edit</span>
                             </button>
                           </a>
                         </div>
                         <div class="stats">
-                          <span class="stats-item text-muted" data-tippy="" data-original-title="Reputations: 2"><i
+                          <span class="stats-item text-muted" data-tippy="" data-original-title="Reputations: postData.author_data.reputations"><i
                               aria-hidden="true" class="stats-item__icon fa fa-star"></i>
-                            2 </span><span class="stats-item text-muted" data-tippy=""
+                            {{ postData.author_data.reputations }} </span><span class="stats-item text-muted" data-tippy=""
                             data-original-title="Followers: 0"><i aria-hidden="true"
                               class="stats-item__icon fa fa-user-plus"></i>
                             0 </span><span class="stats-item text-muted" data-tippy="" data-original-title="Posts: 0"><i
@@ -100,16 +100,16 @@
                       </button>
                       <ul ngbDropdownMenu aria-labelledby="dropdownBasic1"
                         class="el-dropdown-menu el-popper el-dropdown-menu--medium" id="dropdown-menu-17">
-                        <li *ngIf="postData['author'] == userData['id'] " tabindex="-1" class="el-dropdown-menu__item">
+                        <li *ngIf="postData['author'] == postData['author_data']['id'] " tabindex="-1" class="el-dropdown-menu__item">
                           <a routerLink="/posts/{{ postData['id'] }}/edit" class="link link--plain"><i aria-hidden="true"
                               class="fa fa-edit pr-0 mr-05"></i>Edit
                           </a>
                         </li>
-                        <li *ngIf="postData['author'] == userData['id'] " tabindex="-1" class="el-dropdown-menu__item">
+                        <li *ngIf="postData['author'] == postData['author_data']['id'] " tabindex="-1" class="el-dropdown-menu__item">
                           <i aria-hidden="true" class="fa fa-trash pr-0 mr-05"></i>
                           Delete this post
                         </li>
-                        <li *ngIf="postData['author'] != userData['id'] " tabindex="-1" class="el-dropdown-menu__item">
+                        <li *ngIf="postData['author'] != postData['author_data']['id'] " tabindex="-1" class="el-dropdown-menu__item">
                           <i aria-hidden="true" class="fa fa-flag-o pr-0 mr-05"></i>
                           Report
                         </li>
