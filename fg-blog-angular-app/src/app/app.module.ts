@@ -51,6 +51,8 @@ import { PostFollowingsComponent } from './post/post-followings/post-followings.
 import { PostSuggestionComponent } from './post/post-suggestion/post-suggestion.component';
 import { PostFeedComponent } from './post/post-feed/post-feed.component';
 import { PaginationComponent } from './base/pagination/pagination.component';
+import { CommentFormComponent } from './article-partial/comment-form/comment-form.component';
+import { CommentThreadComponent } from './article-partial/comment-thread/comment-thread.component';
 
 @NgModule({
   declarations: [
@@ -85,7 +87,9 @@ import { PaginationComponent } from './base/pagination/pagination.component';
     PostFollowingsComponent,
     PostSuggestionComponent,
     PostFeedComponent,
-    PaginationComponent
+    PaginationComponent,
+    CommentFormComponent,
+    CommentThreadComponent
   ],
   imports: [
     BrowserModule,

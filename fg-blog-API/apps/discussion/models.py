@@ -7,11 +7,11 @@ from apps.post.models import Post
 
 
 class PostComment(MPTTModel, BasePost):
-    parent = TreeForeignKey('self', related_name='children', null=True, db_index=True, on_delete=models.CASCADE)
+    parent = TreeForeignKey('self', related_name='children', null=True, blank=True, db_index=True, on_delete=models.CASCADE)
     post_parent = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="post_of_comments")
 
     def __str__(self):
         return str(self.id)
 
     class MPTTMeta:
-        order_insertion_by = ['vote']
+        order_insertion_by = ['create_time']

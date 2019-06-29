@@ -9,10 +9,10 @@ from rest_framework.generics import ListAPIView
 class ListCommentInPostView(ListAPIView):
     serializer_class = PostCommentsSerializer
 
-    def get_queryset(self, *args, **kwargs):
-        post_id = kwargs.get('post_id', None)
+    def get_queryset(self):
+        post_id = self.kwargs.get('post_id', None)
         query = PostComment.objects.none()
         if post_id:
-            query = PostComment.objects.filter(post_parent=post_id)
+            query = PostComment.objects.filter(post_parent=post_id, level=0)
         return query
 
