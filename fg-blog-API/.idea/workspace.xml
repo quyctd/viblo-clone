@@ -1,28 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="26a4d0dc-4929-46d9-b9f9-d9014f22a95d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/authen/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/authen/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/base/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/base/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/discussion/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/discussion/migrations/0002_auto_20190629_1356.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/discussion/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/discussion/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/discussion/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/discussion/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/discussion/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/discussion/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/discussion/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/discussion/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/discussion/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/post/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/post/migrations/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/article-partial/article-comments/article-comments.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/article-partial/article-comments/article-comments.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/article-partial/article-comments/article-comments.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/article-partial/article-comments/article-comments.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/article-partial/article-comments/comments.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/article-partial/article-comments/comments.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/post/post-detail/post-detail.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../fg-blog-angular-app/src/app/post/post-detail/post-detail.component.html" afterDir="false" />
-    </list>
+    <list default="true" id="26a4d0dc-4929-46d9-b9f9-d9014f22a95d" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +37,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/apps/discussion/serializers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="96">
+            <state relative-caret-position="-454">
               <caret line="4" selection-start-line="4" selection-end-line="4" />
             </state>
           </provider>
@@ -283,12 +262,12 @@
       <workItem from="1561309829112" duration="72000" />
       <workItem from="1561309944001" duration="29000" />
       <workItem from="1561310027949" duration="8303000" />
-      <workItem from="1561390177283" duration="34232000" />
+      <workItem from="1561390177283" duration="34471000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="84761000" />
+    <option name="totallyTimeSpent" value="85000000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -678,7 +657,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/apps/discussion/serializers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
+        <state relative-caret-position="-454">
           <caret line="4" selection-start-line="4" selection-end-line="4" />
         </state>
       </provider>
