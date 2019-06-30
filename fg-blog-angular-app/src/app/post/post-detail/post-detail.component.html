@@ -26,9 +26,15 @@
                             </a>
                             <span class="text-muted">@{{ postData['author_data']['username'] }}</span>
                           </div>
-                          <a routerLink="/u/edit" target="_blank">
+                          <a *ngIf="postData.author == userData.id" routerLink="/u/edit">
                             <button type="button" class="el-button el-button--default el-button--mini-mini">
                               <span>Edit</span>
+                            </button>
+                          </a>
+                          <a *ngIf="postData.author != userData.id" (click)="toggeFollow()">
+                            <button type="button" class="el-button el-button--default el-button--mini-mini"
+                            [class.el-button--default]="!isFollow" [class.el-button--primary]="isFollow">
+                              <span>{{ followText }}</span>
                             </button>
                           </a>
                         </div>

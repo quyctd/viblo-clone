@@ -15,6 +15,7 @@ export class PostDetailComponent implements OnInit {
   sub: any;
   postData = {};
   authorData = {};
+  isFollow = false;
 
   // tslint:disable-next-line:max-line-length
   constructor(private postApi: PostManageService, private route: ActivatedRoute, private router: Router) { }
@@ -103,6 +104,19 @@ export class PostDetailComponent implements OnInit {
 
   getReadTime(content) {
     return calReadTime(content);
+  }
+
+  toggeFollow() {
+    this.isFollow = !this.isFollow;
+    // Future: Do follow here;
+  }
+
+  get followText() {
+    if (this.isFollow) {
+      return "Following";
+    } else {
+      return "Follow";
+    }
   }
 }
 

@@ -1,25 +1,25 @@
 <div class="comment-form root-comment-form">
     <div class="tabs">
       <ul role="tablist" class="tabs__list">
-        <li class="tabs__item">
-          <div class="tabs__link active">
+        <li class="tabs__item" (click)="switchTabs()">
+          <div class="tabs__link" [class.active]="!switcher">
             Write
           </div>
         </li>
-        <li class="tabs__item">
-          <div class="tabs__link">
+        <li class="tabs__item" (click)="switchTabs()">
+          <div class="tabs__link" [class.active]="switcher">
             Preview
           </div>
         </li>
       </ul>
-      <div class="tabs__content">
-        <div role="tabpanel" class="tab-pane">
+      <div class="tabs__content" [formGroup]="form">
+        <div role="tabpanel" class="tab-pane" [ngStyle]="{'display': !switcher ? 'block' : 'none'}">
           <div class="comment-form__write has-avatar">
-            <a href="/u/quyctd" class=""><img data-v-fa4ddde2="" src="../../../assets/default.png"
+            <a routerLink="/u/{{ currentUser.username }}" class=""><img data-v-fa4ddde2="" src="../../../assets/default.png"
                 class="avatar avatar--md mx-05" /></a>
             <div class="editor-lite" name="comment_contents" placeholder="Write a response..." rows="1">
-              <textarea name="comment_contents" placeholder="Write a response..." rows="1"
-                style="overflow-x: hidden; overflow-wrap: break-word; height: 120px;"></textarea>
+              <textarea autosize formControlName="content" name="comment_contents" placeholder="Write a response..." rows="4"
+                style="overflow-x: hidden; overflow-wrap: break-word;"></textarea>
               <div class="editor-lite__extras">
                 <div class="md-help">
                   <button type="button" class="el-button py-05 el-button--text editor-lite__extra-button"
@@ -45,14 +45,16 @@
             </div>
           </div>
         </div>
-        <div role="tabpanel" class="tab-pane" style="display: none;">
-          <div class="text-muted comment-form__preview">
+        <div role="tabpanel" class="tab-pane" [ngStyle]="{'display': switcher ? 'block' : 'none'}">
+          <div *ngIf="!formContent" class="text-muted comment-form__preview">
             Nothing to preview!
           </div>
+          <markdown></markdown>
         </div>
         <div class="comment-form__actions">
-          <button disabled="disabled" type="button"
-            class="el-button btn btn-sm btn-primary el-button--primary is-disabled">
+          <button [disabled]="formStatus == 'INVALID'" type="button"
+            class="el-button btn btn-sm btn-primary el-button--primary"
+            [class.is-disabled]="formStatus == 'INVALID'">
             <span>
               Post Comment
             </span>

@@ -4,8 +4,8 @@
     <div class="post-comments">
       <h3 class="mb-2"><strong>Comments</strong></h3>
       <div class="comment-threads">
-        <app-comment-form></app-comment-form>
-        <div *ngIf='false' class="card card-block text-sm-center">
+        <app-comment-form [articleId]="articleId"></app-comment-form>
+        <div *ngIf='data?.length == 0' class="card card-block text-sm-center">
           <span class="card-text text-muted mt-05 mb-05"><i aria-hidden="true" class="fa fa-comment-o"></i>
             No comments, yet.
           </span>
@@ -14,7 +14,7 @@
         <!-- Testing recusive comment loader -->
         <div class="list-transition">
             <ng-template #treeView let-data>
-              <div *ngFor="let item of data" data-commentid="4x5xexyqqKB" [ngClass]="{'comment-thread': true, 'reply': item.level != 0, 'root': item.level == 0 }">
+              <div *ngFor="let item of data" id="{{ item.id }}" [ngClass]="{'comment-thread': true, 'reply': item.level != 0, 'root': item.level == 0 }">
                   <header class="d-flex flex-wrap justify-content-between mb-05">
                     <div class="user--inline d-inline-flex flex-shrink-0">
                       <a routerLink="/u/{{ item.author_data.username }}" class="mr-05">
@@ -65,40 +65,10 @@
                     <span class="text-muted mx-05">|</span>
                     <a class="mr-05 cursor-pointer" data-tippy="" data-original-title="Reply"><span>Reply</span></a>
                     <div data-v-1b24b101="" class="relative mr-05 cursor-pointer">
-                      <a data-v-1b24b101="" routerLink="/c/{{item.id}}"
-                        class="icon-share link plain text-muted" data-tippy=""
-                        data-original-title="Share a link to this comment"><span data-v-1b24b101="">Share</span></a>
-                      <div data-v-1b24b101="" class="share-tip" style="display: none;">
-                        <label data-v-1b24b101="" class="tip-label">Share a link to this comment</label>
-                        <div data-v-1b24b101="" class="d-flex share-input-group">
-                          <input data-v-1b24b101="" data-sharing-id="comment-4x5xexyqqKB" type="text" readonly="readonly"
-                            class="d-block share-link" />
-                          <span data-v-1b24b101="" data-clipboard-text="/c/1"
-                            data-clipboard-target="[data-sharing-id='comment-4x5xexyqqKB']" area-label="Copied!"
-                            area-tooltip-hidden="true" title="Copy link" class="share-link-addon viblo-tooltip"><i
-                              data-v-1b24b101="" class="fa fa-copy"></i></span>
-                        </div>
-                        <div data-v-a12f229c="" data-v-1b24b101=""
-                          class="social-sharing social-sharing-icons social-sharing--vertical social-sharing--small">
-                          <a data-v-1b24b101="" data-v-a12f229c=""
-                            routerLink="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fviblo.asia%2Fc%2F4x5xexyqqKB&amp;title=Comment%20on%20answer"
-                            target="_blank" class="link social-btn-circle facebook-btn"><i data-v-1b24b101=""
-                              data-v-a12f229c="" aria-hidden="true" class="fa fa-facebook"></i></a>
-                          <a data-v-1b24b101="" data-v-a12f229c=""
-                            routerLink="https://twitter.com/intent/tweet?url=https://viblo.asia/c/4x5xexyqqKB&amp;text=Comment%20on%20answer&amp;hashtags="
-                            target="_blank" class="link social-btn-circle twitter-btn"><i data-v-1b24b101=""
-                              data-v-a12f229c="" aria-hidden="true" class="fa fa-twitter"></i></a>
-                          <a data-v-1b24b101="" data-v-a12f229c=""
-                            routerLink="https://plus.google.com/share?url=https%3A%2F%2Fviblo.asia%2Fc%2F4x5xexyqqKB"
-                            target="_blank" class="link social-btn-circle google-btn"><i data-v-1b24b101=""
-                              data-v-a12f229c="" aria-hidden="true" class="fa fa-google-plus"></i></a>
-                        </div>
-                        <div data-v-1b24b101="" class="d-flex" style="justify-content: flex-end;">
-                          <span data-v-1b24b101="" class="close-share-tip">
-                            Close
-                          </span>
-                        </div>
-                      </div>
+                      <a data-v-1b24b101="" appCustomDropdown routerLink="/c/{{item.id}}"
+                        class="icon-share link plain text-muted" attr.aria-controls="share-{{ item.id }}"
+                        data-original-title="Share a link to this comment" (click)="shareId = item.id"><span data-v-1b24b101="">Share</span></a>
+                      
                     </div>
                     <div class="comment-menu ml-05 el-dropdown">
                       <span class="cursor-pointer el-dropdown-selfdefine" data-tippy=""
@@ -127,6 +97,7 @@
                     <ng-container *ngTemplateOutlet="treeView;  context:{ $implicit: item.children }"></ng-container>
                   </div>
                   <!---->
+                  
               </div>
             </ng-template>
             <ng-container *ngTemplateOutlet="treeView; context:{ $implicit: data }"></ng-container>
@@ -136,3 +107,34 @@
   </div>
 </div>
 
+<div data-v-1b24b101="" id="share-{{shareId}}" class="share-tip" style="display: none;">
+    <label data-v-1b24b101="" class="tip-label">Share a link to this comment</label>
+    <div data-v-1b24b101="" class="d-flex share-input-group">
+      <input data-v-1b24b101="" data-sharing-id="comment-4x5xexyqqKB" type="text" readonly="readonly"
+        class="d-block share-link" />
+      <span data-v-1b24b101="" data-clipboard-text="/c/1"
+        data-clipboard-target="[data-sharing-id='comment-4x5xexyqqKB']" area-label="Copied!"
+        area-tooltip-hidden="true" title="Copy link" class="share-link-addon viblo-tooltip"><i
+          data-v-1b24b101="" class="fa fa-copy"></i></span>
+    </div>
+    <div data-v-a12f229c="" data-v-1b24b101=""
+      class="social-sharing social-sharing-icons social-sharing--vertical social-sharing--small">
+      <a data-v-1b24b101="" data-v-a12f229c=""
+        routerLink="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fviblo.asia%2Fc%2F4x5xexyqqKB&amp;title=Comment%20on%20answer"
+        target="_blank" class="link social-btn-circle facebook-btn"><i data-v-1b24b101=""
+          data-v-a12f229c="" aria-hidden="true" class="fa fa-facebook"></i></a>
+      <a data-v-1b24b101="" data-v-a12f229c=""
+        routerLink="https://twitter.com/intent/tweet?url=https://viblo.asia/c/4x5xexyqqKB&amp;text=Comment%20on%20answer&amp;hashtags="
+        target="_blank" class="link social-btn-circle twitter-btn"><i data-v-1b24b101=""
+          data-v-a12f229c="" aria-hidden="true" class="fa fa-twitter"></i></a>
+      <a data-v-1b24b101="" data-v-a12f229c=""
+        routerLink="https://plus.google.com/share?url=https%3A%2F%2Fviblo.asia%2Fc%2F4x5xexyqqKB"
+        target="_blank" class="link social-btn-circle google-btn"><i data-v-1b24b101=""
+          data-v-a12f229c="" aria-hidden="true" class="fa fa-google-plus"></i></a>
+    </div>
+    <div data-v-1b24b101="" class="d-flex" style="justify-content: flex-end;">
+      <span data-v-1b24b101="" class="close-share-tip">
+        Close
+      </span>
+    </div>
+  </div>

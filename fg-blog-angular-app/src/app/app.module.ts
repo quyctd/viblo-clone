@@ -15,6 +15,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SimplemdeModule } from 'ngx-simplemde';
 import { ClickOutsideModule } from 'ng-click-outside';
 import {StickyModule} from 'ng2-sticky-kit';
+import { TextareaAutosizeModule } from 'ngx-textarea-autosize';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -100,6 +101,7 @@ import { CommentFormComponent } from './article-partial/comment-form/comment-for
     ClickOutsideModule,
     NgbModule,
     StickyModule,
+    TextareaAutosizeModule,
     MarkdownModule.forRoot(),
     SimplemdeModule.forRoot(),
     RouterModule.forRoot([
