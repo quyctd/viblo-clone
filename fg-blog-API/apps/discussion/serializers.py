@@ -32,12 +32,18 @@ class RecursiveField(serializers.BaseSerializer, ABC):
         return instance
 
 
+def required(value):
+    if value is None:
+        raise serializers.ValidationError('This field is required')
+
+
 class PostCommentsSerializer(serializers.ModelSerializer):
     children = RecursiveField(
         many=True,
         required=False
     )
     author_data = serializers.SerializerMethodField()
+    # level = serializers.IntegerField(validators=[required])
 
     def get_author_data(self, obj):
         author = obj.author
@@ -46,4 +52,6 @@ class PostCommentsSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = PostComment
-        fields = '__all__'
+        fields = "__all__"
+        extra_kwargs = {'parent': {'required': True}}
+

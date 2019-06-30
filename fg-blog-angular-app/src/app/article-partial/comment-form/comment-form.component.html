@@ -49,12 +49,12 @@
           <div *ngIf="!formContent" class="text-muted comment-form__preview">
             Nothing to preview!
           </div>
-          <markdown></markdown>
+          <markdown [data]="formContent"></markdown>
         </div>
         <div class="comment-form__actions">
           <button [disabled]="formStatus == 'INVALID'" type="button"
             class="el-button btn btn-sm btn-primary el-button--primary"
-            [class.is-disabled]="formStatus == 'INVALID'">
+            [class.is-disabled]="formStatus == 'INVALID'" (click)='doPostComment()'>
             <span>
               Post Comment
             </span>

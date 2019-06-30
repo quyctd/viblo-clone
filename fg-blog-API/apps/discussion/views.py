@@ -1,8 +1,10 @@
 from django.shortcuts import render
+from rest_framework.response import Response
 from rest_framework.views import APIView
 from .models import *
 from .serializers import PostCommentsSerializer
 from rest_framework.generics import ListAPIView
+from rest_framework import viewsets
 # Create your views here.
 
 
@@ -16,3 +18,12 @@ class ListCommentInPostView(ListAPIView):
             query = PostComment.objects.filter(post_parent=post_id, level=0)
         return query
 
+
+class CommentViewSet(viewsets.ModelViewSet):
+    queryset = PostComment.objects.all().order_by('-create_time')
+    serializer_class = PostCommentsSerializer
+
+    def create(self, request, **kwargs):
+        # do your thing here
+        print(request.data)
+        return super().create(request)

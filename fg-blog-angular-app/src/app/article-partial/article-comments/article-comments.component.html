@@ -4,7 +4,7 @@
     <div class="post-comments">
       <h3 class="mb-2"><strong>Comments</strong></h3>
       <div class="comment-threads">
-        <app-comment-form [articleId]="articleId"></app-comment-form>
+        <app-comment-form [parent]="0" [articleId]="articleId"></app-comment-form>
         <div *ngIf='data?.length == 0' class="card card-block text-sm-center">
           <span class="card-text text-muted mt-05 mb-05"><i aria-hidden="true" class="fa fa-comment-o"></i>
             No comments, yet.
