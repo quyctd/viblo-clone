@@ -13,10 +13,10 @@
   </div>
   <ul *ngIf="toc.length != 0" class="content-outline list-unstyled">
     <li *ngFor="let heading of toc"
-      
+      (click)="doScrollTo(heading.id)"
       class="content-outline__item content-outline__item--level-{{heading.level}}">
       <a
-        href="{{url}}#{{heading.id}}"
+        href=""
         class="link"
         >{{heading.name}}</a
       >

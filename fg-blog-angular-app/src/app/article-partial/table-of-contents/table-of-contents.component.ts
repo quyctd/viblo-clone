@@ -15,4 +15,15 @@ export class TableOfContentsComponent implements OnInit {
   ngOnInit() {
   }
 
+  doScrollTo(headingId) {
+    console.log(headingId);
+    const bodyRect = document.body.getBoundingClientRect().top;
+    const el = document.getElementById(headingId);
+    const elPos = el.getBoundingClientRect().top - bodyRect;
+    const navbar = document.getElementsByClassName("main-navbar main-navbar__group py-1")[0];
+    const offset = navbar.getBoundingClientRect().height + 5;
+    const scrollPos = elPos - offset;
+    window.scrollTo({top: scrollPos, behavior: "smooth"});
+  }
+
 }
