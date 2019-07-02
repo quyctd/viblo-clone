@@ -8,6 +8,6 @@ router = routers.DefaultRouter()
 router.register(r'comments', views.CommentViewSet)
 
 urlpatterns = [
-    url(r'^comments/(?P<post_id>\d+)/$', views.ListCommentInPostView.as_view()),
+    url(r'^comments/post/(?P<post_id>\d+)/$', views.ListCommentInPostView.as_view()),
     url(r'^', include(router.urls)),
 ]

@@ -4,7 +4,7 @@
     <div class="post-comments">
       <h3 class="mb-2"><strong>Comments</strong></h3>
       <div class="comment-threads">
-        <app-comment-form [parent]="0" [articleId]="articleId"></app-comment-form>
+        <app-comment-form (postNewCommentEvent)="receivePostCommentEvent($event)" [parent]="0" [articleId]="articleId"></app-comment-form>
         <div *ngIf='data?.length == 0' class="card card-block text-sm-center">
           <span class="card-text text-muted mt-05 mb-05"><i aria-hidden="true" class="fa fa-comment-o"></i>
             No comments, yet.
@@ -14,7 +14,7 @@
         <!-- Testing recusive comment loader -->
         <div class="list-transition">
             <ng-template #treeView let-data>
-              <div *ngFor="let item of data" id="{{ item.id }}" [ngClass]="{'comment-thread': true, 'reply': item.level != 0, 'root': item.level == 0 }">
+              <div *ngFor="let item of data; let i = index; trackBy: index" id="{{ item.id }}" [ngClass]="{'comment-thread': true, 'reply': item.level != 0, 'root': item.level == 0 }">
                   <header class="d-flex flex-wrap justify-content-between mb-05">
                     <div class="user--inline d-inline-flex flex-shrink-0">
                       <a routerLink="/u/{{ item.author_data.username }}" class="mr-05">
@@ -43,11 +43,10 @@
                     </div>
                     <div class="comment-meta word-break">
                       <span class="text-muted">{{ getTimePublish(item.create_time) }}</span>
+                      <i *ngIf="isCommentEdited(item.create_time, item.updated_time)" class="fa fa-pencil text-muted ml-05" data-tippy="" data-original-title="Edited Saturday, 12:40 AM"></i>
                     </div>
                   </header>
-                  <div class="md-contents mb-05">
-                    <p>{{ item.content }}</p>
-                  </div>
+                  <markdown [data]="item.content"></markdown>
                   <footer class="d-flex text-muted">
                     <div data-v-887f1afe="" class="score">
                       <button data-v-887f1afe="" class="icon-btn vote disabled" data-tippy=""
@@ -63,7 +62,7 @@
                       </button>
                     </div>
                     <span class="text-muted mx-05">|</span>
-                    <a class="mr-05 cursor-pointer" data-tippy="" data-original-title="Reply"><span>Reply</span></a>
+                    <a class="mr-05 cursor-pointer" data-tippy="" data-original-title="Reply" (click)="doReplyComment(item.id)"><span>Reply</span></a>
                     <div data-v-1b24b101="" class="relative mr-05 cursor-pointer">
                       <a data-v-1b24b101="" appCustomDropdown routerLink="/c/{{item.id}}"
                         class="icon-share link plain text-muted" attr.aria-controls="share-{{ item.id }}"
@@ -71,27 +70,17 @@
                       
                     </div>
                     <div class="comment-menu ml-05 el-dropdown">
-                      <span class="cursor-pointer el-dropdown-selfdefine" data-tippy=""
-                        data-original-title="Show more actions" aria-haspopup="list" aria-controls="dropdown-menu-50"
-                        role="button" tabindex="0"><i class=" v-menu-icon--small fas fa-ellipsis-h"></i></span>
-                      <ul class="el-dropdown-menu el-popper" id="dropdown-menu-50" style="display: none;">
-                        <li tabindex="-1" class="el-dropdown-menu__item">
-                          <i aria-hidden="true" class="fa fa-pencil pr-0 mr-05"></i>
-                          Edit
-                        </li>
-                        <!---->
-                        <li tabindex="-1" class="el-dropdown-menu__item">
-                          <i aria-hidden="true" class="fa fa-trash pr-0 mr-05"></i>
-                          Delete this comment
-                        </li>
-                        <!---->
-                        <li tabindex="-1" class="el-dropdown-menu__item el-dropdown-menu__item--divided">
-                          <i class="fa fa-magic pr-0 mr-05"></i>
-                          Highlighting code blocks
-                        </li>
-                      </ul>
+                      <span appCustomDropdown class="cursor-pointer el-dropdown-selfdefine" data-tippy=""
+                        data-original-title="Show more actions" aria-haspopup="list" [attr.aria-controls]="'comment-menu-' + item.id"
+                        role="button" x-placement="bottom-start" tabindex="0" (click)="menuId = item.id"><i class=" v-menu-icon--small fas fa-ellipsis-h" ></i></span>
+                      
                     </div>
                   </footer>
+                  <!-- Edit form -->
+                  <app-comment-form style="display: none;" (discardEdit)="receiveDiscardEdit($event)" (postCommentEvent)="receivePostCommentEvent($event)" [commentType]="1" [inputComment]="item" [parent]="item.parent" [articleId]="articleId"></app-comment-form>
+                  <!-- Reply form -->
+                  <app-comment-form style="display: none;" (discardEdit)="receiveDiscardEdit($event)" (postCommentEvent)="receiveEditCommentEvent($event)" [commentType]="2" [inputComment]="item" [parent]="item.id" [articleId]="articleId"></app-comment-form>
+            
                   <!---->
                   <div class="list-transition" *ngIf="item.children?.length > 0">
                     <ng-container *ngTemplateOutlet="treeView;  context:{ $implicit: item.children }"></ng-container>
@@ -138,3 +127,20 @@
       </span>
     </div>
   </div>
+
+<ul class="el-dropdown-menu el-popper" id="comment-menu-{{menuId}}" style="display: none;">
+    <li tabindex="-1" class="el-dropdown-menu__item" (click)="doEditComment(menuId)">
+      <i aria-hidden="true" class="fa fa-pencil pr-0 mr-05"></i>
+      Edit
+    </li>
+    <!---->
+    <li tabindex="-1" class="el-dropdown-menu__item" (click)="doDeleteComment(menuId)">
+      <i aria-hidden="true" class="fa fa-trash pr-0 mr-05"></i>
+      Delete this comment
+    </li>
+    <!---->
+    <li tabindex="-1" class="el-dropdown-menu__item el-dropdown-menu__item--divided">
+      <i class="fa fa-magic pr-0 mr-05"></i>
+      Highlighting code blocks
+    </li>
+  </ul>

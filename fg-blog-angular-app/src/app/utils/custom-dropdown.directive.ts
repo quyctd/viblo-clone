@@ -28,9 +28,9 @@ export class CustomDropdownDirective implements OnInit {
 
   doShowDropdown(target) {
     const dropdownId = target.getAttribute('aria-controls');
+    const placement = target.getAttribute("x-placement");
     const dropEle = document.getElementById(dropdownId);
     // tslint:disable:max-line-length
-    dropEle.style.left = target.getBoundingClientRect().left + target.getBoundingClientRect().width - dropEle.getBoundingClientRect().width + "px";
     if (this.isShow && dropEle) {
       // console.log("Do hidden");
       dropEle.style.display = "none";
@@ -40,10 +40,14 @@ export class CustomDropdownDirective implements OnInit {
       dropEle.style.display = "block";
       this.isShow = true;
       dropEle.style.top = target.getBoundingClientRect().bottom + "px";
-      if (dropdownId.includes('share')) {
+      if (dropdownId.includes('share') || dropdownId.includes("comment-menu-")) {
         dropEle.style.top = window.pageYOffset + target.getBoundingClientRect().bottom + "px";
       }
-      dropEle.style.left = target.getBoundingClientRect().left + target.getBoundingClientRect().width - dropEle.getBoundingClientRect().width + "px";
+      if (placement === "bottom-start") {
+        dropEle.style.left = target.getBoundingClientRect().left + "px";
+      } else {
+        dropEle.style.left = target.getBoundingClientRect().left + target.getBoundingClientRect().width - dropEle.getBoundingClientRect().width + "px";
+      }
     }
   }
 

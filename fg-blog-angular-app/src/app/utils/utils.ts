@@ -47,7 +47,7 @@ function formatInDays(ms: number) {
           }
      }
 
-     return days2 + "" + hours2 + "" + minutes2 + "" + sec;
+     return "less then a minute";
 }
 
 function pad(n: any) {return n < 10 ? '0' + n : n; }
@@ -191,4 +191,25 @@ export function calReadTime(document) {
      const documentLen = documentWithoutSpace.length;
      const readTime = Math.round(documentLen / CHAR_PER_MINUTE);
      return readTime;
+}
+
+export function doScrollTo(elId) {
+     const bodyRect = document.body.getBoundingClientRect().top;
+     const el = document.getElementById(elId);
+     const elPos = el.getBoundingClientRect().top - bodyRect;
+     const navbar = document.getElementsByClassName("main-navbar main-navbar__group py-1")[0];
+     const offset = navbar.getBoundingClientRect().height + 5;
+     const scrollPos = elPos - offset;
+     window.scrollTo({top: scrollPos, behavior: "smooth"});
+}
+
+export function checkIsUpdate(publishTime, editedTime) {
+     publishTime = new Date(publishTime);
+     editedTime = new Date(editedTime);
+     const diff = Math.abs(publishTime - editedTime);
+     if (diff != 0) {
+          return true;
+     } else {
+          return false;
+     }
 }
