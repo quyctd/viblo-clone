@@ -73,14 +73,7 @@ export class ArticleCommentsComponent implements OnInit {
   doReplyComment(commentId) {
     this.editComment = commentId;
     const commentEle = document.getElementById(commentId);
-    console.log(commentEle.querySelectorAll('app-comment-form'));
-    const contentEle = commentEle.querySelector('markdown') as HTMLElement;
-    const menuEle = commentEle.querySelector('footer') as HTMLElement;
-    const editEle = commentEle.querySelectorAll('app-comment-form')[0] as HTMLElement;
     const replyEle = commentEle.querySelectorAll('app-comment-form')[1] as HTMLElement;
-    contentEle.style.display = "none";
-    menuEle.style.visibility = "hidden";
-    editEle.style.display = 'none';
     replyEle.style.display = "block";
   }
 

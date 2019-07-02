@@ -79,7 +79,7 @@
                   <!-- Edit form -->
                   <app-comment-form style="display: none;" (discardEdit)="receiveDiscardEdit($event)" (postCommentEvent)="receivePostCommentEvent($event)" [commentType]="1" [inputComment]="item" [parent]="item.parent" [articleId]="articleId"></app-comment-form>
                   <!-- Reply form -->
-                  <app-comment-form style="display: none;" (discardEdit)="receiveDiscardEdit($event)" (postCommentEvent)="receiveEditCommentEvent($event)" [commentType]="2" [inputComment]="item" [parent]="item.id" [articleId]="articleId"></app-comment-form>
+                  <app-comment-form style="display: none;" (discardEdit)="receiveDiscardEdit($event)" (postCommentEvent)="receivePostCommentEvent($event)" [commentType]="2" [inputComment]="item" [parent]="item.id" [articleId]="articleId"></app-comment-form>
             
                   <!---->
                   <div class="list-transition" *ngIf="item.children?.length > 0">
