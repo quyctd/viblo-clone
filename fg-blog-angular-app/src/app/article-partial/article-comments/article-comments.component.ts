@@ -17,6 +17,9 @@ export class ArticleCommentsComponent implements OnInit {
   editComment: any;
   baseUrl: string;
   userIsAuthor: false;
+  shareId: any; // using in template
+  menuId: any; // using in template
+  authorId: any; // using in template
 
   constructor(private api: CommentsService, private cd: ChangeDetectorRef, private modalService: NgbModal) { }
 

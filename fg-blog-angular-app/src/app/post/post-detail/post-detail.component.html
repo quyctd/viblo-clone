@@ -26,12 +26,12 @@
                             </a>
                             <span class="text-muted">@{{ postData['author_data']['username'] }}</span>
                           </div>
-                          <a *ngIf="postData.author == userData.id" routerLink="/u/edit">
+                          <a *ngIf="postData['author'] == userData['id']" routerLink="/u/edit">
                             <button type="button" class="el-button el-button--default el-button--mini-mini">
                               <span>Edit</span>
                             </button>
                           </a>
-                          <a *ngIf="postData.author != userData.id" (click)="toggeFollow()">
+                          <a *ngIf="postData['author'] != userData['id']" (click)="toggeFollow()">
                             <button type="button" class="el-button el-button--default el-button--mini-mini"
                             [class.el-button--default]="!isFollow" [class.el-button--primary]="isFollow">
                               <span>{{ followText }}</span>
@@ -39,7 +39,7 @@
                           </a>
                         </div>
                         <div class="stats">
-                          <span class="stats-item text-muted" data-tippy="" data-original-title="Reputations: postData.author_data.reputations"><i
+                          <span class="stats-item text-muted" data-tippy="" data-original-title="Reputations: 0"><i
                               aria-hidden="true" class="stats-item__icon fa fa-star"></i>
                             {{ postData['author_data'] ? postData['author_data']['reputations'] : 'Admin' }} 
                           </span>
@@ -192,7 +192,7 @@
             </div>
           </div>
         </div>
-        <app-article-comments [articleId]="postData.id"></app-article-comments>
+        <app-article-comments [articleId]="postData['id']"></app-article-comments>
       </div>
     </div>
     <app-footer></app-footer>
