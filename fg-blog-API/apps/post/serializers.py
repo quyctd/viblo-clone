@@ -6,6 +6,7 @@ from taggit_serializer.serializers import (TagListSerializerField,
 from apps.authen.serializers import UserSerializer
 from apps.authen.models import CustomUser
 import markdown
+from apps.discussion.models import PostComment
 
 
 class AuthorSerializer(serializers.ModelSerializer):
@@ -19,6 +20,7 @@ class PostSerializer(TaggitSerializer, serializers.ModelSerializer):
     author_data = serializers.SerializerMethodField()
     toc = serializers.SerializerMethodField()
     preview_content = serializers.SerializerMethodField()
+    comment_count = serializers.SerializerMethodField()
 
     def get_author_data(self, obj):
         author = obj.author
@@ -37,6 +39,10 @@ class PostSerializer(TaggitSerializer, serializers.ModelSerializer):
         prev_content = obj.content[:200]
         prev_content = prev_content.replace("### ", " ").replace("## ", " ").replace("# ", " ")
         return prev_content
+
+    def get_comment_count(self, obj):
+        count = PostComment.objects.filter(post_parent=obj.id, level=0).count()
+        return count
 
     class Meta:
         model = models.Post

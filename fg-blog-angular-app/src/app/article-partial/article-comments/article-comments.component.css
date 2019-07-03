@@ -1700,3 +1700,15 @@
 .post-title-header {
 	word-break: break-all
 }
+
+/* modal animation */
+.modal-content{
+	animation-name: example;
+	animation-duration: 0.3s;
+   }
+
+@keyframes example {
+0%   {transform: scale(0.5)}
+75%  {transform: scale(1.1)}
+100% {transform: scale(1)}
+}

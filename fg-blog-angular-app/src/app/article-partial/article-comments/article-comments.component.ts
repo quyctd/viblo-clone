@@ -1,11 +1,13 @@
-import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, Input, ChangeDetectorRef, ViewEncapsulation } from '@angular/core';
 import { CommentsService } from './comments.service';
 import { calTimeDifference } from '../../utils/utils';
 import { doScrollTo, checkIsUpdate } from '../../utils/utils';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-article-comments',
   templateUrl: './article-comments.component.html',
+  encapsulation: ViewEncapsulation.None,
   styleUrls: ['./article-comments.component.css']
 })
 export class ArticleCommentsComponent implements OnInit {
@@ -13,11 +15,13 @@ export class ArticleCommentsComponent implements OnInit {
   @Input() articleId: number;
   data = [];
   editComment: any;
+  baseUrl: string;
 
-  constructor(private api: CommentsService, private cd: ChangeDetectorRef) { }
+  constructor(private api: CommentsService, private cd: ChangeDetectorRef, private modalService: NgbModal) { }
 
   ngOnInit() {
     console.log("Post id: ", this.articleId);
+    this.baseUrl = location.origin;
     this.getListComment(0);
   }
 
@@ -80,4 +84,32 @@ export class ArticleCommentsComponent implements OnInit {
   isCommentEdited(createTime, updatedTime) {
     return checkIsUpdate(createTime, updatedTime);
   }
+
+  openVerticallyCentered(content) {
+    this.modalService.open(content, { centered: true });
+  }
+
+  doDeleteComment(commentId) {
+    this.api.deleteComment(commentId).subscribe(
+      data => {
+        console.log("Delete comment: ", data);
+        this.getListComment(commentId);
+      },
+      error => {
+        console.log("Delete comment: ", error);
+      }
+    );
+  }
+
+  doCloseShare(shareId) {
+    const shareEle = document.getElementById("share-" + shareId);
+    shareEle.style.display = "none";
+  }
+
+    /* To copy Text from Textbox */
+    copyShareIdToClipboard(inputElement) {
+      inputElement.select();
+      document.execCommand('copy');
+      inputElement.setSelectionRange(0, 0);
+    }
 }

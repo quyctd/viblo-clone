@@ -7,6 +7,7 @@ export class CustomDropdownDirective implements OnInit {
 
   isShow = false;
   currEle: any;
+  dropEle: any;
 
   constructor(private eRef: ElementRef) { }
 
@@ -17,10 +18,13 @@ export class CustomDropdownDirective implements OnInit {
     event.preventDefault();
     event.stopPropagation();
     this.currEle = this.eRef.nativeElement;
+    if (this.dropEle && this.dropEle.style.display === "none") {
+      this.isShow = false;
+    }
     if (this.eRef.nativeElement.contains(event.target)) {
       // console.log("clicked inside");
       this.doShowDropdown(this.currEle);
-    } else {
+    } else if (this.dropEle && !this.dropEle.contains(event.target)) {
       // console.log("clicked outside");
       this.doHideDropdown(this.currEle);
     }
@@ -30,6 +34,7 @@ export class CustomDropdownDirective implements OnInit {
     const dropdownId = target.getAttribute('aria-controls');
     const placement = target.getAttribute("x-placement");
     const dropEle = document.getElementById(dropdownId);
+    this.dropEle = dropEle;
     // tslint:disable:max-line-length
     if (this.isShow && dropEle) {
       // console.log("Do hidden");

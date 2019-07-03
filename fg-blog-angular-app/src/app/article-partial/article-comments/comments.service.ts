@@ -35,4 +35,10 @@ export class CommentsService extends BaseService {
     this.setHeadersToken();
     return this.http.put(this.baseUrl + "comments/" + commentId + "/", formData, {headers: this.httpHeaders});
   }
+
+  public deleteComment(commentId): Observable<any> {
+    this.setHeadersToken();
+    const body = {};
+    return this.http.post(this.baseUrl + "comments/delete/" + commentId + "/", body, {headers: this.httpHeaders});
+  }
  }

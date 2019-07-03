@@ -4,8 +4,9 @@
     <div class="post-comments">
       <h3 class="mb-2"><strong>Comments</strong></h3>
       <div class="comment-threads">
-        <app-comment-form (postNewCommentEvent)="receivePostCommentEvent($event)" [parent]="0" [articleId]="articleId"></app-comment-form>
-        <div *ngIf='data?.length == 0' class="card card-block text-sm-center">
+        <app-comment-form (postCommentEvent)="receivePostCommentEvent($event)" [parent]="0" [articleId]="articleId">
+        </app-comment-form>
+        <div *ngIf="data?.length == 0" class="card card-block text-sm-center">
           <span class="card-text text-muted mt-05 mb-05"><i aria-hidden="true" class="fa fa-comment-o"></i>
             No comments, yet.
           </span>
@@ -13,134 +14,195 @@
 
         <!-- Testing recusive comment loader -->
         <div class="list-transition">
-            <ng-template #treeView let-data>
-              <div *ngFor="let item of data; let i = index; trackBy: index" id="{{ item.id }}" [ngClass]="{'comment-thread': true, 'reply': item.level != 0, 'root': item.level == 0 }">
-                  <header class="d-flex flex-wrap justify-content-between mb-05">
-                    <div class="user--inline d-inline-flex flex-shrink-0">
-                      <a routerLink="/u/{{ item.author_data.username }}" class="mr-05">
-                        <div class="d-inline-block">
-                          <img data-v-fa4ddde2="" src="../../../assets/default.png" class="avatar avatar--xs"
-                            srcset="../../../assets/default.png" /></div>
-                      </a>
-                      <span>
-                        <div role="tooltip" id="el-popover-1633" aria-hidden="true" class="el-popover el-popper"
-                          tabindex="0" style="width: 350px; display: none;">
-                          <!---->
-                          <div class="popover-usercard">
-                            <div align="center">
-                              <i aria-hidden="true" class="el-icon-loading"></i>
-                            </div>
-                          </div>
+          <ng-template #treeView let-data>
+            <div *ngFor="let item of data; let i = index; trackBy: index" id="{{ item.id }}" [ngClass]="{
+                'comment-thread': true,
+                reply: item.level != 0,
+                root: item.level == 0
+              }">
+              <header class="d-flex flex-wrap justify-content-between mb-05">
+                <div class="user--inline d-inline-flex flex-shrink-0">
+                  <a routerLink="/u/{{ item.author_data.username }}" class="mr-05">
+                    <div class="d-inline-block">
+                      <img data-v-fa4ddde2="" src="../../../assets/default.png" class="avatar avatar--xs"
+                        srcset="../../../assets/default.png" />
+                    </div>
+                  </a>
+                  <span>
+                    <div role="tooltip" id="el-popover-1633" aria-hidden="true" class="el-popover el-popper"
+                      tabindex="0" style="width: 350px; display: none;">
+
+                      <div class="popover-usercard">
+                        <div align="center">
+                          <i aria-hidden="true" class="el-icon-loading"></i>
                         </div>
-                        <a routerLink="/u/{{ item.author_data.username }}" class="mr-05 el-popover__reference" aria-describedby="el-popover-1633"
-                          tabindex="0">
-                          {{ item.author_data.name }}
-                        </a>
-                      </span>
-                      <span class="text-muted mr-05">
-                        @{{ item.author_data.username }}
-                      </span>
+                      </div>
                     </div>
-                    <div class="comment-meta word-break">
-                      <span class="text-muted">{{ getTimePublish(item.create_time) }}</span>
-                      <i *ngIf="isCommentEdited(item.create_time, item.updated_time)" class="fa fa-pencil text-muted ml-05" data-tippy="" data-original-title="Edited Saturday, 12:40 AM"></i>
-                    </div>
-                  </header>
-                  <markdown [data]="item.content"></markdown>
-                  <footer class="d-flex text-muted">
-                    <div data-v-887f1afe="" class="score">
-                      <button data-v-887f1afe="" class="icon-btn vote disabled" data-tippy=""
-                        data-original-title="You cannot vote your own comment">
-                        <i data-v-887f1afe="" aria-hidden="true" class="fa fa-chevron-up"></i>
-                      </button>
-                      <span data-v-887f1afe="" class="comment-points text-muted">
-                        {{ item.vote }}
-                      </span>
-                      <button data-v-887f1afe="" class="icon-btn vote disabled" data-tippy=""
-                        data-original-title="You cannot vote your own comment">
-                        <i data-v-887f1afe="" aria-hidden="true" class="fa fa-chevron-down"></i>
-                      </button>
-                    </div>
-                    <span class="text-muted mx-05">|</span>
-                    <a class="mr-05 cursor-pointer" data-tippy="" data-original-title="Reply" (click)="doReplyComment(item.id)"><span>Reply</span></a>
-                    <div data-v-1b24b101="" class="relative mr-05 cursor-pointer">
-                      <a data-v-1b24b101="" appCustomDropdown routerLink="/c/{{item.id}}"
-                        class="icon-share link plain text-muted" attr.aria-controls="share-{{ item.id }}"
-                        data-original-title="Share a link to this comment" (click)="shareId = item.id"><span data-v-1b24b101="">Share</span></a>
-                      
-                    </div>
-                    <div class="comment-menu ml-05 el-dropdown">
-                      <span appCustomDropdown class="cursor-pointer el-dropdown-selfdefine" data-tippy=""
-                        data-original-title="Show more actions" aria-haspopup="list" [attr.aria-controls]="'comment-menu-' + item.id"
-                        role="button" x-placement="bottom-start" tabindex="0" (click)="menuId = item.id"><i class=" v-menu-icon--small fas fa-ellipsis-h" ></i></span>
-                      
-                    </div>
-                  </footer>
-                  <!-- Edit form -->
-                  <app-comment-form style="display: none;" (discardEdit)="receiveDiscardEdit($event)" (postCommentEvent)="receivePostCommentEvent($event)" [commentType]="1" [inputComment]="item" [parent]="item.parent" [articleId]="articleId"></app-comment-form>
-                  <!-- Reply form -->
-                  <app-comment-form style="display: none;" (discardEdit)="receiveDiscardEdit($event)" (postCommentEvent)="receivePostCommentEvent($event)" [commentType]="2" [inputComment]="item" [parent]="item.id" [articleId]="articleId"></app-comment-form>
-            
-                  <!---->
-                  <div class="list-transition" *ngIf="item.children?.length > 0">
-                    <ng-container *ngTemplateOutlet="treeView;  context:{ $implicit: item.children }"></ng-container>
-                  </div>
-                  <!---->
-                  
+                    <a routerLink="/u/{{ item.author_data.username }}" class="mr-05 el-popover__reference"
+                      aria-describedby="el-popover-1633" tabindex="0">
+                      {{ item.author_data.name }}
+                    </a>
+                  </span>
+                  <span class="text-muted mr-05">
+                    @{{ item.author_data.username }}
+                  </span>
+                </div>
+                <div class="comment-meta word-break">
+                  <span class="text-muted">{{
+                    getTimePublish(item.create_time)
+                  }}</span>
+                  <i *ngIf="isCommentEdited(item.create_time, item.updated_time)" class="fa fa-pencil text-muted ml-05"
+                    data-tippy="" data-original-title="Edited Saturday, 12:40 AM"></i>
+                </div>
+              </header>
+              <div *ngIf="item.content == ''" role="alert" class="el-alert el-alert--info">
+                <i class="fas fa-info-circle"></i>
+                <div class="el-alert__content">
+                  <span class="el-alert__title">This comment has been deleted</span>
+                  <i class="el-alert__closebtn el-icon-close" style="display: none;"></i>
+                </div>
               </div>
-            </ng-template>
-            <ng-container *ngTemplateOutlet="treeView; context:{ $implicit: data }"></ng-container>
-          </div>
+              <markdown *ngIf="item.content != ''" [data]="item.content"></markdown>
+              <footer *ngIf="item.content != ''" class="d-flex text-muted">
+                <div data-v-887f1afe="" class="score">
+                  <button data-v-887f1afe="" class="icon-btn vote disabled" data-tippy=""
+                    data-original-title="You cannot vote your own comment">
+                    <i data-v-887f1afe="" aria-hidden="true" class="fa fa-chevron-up"></i>
+                  </button>
+                  <span data-v-887f1afe="" class="comment-points text-muted">
+                    {{ item.vote }}
+                  </span>
+                  <button data-v-887f1afe="" class="icon-btn vote disabled" data-tippy=""
+                    data-original-title="You cannot vote your own comment">
+                    <i data-v-887f1afe="" aria-hidden="true" class="fa fa-chevron-down"></i>
+                  </button>
+                </div>
+                <span class="text-muted mx-05">|</span>
+                <a class="mr-05 cursor-pointer" data-tippy="" data-original-title="Reply"
+                  (click)="doReplyComment(item.id)"><span>Reply</span></a>
+                <div data-v-1b24b101="" class="relative mr-05 cursor-pointer">
+                  <a data-v-1b24b101="" appCustomDropdown routerLink="/c/{{ item.id }}"
+                    class="icon-share link plain text-muted" attr.aria-controls="share-{{ item.id }}"
+                    x-placement="bottom-start"
+                    data-original-title="Share a link to this comment" (click)="shareId = item.id"><span
+                      data-v-1b24b101="">Share</span></a>
+                </div>
+                <div class="comment-menu ml-05 el-dropdown">
+                  <span appCustomDropdown class="cursor-pointer el-dropdown-selfdefine" data-tippy=""
+                    data-original-title="Show more actions" aria-haspopup="list"
+                    [attr.aria-controls]="'comment-menu-' + item.id" role="button" x-placement="bottom-start"
+                    tabindex="0" (click)="menuId = item.id"><i class=" v-menu-icon--small fas fa-ellipsis-h"></i></span>
+                </div>
+              </footer>
+              <!-- Edit form -->
+              <app-comment-form style="display: none;" (discardEdit)="receiveDiscardEdit($event)"
+                (postCommentEvent)="receivePostCommentEvent($event)" [commentType]="1" [inputComment]="item"
+                [parent]="item.parent" [articleId]="articleId"></app-comment-form>
+              <!-- Reply form -->
+              <app-comment-form style="display: none;" (discardEdit)="receiveDiscardEdit($event)"
+                (postCommentEvent)="receivePostCommentEvent($event)" [commentType]="2" [inputComment]="item"
+                [parent]="item.id" [articleId]="articleId"></app-comment-form>
+
+
+              <div class="list-transition" *ngIf="item.children?.length > 0">
+                <ng-container *ngTemplateOutlet="
+                    treeView;
+                    context: { $implicit: item.children }
+                  "></ng-container>
+              </div>
+
+            </div>
+          </ng-template>
+          <ng-container *ngTemplateOutlet="treeView; context: { $implicit: data }"></ng-container>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
-<div data-v-1b24b101="" id="share-{{shareId}}" class="share-tip" style="display: none;">
-    <label data-v-1b24b101="" class="tip-label">Share a link to this comment</label>
-    <div data-v-1b24b101="" class="d-flex share-input-group">
-      <input data-v-1b24b101="" data-sharing-id="comment-4x5xexyqqKB" type="text" readonly="readonly"
-        class="d-block share-link" />
-      <span data-v-1b24b101="" data-clipboard-text="/c/1"
-        data-clipboard-target="[data-sharing-id='comment-4x5xexyqqKB']" area-label="Copied!"
-        area-tooltip-hidden="true" title="Copy link" class="share-link-addon viblo-tooltip"><i
-          data-v-1b24b101="" class="fa fa-copy"></i></span>
+<div data-v-1b24b101="" id="share-{{ shareId }}" class="share-tip" style="display: none;">
+  <label data-v-1b24b101="" class="tip-label">Share a link to this comment</label>
+  <div data-v-1b24b101="" class="d-flex share-input-group">
+    <input data-v-1b24b101="" value="{{baseUrl}}/c/{{ shareId }}" type="text" readonly="readonly"
+      class="d-block share-link" #shareUrl/>
+    <span data-v-1b24b101="" data-clipboard-text="/c/1" (click)="copyShareIdToClipboard(shareUrl)"
+      area-label="Copied!" area-tooltip-hidden="true" title="Copy link" class="share-link-addon viblo-tooltip"><i
+        data-v-1b24b101="" class="fa fa-copy"></i></span>
+  </div>
+  <div data-v-a12f229c="" data-v-1b24b101=""
+    class="social-sharing social-sharing-icons social-sharing--vertical social-sharing--small">
+    <a data-v-1b24b101="" data-v-a12f229c=""
+      href="http://www.facebook.com/sharer.php?u={{baseUrl}}/c/{{ shareId }}"
+      target="_blank" class="link social-btn-circle facebook-btn"><i data-v-1b24b101="" data-v-a12f229c=""
+        aria-hidden="true" class="fa fa-facebook"></i></a>
+    <a data-v-1b24b101="" data-v-a12f229c=""
+      href="https://twitter.com/intent/tweet?url={{baseUrl}}/c/{{ shareId }}"
+      target="_blank" class="link social-btn-circle twitter-btn"><i data-v-1b24b101="" data-v-a12f229c=""
+        aria-hidden="true" class="fa fa-twitter"></i></a>
+    <a data-v-1b24b101="" data-v-a12f229c=""
+      href="https://plus.google.com/share?url={{baseUrl}}/c/{{ shareId }}" target="_blank"
+      class="link social-btn-circle google-btn"><i data-v-1b24b101="" data-v-a12f229c="" aria-hidden="true"
+        class="fa fa-google-plus"></i></a>
+  </div>
+  <div data-v-1b24b101="" class="d-flex" style="justify-content: flex-end;" (click)="doCloseShare(shareId)">
+    <span data-v-1b24b101="" class="close-share-tip">
+      Close
+    </span>
+  </div>
+</div>
+
+<ul class="el-dropdown-menu el-popper" id="comment-menu-{{ menuId }}" style="display: none;">
+  <li tabindex="-1" class="el-dropdown-menu__item" (click)="doEditComment(menuId)">
+    <i aria-hidden="true" class="fa fa-pencil pr-0 mr-05"></i>
+    Edit
+  </li>
+
+  <li tabindex="-1" class="el-dropdown-menu__item" (click)="deleteId = menuId; openVerticallyCentered(content)">
+    <i aria-hidden="true" class="fa fa-trash pr-0 mr-05"></i>
+    Delete this comment
+  </li>
+
+  <li tabindex="-1" class="el-dropdown-menu__item el-dropdown-menu__item--divided">
+    <i class="fa fa-magic pr-0 mr-05"></i>
+    Highlighting code blocks
+  </li>
+</ul>
+
+<ng-template #content let-modal>
+  <div class="el-message-box">
+    <div class="el-message-box__header">
+      <div class="el-message-box__title">
+        <span>Delete comment</span>
+      </div>
+      <button type="button" aria-label="Close" class="el-message-box__headerbtn" (click)="modal.close('Cross click')">
+        <i class="fas fa-times"></i>
+      </button>
     </div>
-    <div data-v-a12f229c="" data-v-1b24b101=""
-      class="social-sharing social-sharing-icons social-sharing--vertical social-sharing--small">
-      <a data-v-1b24b101="" data-v-a12f229c=""
-        routerLink="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fviblo.asia%2Fc%2F4x5xexyqqKB&amp;title=Comment%20on%20answer"
-        target="_blank" class="link social-btn-circle facebook-btn"><i data-v-1b24b101=""
-          data-v-a12f229c="" aria-hidden="true" class="fa fa-facebook"></i></a>
-      <a data-v-1b24b101="" data-v-a12f229c=""
-        routerLink="https://twitter.com/intent/tweet?url=https://viblo.asia/c/4x5xexyqqKB&amp;text=Comment%20on%20answer&amp;hashtags="
-        target="_blank" class="link social-btn-circle twitter-btn"><i data-v-1b24b101=""
-          data-v-a12f229c="" aria-hidden="true" class="fa fa-twitter"></i></a>
-      <a data-v-1b24b101="" data-v-a12f229c=""
-        routerLink="https://plus.google.com/share?url=https%3A%2F%2Fviblo.asia%2Fc%2F4x5xexyqqKB"
-        target="_blank" class="link social-btn-circle google-btn"><i data-v-1b24b101=""
-          data-v-a12f229c="" aria-hidden="true" class="fa fa-google-plus"></i></a>
+    <div class="el-message-box__content">
+
+      <div class="el-message-box__message">
+        <p>Deleted comments are gone forever. Are you sure?</p>
+      </div>
+      <div class="el-message-box__input" style="display: none;">
+        <div class="el-input">
+          <input type="text" autocomplete="off" placeholder="" class="el-input__inner" />
+        </div>
+        <div class="el-message-box__errormsg" style="visibility: hidden;"></div>
+      </div>
     </div>
-    <div data-v-1b24b101="" class="d-flex" style="justify-content: flex-end;">
-      <span data-v-1b24b101="" class="close-share-tip">
-        Close
-      </span>
+    <div class="el-message-box__btns">
+      <button type="button" class="el-button el-button--default el-button--small" (click)="modal.close('Close click')">
+
+        <span>
+          Cancel
+        </span>
+      </button>
+      <button type="button" class="el-button el-button--default el-button--small el-button--primary "
+        (click)="doDeleteComment(deleteId); modal.close('Submit click');">
+        <span>
+          OK
+        </span>
+      </button>
     </div>
   </div>
-
-<ul class="el-dropdown-menu el-popper" id="comment-menu-{{menuId}}" style="display: none;">
-    <li tabindex="-1" class="el-dropdown-menu__item" (click)="doEditComment(menuId)">
-      <i aria-hidden="true" class="fa fa-pencil pr-0 mr-05"></i>
-      Edit
-    </li>
-    <!---->
-    <li tabindex="-1" class="el-dropdown-menu__item" (click)="doDeleteComment(menuId)">
-      <i aria-hidden="true" class="fa fa-trash pr-0 mr-05"></i>
-      Delete this comment
-    </li>
-    <!---->
-    <li tabindex="-1" class="el-dropdown-menu__item el-dropdown-menu__item--divided">
-      <i class="fa fa-magic pr-0 mr-05"></i>
-      Highlighting code blocks
-    </li>
-  </ul>
+</ng-template>
