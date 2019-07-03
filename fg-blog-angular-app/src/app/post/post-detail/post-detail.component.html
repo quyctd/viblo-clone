@@ -41,12 +41,16 @@
                         <div class="stats">
                           <span class="stats-item text-muted" data-tippy="" data-original-title="Reputations: postData.author_data.reputations"><i
                               aria-hidden="true" class="stats-item__icon fa fa-star"></i>
-                            {{ postData.author_data.reputations }} </span><span class="stats-item text-muted" data-tippy=""
+                            {{ postData.author_data.reputations }} 
+                          </span>
+                          <span class="stats-item text-muted" data-tippy=""
                             data-original-title="Followers: 0"><i aria-hidden="true"
                               class="stats-item__icon fa fa-user-plus"></i>
-                            0 </span><span class="stats-item text-muted" data-tippy="" data-original-title="Posts: 0"><i
-                              aria-hidden="true" class="stats-item__icon fa fa-pencil"></i>
-                            0
+                            0 
+                          </span>
+                          <span class="stats-item text-muted" data-tippy="" data-original-title="Posts: 0">
+                            <i aria-hidden="true" class="stats-item__icon fa fa-pencil"></i>
+                            {{ postData.author_data.post_count }}
                           </span>
                         </div>
                       </div>
@@ -71,7 +75,7 @@
                         <div class="post-meta__item mr-1" data-tippy="" data-original-title="Scroll to Comments">
                           <button type="button" class="el-button el-button--text">
                             <i class="fa fa-comments-o post-meta__icon"></i><span>
-                              0
+                              {{ postData['comment_count'] }}
                             </span>
                           </button>
                         </div>
@@ -106,7 +110,7 @@
                       </button>
                       <ul ngbDropdownMenu aria-labelledby="dropdownBasic1"
                         class="el-dropdown-menu el-popper el-dropdown-menu--medium" id="dropdown-menu-17">
-                        <li *ngIf="postData['author'] == postData['author_data']['id'] " tabindex="-1" class="el-dropdown-menu__item">
+                        <li *ngIf="postData['author_data'] && postData['author'] == postData['author_data']['id'] " tabindex="-1" class="el-dropdown-menu__item">
                           <a routerLink="/posts/{{ postData['id'] }}/edit" class="link link--plain"><i aria-hidden="true"
                               class="fa fa-edit pr-0 mr-05"></i>Edit
                           </a>

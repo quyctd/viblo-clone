@@ -65,15 +65,15 @@
               <markdown *ngIf="item.content != ''" [data]="item.content"></markdown>
               <footer *ngIf="item.content != ''" class="d-flex text-muted">
                 <div data-v-887f1afe="" class="score">
-                  <button data-v-887f1afe="" class="icon-btn vote disabled" data-tippy=""
-                    data-original-title="You cannot vote your own comment">
+                  <button data-v-887f1afe="" class="icon-btn vote" [class.disabled]="item.author == currentUser.id" [class.voted]="isUpVote(item)"
+                    data-original-title="You cannot vote your own comment" (click)="doUpVoteComment(item)">
                     <i data-v-887f1afe="" aria-hidden="true" class="fa fa-chevron-up"></i>
                   </button>
                   <span data-v-887f1afe="" class="comment-points text-muted">
                     {{ item.vote }}
                   </span>
-                  <button data-v-887f1afe="" class="icon-btn vote disabled" data-tippy=""
-                    data-original-title="You cannot vote your own comment">
+                  <button data-v-887f1afe="" class="icon-btn vote" [class.disabled]="item.author == currentUser.id" [class.voted]="isDownVote(item)"
+                    data-original-title="You cannot vote your own comment" (click)="doDownVoteComment(item)">
                     <i data-v-887f1afe="" aria-hidden="true" class="fa fa-chevron-down"></i>
                   </button>
                 </div>
@@ -91,7 +91,7 @@
                   <span appCustomDropdown class="cursor-pointer el-dropdown-selfdefine" data-tippy=""
                     data-original-title="Show more actions" aria-haspopup="list"
                     [attr.aria-controls]="'comment-menu-' + item.id" role="button" x-placement="bottom-start"
-                    tabindex="0" (click)="menuId = item.id"><i class=" v-menu-icon--small fas fa-ellipsis-h"></i></span>
+                    tabindex="0" (click)="menuId = item.id; authorId = item.author"><i class=" v-menu-icon--small fas fa-ellipsis-h"></i></span>
                 </div>
               </footer>
               <!-- Edit form -->
@@ -152,14 +152,18 @@
 </div>
 
 <ul class="el-dropdown-menu el-popper" id="comment-menu-{{ menuId }}" style="display: none;">
-  <li tabindex="-1" class="el-dropdown-menu__item" (click)="doEditComment(menuId)">
+  <li *ngIf="currentUser.id == authorId" tabindex="-1" class="el-dropdown-menu__item" (click)="doEditComment(menuId)">
     <i aria-hidden="true" class="fa fa-pencil pr-0 mr-05"></i>
     Edit
   </li>
 
-  <li tabindex="-1" class="el-dropdown-menu__item" (click)="deleteId = menuId; openVerticallyCentered(content)">
+  <li *ngIf="currentUser.id == authorId" tabindex="-1" class="el-dropdown-menu__item" (click)="deleteId = menuId; openVerticallyCentered(content)">
     <i aria-hidden="true" class="fa fa-trash pr-0 mr-05"></i>
     Delete this comment
+  </li>
+  <li *ngIf="currentUser.id != authorId" tabindex="-1" class="el-dropdown-menu__item">
+    <i aria-hidden="true" class="fa fa-flag-o pr-0 mr-05"></i> 
+    <span>Report</span>
   </li>
 
   <li tabindex="-1" class="el-dropdown-menu__item el-dropdown-menu__item--divided">

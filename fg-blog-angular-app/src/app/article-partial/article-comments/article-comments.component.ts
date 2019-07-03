@@ -16,6 +16,7 @@ export class ArticleCommentsComponent implements OnInit {
   data = [];
   editComment: any;
   baseUrl: string;
+  userIsAuthor: false;
 
   constructor(private api: CommentsService, private cd: ChangeDetectorRef, private modalService: NgbModal) { }
 
@@ -23,6 +24,10 @@ export class ArticleCommentsComponent implements OnInit {
     console.log("Post id: ", this.articleId);
     this.baseUrl = location.origin;
     this.getListComment(0);
+  }
+
+  get currentUser() {
+    return JSON.parse(localStorage.getItem('currentUser'));
   }
 
   getListComment(idToScroll) {
@@ -106,10 +111,100 @@ export class ArticleCommentsComponent implements OnInit {
     shareEle.style.display = "none";
   }
 
-    /* To copy Text from Textbox */
-    copyShareIdToClipboard(inputElement) {
-      inputElement.select();
-      document.execCommand('copy');
-      inputElement.setSelectionRange(0, 0);
+  /* To copy Text from Textbox */
+  copyShareIdToClipboard(inputElement) {
+    inputElement.select();
+    document.execCommand('copy');
+    inputElement.setSelectionRange(0, 0);
+  }
+
+  doUpVoteComment(comment) {
+    if ( this.currentUser.id !== comment.author) {
+      // tslint:disable-next-line:prefer-const
+      let voteUsers = comment.vote_users;
+      if (voteUsers.hasOwnProperty(this.currentUser.id)) {
+        const currVote = voteUsers[this.currentUser.id];
+        if (currVote === 1) {
+          delete voteUsers[this.currentUser.id];
+        } else {
+          voteUsers[this.currentUser.id] = 1;
+        }
+      } else {
+        voteUsers[this.currentUser.id] = 1;
+      }
+
+      const formData = {
+        author: comment.author,
+        content: comment.content,
+        post_parent: comment.post_parent,
+        parent: comment.parent,
+        vote_users: voteUsers
+      };
+      this.api.editComment(comment.id, formData).subscribe(
+        data => {
+          console.log("Edit post: Success");
+          comment.vote = data.vote;
+        },
+        error => {
+          console.log("Edit post: ", error);
+        }
+      );
     }
+  }
+
+  doDownVoteComment(comment) {
+    if ( this.currentUser.id !== comment.author) {
+      // tslint:disable-next-line:prefer-const
+      let voteUsers = comment.vote_users;
+      if (voteUsers.hasOwnProperty(this.currentUser.id)) {
+        const currVote = voteUsers[this.currentUser.id];
+        if (currVote === -1) {
+          delete voteUsers[this.currentUser.id];
+        } else {
+          voteUsers[this.currentUser.id] = -1;
+        }
+      } else {
+        voteUsers[this.currentUser.id] = -1;
+      }
+
+      const formData = {
+        author: comment.author,
+        content: comment.content,
+        post_parent: comment.post_parent,
+        parent: comment.parent,
+        vote_users: voteUsers
+      };
+      this.api.editComment(comment.id, formData).subscribe(
+        data => {
+          console.log("Edit post: Success");
+          comment.vote = data.vote;
+        },
+        error => {
+          console.log("Edit post: ", error);
+        }
+      );
+    }
+  }
+
+  isUpVote(comment) {
+    // tslint:disable-next-line:prefer-const
+    let voteUsers = comment.vote_users;
+    if (voteUsers.hasOwnProperty(this.currentUser.id)) {
+      if (voteUsers[this.currentUser.id] === 1) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  isDownVote(comment) {
+    // tslint:disable-next-line:prefer-const
+    let voteUsers = comment.vote_users;
+    if (voteUsers.hasOwnProperty(this.currentUser.id)) {
+      if (voteUsers[this.currentUser.id] === -1) {
+        return true;
+      }
+    }
+    return false;
+  }
 }

@@ -9,12 +9,6 @@ import markdown
 from apps.discussion.models import PostComment
 
 
-class AuthorSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = CustomUser
-        fields = '__all__'
-
-
 class PostSerializer(TaggitSerializer, serializers.ModelSerializer):
     tags = TagListSerializerField()
     author_data = serializers.SerializerMethodField()
