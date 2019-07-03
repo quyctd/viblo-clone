@@ -12,7 +12,7 @@ import { provideConfig } from './socialLoginConfig';
 // 3rd party lib
 import { MarkdownModule } from 'ngx-markdown';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { SimplemdeModule } from 'ngx-simplemde';
+import { SimplemdeModule } from 'ngx-simplemde'; // @1.0.0
 import { ClickOutsideModule } from 'ng-click-outside';
 import {StickyModule} from 'ng2-sticky-kit';
 import { TextareaAutosizeModule } from 'ngx-textarea-autosize';

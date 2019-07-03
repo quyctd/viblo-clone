@@ -41,7 +41,7 @@
                         <div class="stats">
                           <span class="stats-item text-muted" data-tippy="" data-original-title="Reputations: postData.author_data.reputations"><i
                               aria-hidden="true" class="stats-item__icon fa fa-star"></i>
-                            {{ postData.author_data.reputations }} 
+                            {{ postData['author_data'] ? postData['author_data']['reputations'] : 'Admin' }} 
                           </span>
                           <span class="stats-item text-muted" data-tippy=""
                             data-original-title="Followers: 0"><i aria-hidden="true"
@@ -50,7 +50,7 @@
                           </span>
                           <span class="stats-item text-muted" data-tippy="" data-original-title="Posts: 0">
                             <i aria-hidden="true" class="stats-item__icon fa fa-pencil"></i>
-                            {{ postData.author_data.post_count }}
+                            {{ postData['author_data'] ? postData['author_data']['post_count'] : 'Admin' }}
                           </span>
                         </div>
                       </div>
