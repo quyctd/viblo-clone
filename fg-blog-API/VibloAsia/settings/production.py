@@ -1,22 +1,23 @@
-# for now fetch the development settings only
-from .development import *
+# Python imports
+from os.path import join
 
-# turn off all debugging
-DEBUG = False
+# project imports
+from .common import *
 
-# You will have to determine, which hostnames should be served by Django
+# uncomment the following line to include i18n
+# from .i18n import *
 
-# ##### SECURITY CONFIGURATION ############################
+
+# ##### DEBUG CONFIGURATION ###############################
+DEBUG = True
 
 # allow all hosts during development
 ALLOWED_HOSTS = ['*']
-
 
 # adjust the minimal login
 LOGIN_URL = 'core_login'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = 'core_login'
-
 
 # ##### DATABASE CONFIGURATION ############################
 DATABASES = {
@@ -32,6 +33,10 @@ INSTALLED_APPS = DEFAULT_APPS + [
     'django.contrib.sites',
 
     # 3rd party app
+    'corsheaders',
+    'taggit',
+    'taggit_serializer',
+    'mptt',
 
     # basic authen
     'rest_framework',
@@ -40,8 +45,6 @@ INSTALLED_APPS = DEFAULT_APPS + [
     'allauth',
     'allauth.account',
     'rest_auth.registration',
-    'taggit',
-    'taggit_serializer',
 
     # Social authentic
     'social_django',
@@ -55,7 +58,6 @@ INSTALLED_APPS = DEFAULT_APPS + [
     'apps.base',
     'apps.post',
     'apps.discussion',
-    'corsheaders',
 ]
 
 # Time zone
@@ -63,16 +65,14 @@ TIME_ZONE = "Asia/Ho_Chi_Minh"
 
 SITE_ID = 2
 
-
 AUTH_USER_MODEL = 'authen.CustomUser'
-
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework.authentication.TokenAuthentication',
     ),
     'DEFAULT_PERMISSION_CLASSES': (
-        'rest_framework.permissions.IsAuthenticatedOrReadOnly', )
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly',)
 }
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
@@ -92,13 +92,13 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
 
-#Taggit
+# Taggit
 TAGGIT_CASE_INSENSITIVE = True
 
-#Google login
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY ='671755523680-kl8oatubi2m7andl8pstad21t9eneoqf.apps.googleusercontent.com'
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'M1hDXZbe-M7LVRnJe25dWPXe' #Paste Secret Key
+# Google login
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '671755523680-kl8oatubi2m7andl8pstad21t9eneoqf.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'M1hDXZbe-M7LVRnJe25dWPXe'  # Paste Secret Key
 
-#Facebook login
+# Facebook login
 SOCIAL_AUTH_FACEBOOK_KEY = '836707276705341'
 SOCIAL_AUTH_FACEBOOK_SECRET = '164a63bb6bcc619f0ee810edec3f8d1e'
