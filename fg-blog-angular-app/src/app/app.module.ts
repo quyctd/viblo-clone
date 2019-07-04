@@ -54,6 +54,7 @@ import { PaginationComponent } from './base/pagination/pagination.component';
 import { CommentFormComponent } from './article-partial/comment-form/comment-form.component';
 import { QuestionFeedLinksComponent } from './questions/question-feed-links/question-feed-links.component';
 import { QuestionSuggestionComponent } from './questions/question-suggestion/question-suggestion.component';
+import { QuestionComponent as AskQuestionComponent } from './publish/question/question.component';
 
 @NgModule({
   declarations: [
@@ -90,7 +91,8 @@ import { QuestionSuggestionComponent } from './questions/question-suggestion/que
     PaginationComponent,
     CommentFormComponent,
     QuestionFeedLinksComponent,
-    QuestionSuggestionComponent
+    QuestionSuggestionComponent,
+    AskQuestionComponent
   ],
   imports: [
     BrowserModule,
@@ -123,6 +125,7 @@ import { QuestionSuggestionComponent } from './questions/question-suggestion/que
       { path: 'authors', component : AuthorsComponent},
       { path: 'logout', component : LogoutComponent},
       { path: 'publish/post', component : PublishPostComponent},
+      { path: 'questions/ask', component : AskQuestionComponent},
       { path: '404', component: NotfoundComponent}
     ])
   ],
