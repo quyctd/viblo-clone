@@ -38,12 +38,25 @@ export class QuestionComponent implements OnInit {
   }
 
   checkValidForm() {
+    // tslint:disable:no-string-literal
     const title = this.title.value;
     const tags = this.questionApi.listTag.length;
     const content = this.simplemde.value;
     if (title && tags && content) {
       return true;
-    } else { return false; }
+    } else {
+      if (!title) {
+        this.form.controls['title'].markAsTouched();
+        this.form.controls['title'].setErrors({ required : true});
+      }
+      if (!tags) {
+        this.form.controls['tags'].markAsTouched();
+      }
+      if (!content) {
+        this.form.controls['simplemde'].markAsTouched();
+      }
+      return false;
+    }
   }
 
   get currentToken() {
@@ -79,5 +92,27 @@ export class QuestionComponent implements OnInit {
 
   doCreateQuestion() {
     this.isHasFirstSubmit = true;
+    if (!this.checkValidForm()) {
+      return;
+    }
+    const formData = {
+      author: this.currentUser.id,
+      tags: this.questionApi.listTag,
+      title: this.title.value,
+      content: this.simplemde.value
+    };
+    this.questionApi.createQuestion(formData).subscribe(
+      data => {
+        console.log("Create question success: ", data);
+        this.router.navigateByUrl('/questions');
+      },
+      error => {
+        console.log("Create question error: ", error);
+      }
+    );
+  }
+
+  doDiscardCreateQuestion() {
+    this.router.navigateByUrl('/questions');
   }
 }

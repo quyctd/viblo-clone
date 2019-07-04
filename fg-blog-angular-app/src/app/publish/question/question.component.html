@@ -47,13 +47,17 @@
                   </div>
                 </div>
               </div>
-              <div class="el-form-item mt-2 mb-0 is-required" [class.is-error]="isHasFirstSubmit && !simplemde.value">
-                <div *ngIf="isHasFirstSubmit && !simplemde.value"
-                  class="el-form-item__error">
-                  <div>
-                    The post question is required
+              <div class="el-form-item is-required">
+                <div class="el-form-item__content">
+                  <div *ngIf="isHasFirstSubmit && !simplemde.value"
+                      class="el-form-item__error">
+                      <div>
+                        The post question is required
+                      </div>
                   </div>
                 </div>
+              </div>
+              <div class="el-form-item is-required" [class.is-error]="isHasFirstSubmit && !simplemde.value">
                 <simplemde formControlName="simplemde" [(ngModel)]="customize" [options]="{
                     toolbar: [
                       'bold',
@@ -93,7 +97,8 @@
                   Create Question
                 </span>
               </button>
-              <button type="button" class="el-button el-button--default el-button--medium">
+              <button type="button" class="el-button el-button--default el-button--medium"
+              (click)="doDiscardCreateQuestion()">
                 <span>
                   Discard
                 </span>
