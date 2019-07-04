@@ -1,0 +1,66 @@
+<div class="bg-dark py-md-1 py-05">
+  <div class="container d-flex align-items-center justify-content-between">
+    <div class="feed-bar">
+      <div class="feedbar-wrapper">
+        <ul class="feed-links">
+          <li [ngClass]="{
+            'feedbar-item' : true,
+            'nuxt-link-exact-active': currRoute == 'newest',
+            'active' : currRoute == 'newest'
+          }">
+            <a routerLink="/questions" class="feed-link">
+              <div class="el-badge badge-has-new">
+                Newest
+                <sup class="el-badge__content el-badge__content--undefined is-fixed"
+                  style="display:none;"></sup>
+              </div>
+            </a>
+          </li>
+          <li *ngIf="currentToken" [ngClass]="{
+            'feedbar-item' : true,
+            'nuxt-link-exact-active': currRoute == 'followings',
+            'active' : currRoute == 'followings'
+          }">
+            <a routerLink="/questions/followings" class="feed-link">
+              <div class="el-badge badge-has-new">
+                Following
+                <sup class="el-badge__content el-badge__content--undefined is-fixed"
+                  style="display:none;"></sup>
+              </div>
+            </a>
+          </li>
+          <li [ngClass]="{
+            'feedbar-item' : true,
+            'nuxt-link-exact-active': currRoute == 'series',
+            'active' : currRoute == 'series'
+          }">
+            <a routerLink="/questions/unsolved" class="feed-link">
+              <div class="el-badge badge-has-new">
+                Unsolved
+                <sup class="el-badge__content el-badge__content--undefined is-fixed"
+                  style="display:none;"></sup>
+              </div>
+            </a>
+          </li>
+          <li *ngIf="currentToken" [ngClass]="{
+            'feedbar-item' : true,
+            'nuxt-link-exact-active': currRoute == 'clip/posts',
+            'active' : currRoute == 'clip/posts'
+          }">
+            <a routerLink="/questions/clip" class="feed-link">
+              <div class="el-badge badge-has-new">
+                My Clips
+                <sup class="el-badge__content el-badge__content--undefined is-fixed"
+                  style="display: none;"></sup>
+                </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+      
+    </div>
+    <a *ngIf="currentToken" routerLink="/questions/ask" class="btn btn-primary float-right text-uppercase hidden-md-down">
+      <i aria-hidden="true" class="fa fa-pencil"></i> Ask Question
+    </a>
+  </div>
+</div>

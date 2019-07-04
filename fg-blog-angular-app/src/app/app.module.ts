@@ -22,7 +22,6 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './base/navbar/navbar.component';
 import { FooterComponent } from './base/footer/footer.component';
 import { PostManageComponent } from './post/post-manage/post-manage.component';
-import { QuestionsComponent } from './questions/questions.component';
 import { DiscussionsComponent } from './discussions/discussions.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
@@ -53,6 +52,7 @@ import { PostSuggestionComponent } from './post/post-suggestion/post-suggestion.
 import { PostFeedComponent } from './post/post-feed/post-feed.component';
 import { PaginationComponent } from './base/pagination/pagination.component';
 import { CommentFormComponent } from './article-partial/comment-form/comment-form.component';
+import { QuestionFeedLinksComponent } from './questions/question-feed-links/question-feed-links.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +60,6 @@ import { CommentFormComponent } from './article-partial/comment-form/comment-for
     NavbarComponent,
     FooterComponent,
     PostManageComponent,
-    QuestionsComponent,
     DiscussionsComponent,
     LoginComponent,
     RegisterComponent,
@@ -88,7 +87,8 @@ import { CommentFormComponent } from './article-partial/comment-form/comment-for
     PostSuggestionComponent,
     PostFeedComponent,
     PaginationComponent,
-    CommentFormComponent
+    CommentFormComponent,
+    QuestionFeedLinksComponent
   ],
   imports: [
     BrowserModule,

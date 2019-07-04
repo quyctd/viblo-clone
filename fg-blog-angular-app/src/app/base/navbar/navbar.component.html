@@ -5,12 +5,12 @@
           src="https://cdn.viblo.asia/_nuxt/img/fbfe575.svg" alt="Viblo" /></a>
       <ul class="main-menu list-unstyled hidden-md-down">
         <li class="main-menu__item">
-          <a routerLink="/newest" class="link nuxt-link-exact-active active">
+          <a routerLink="/newest" class="link nuxt-link-exact-active">
             Posts
           </a>
         </li>
         <li class="main-menu__item">
-          <a routerLink="/questions" class="link">
+          <a routerLink="/questions" class="link" [class.active]="navbarRoute == 1" [class.nuxt-link-exact-active]="navbarRoute == 1">
             <div class="el-badge badge-has-new">
               Questions
               <sup class="el-badge__content el-badge__content--undefined is-fixed" style="display:none;"></sup>
@@ -18,7 +18,7 @@
           </a>
         </li>
         <li class="main-menu__item">
-          <a routerLink="/discussion" class="link">
+          <a routerLink="/discussion" class="link" [class.active]="navbarRoute == 2" [class.nuxt-link-exact-active]="navbarRoute == 2">
             Discussions
           </a>
         </li>

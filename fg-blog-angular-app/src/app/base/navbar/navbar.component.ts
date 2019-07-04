@@ -11,11 +11,18 @@ export class NavbarComponent implements OnInit {
 
   userDropDown = false;
   postDropDown = false;
+  navbarRoute = 0; // 0 is post, 1 is question, 2 is discussion
 
 
   constructor( private router: Router, private api: AuthService) { }
 
   ngOnInit() {
+    const currRoute = this.router.url;
+    if (currRoute.includes('questions')) {
+      this.navbarRoute = 1;
+    } else if (currRoute.includes('discussion')) {
+      this.navbarRoute = 2;
+    }
   }
 
   get currentToken() {
