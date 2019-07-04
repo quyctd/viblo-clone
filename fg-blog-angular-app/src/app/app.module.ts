@@ -53,6 +53,7 @@ import { PostFeedComponent } from './post/post-feed/post-feed.component';
 import { PaginationComponent } from './base/pagination/pagination.component';
 import { CommentFormComponent } from './article-partial/comment-form/comment-form.component';
 import { QuestionFeedLinksComponent } from './questions/question-feed-links/question-feed-links.component';
+import { QuestionSuggestionComponent } from './questions/question-suggestion/question-suggestion.component';
 
 @NgModule({
   declarations: [
@@ -88,7 +89,8 @@ import { QuestionFeedLinksComponent } from './questions/question-feed-links/ques
     PostFeedComponent,
     PaginationComponent,
     CommentFormComponent,
-    QuestionFeedLinksComponent
+    QuestionFeedLinksComponent,
+    QuestionSuggestionComponent
   ],
   imports: [
     BrowserModule,

@@ -6,14 +6,155 @@
         <app-promo-banner></app-promo-banner>
         <app-question-feed-links [currRoute]="'newest'"></app-question-feed-links>
 
-        <div class="container">
-          <div class="row pt-3 pb-1">
-            <div class="col-lg-9">
-              <app-post-feed [posts]="newestPost"></app-post-feed>
-              <app-pagination *ngIf="newestPost.length != 0" [currRoute]="'newest'" [previousPage]="previousPage" [nextPage]="nextPage" [numPages]='numPages' [currPage]="currPage"></app-pagination>
+        <div class="container my-md-3">
+          <div class="row">
+            <div class="col-md-9 px-0">
+              <div class="question-list">
+                <div class="question-item">
+                  <div class="stats">
+                    <div>
+                      <div class="mb-05 question-time hidden-md-down"><span class="text-muted" data-tippy=""
+                          data-original-title="Jul 4th, 11:02 AM"><i class="fa fa-calendar mr-05"></i>about 5 hours
+                          ago</span></div>
+                      <div class="question-stats text-muted"><span class="stats-item mr-md-1  solved" data-tippy=""
+                          data-original-title="Answers"><i aria-hidden="true" class="fa fa-check"></i> 2</span>
+                        <div class="points stats-item mr-md-1" data-tippy="" data-original-title="Score">
+                          <div class="carets"><i aria-hidden="true" class="fa fa-caret-up"></i><i aria-hidden="true"
+                              class="fa fa-caret-down"></i></div><span class="text-muted">0</span>
+                        </div><span class="stats-item mr-md-1" data-tippy="" data-original-title="Comments"><i
+                            aria-hidden="true" class="fa fa-comments"></i> 10</span><span class="stats-item"
+                          data-tippy="" data-original-title="Views"><i aria-hidden="true" class="fa fa-eye"></i>
+                          33</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="summary">
+                    <div class="asked-by d-flex align-items-center">
+                      <div class="user--inline d-inline-flex flex-shrink-0"><a href="/u/thanh_tuan" class="mr-05">
+                          <div class="d-inline-block"><img data-v-fa4ddde2="" src="https://viblo.asia/images/mm.png"
+                              srcset="https://viblo.asia/images/mm.png 1x" class="avatar avatar--xs"></div>
+                        </a> <span><a href="/u/thanh_tuan" class="mr-05 el-popover__reference"
+                            aria-describedby="el-popover-7234" tabindex="0">
+                            Anh Tran
+                          </a></span>
+                        <!---->
+                      </div>
+                      <div class="contributors hidden-md-down"><i class="fa fa-reply text-muted mr-05"></i>
+                        <div class="contributors">
+                          <ul class="list-unstyled mb-0 d-flex align-items-center participants--xs">
+                            <li class="participants__item" data-tippy="" data-original-title="Nguyễn Hữu Kim"><a
+                                href="/u/huukimit" class="">
+                                <div class="d-inline-block"><img data-v-fa4ddde2=""
+                                    src="https://images.viblo.asia/avatar/bfaf3c0a-571f-439e-b3d0-24a2aba8524d.png"
+                                    srcset="https://images.viblo.asia/avatar-retina/bfaf3c0a-571f-439e-b3d0-24a2aba8524d.png 2x"
+                                    class="avatar avatar--xs"></div>
+                              </a></li>
+                            <li class="participants__item" data-tippy="" data-original-title="Phan Lý Huỳnh"><a
+                                href="/u/phanlyhuynh" class="">
+                                <div class="d-inline-block"><img data-v-fa4ddde2=""
+                                    src="https://images.viblo.asia/avatar/36d55cec-ae83-4afd-badb-422024143a87.jpg"
+                                    srcset="https://images.viblo.asia/avatar-retina/36d55cec-ae83-4afd-badb-422024143a87.jpg 2x"
+                                    class="avatar avatar--xs"></div>
+                              </a></li>
+                            <!---->
+                          </ul>
+                          <!---->
+                        </div>
+                      </div>
+                    </div>
+                    <div class="q-title word-break"><a href="/q/chuyen-doi-thoi-gian-sang-giay-yDZO711xZwj"
+                        class="link">
+                        <h3 class="mb-05 mr-05">Chuyển đồi thời gian sang giây</h3>
+                      </a>
+                      <div data-v-328f1f88="" class="tags"><a href="/tags/momentjs/questions"
+                          class="el-tag tag_3wKND el-tag--info el-tag--default" data-v-328f1f88="">moment.js</a><a
+                          href="/tags/ant/questions" class="el-tag tag_3wKND el-tag--info el-tag--default"
+                          data-v-328f1f88="">Ant</a></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="question-item">
+                  <div class="stats">
+                    <div>
+                      <div class="mb-05 question-time hidden-md-down"><span class="text-muted" data-tippy=""
+                          data-original-title="Jul 3rd, 10:29 AM"><i class="fa fa-calendar mr-05"></i>Wednesday, 10:29
+                          AM</span></div>
+                      <div class="question-stats text-muted"><span class="stats-item mr-md-1 " data-tippy=""
+                          data-original-title="Answers"><i aria-hidden="true" class="fa fa-reply"></i> 3</span>
+                        <div class="points stats-item mr-md-1" data-tippy="" data-original-title="Score">
+                          <div class="carets"><i aria-hidden="true" class="fa fa-caret-up"></i><i aria-hidden="true"
+                              class="fa fa-caret-down"></i></div><span class="text-muted">0</span>
+                        </div><span class="stats-item mr-md-1" data-tippy="" data-original-title="Comments"><i
+                            aria-hidden="true" class="fa fa-comments"></i> 2</span><span class="stats-item"
+                          data-tippy="" data-original-title="Views"><i aria-hidden="true" class="fa fa-eye"></i>
+                          82</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="summary">
+                    <div class="asked-by d-flex align-items-center">
+                      <div class="user--inline d-inline-flex flex-shrink-0"><a href="/u/lathanh1108" class="mr-05">
+                          <div class="d-inline-block"><img data-v-fa4ddde2="" src="https://viblo.asia/images/mm.png"
+                              class="avatar avatar--xs" srcset="https://viblo.asia/images/mm.png 1x"></div>
+                        </a> <span>
+                          <div role="tooltip" id="el-popover-9324" aria-hidden="true" class="el-popover el-popper"
+                            style="width: 350px; display: none;" tabindex="0">
+                            <!---->
+                            <div class="popover-usercard">
+                              <div align="center"><i aria-hidden="true" class="el-icon-loading"></i></div>
+                            </div>
+                          </div><a href="/u/lathanh1108" class="mr-05 el-popover__reference"
+                            aria-describedby="el-popover-9324" tabindex="0">
+                            Lã Tất Thành
+                          </a>
+                        </span>
+                        <!---->
+                      </div>
+                      <div class="contributors hidden-md-down"><i class="fa fa-reply text-muted mr-05"></i>
+                        <div class="contributors">
+                          <ul class="list-unstyled mb-0 d-flex align-items-center participants--xs">
+                            <li class="participants__item" data-tippy="" data-original-title="Do Trung Kien"><a
+                                href="/u/kiendinang" class="">
+                                <div class="d-inline-block"><img data-v-fa4ddde2=""
+                                    src="https://images.viblo.asia/avatar/b324b42d-a096-4708-b430-1afc5b8642f0.png"
+                                    srcset="https://images.viblo.asia/avatar-retina/b324b42d-a096-4708-b430-1afc5b8642f0.png 2x"
+                                    class="avatar avatar--xs"></div>
+                              </a></li>
+                            <li class="participants__item" data-tippy="" data-original-title="Nguyễn Hữu Kim"><a
+                                href="/u/huukimit" class="">
+                                <div class="d-inline-block"><img data-v-fa4ddde2=""
+                                    src="https://images.viblo.asia/avatar/bfaf3c0a-571f-439e-b3d0-24a2aba8524d.png"
+                                    srcset="https://images.viblo.asia/avatar-retina/bfaf3c0a-571f-439e-b3d0-24a2aba8524d.png 2x"
+                                    class="avatar avatar--xs"></div>
+                              </a></li>
+                            <li class="participants__item" data-tippy="" data-original-title="Vũ Nguyễn"><a
+                                href="/u/vunguyen10111995" class="">
+                                <div class="d-inline-block"><img data-v-fa4ddde2=""
+                                    src="https://images.viblo.asia/avatar/26cdf4d9-b497-4cb0-8f45-c8648cd08968.jpg"
+                                    srcset="https://images.viblo.asia/avatar-retina/26cdf4d9-b497-4cb0-8f45-c8648cd08968.jpg 2x"
+                                    class="avatar avatar--xs"></div>
+                              </a></li>
+                            <!---->
+                          </ul>
+                          <!---->
+                        </div>
+                      </div>
+                    </div>
+                    <div class="q-title word-break"><a
+                        href="/q/kiem-tra-tat-ca-gia-tri-trong-arr1-co-ton-tai-trong-arr2-hay-khong-375zQaaWlGW"
+                        class="link">
+                        <h3 class="mb-05 mr-05">Kiểm tra tất cả giá trị trong arr1 có tồn tại trong arr2 hay không</h3>
+                      </a>
+                      <div data-v-328f1f88="" class="tags"><a href="/tags/javascript/questions"
+                          class="el-tag tag_3wKND el-tag--info el-tag--default" data-v-328f1f88="">JavaScript</a></div>
+                    </div>
+                  </div>
+                </div>
+                <app-pagination *ngIf="newestQuestion.length != 0" [currRoute]="'newest'" [previousPage]="previousPage" [nextPage]="nextPage" [numPages]='numPages' [currPage]="currPage"></app-pagination>
+              </div>
             </div>
             <div class="col-lg-3 hidden-md-down">
-              <app-post-suggestion></app-post-suggestion>
+              <app-question-suggestion></app-question-suggestion>
             </div>
           </div>
         </div>

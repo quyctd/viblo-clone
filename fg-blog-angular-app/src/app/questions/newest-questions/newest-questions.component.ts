@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-newest-questions',
@@ -7,7 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewestQuestionsComponent implements OnInit {
 
-  constructor() { }
+  newestQuestion = [];
+  currPage = 1;
+  numPages: number;
+  pageSize: number;
+  nextPage: number;
+  previousPage: number;
+
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
   }
