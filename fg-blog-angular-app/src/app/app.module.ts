@@ -112,7 +112,7 @@ import { CommentFormComponent } from './article-partial/comment-form/comment-for
       { path: 'register', component : RegisterComponent},
       { path: 'posts/:id/edit', component : PostManageComponent},
       { path: 'p/:id', component: PostDetailComponent},
-      { path: 'questions', component : QuestionsComponent},
+      { path: 'questions', component : NewestQuestionsComponent},
       { path: 'discussion', component : DiscussionsComponent},
       { path: 'search', component : SearchComponent},
       { path: 'tags', component : TagsComponent},
