@@ -3,9 +3,18 @@ Project FG Blog
 ![build](https://img.shields.io/appveyor/ci/:user/:repo.svg)
 ![chat](https://img.shields.io/discord/:serverId.svg)
 
-## Table of Contents
 
-[TOC]
+Table of Contents
+=================
+
+* [Project FG Blog](#project-fg-blog)
+* [Table of Contents](#table-of-contents)
+* [Introduction](#introduction)
+* [tags: Python 3.x Django 2.x Angular 7 Django Rest Framework 3.x Ngx-simplemde 1.0.0](#tags-python-3x-django-2x-angular-7-django-rest-framework-3x-ngx-simplemde-100)
+* [Structure](#structure)
+* [Installation](#installation)
+* [Run Project](#run-project)
+* [Features](#features)
 
 ## Introduction
 
