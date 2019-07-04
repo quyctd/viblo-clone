@@ -7,10 +7,7 @@ Project FG Blog
 Table of Contents
 =================
 
-* [Project FG Blog](#project-fg-blog)
-* [Table of Contents](#table-of-contents)
 * [Introduction](#introduction)
-* [tags: Python 3.x Django 2.x Angular 7 Django Rest Framework 3.x Ngx-simplemde 1.0.0](#tags-python-3x-django-2x-angular-7-django-rest-framework-3x-ngx-simplemde-100)
 * [Structure](#structure)
 * [Installation](#installation)
 * [Run Project](#run-project)
@@ -26,6 +23,7 @@ Structure
 ---
 
 ```zsh
+<<<<<<< HEAD
  Root Project:
 
   # The first project
@@ -44,6 +42,26 @@ Structure
   
   # README.md
   Readme file
+=======
+Root Project:
+
+# The first project
+fg-blog-API: Backend
+Cung cấp API cho phía frontend
+Sử dụng: Django + Django Rest Framework
+
+# The second project
+fg-blog-angular-app: Frontend
+Giao diện + logic frontend
+Gọi đến các API trong fg-blog-API
+Sử dụng: Angular 7
+
+# Gitignore
+Git ignore file
+
+# README.md
+Readme file
+>>>>>>> dev
 ```
 
 
@@ -61,14 +79,18 @@ pip install -r requirements/developments.txt
 ```
 
 **Frontend**:
- 1. Install node js
+1. Install node js
 
 ```bash
 brew update
 brew install node
 ```
 
+<<<<<<< HEAD
  2. Install dependency modules
+=======
+2. Install dependency modules
+>>>>>>> dev
 ```bash
 cd fg-blog-angular-app/
 npm install
@@ -91,29 +113,29 @@ ng serve
 ## Features
 
 * Authentication
-    * Login
-    * Register
-    * Social login (Google, Facebook)
-    * Logout
+* Login
+* Register
+* Social login (Google, Facebook)
+* Logout
 
 * Posts
-    * List newest post
-    * Read post
-    * Create post
-    * Edit post
-    * Delete post
-    * Upvote/Downvote post
-    * Table of content of Post
-    * Share post
-    * Clips post
+* List newest post
+* Read post
+* Create post
+* Edit post
+* Delete post
+* Upvote/Downvote post
+* Table of content of Post
+* Share post
+* Clips post
 
 * Comment
-    * Comment in post
-    * Reply comment
-    * Edit comment
-    * Delete comment
-    * Share comment
-    * Upvote/Downvote comment
+* Comment in post
+* Reply comment
+* Edit comment
+* Delete comment
+* Share comment
+* Upvote/Downvote comment
 
 
 
