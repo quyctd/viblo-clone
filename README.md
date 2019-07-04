@@ -1,8 +1,3 @@
----
-title: 'Project documentation template'
-disqus: hackmd
----
-
 Project FG Blog
 ===
 ![build](https://img.shields.io/appveyor/ci/:user/:repo.svg)
@@ -21,7 +16,7 @@ Một trang web Technical Blog tương tự như Viblo Asia. Sử dụng Angular
 Structure
 ---
 
-```gherkin=
+```html
  Root Project:
 
   # The first project
@@ -46,12 +41,12 @@ Structure
 Installation
 ---
 **Clone project**
-```
+```git
 git clone https://github.com/quyctd/FG_blog.git
 ```
 
 **Backend**: Required python 3.x
-```
+```python
 cd fg-blog-API/
 pip install -r requirements/developments.txt
 ```
@@ -59,13 +54,13 @@ pip install -r requirements/developments.txt
 **Frontend**:
  1. Install node js
 
-```
+```npm
 brew update
 brew install node
 ```
 
  2. Install dependency modules
-```
+```npm
 cd fg-blog-angular-app/
 npm install
 ```
@@ -73,13 +68,13 @@ npm install
 Run Project
 ---
 **Run server**
-```
+```python
 cd fg-blog-API/
 python manage.py runserver
 ```
 
 **Run angular app**
-```
+```js
 cd fg-blog-angular-app/
 ng serve
 ```
@@ -112,7 +107,5 @@ ng serve
     * Upvote/Downvote comment
 
 
-:::info
-**This document is still in development.**
-:::
 
+> This document is still in development.
