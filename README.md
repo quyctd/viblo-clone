@@ -88,29 +88,29 @@ ng serve
 ## Features
 
 * Authentication
-* Login
-* Register
-* Social login (Google, Facebook)
-* Logout
+    * Login
+    * Register
+    * Social login (Google, Facebook)
+    * Logout
 
 * Posts
-* List newest post
-* Read post
-* Create post
-* Edit post
-* Delete post
-* Upvote/Downvote post
-* Table of content of Post
-* Share post
-* Clips post
+    * List newest post
+    * Read post
+    * Create post
+    * Edit post
+    * Delete post
+    * Upvote/Downvote post
+    * Table of content of Post
+    * Share post
+    * Clips post
 
 * Comment
-* Comment in post
-* Reply comment
-* Edit comment
-* Delete comment
-* Share comment
-* Upvote/Downvote comment
+    * Comment in post
+    * Reply comment
+    * Edit comment
+    * Delete comment
+    * Share comment
+    * Upvote/Downvote comment
 
 
 
