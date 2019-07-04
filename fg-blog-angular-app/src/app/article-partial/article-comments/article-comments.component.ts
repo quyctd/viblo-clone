@@ -20,6 +20,7 @@ export class ArticleCommentsComponent implements OnInit {
   shareId: any; // using in template
   menuId: any; // using in template
   authorId: any; // using in template
+  deleteId: any; // using in template
 
   constructor(private api: CommentsService, private cd: ChangeDetectorRef, private modalService: NgbModal) { }
 
@@ -112,6 +113,11 @@ export class ArticleCommentsComponent implements OnInit {
   doCloseShare(shareId) {
     const shareEle = document.getElementById("share-" + shareId);
     shareEle.style.display = "none";
+  }
+
+  doHideDropdown(menuId) {
+    const menuEle = document.getElementById("comment-menu-" + menuId);
+    menuEle.style.display = "none";
   }
 
   /* To copy Text from Textbox */

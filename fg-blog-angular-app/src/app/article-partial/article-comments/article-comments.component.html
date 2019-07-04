@@ -152,21 +152,21 @@
 </div>
 
 <ul class="el-dropdown-menu el-popper" id="comment-menu-{{ menuId }}" style="display: none;">
-  <li *ngIf="currentUser.id == authorId" tabindex="-1" class="el-dropdown-menu__item" (click)="doEditComment(menuId)">
+  <li *ngIf="currentUser.id == authorId" tabindex="-1" class="el-dropdown-menu__item" (click)="doHideDropdown(menuId); doEditComment(menuId)">
     <i aria-hidden="true" class="fa fa-pencil pr-0 mr-05"></i>
     Edit
   </li>
 
-  <li *ngIf="currentUser.id == authorId" tabindex="-1" class="el-dropdown-menu__item" (click)="deleteId = menuId; openVerticallyCentered(content)">
+  <li *ngIf="currentUser.id == authorId" tabindex="-1" class="el-dropdown-menu__item" (click)="doHideDropdown(menuId); deleteId = menuId; openVerticallyCentered(content)">
     <i aria-hidden="true" class="fa fa-trash pr-0 mr-05"></i>
     Delete this comment
   </li>
-  <li *ngIf="currentUser.id != authorId" tabindex="-1" class="el-dropdown-menu__item">
+  <li *ngIf="currentUser.id != authorId" tabindex="-1" class="el-dropdown-menu__item" (click)="doHideDropdown(menuId)">
     <i aria-hidden="true" class="fa fa-flag-o pr-0 mr-05"></i> 
     <span>Report</span>
   </li>
 
-  <li tabindex="-1" class="el-dropdown-menu__item el-dropdown-menu__item--divided">
+  <li tabindex="-1" class="el-dropdown-menu__item el-dropdown-menu__item--divided" (click)="doHideDropdown(menuId)">
     <i class="fa fa-magic pr-0 mr-05"></i>
     Highlighting code blocks
   </li>
