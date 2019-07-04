@@ -6,14 +6,14 @@ import { environment } from '../../environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class PublishPostService {
+export class AskQuestionService {
 
   listTag = [];
-  baseurl = environment.baseUrl + 'post/';
+  baseurl = environment.baseUrl + 'question/';
 
   constructor(private http: HttpClient) { }
 
-  createPost(formData): Observable<any> {
+  createQuestion(formData): Observable<any> {
     const body = {tags: formData.tags, title: formData.title, content: formData.content, author: formData.author};
     const token = "Token " + JSON.parse(localStorage.getItem('currentToken')).token;
     const httpHeaders = new HttpHeaders({'Content-Type': 'application/json', Authorization: token});

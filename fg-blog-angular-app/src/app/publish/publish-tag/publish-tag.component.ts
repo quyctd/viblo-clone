@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { PublishPostService } from '../publish-post.service';
 import { PostManageService } from '../../post/post-manage.service';
+import { AskQuestionService } from '../ask-question.service';
 
 @Component({
   selector: 'app-publish-tag',
@@ -16,7 +17,8 @@ export class PublishTagComponent implements OnInit {
   @Input() postType: string;
   @Output() remover = new EventEmitter<string>();
 
-  constructor(private publishPostService: PublishPostService, private postManageService: PostManageService) {}
+  // tslint:disable-next-line:max-line-length
+  constructor(private publishPostService: PublishPostService, private questionService: AskQuestionService, private postManageService: PostManageService) {}
 
   ngOnInit() {
     if (this.inputTag) {
@@ -25,9 +27,7 @@ export class PublishTagComponent implements OnInit {
   }
 
   doRemoveTag() {
-    console.log("Remove tag");
     this.showTag = false;
-    console.log("Call update to server");
     if (this.postType === "post") {
       for (let i = 0; i < this.publishPostService.listTag.length; i++) {
         if (this.publishPostService.listTag[i] === this.tag) {
@@ -39,6 +39,15 @@ export class PublishTagComponent implements OnInit {
       for (let i = 0; i < this.postManageService.listTag.length; i++) {
         if (this.postManageService.listTag[i] === this.tag) {
           this.postManageService.listTag.splice(i, 1);
+          break;
+        }
+      }
+    }
+
+    if (this.postType === "question") {
+      for (let i = 0; i < this.questionService.listTag.length; i++) {
+        if (this.questionService.listTag[i] === this.tag) {
+          this.questionService.listTag.splice(i, 1);
           break;
         }
       }

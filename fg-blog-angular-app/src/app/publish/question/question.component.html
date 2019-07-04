@@ -6,48 +6,54 @@
         <div class="container py-3">
           <div class="ask-question">
             <form class="el-form error-message--top" [formGroup]="form">
-              <div class="el-form-item is-required">
+              <div class="el-form-item is-required" [class.is-error]="title.touched && title.invalid">
                 <div class="el-form-item__content">
                   <div class="el-input">
-                    <input type="text" autocomplete="off" placeholder="Title" class="el-input__inner" />
+                    <div *ngIf="title.touched && title.invalid"
+                      class="el-form-item__error">
+                      <div *ngIf="title.errors && title.errors.required">
+                        The question title is required
+                      </div>
+                    </div>
+                    <input formControlName="title" type="text" autocomplete="off" placeholder="Title" class="el-input__inner"/>
                   </div>
                 </div>
               </div>
-              <div class="el-form-item is-required">
+              <div class="el-form-item is-required" [class.is-error]="tags.touched && questionApi.listTag?.length == 0">
                 <div class="el-form-item__content">
                   <div class="tags-input" tags="">
+                    <div *ngIf="tags.touched && questionApi.listTag?.length == 0"
+                      class="el-form-item__error">
+                      <div>
+                        The question tags is required
+                      </div>
+                    </div>
                     <div class="tags-input__inner el-input__inner">
+                      <div *ngFor="let tag of questionApi.listTag">
+                        <app-publish-tag [inputTag]="tag" [postType]="'question'">
+                        </app-publish-tag>
+                      </div>
                       <div aria-haspopup="listbox" role="combobox" aria-owns="el-autocomplete-5190"
                         class="el-autocomplete tags-input__autocomplete">
                         <div class="el-input">
-                          <input type="text" autocomplete="off" valuekey="value"
+                          <input formControlName="tags" type="text" valuekey="value"
                             placeholder="Tag your question. Maximum 5 tags."
-                            fetchsuggestions='function(input,t){return input?Object(l.getTags)({src:"typeahead",q:input}).then(function(t){return t.data}).then(t):t([])}'
                             debounce="300" placement="bottom-start" popperappendtobody="true" class="el-input__inner"
-                            role="textbox" aria-autocomplete="list" aria-controls="id"
-                            aria-activedescendant="el-autocomplete-5190-item--1" />
-                        </div>
-                        <div role="region" class="el-autocomplete-suggestion el-popper" style="display: none;">
-                          <div class="el-scrollbar">
-                            <div
-                              class="el-autocomplete-suggestion__wrap el-scrollbar__wrap el-scrollbar__wrap--hidden-default">
-                              <ul class="el-scrollbar__view el-autocomplete-suggestion__list" role="listbox"
-                                id="el-autocomplete-5190"></ul>
-                            </div>
-                            <div class="el-scrollbar__bar is-horizontal">
-                              <div class="el-scrollbar__thumb" style="transform: translateX(0%);"></div>
-                            </div>
-                            <div class="el-scrollbar__bar is-vertical">
-                              <div class="el-scrollbar__thumb" style="transform: translateY(0%);"></div>
-                            </div>
-                          </div>
+                            role="textbox" aria-controls="id" (keyup.enter)="addTag($event)" 
+                            />
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="el-form-item mt-2 mb-0 is-required">
+              <div class="el-form-item mt-2 mb-0 is-required" [class.is-error]="isHasFirstSubmit && !simplemde.value">
+                <div *ngIf="isHasFirstSubmit && !simplemde.value"
+                  class="el-form-item__error">
+                  <div>
+                    The post question is required
+                  </div>
+                </div>
                 <simplemde formControlName="simplemde" [(ngModel)]="customize" [options]="{
                     toolbar: [
                       'bold',
@@ -81,7 +87,8 @@
               </div>
             </form>
             <div>
-              <button type="button" class="el-button el-button--primary el-button--medium is-plain">
+              <button type="button" class="el-button el-button--primary el-button--medium is-plain"
+              (click)="doCreateQuestion()">
                 <span>
                   Create Question
                 </span>

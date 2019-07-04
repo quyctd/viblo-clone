@@ -8441,7 +8441,9 @@ img.emoji {
 .el-form-item.is-error .el-input__inner,
 .el-form-item.is-error .el-input__inner:focus,
 .el-form-item.is-error .el-textarea__inner,
-.el-form-item.is-error .el-textarea__inner:focus {
+.el-form-item.is-error .el-textarea__inner:focus,
+.el-form-item.is-error .CodeMirror,
+.el-form-item.is-error .CodeMirror:focus {
   border-color: #f56c6c;
 }
 
@@ -11192,10 +11194,8 @@ img.emoji {
 
 [class*=" el-icon-"],
 [class^="el-icon-"] {
-  font-family: element-icons !important;
   speak: none;
   font-style: normal;
-  font-weight: 400;
   font-feature-settings: normal;
   font-variant: normal;
   text-transform: none;
@@ -11292,10 +11292,6 @@ img.emoji {
 
 .el-icon-circle-plus-outline:before {
   content: "\e602";
-}
-
-.el-icon-close:before {
-  content: "\e60f";
 }
 
 .el-icon-check:before {
