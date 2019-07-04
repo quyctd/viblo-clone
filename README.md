@@ -16,7 +16,7 @@ Một trang web Technical Blog tương tự như Viblo Asia. Sử dụng Angular
 Structure
 ---
 
-```html
+```zsh
  Root Project:
 
   # The first project
@@ -41,12 +41,12 @@ Structure
 Installation
 ---
 **Clone project**
-```git
+```bash
 git clone https://github.com/quyctd/FG_blog.git
 ```
 
 **Backend**: Required python 3.x
-```python
+```bash
 cd fg-blog-API/
 pip install -r requirements/developments.txt
 ```
@@ -54,13 +54,13 @@ pip install -r requirements/developments.txt
 **Frontend**:
  1. Install node js
 
-```npm
+```bash
 brew update
 brew install node
 ```
 
  2. Install dependency modules
-```npm
+```bash
 cd fg-blog-angular-app/
 npm install
 ```
@@ -68,13 +68,13 @@ npm install
 Run Project
 ---
 **Run server**
-```python
+```bash
 cd fg-blog-API/
 python manage.py runserver
 ```
 
 **Run angular app**
-```js
+```bash
 cd fg-blog-angular-app/
 ng serve
 ```
