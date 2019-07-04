@@ -55,6 +55,7 @@ import { CommentFormComponent } from './article-partial/comment-form/comment-for
 import { QuestionFeedLinksComponent } from './questions/question-feed-links/question-feed-links.component';
 import { QuestionSuggestionComponent } from './questions/question-suggestion/question-suggestion.component';
 import { QuestionComponent as AskQuestionComponent } from './publish/question/question.component';
+import { QuestionFeedComponent } from './questions/question-feed/question-feed.component';
 
 @NgModule({
   declarations: [
@@ -92,7 +93,8 @@ import { QuestionComponent as AskQuestionComponent } from './publish/question/qu
     CommentFormComponent,
     QuestionFeedLinksComponent,
     QuestionSuggestionComponent,
-    AskQuestionComponent
+    AskQuestionComponent,
+    QuestionFeedComponent
   ],
   imports: [
     BrowserModule,

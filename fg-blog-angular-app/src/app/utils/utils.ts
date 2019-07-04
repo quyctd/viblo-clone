@@ -19,31 +19,31 @@ function formatInDays(ms: number) {
           if (sec < "30") {
                return "less then a minute";
           } else {
-               return "about a minute";
+               return "about a minute ago";
           }
      }
 
      if (days2 == "00" && hours2 == "00" && minutes2 != "00") {
           if (minutes2 == "01") {
-               return "about a minute";
+               return "about a minute ago";
           } else {
-               return "about " + minutes2 + " minutes";
+               return "about " + minutes2 + " minutes ago";
           }
      }
 
      if (days2 == "00" && hours2 != "00") {
           if (hours2 == "01") {
-               return "about an hour";
+               return "about an hour ago";
           } else {
-               return "about " + hours2 + " hours";
+               return "about " + hours2 + " hours ago";
           }
      }
 
      if (days2 != "00") {
           if (days2 == "01") {
-               return "about a day";
+               return "about a day ago";
           } else {
-               return "about " + days2 + " days";
+               return "about " + days2 + " days ago";
           }
      }
 

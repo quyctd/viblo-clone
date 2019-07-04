@@ -31,7 +31,7 @@ export class NewestPostComponent implements OnInit {
         this.router.navigateByUrl('/newest');
       }
       this.getNewestPost();
-  });
+    });
   }
 
   getNewestPost() {

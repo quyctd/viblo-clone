@@ -205,7 +205,7 @@ sup {
 }
 
 a {
-  color: #409eff;
+  color: #5488c7;
   text-decoration: none;
   background-color: initial;
 }
@@ -1847,8 +1847,8 @@ fieldset:disabled a.btn {
 
 .btn-primary {
   color: #fff;
-  background-color: #409eff;
-  border-color: #409eff;
+  background-color: #5488c7;
+  border-color: #5488c7;
 }
 
 .btn-primary:hover {
@@ -6835,7 +6835,7 @@ a.link.plain:hover {
 
 a.accented-link,
 a.link:hover {
-  color: #409eff;
+  color: #5488c7;
 }
 
 a.accented-link:focus,
@@ -14154,8 +14154,8 @@ ul.pagination > li a {
 }
 
 ul.pagination > li a.active {
-  color: #409eff;
-  border-color: #409eff;
+  color: #5488c7;
+  border-color: #5488c7;
 }
 
 ul.pagination > li a.disabled {
