@@ -23,7 +23,6 @@ Structure
 ---
 
 ```zsh
-<<<<<<< HEAD
  Root Project:
 
   # The first project
@@ -42,26 +41,6 @@ Structure
   
   # README.md
   Readme file
-=======
-Root Project:
-
-# The first project
-fg-blog-API: Backend
-Cung cấp API cho phía frontend
-Sử dụng: Django + Django Rest Framework
-
-# The second project
-fg-blog-angular-app: Frontend
-Giao diện + logic frontend
-Gọi đến các API trong fg-blog-API
-Sử dụng: Angular 7
-
-# Gitignore
-Git ignore file
-
-# README.md
-Readme file
->>>>>>> dev
 ```
 
 
@@ -86,11 +65,7 @@ brew update
 brew install node
 ```
 
-<<<<<<< HEAD
- 2. Install dependency modules
-=======
 2. Install dependency modules
->>>>>>> dev
 ```bash
 cd fg-blog-angular-app/
 npm install
