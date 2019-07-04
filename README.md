@@ -1,16 +1,17 @@
----
-title: 'Project documentation template'
-disqus: hackmd
----
-
 Project FG Blog
 ===
 ![build](https://img.shields.io/appveyor/ci/:user/:repo.svg)
 ![chat](https://img.shields.io/discord/:serverId.svg)
 
-## Table of Contents
 
-[TOC]
+Table of Contents
+=================
+
+* [Introduction](#introduction)
+* [Structure](#structure)
+* [Installation](#installation)
+* [Run Project](#run-project)
+* [Features](#features)
 
 ## Introduction
 
@@ -21,51 +22,51 @@ Một trang web Technical Blog tương tự như Viblo Asia. Sử dụng Angular
 Structure
 ---
 
-```gherkin=
- Root Project:
+```zsh
+Root Project:
 
-  # The first project
-  fg-blog-API: Backend
-    Cung cấp API cho phía frontend
-    Sử dụng: Django + Django Rest Framework
+# The first project
+fg-blog-API: Backend
+Cung cấp API cho phía frontend
+Sử dụng: Django + Django Rest Framework
 
-  # The second project
-  fg-blog-angular-app: Frontend
-    Giao diện + logic frontend
-    Gọi đến các API trong fg-blog-API
-    Sử dụng: Angular 7
-    
-  # Gitignore
-  Git ignore file
-  
-  # README.md
-  Readme file
+# The second project
+fg-blog-angular-app: Frontend
+Giao diện + logic frontend
+Gọi đến các API trong fg-blog-API
+Sử dụng: Angular 7
+
+# Gitignore
+Git ignore file
+
+# README.md
+Readme file
 ```
 
 
 Installation
 ---
 **Clone project**
-```
+```bash
 git clone https://github.com/quyctd/FG_blog.git
 ```
 
 **Backend**: Required python 3.x
-```
+```bash
 cd fg-blog-API/
 pip install -r requirements/developments.txt
 ```
 
 **Frontend**:
- 1. Install node js
+1. Install node js
 
-```
+```bash
 brew update
 brew install node
 ```
 
- 2. Install dependency modules
-```
+2. Install dependency modules
+```bash
 cd fg-blog-angular-app/
 npm install
 ```
@@ -73,13 +74,13 @@ npm install
 Run Project
 ---
 **Run server**
-```
+```bash
 cd fg-blog-API/
 python manage.py runserver
 ```
 
 **Run angular app**
-```
+```bash
 cd fg-blog-angular-app/
 ng serve
 ```
@@ -87,32 +88,30 @@ ng serve
 ## Features
 
 * Authentication
-    * Login
-    * Register
-    * Social login (Google, Facebook)
-    * Logout
+* Login
+* Register
+* Social login (Google, Facebook)
+* Logout
 
 * Posts
-    * List newest post
-    * Read post
-    * Create post
-    * Edit post
-    * Delete post
-    * Upvote/Downvote post
-    * Table of content of Post
-    * Share post
-    * Clips post
+* List newest post
+* Read post
+* Create post
+* Edit post
+* Delete post
+* Upvote/Downvote post
+* Table of content of Post
+* Share post
+* Clips post
 
 * Comment
-    * Comment in post
-    * Reply comment
-    * Edit comment
-    * Delete comment
-    * Share comment
-    * Upvote/Downvote comment
+* Comment in post
+* Reply comment
+* Edit comment
+* Delete comment
+* Share comment
+* Upvote/Downvote comment
 
 
-:::info
-**This document is still in development.**
-:::
 
+> This document is still in development.
