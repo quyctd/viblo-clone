@@ -13358,7 +13358,7 @@ pre[class*="language-"] {
   overflow: hidden;
 }
 
-.avatar[data-v-fa4ddde2] {
+.avatar {
   display: block;
   width: 60px;
   height: auto;
@@ -13367,48 +13367,48 @@ pre[class*="language-"] {
   border-radius: 100%;
 }
 
-.avatar--rect[data-v-fa4ddde2] {
+.avatar--rect {
   border-radius: 3px;
 }
 
-.avatar--ognzt[data-v-fa4ddde2] {
+.avatar--ognzt {
   object-fit: contain;
   width: 100%;
   display: block;
   overflow: hidden;
 }
 
-.avatar--xs[data-v-fa4ddde2] {
+.avatar--xs {
   width: 20px;
   max-height: 20px;
 }
 
-.avatar--sm[data-v-fa4ddde2] {
+.avatar--sm {
   width: 32px;
   max-height: 32px;
 }
 
-.avatar--md[data-v-fa4ddde2] {
+.avatar--md {
   width: 37px;
   max-height: 37px;
 }
 
-.avatar--lg[data-v-fa4ddde2] {
+.avatar--lg {
   width: 45px;
   max-height: 45px;
 }
 
-.avatar--xl[data-v-fa4ddde2] {
+.avatar--xl {
   width: 60px;
   max-height: 60px !important;
 }
 
-.avatar--xxl[data-v-fa4ddde2] {
+.avatar--xxl {
   width: 80px;
   max-height: 80px;
 }
 
-.discussion-avatar img[data-v-fa4ddde2] {
+.discussion-avatar img {
   display: inherit;
 }
 

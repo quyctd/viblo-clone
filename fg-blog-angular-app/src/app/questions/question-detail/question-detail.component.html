@@ -1,0 +1,201 @@
+<div id="__layout">
+  <div id="app-container" class="dark">
+    <app-navbar class="sticky-top"></app-navbar>
+    <div id="main-content">
+      <div>
+        <div id="main-content">
+          <div class="question-view container">
+            <div data-v-4138a59f="" class="my-2">
+              <div data-v-4138a59f="" class="row pt-md-3 pb-1">
+                <div data-v-4138a59f="" class="col-xl-9 offset-xl-0 col-lg-10 offset-lg-1">
+                  <div data-v-4138a59f="" class="question-content-wrapper">
+
+                    <div class="d-flex justify-content-between hidden-md-down">
+                      <div class="question-meta text-muted">
+                        <span data-tippy="" data-original-title="Jul 5th, 12:39 PM">Asked
+                          {{ getTimePublish(questionData.create_time) }}
+                        </span>
+                        <span class="mx-05">•</span>
+                        <span
+                        class="stats-item mr-05" data-tippy="" data-original-title="Views"><i aria-hidden="true"
+                          class="fa fa-eye"></i> {{ questionData.views }}
+                        </span>
+                        <span class="stats-item mx-05"
+                          data-tippy="" data-original-title="Clips">
+                          <i aria-hidden="true" class="fa fa-paperclip"></i>
+                          {{ questionData.clips }}
+                        </span>
+                        <span class="stats-item mx-05" data-tippy=""
+                          data-original-title="Answers"><i aria-hidden="true" class="fa fa-reply"></i>
+                          0
+                        </span>
+                      </div>
+
+                    </div>
+
+                    <!-- Action bar -->
+                    <div class="my-05 d-flex align-items-center">
+                      <div class="votes votes--side">
+                        <button class="icon-btn vote" [class.voted]="isUpVote" data-tippy="" (click)="toggleUpvote()">
+                          <i aria-hidden="true" class="fa fa-caret-up"></i>
+                        </button>
+                        <div class="points text-muted">
+                          {{ voteString }}
+                        </div>
+                        <button class="icon-btn vote" [class.voted]="isDownVote" data-tippy="" (click)="toggleDownvote()">
+                          <i aria-hidden="true" class="fa fa-caret-down"></i>
+                        </button>
+                      </div>
+                      <header class="summary">
+                        <h1 class="title word-break">
+                          {{ questionData.title }}
+                        </h1>
+                        <div class="d-md-flex align-items-top justify-content-between">
+                          <div data-v-328f1f88="" class="tags">
+                            <a *ngFor="let tag of questionData.tags" routerLink="/tags/{{ tag }}/questions"
+                              class="el-tag tag_3wKND el-tag--info el-tag--default" data-v-328f1f88="">{{ tag }}</a>
+                          </div>
+                          <div class="question__menu">
+                            <div class="el-dropdown">
+                              <button type="button"
+                                class="el-button text-muted p-0 el-button--text el-dropdown-selfdefine" data-tippy=""
+                                data-original-title="Show more actions" aria-haspopup="list"
+                                aria-controls="dropdown-menu-7222" role="button" tabindex="0">
+                                <i class="question__menu__more fas fa-ellipsis-h"></i>
+                                
+                              </button>
+                              <ul class="el-dropdown-menu el-popper el-dropdown-menu--medium" id="dropdown-menu-7222"
+                                style="display: none;">
+                                
+                                <li tabindex="-1" class="el-dropdown-menu__item">
+                                  <i aria-hidden="true" class="fa fa-flag-o pr-0 mr-05"></i>Report
+                                </li>
+                                <li tabindex="-1" class="el-dropdown-menu__item">
+                                  <i class="fa fa-send pr-0 mr-05"></i>Request
+                                  answer
+                                </li>
+                                
+                                
+                                <li tabindex="-1" class="el-dropdown-menu__item">
+                                  <i class="fa fa-magic pr-0 mr-05"></i>Highlighting code blocks
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </header>
+                    </div>
+                    <!-- Content -->
+                    <markdown [data]="questionData.content"></markdown>
+                  </div>
+                  <div data-v-4138a59f="" class="pt-1">
+                    <button data-v-4138a59f="" class="btn btn-primary rounded-0 btn-post-answer">
+                      <i data-v-4138a59f="" aria-hidden="true" class="fa mr-05 fa-pencil"></i>
+                      <span data-v-4138a59f="">Post answer</span>
+                    </button>
+                  </div>
+                </div>
+                <div data-v-4138a59f="" class="col-md-3 hidden-lg-down d-flex">
+                  <div data-v-4138a59f="" class="question-sidebar d-flex">
+                    <div class="sidebar-content">
+                      <div class="user-container">
+                        <div class="sidebar__user">
+                          <div class="sidebar__user__row">
+                            <a routerLink="/u/adamhoang308" class="">
+                              <div class="d-inline-block">
+                                <img data-v-66e65396="" src="../../../assets/default.png"
+                                  srcset="../../../assets/default.png" alt="Avatar" class="avatar avatar--xl" />
+                              </div>
+                            </a>
+                            <div class="d-flex flex-column justify-content-center">
+                              <a routerLink="/u/{{ questionData.author_data ? questionData.author_data.username : 'admin' }}"
+                                class="">
+                                {{ questionData.author_data ? questionData.author_data.name : 'Admin' }}
+                              </a>
+                              <span
+                                class="d-block">@{{ questionData.author_data ? questionData.author_data.username : 'Admin' }}</span>
+                            </div>
+                          </div>
+                          <div class="sidebar__user__row">
+                            <div class="user-action">
+                              <div class="subscribe">
+                                <button class="btn btn-follow btn-full-width btn-small-padding">
+                                  Follow
+                                </button>
+                              </div>
+                            </div>
+                            <div class="stats text-nowrap">
+                              <span class="stats-item text-muted" data-tippy=""
+                                data-original-title="Reputations: 125"><i aria-hidden="true"
+                                  class="stats-item__icon fa fa-star"></i>
+                                {{ questionData.author_data ? questionData.author_data.reputations : "0" }} </span><span
+                                class="stats-item text-muted" data-tippy="" data-original-title="Followers: 5"><i
+                                  aria-hidden="true" class="stats-item__icon fa fa-user-plus"></i>
+                                5 </span><span class="stats-item text-muted" data-tippy=""
+                                data-original-title="Questions: 7"><i aria-hidden="true"
+                                  class="stats-item__icon fa fa-question"></i>
+                                {{ questionData.author_data ? questionData.author_data.question_count : "0" }}
+                              </span><span class="stats-item text-muted" data-tippy=""
+                                data-original-title="Answers: 0"><i aria-hidden="true"
+                                  class="stats-item__icon fa fa-reply"></i>
+                                0
+                              </span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="question-clip-widget">
+                        <div class="subscribe">
+                          <button class="btn btn-primary full-width rounded-0" [class.clipped]="isClip" (click)="toggleClipQuestion()">
+                            <i aria-hidden="true" class="fa fa-paperclip mr-05"></i>
+                            <span class="text-uppercase">
+                              {{ clipQuestionText }}
+                            </span>
+                          </button>
+                        </div>
+                        <div class="subscribers-preview">
+                          <ul class="list-unstyled mb-0 d-flex align-items-center participants--md">
+                            
+                          </ul>
+                          
+                        </div>
+                      </div>
+                      <div data-v-e1ec6290=""
+                        class="social-sharing question-socialization social-sharing--vertical social-sharing--small">
+                        <a data-v-e1ec6290=""
+                          routerLink="http://www.facebook.com/sharer.php?u=https%3A%2F%2Fviblo.asia%2Fq%2Fso-sanh-giua-delayed-job-va-sidekiq-P856vooO5Y3&amp;title=So%20s%C3%A1nh%20gi%E1%BB%AFa%20Delayed%20Job%20v%C3%A0%20Sidekiq"
+                          target="_blank" rel="noopener" class="link social-btn-circle facebook-btn"><i
+                            data-v-e1ec6290="" aria-hidden="true" class="fa fa-facebook"></i></a>
+                        <a data-v-e1ec6290=""
+                          routerLink="https://twitter.com/intent/tweet?url=https://viblo.asia/q/so-sanh-giua-delayed-job-va-sidekiq-P856vooO5Y3&amp;text=So%20s%C3%A1nh%20gi%E1%BB%AFa%20Delayed%20Job%20v%C3%A0%20Sidekiq&amp;hashtags=Background%20job%2Cbackground%20job%20in%20rails"
+                          target="_blank" rel="noopener" class="link social-btn-circle twitter-btn"><i
+                            data-v-e1ec6290="" aria-hidden="true" class="fa fa-twitter"></i></a>
+                        <a data-v-e1ec6290=""
+                          routerLink="https://plus.google.com/share?url=https%3A%2F%2Fviblo.asia%2Fq%2Fso-sanh-giua-delayed-job-va-sidekiq-P856vooO5Y3"
+                          target="_blank" rel="noopener" class="link social-btn-circle google-btn"><i data-v-e1ec6290=""
+                            aria-hidden="true" class="fa fa-google-plus"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div data-v-4138a59f="" class="comments flat">
+                <div class="list-transition"></div>
+                <div class="comment-add mt-05">
+                  <a routerLink="#" class="link plain text-muted">
+                    Add a comment
+                  </a>
+                  
+                </div>
+              </div>
+            </div>
+            
+            <div class="list-transition"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <app-footer></app-footer>
+  </div>
+</div>

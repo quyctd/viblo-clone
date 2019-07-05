@@ -56,6 +56,7 @@ import { QuestionFeedLinksComponent } from './questions/question-feed-links/ques
 import { QuestionSuggestionComponent } from './questions/question-suggestion/question-suggestion.component';
 import { QuestionComponent as AskQuestionComponent } from './publish/question/question.component';
 import { QuestionFeedComponent } from './questions/question-feed/question-feed.component';
+import { QuestionDetailComponent } from './questions/question-detail/question-detail.component';
 
 @NgModule({
   declarations: [
@@ -94,7 +95,8 @@ import { QuestionFeedComponent } from './questions/question-feed/question-feed.c
     QuestionFeedLinksComponent,
     QuestionSuggestionComponent,
     AskQuestionComponent,
-    QuestionFeedComponent
+    QuestionFeedComponent,
+    QuestionDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -128,6 +130,8 @@ import { QuestionFeedComponent } from './questions/question-feed/question-feed.c
       { path: 'logout', component : LogoutComponent},
       { path: 'publish/post', component : PublishPostComponent},
       { path: 'questions/ask', component : AskQuestionComponent},
+      { path: 'q/:id', component : QuestionDetailComponent},
+
       { path: '404', component: NotfoundComponent}
     ])
   ],
