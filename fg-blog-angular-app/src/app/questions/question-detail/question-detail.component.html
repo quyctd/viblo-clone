@@ -1,5 +1,5 @@
 <div id="__layout">
-  <div id="app-container" class="dark">
+  <div id="app-container" class="default">
     <app-navbar class="sticky-top"></app-navbar>
     <div id="main-content">
       <div>
@@ -57,29 +57,14 @@
                           </div>
                           <div class="question__menu">
                             <div class="el-dropdown">
-                              <button type="button"
+                              <button appCustomDropdown type="button"
                                 class="el-button text-muted p-0 el-button--text el-dropdown-selfdefine" data-tippy=""
                                 data-original-title="Show more actions" aria-haspopup="list"
-                                aria-controls="dropdown-menu-7222" role="button" tabindex="0">
+                                aria-controls="action-menu-7222" role="button" tabindex="0">
                                 <i class="question__menu__more fas fa-ellipsis-h"></i>
                                 
                               </button>
-                              <ul class="el-dropdown-menu el-popper el-dropdown-menu--medium" id="dropdown-menu-7222"
-                                style="display: none;">
-                                
-                                <li tabindex="-1" class="el-dropdown-menu__item">
-                                  <i aria-hidden="true" class="fa fa-flag-o pr-0 mr-05"></i>Report
-                                </li>
-                                <li tabindex="-1" class="el-dropdown-menu__item">
-                                  <i class="fa fa-send pr-0 mr-05"></i>Request
-                                  answer
-                                </li>
-                                
-                                
-                                <li tabindex="-1" class="el-dropdown-menu__item">
-                                  <i class="fa fa-magic pr-0 mr-05"></i>Highlighting code blocks
-                                </li>
-                              </ul>
+                              
                             </div>
                           </div>
                         </div>
@@ -199,3 +184,20 @@
     <app-footer></app-footer>
   </div>
 </div>
+
+<ul class="el-dropdown-menu el-popper el-dropdown-menu--medium" id="action-menu-7222"
+  style="display: none;">
+  <li *ngIf="userData.id == questionData.author" tabindex="-1" class="el-dropdown-menu__item" (click)="doEditQuestion()">
+    <i aria-hidden="true" class="fa fa-edit pr-0 mr-05"></i>Edit
+  </li>
+  <li *ngIf="userData.id == questionData.author" tabindex="-1" class="el-dropdown-menu__item">
+    <i aria-hidden="true" class="fa fa-trash pr-0 mr-05"></i>Delete this question
+  </li>
+  <li tabindex="-1" class="el-dropdown-menu__item">
+    <i aria-hidden="true" class="fa fa-flag-o pr-0 mr-05"></i>Report
+  </li>
+  
+  <li tabindex="-1" class="el-dropdown-menu__item">
+    <i class="fa fa-magic pr-0 mr-05"></i>Highlighting code blocks
+  </li>
+</ul>

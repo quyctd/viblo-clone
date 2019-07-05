@@ -45,7 +45,7 @@ export class CustomDropdownDirective implements OnInit {
       dropEle.style.display = "block";
       this.isShow = true;
       dropEle.style.top = target.getBoundingClientRect().bottom + "px";
-      if (dropdownId.includes('share') || dropdownId.includes("comment-menu-")) {
+      if (dropdownId.includes('share') || dropdownId.includes("comment-menu-") || dropdownId.includes("action-menu-")) {
         dropEle.style.top = window.pageYOffset + target.getBoundingClientRect().bottom + "px";
       }
       if (placement === "bottom-start") {

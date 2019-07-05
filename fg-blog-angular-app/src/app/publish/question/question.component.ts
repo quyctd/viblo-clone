@@ -13,14 +13,11 @@ export class QuestionComponent implements OnInit {
 
   form: FormGroup;
   router;
-  publishDropdown = false;
-  isClickFeatureImage = false;
-  isCanPublish = false;
   customize: any;
   isHasFirstSubmit = false;
 
   // tslint:disable-next-line:variable-name
-  constructor(public formBuilder: FormBuilder, public questionApi: AskQuestionService, _router: Router) {
+  constructor(public formBuilder: FormBuilder, private questionApi: AskQuestionService, _router: Router) {
     this.router = _router;
   }
 

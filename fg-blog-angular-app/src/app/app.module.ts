@@ -57,6 +57,7 @@ import { QuestionSuggestionComponent } from './questions/question-suggestion/que
 import { QuestionComponent as AskQuestionComponent } from './publish/question/question.component';
 import { QuestionFeedComponent } from './questions/question-feed/question-feed.component';
 import { QuestionDetailComponent } from './questions/question-detail/question-detail.component';
+import { EditQuestionComponent } from './questions/edit-question/edit-question.component';
 
 @NgModule({
   declarations: [
@@ -96,7 +97,8 @@ import { QuestionDetailComponent } from './questions/question-detail/question-de
     QuestionSuggestionComponent,
     AskQuestionComponent,
     QuestionFeedComponent,
-    QuestionDetailComponent
+    QuestionDetailComponent,
+    EditQuestionComponent
   ],
   imports: [
     BrowserModule,
@@ -131,7 +133,7 @@ import { QuestionDetailComponent } from './questions/question-detail/question-de
       { path: 'publish/post', component : PublishPostComponent},
       { path: 'questions/ask', component : AskQuestionComponent},
       { path: 'q/:id', component : QuestionDetailComponent},
-
+      { path: 'questions/:id/edit', component : EditQuestionComponent},
       { path: '404', component: NotfoundComponent}
     ])
   ],

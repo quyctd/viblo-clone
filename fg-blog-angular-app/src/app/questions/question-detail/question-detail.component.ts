@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit, ChangeDetectorRef } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { calTimeDifference, calReadTime } from '../../utils/utils';
 import { QuestionService } from '../question.service';
@@ -8,7 +8,7 @@ import { QuestionService } from '../question.service';
   templateUrl: './question-detail.component.html',
   styleUrls: ['./question-detail.component.css']
 })
-export class QuestionDetailComponent implements OnInit {
+export class QuestionDetailComponent implements OnInit, AfterViewInit {
 
   id: number;
   url: any;
@@ -30,7 +30,8 @@ export class QuestionDetailComponent implements OnInit {
   isClip = false;
   clipId = null;
 
-  constructor(private route: ActivatedRoute, private router: Router, private questionApi: QuestionService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private questionApi: QuestionService,
+              private cdRef: ChangeDetectorRef) { }
 
   ngOnInit() {
     this.url = this.router.url;
@@ -42,13 +43,25 @@ export class QuestionDetailComponent implements OnInit {
     this.getQuestionDataWithId(this.id);
   }
 
+  ngAfterViewInit() {
+    // tslint:disable-next-line:prefer-const
+    let elementList = document.getElementsByTagName("pre");
+    console.log(elementList.length);
+    // tslint:disable-next-line:prefer-for-of
+    for (let i = 0; i < elementList.length; i++) {
+      console.log("Ahihi" + i);
+      elementList[i].classList.add('language-javascript');
+    }
+    this.cdRef.detectChanges();
+  }
+
   getQuestionDataWithId(questionId) {
     this.questionApi.getQuestionData(questionId).subscribe(
       data => {
-        console.log(data);
         this.questionData = data;
         this.updateViewCount();
         this.initInfo();
+        this.ngAfterViewInit();
       },
       error => {
         console.log("ERROR: ", error);
@@ -286,5 +299,9 @@ export class QuestionDetailComponent implements OnInit {
     } else {
       return "clip this question";
     }
+  }
+
+  doEditQuestion() {
+    this.router.navigateByUrl('/questions/' + this.id + "/edit");
   }
 }

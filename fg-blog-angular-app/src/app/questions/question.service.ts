@@ -8,6 +8,8 @@ import { Observable } from 'rxjs';
 })
 export class QuestionService extends BaseService {
 
+  listTag = [];
+
   constructor(http: HttpClient) {
     super(http);
     this.baseUrl += 'question/';

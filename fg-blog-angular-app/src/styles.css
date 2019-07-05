@@ -7223,9 +7223,9 @@ a.secondary-link:hover {
   color: #2b6dad;
 }
 
-.editor-preview-active code:not([class*="language-"]),
-.editor-preview-side code:not([class*="language-"]),
-.md-contents code:not([class*="language-"]) {
+.editor-preview-active code:not([class*=language-]),
+.editor-preview-side code:not([class*=language-]),
+.md-contents code:not([class*=language-]) {
   font-size: 1em;
   color: inherit;
   background-color: #eee;
@@ -7233,12 +7233,12 @@ a.secondary-link:hover {
   border-radius: 2px;
 }
 
-.editor-preview-active code[class*="language-"],
-.editor-preview-active pre[class*="language-"],
-.editor-preview-side code[class*="language-"],
-.editor-preview-side pre[class*="language-"],
-.md-contents code[class*="language-"],
-.md-contents pre[class*="language-"] {
+.editor-preview-active code[class*=language-],
+.editor-preview-active pre[class*=language-],
+.editor-preview-side code[class*=language-],
+.editor-preview-side pre[class*=language-],
+.md-contents code[class*=language-],
+.md-contents pre[class*=language-] {
   font-size: 14px;
 }
 
@@ -7541,12 +7541,12 @@ a.secondary-link:hover {
   font-size: 18px;
 }
 
-.article-content__body p code:not([class*="language-"]) {
+.article-content__body p code:not([class*=language-]) {
   font-size: 16px;
 }
 
-.article-content__body code[class*="language-"],
-.article-content__body pre[class*="language-"] {
+.article-content__body code[class*=language-],
+.article-content__body pre[class*=language-] {
   font-size: 15px;
 }
 
@@ -12168,7 +12168,7 @@ pre[class*="language-"]:not([data-filename=""]):before {
   word-break: break-all;
 }
 
-code[class*="language-"] {
+code[class*=language-] {
   display: block;
 }
 
@@ -12397,8 +12397,8 @@ code[class*="language-"] {
   color: green;
 }
 
-code[class*="language-"],
-pre[class*="language-"] {
+code[class*=language-],
+pre[class*=language-] {
   line-height: 1.6;
 }
 
