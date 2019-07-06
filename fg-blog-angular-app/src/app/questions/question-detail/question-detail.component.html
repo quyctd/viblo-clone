@@ -13,17 +13,17 @@
                     <div class="d-flex justify-content-between hidden-md-down">
                       <div class="question-meta text-muted">
                         <span data-tippy="" data-original-title="Jul 5th, 12:39 PM">Asked
-                          {{ getTimePublish(questionData.create_time) }}
+                          {{ getTimePublish(questionData['create_time']) }}
                         </span>
                         <span class="mx-05">•</span>
                         <span
                         class="stats-item mr-05" data-tippy="" data-original-title="Views"><i aria-hidden="true"
-                          class="fa fa-eye"></i> {{ questionData.views }}
+                          class="fa fa-eye"></i> {{ questionData['views'] }}
                         </span>
                         <span class="stats-item mx-05"
                           data-tippy="" data-original-title="Clips">
                           <i aria-hidden="true" class="fa fa-paperclip"></i>
-                          {{ questionData.clips }}
+                          {{ questionData['clips'] }}
                         </span>
                         <span class="stats-item mx-05" data-tippy=""
                           data-original-title="Answers"><i aria-hidden="true" class="fa fa-reply"></i>
@@ -48,11 +48,11 @@
                       </div>
                       <header class="summary">
                         <h1 class="title word-break">
-                          {{ questionData.title }}
+                          {{ questionData['title'] }}
                         </h1>
                         <div class="d-md-flex align-items-top justify-content-between">
                           <div data-v-328f1f88="" class="tags">
-                            <a *ngFor="let tag of questionData.tags" routerLink="/tags/{{ tag }}/questions"
+                            <a *ngFor="let tag of questionData['tags']" routerLink="/tags/{{ tag }}/questions"
                               class="el-tag tag_3wKND el-tag--info el-tag--default" data-v-328f1f88="">{{ tag }}</a>
                           </div>
                           <div class="question__menu">
@@ -71,7 +71,7 @@
                       </header>
                     </div>
                     <!-- Content -->
-                    <markdown [data]="questionData.content"></markdown>
+                    <markdown [data]="questionData['content']"></markdown>
                   </div>
                   <div data-v-4138a59f="" class="pt-1">
                     <button data-v-4138a59f="" (click)="showFormAnswer()" class="btn btn-primary rounded-0 btn-post-answer">
@@ -93,12 +93,12 @@
                               </div>
                             </a>
                             <div class="d-flex flex-column justify-content-center">
-                              <a routerLink="/u/{{ questionData.author_data ? questionData.author_data.username : 'admin' }}"
+                              <a routerLink="/u/{{ questionData['author_data'] ? questionData['author_data'].username : 'admin' }}"
                                 class="">
-                                {{ questionData.author_data ? questionData.author_data.name : 'Admin' }}
+                                {{ questionData['author_data'] ? questionData['author_data'].name : 'Admin' }}
                               </a>
                               <span
-                                class="d-block">@{{ questionData.author_data ? questionData.author_data.username : 'Admin' }}</span>
+                                class="d-block">@{{ questionData['author_data'] ? questionData['author_data'].username : 'Admin' }}</span>
                             </div>
                           </div>
                           <div class="sidebar__user__row">
@@ -113,13 +113,13 @@
                               <span class="stats-item text-muted" data-tippy=""
                                 data-original-title="Reputations: 125"><i aria-hidden="true"
                                   class="stats-item__icon fa fa-star"></i>
-                                {{ questionData.author_data ? questionData.author_data.reputations : "0" }} </span><span
+                                {{ questionData['author_data'] ? questionData['author_data'].reputations : "0" }} </span><span
                                 class="stats-item text-muted" data-tippy="" data-original-title="Followers: 5"><i
                                   aria-hidden="true" class="stats-item__icon fa fa-user-plus"></i>
                                 5 </span><span class="stats-item text-muted" data-tippy=""
                                 data-original-title="Questions: 7"><i aria-hidden="true"
                                   class="stats-item__icon fa fa-question"></i>
-                                {{ questionData.author_data ? questionData.author_data.question_count : "0" }}
+                                {{ questionData['author_data'] ? questionData['author_data'].question_count : "0" }}
                               </span><span class="stats-item text-muted" data-tippy=""
                                 data-original-title="Answers: 0"><i aria-hidden="true"
                                   class="stats-item__icon fa fa-reply"></i>
@@ -182,10 +182,10 @@
 
 <ul class="el-dropdown-menu el-popper el-dropdown-menu--medium" id="action-menu-7222"
   style="display: none;">
-  <li *ngIf="userData.id == questionData.author" tabindex="-1" class="el-dropdown-menu__item" (click)="doEditQuestion()">
+  <li *ngIf="userData.id == questionData['author']" tabindex="-1" class="el-dropdown-menu__item" (click)="doEditQuestion()">
     <i aria-hidden="true" class="fa fa-edit pr-0 mr-05"></i>Edit
   </li>
-  <li *ngIf="userData.id == questionData.author" tabindex="-1" class="el-dropdown-menu__item">
+  <li *ngIf="userData.id == questionData['author']" tabindex="-1" class="el-dropdown-menu__item">
     <i aria-hidden="true" class="fa fa-trash pr-0 mr-05"></i>Delete this question
   </li>
   <li tabindex="-1" class="el-dropdown-menu__item">
