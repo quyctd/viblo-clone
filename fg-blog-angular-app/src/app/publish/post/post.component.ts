@@ -106,16 +106,20 @@ export class PostComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     const codeMirrorEle = (document.querySelector('.CodeMirror') as HTMLElement);
-    const finalHeight = window.innerHeight - codeMirrorEle.getBoundingClientRect().top - 20;
-    codeMirrorEle.style.height = finalHeight + "px";
+    if (codeMirrorEle) {
+      const finalHeight = window.innerHeight - codeMirrorEle.getBoundingClientRect().top - 20;
+      codeMirrorEle.style.height = finalHeight + "px";
+    }
   }
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
     // this.innerWidth = window.innerWidth;
     const codeMirrorEle = (document.querySelector('.CodeMirror') as HTMLElement);
-    const finalHeight = window.innerHeight - codeMirrorEle.getBoundingClientRect().top - 35;
-    codeMirrorEle.style.height = finalHeight + "px";
+    if (codeMirrorEle) {
+      const finalHeight = window.innerHeight - codeMirrorEle.getBoundingClientRect().top - 35;
+      codeMirrorEle.style.height = finalHeight + "px";
+    }
   }
 
   get simplemde() {
