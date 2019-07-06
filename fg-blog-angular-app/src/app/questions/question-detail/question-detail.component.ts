@@ -291,4 +291,15 @@ export class QuestionDetailComponent implements OnInit {
   doEditQuestion() {
     this.router.navigateByUrl('/questions/' + this.id + "/edit");
   }
+
+  showFormAnswer() {
+    const formEle = document.getElementById("post-answer-form");
+    formEle.style.display = "block";
+  }
+
+  hideFormAnswer() {
+    const formEle = document.getElementById("post-answer-form");
+    formEle.style.display = "none";
+  }
+
 }

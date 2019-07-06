@@ -74,7 +74,7 @@
                     <markdown [data]="questionData.content"></markdown>
                   </div>
                   <div data-v-4138a59f="" class="pt-1">
-                    <button data-v-4138a59f="" class="btn btn-primary rounded-0 btn-post-answer">
+                    <button data-v-4138a59f="" (click)="showFormAnswer()" class="btn btn-primary rounded-0 btn-post-answer">
                       <i data-v-4138a59f="" aria-hidden="true" class="fa mr-05 fa-pencil"></i>
                       <span data-v-4138a59f="">Post answer</span>
                     </button>
@@ -138,12 +138,6 @@
                             </span>
                           </button>
                         </div>
-                        <div class="subscribers-preview">
-                          <ul class="list-unstyled mb-0 d-flex align-items-center participants--md">
-                            
-                          </ul>
-                          
-                        </div>
                       </div>
                       <div data-v-e1ec6290=""
                         class="social-sharing question-socialization social-sharing--vertical social-sharing--small">
@@ -164,7 +158,8 @@
                   </div>
                 </div>
               </div>
-              
+              <app-comment-form style="display: none;" [commentType]='3' id='post-answer-form' (postCommentEvent)="receivePostCommentEvent($event)" (discardEdit)="receiveDiscardEdit($event)" [parent]="0" [articleId]="articleId">
+              </app-comment-form>
               <div data-v-4138a59f="" class="comments flat">
                 <div class="list-transition"></div>
                 <div class="comment-add mt-05">
