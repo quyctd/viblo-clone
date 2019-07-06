@@ -58,6 +58,7 @@ import { QuestionComponent as AskQuestionComponent } from './publish/question/qu
 import { QuestionFeedComponent } from './questions/question-feed/question-feed.component';
 import { QuestionDetailComponent } from './questions/question-detail/question-detail.component';
 import { EditQuestionComponent } from './questions/edit-question/edit-question.component';
+import { HighlightService } from './utils/highlight.service';
 
 @NgModule({
   declarations: [
@@ -141,7 +142,8 @@ import { EditQuestionComponent } from './questions/edit-question/edit-question.c
     {
       provide: AuthServiceConfig,
       useFactory: provideConfig
-    }
+    },
+    HighlightService
   ],
   bootstrap: [AppComponent]
 })

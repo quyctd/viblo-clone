@@ -18011,11 +18011,16 @@ ul.pagination > li .fa {
 	padding-right: 27px
 }
 
-pre > code[class*=language-] {
-  margin: 1em 0;
-  background-color: #f1f2f3;
-  border: 1px solid #e5e5e5;
-  padding: 1em;
-  overflow: auto;
-  border-radius: 3px;
+.code-toolbar {
+  position: relative;
+}
+
+div.code-toolbar>.toolbar {
+  position: absolute;
+  -webkit-transition: opacity .3s ease-in-out;
+  transition: opacity .3s ease-in-out;
+  opacity: 1;
+  top: 0;
+  right: 0;
+  padding: 3px 6px;
 }

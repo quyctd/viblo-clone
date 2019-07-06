@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { calTimeDifference, calReadTime } from '../../utils/utils';
 import { QuestionService } from '../question.service';
@@ -8,7 +8,7 @@ import { QuestionService } from '../question.service';
   templateUrl: './question-detail.component.html',
   styleUrls: ['./question-detail.component.css']
 })
-export class QuestionDetailComponent implements OnInit, AfterViewInit {
+export class QuestionDetailComponent implements OnInit {
 
   id: number;
   url: any;
@@ -43,25 +43,12 @@ export class QuestionDetailComponent implements OnInit, AfterViewInit {
     this.getQuestionDataWithId(this.id);
   }
 
-  ngAfterViewInit() {
-    // tslint:disable-next-line:prefer-const
-    let elementList = document.getElementsByTagName("pre");
-    console.log(elementList.length);
-    // tslint:disable-next-line:prefer-for-of
-    for (let i = 0; i < elementList.length; i++) {
-      console.log("Ahihi" + i);
-      elementList[i].classList.add('language-javascript');
-    }
-    this.cdRef.detectChanges();
-  }
-
   getQuestionDataWithId(questionId) {
     this.questionApi.getQuestionData(questionId).subscribe(
       data => {
         this.questionData = data;
         this.updateViewCount();
         this.initInfo();
-        this.ngAfterViewInit();
       },
       error => {
         console.log("ERROR: ", error);
