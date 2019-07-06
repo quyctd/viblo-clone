@@ -168,6 +168,9 @@ export class PostComponent implements OnInit, AfterViewInit {
 
     const target = event.currentTarget;
     const dropEle = document.getElementById("el-popover-2400");
+    if (!dropEle) {
+      return;
+    }
     // const arrowEle = dropEle.querySelector('.popper__arrow');
     if (this.isClickFeatureImage) {
       dropEle.style.display = 'block';
@@ -184,6 +187,9 @@ export class PostComponent implements OnInit, AfterViewInit {
   clickOutsideFeatureImage(event) {
     const target = event.target;
     const dropEle = document.getElementById("el-popover-2400");
+    if (!dropEle) {
+      return;
+    }
     if (dropEle.contains(target)) {
       return;
     } else {
