@@ -18010,3 +18010,12 @@ ul.pagination > li .fa {
 	padding-left: 27px;
 	padding-right: 27px
 }
+
+pre > code[class*=language-] {
+  margin: 1em 0;
+  background-color: #f1f2f3;
+  border: 1px solid #e5e5e5;
+  padding: 1em;
+  overflow: auto;
+  border-radius: 3px;
+}

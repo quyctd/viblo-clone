@@ -10,7 +10,7 @@ import { AuthServiceConfig } from 'angularx-social-login';
 import { provideConfig } from './socialLoginConfig';
 
 // 3rd party lib
-import { MarkdownModule } from 'ngx-markdown';
+import { MarkdownModule, MarkedOptions, MarkedRenderer } from 'ngx-markdown';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SimplemdeModule } from 'ngx-simplemde'; // @1.0.0
 import { ClickOutsideModule } from 'ng-click-outside';
