@@ -1,4 +1,4 @@
-Project FG Blog
+Project: Up2date Technical Blog
 ===
 ![build](https://img.shields.io/appveyor/ci/:user/:repo.svg)
 ![chat](https://img.shields.io/discord/:serverId.svg)
