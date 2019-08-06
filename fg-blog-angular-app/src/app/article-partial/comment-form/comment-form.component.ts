@@ -9,7 +9,7 @@ import { CommentsService } from '../article-comments/comments.service';
 })
 export class CommentFormComponent implements OnInit {
   form: FormGroup;
-  @Input() commentType = 0; // 0 is create, 1 is edit, 2 is reply
+  @Input() commentType = 0; // 0 is create, 1 is edit, 2 is reply, 3 is answer
   @Input() articleId: number;
   @Input() inputComment: any;
   @Input() parent: any; // id of parent

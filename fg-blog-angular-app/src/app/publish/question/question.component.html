@@ -1,0 +1,113 @@
+<div id="__nuxt">
+  <div id="__layout">
+    <div id="app-container" class="default">
+      <app-navbar style="z-index: 9!important" class="sticky-top"></app-navbar>
+      <div id="main-content">
+        <div class="container py-3">
+          <div class="ask-question">
+            <form class="el-form error-message--top" [formGroup]="form">
+              <div class="el-form-item is-required" [class.is-error]="title.touched && title.invalid">
+                <div class="el-form-item__content">
+                  <div class="el-input">
+                    <div *ngIf="title.touched && title.invalid"
+                      class="el-form-item__error">
+                      <div *ngIf="title.errors && title.errors.required">
+                        The question title is required
+                      </div>
+                    </div>
+                    <input formControlName="title" type="text" autocomplete="off" placeholder="Title" class="el-input__inner"/>
+                  </div>
+                </div>
+              </div>
+              <div class="el-form-item is-required" [class.is-error]="tags.touched && questionApi.listTag?.length == 0">
+                <div class="el-form-item__content">
+                  <div class="tags-input" tags="">
+                    <div *ngIf="tags.touched && questionApi.listTag?.length == 0"
+                      class="el-form-item__error">
+                      <div>
+                        The question tags is required
+                      </div>
+                    </div>
+                    <div class="tags-input__inner el-input__inner">
+                      <div *ngFor="let tag of questionApi.listTag">
+                        <app-publish-tag [inputTag]="tag" [postType]="'question'">
+                        </app-publish-tag>
+                      </div>
+                      <div aria-haspopup="listbox" role="combobox" aria-owns="el-autocomplete-5190"
+                        class="el-autocomplete tags-input__autocomplete">
+                        <div class="el-input">
+                          <input formControlName="tags" type="text" valuekey="value"
+                            placeholder="Tag your question. Maximum 5 tags."
+                            debounce="300" placement="bottom-start" popperappendtobody="true" class="el-input__inner"
+                            role="textbox" aria-controls="id" (keyup.enter)="addTag($event)" 
+                            />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="el-form-item is-required">
+                <div class="el-form-item__content">
+                  <div *ngIf="isHasFirstSubmit && !simplemde.value"
+                      class="el-form-item__error">
+                      <div>
+                        The post question is required
+                      </div>
+                  </div>
+                </div>
+              </div>
+              <div class="el-form-item is-required" [class.is-error]="isHasFirstSubmit && !simplemde.value">
+                <simplemde formControlName="simplemde" [(ngModel)]="customize" [options]="{
+                    toolbar: [
+                      'bold',
+                      'italic',
+                      'strikethrough',
+                      'heading-1',
+                      'heading-2',
+                      'heading-3',
+                      '|',
+                      'code',
+                      'quote',
+                      'unordered-list',
+                      'ordered-list',
+                      'table',
+                      'horizontal-rule',
+                      'clean-block',
+                      '|',
+                      'link',
+                      'image',
+                      '|',
+                      'preview',
+                      'side-by-side',
+                      'fullscreen',
+                      '|',
+                      'undo',
+                      'redo',
+                      '|',
+                      'guide'
+                    ]
+                  }"></simplemde>
+              </div>
+            </form>
+            <div>
+              <button type="button" class="el-button el-button--primary el-button--medium is-plain"
+              (click)="doCreateQuestion()">
+                <span>
+                  Create Question
+                </span>
+              </button>
+              <button type="button" class="el-button el-button--default el-button--medium"
+              (click)="doDiscardCreateQuestion()">
+                <span>
+                  Discard
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <app-footer></app-footer>
+    </div>
+  </div>
+</div>

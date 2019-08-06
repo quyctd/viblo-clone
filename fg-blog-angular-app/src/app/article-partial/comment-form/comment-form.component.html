@@ -59,7 +59,7 @@
               Post Comment
             </span>
           </button>
-          <button *ngIf="commentType == 1 || commentType == 2" class="btn btn-sm" (click)="doDiscardEdit(inputComment.id)">
+          <button *ngIf="commentType != 0" class="btn btn-sm" (click)="doDiscardEdit(inputComment.id)">
               Discard
           </button>
           <button *ngIf="commentType == 1" [disabled]="formStatus == 'INVALID'" type="button"           class="el-button btn btn-sm btn-primary el-button--primary"
@@ -72,6 +72,12 @@
             [class.is-disabled]="formStatus == 'INVALID'" (click)='doPostComment()'>
             <span>
               Reply
+            </span>
+          </button>
+          <button *ngIf="commentType == 3" [disabled]="formStatus == 'INVALID'" type="button"           class="el-button btn btn-sm btn-primary el-button--primary"
+            [class.is-disabled]="formStatus == 'INVALID'" (click)='doPostComment()'>
+            <span>
+              Answer
             </span>
           </button>
         </div>

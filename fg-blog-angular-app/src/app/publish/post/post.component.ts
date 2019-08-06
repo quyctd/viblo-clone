@@ -1,9 +1,8 @@
-import { Component, OnInit, HostListener, Input, AfterViewInit } from '@angular/core';
-import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { Component, OnInit, HostListener, AfterViewInit } from '@angular/core';
+import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { PublishPostService } from '../publish-post.service';
 import {Router} from '@angular/router';
 import { auditTime } from 'rxjs/operators';
-import { SimplemdeModule } from 'ngx-simplemde';
 
 @Component({
   selector: 'app-publish-post',
@@ -107,16 +106,20 @@ export class PostComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     const codeMirrorEle = (document.querySelector('.CodeMirror') as HTMLElement);
-    const finalHeight = window.innerHeight - codeMirrorEle.getBoundingClientRect().top - 20;
-    codeMirrorEle.style.height = finalHeight + "px";
+    if (codeMirrorEle) {
+      const finalHeight = window.innerHeight - codeMirrorEle.getBoundingClientRect().top - 20;
+      codeMirrorEle.style.height = finalHeight + "px";
+    }
   }
 
   @HostListener('window:resize', ['$event'])
   onResize(event) {
     // this.innerWidth = window.innerWidth;
     const codeMirrorEle = (document.querySelector('.CodeMirror') as HTMLElement);
-    const finalHeight = window.innerHeight - codeMirrorEle.getBoundingClientRect().top - 35;
-    codeMirrorEle.style.height = finalHeight + "px";
+    if (codeMirrorEle) {
+      const finalHeight = window.innerHeight - codeMirrorEle.getBoundingClientRect().top - 35;
+      codeMirrorEle.style.height = finalHeight + "px";
+    }
   }
 
   get simplemde() {
@@ -165,6 +168,9 @@ export class PostComponent implements OnInit, AfterViewInit {
 
     const target = event.currentTarget;
     const dropEle = document.getElementById("el-popover-2400");
+    if (!dropEle) {
+      return;
+    }
     // const arrowEle = dropEle.querySelector('.popper__arrow');
     if (this.isClickFeatureImage) {
       dropEle.style.display = 'block';
@@ -181,6 +187,9 @@ export class PostComponent implements OnInit, AfterViewInit {
   clickOutsideFeatureImage(event) {
     const target = event.target;
     const dropEle = document.getElementById("el-popover-2400");
+    if (!dropEle) {
+      return;
+    }
     if (dropEle.contains(target)) {
       return;
     } else {

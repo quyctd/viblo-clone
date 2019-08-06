@@ -6,14 +6,14 @@
         <app-promo-banner></app-promo-banner>
         <app-question-feed-links [currRoute]="'newest'"></app-question-feed-links>
 
-        <div class="container">
-          <div class="row pt-3 pb-1">
-            <div class="col-lg-9">
-              <app-post-feed [posts]="newestPost"></app-post-feed>
-              <app-pagination *ngIf="newestPost.length != 0" [currRoute]="'newest'" [previousPage]="previousPage" [nextPage]="nextPage" [numPages]='numPages' [currPage]="currPage"></app-pagination>
+        <div class="container my-md-3">
+          <div class="row">
+            <div class="col-md-9 px-0">
+              <app-question-feed [questions]="newestQuestion"></app-question-feed>
+              <app-pagination *ngIf="newestQuestion.length != 0" [currRoute]="'newest'" [previousPage]="previousPage" [nextPage]="nextPage" [numPages]='numPages' [currPage]="currPage"></app-pagination>
             </div>
             <div class="col-lg-3 hidden-md-down">
-              <app-post-suggestion></app-post-suggestion>
+              <app-question-suggestion></app-question-suggestion>
             </div>
           </div>
         </div>

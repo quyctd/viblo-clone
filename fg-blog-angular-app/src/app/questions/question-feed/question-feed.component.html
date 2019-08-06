@@ -1,0 +1,135 @@
+<div
+  *ngIf="questions?.length == 0"
+  class="text-center font-weight-bold text-muted my-05"
+>
+  There is nothing here.
+</div>
+<div class="question-list">
+  <div class="question-item" *ngFor="let question of questions">
+    <div class="stats">
+      <div>
+        <div class="mb-05 question-time hidden-md-down">
+          <span
+            class="text-muted"
+            data-tippy=""
+            ><i class="fa fa-calendar mr-05"></i>{{ getTimePublish(question.create_time) }}</span
+          >
+        </div>
+        <div class="question-stats text-muted">
+          <span
+            class="stats-item mr-md-1" [class.solved]="question.is_answered"
+            data-tippy=""
+            data-original-title="Answers"
+            ><i aria-hidden="true" class="fa" [class.fa-check]="question.is_answered" [class.fa-reply]="!question.is_answered"></i> 0 </span
+          >
+          <div
+            class="points stats-item mr-md-1"
+            data-tippy=""
+            data-original-title="Score"
+          >
+            <div class="carets">
+              <i aria-hidden="true" class="fa fa-caret-up"></i
+              ><i aria-hidden="true" class="fa fa-caret-down"></i>
+            </div>
+            <span class="text-muted">{{ question.vote }}</span>
+          </div>
+          <span
+            class="stats-item mr-md-1"
+            data-tippy=""
+            data-original-title="Comments"
+            ><i aria-hidden="true" class="fa fa-comments"></i> 10</span
+          ><span class="stats-item" data-tippy="" data-original-title="Views"
+            ><i aria-hidden="true" class="fa fa-eye"></i> {{ question.views }}</span
+          >
+        </div>
+      </div>
+    </div>
+    <div class="summary">
+      <div class="asked-by d-flex align-items-center">
+        <div class="user--inline d-inline-flex flex-shrink-0">
+          <a routerLink="/u/{{ question.author_data.username }}" class="mr-05">
+            <div class="d-inline-block">
+              <img
+                data-v-fa4ddde2=""
+                src="../../../assets/user_avatar.jpg"
+                srcset="../../../assets/user_avatar.jpg"
+                class="avatar avatar--xs"
+              />
+            </div>
+          </a>
+          <span
+            ><a
+              routerLink="/u/{{ question.author_data.username }}"
+              class="mr-05 el-popover__reference"
+              aria-describedby="el-popover-7234"
+              tabindex="0"
+            >
+            {{ question.author_data ? question.author_data.username : 'Admin' }}
+            </a></span
+          >
+          <!---->
+        </div>
+        <div class="contributors hidden-md-down">
+          <i class="fa fa-reply text-muted mr-05"></i>
+          <div class="contributors">
+            <ul
+              class="list-unstyled mb-0 d-flex align-items-center participants--xs"
+            >
+              <li
+                class="participants__item"
+                data-tippy=""
+                data-original-title="Nguyễn Hữu Kim"
+              >
+                <a routerLink="/u/huukimit" class="">
+                  <div class="d-inline-block">
+                    <img
+                      data-v-fa4ddde2=""
+                      src="https://images.viblo.asia/avatar/bfaf3c0a-571f-439e-b3d0-24a2aba8524d.png"
+                      srcset="
+                        https://images.viblo.asia/avatar-retina/bfaf3c0a-571f-439e-b3d0-24a2aba8524d.png 2x
+                      "
+                      class="avatar avatar--xs"
+                    />
+                  </div>
+                </a>
+              </li>
+              <li
+                class="participants__item"
+                data-tippy=""
+                data-original-title="Phan Lý Huỳnh"
+              >
+                <a routerLink="/u/phanlyhuynh" class="">
+                  <div class="d-inline-block">
+                    <img
+                      data-v-fa4ddde2=""
+                      src="https://images.viblo.asia/avatar/36d55cec-ae83-4afd-badb-422024143a87.jpg"
+                      srcset="
+                        https://images.viblo.asia/avatar-retina/36d55cec-ae83-4afd-badb-422024143a87.jpg 2x
+                      "
+                      class="avatar avatar--xs"
+                    />
+                  </div>
+                </a>
+              </li>
+              <!---->
+            </ul>
+            <!---->
+          </div>
+        </div>
+      </div>
+      <div class="q-title word-break">
+        <a routerLink="/q/{{ question.id }}" class="link">
+          <h3 class="mb-05 mr-05">{{ question.title }}</h3>
+        </a>
+        <div data-v-328f1f88="" class="tags">
+          <a *ngFor="let tag of question.tags"
+            routerLink="/tags/{{ tag }}/questions"
+            class="el-tag tag_3wKND el-tag--info el-tag--default"
+            data-v-328f1f88=""
+            >{{ tag }}</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

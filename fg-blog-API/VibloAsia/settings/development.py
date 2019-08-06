@@ -60,6 +60,7 @@ INSTALLED_APPS = DEFAULT_APPS + [
     'apps.base',
     'apps.post',
     'apps.discussion',
+    'apps.question'
 ]
 
 # Time zone

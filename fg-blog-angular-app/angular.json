@@ -24,10 +24,12 @@
             ],
             "styles": [
               "node_modules/simplemde/dist/simplemde.min.css",
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/prismjs/themes/prism-okaidia.css"
             ],
             "scripts": [
-              "node_modules/simplemde/dist/simplemde.min.js"
+              "node_modules/simplemde/dist/simplemde.min.js",
+              "node_modules/prismjs/prism.js"
             ],
             "es5BrowserSupport": true
           },

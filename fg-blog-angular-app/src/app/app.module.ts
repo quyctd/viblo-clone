@@ -10,7 +10,7 @@ import { AuthServiceConfig } from 'angularx-social-login';
 import { provideConfig } from './socialLoginConfig';
 
 // 3rd party lib
-import { MarkdownModule } from 'ngx-markdown';
+import { MarkdownModule, MarkedOptions, MarkedRenderer } from 'ngx-markdown';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { SimplemdeModule } from 'ngx-simplemde'; // @1.0.0
 import { ClickOutsideModule } from 'ng-click-outside';
@@ -53,6 +53,12 @@ import { PostFeedComponent } from './post/post-feed/post-feed.component';
 import { PaginationComponent } from './base/pagination/pagination.component';
 import { CommentFormComponent } from './article-partial/comment-form/comment-form.component';
 import { QuestionFeedLinksComponent } from './questions/question-feed-links/question-feed-links.component';
+import { QuestionSuggestionComponent } from './questions/question-suggestion/question-suggestion.component';
+import { QuestionComponent as AskQuestionComponent } from './publish/question/question.component';
+import { QuestionFeedComponent } from './questions/question-feed/question-feed.component';
+import { QuestionDetailComponent } from './questions/question-detail/question-detail.component';
+import { EditQuestionComponent } from './questions/edit-question/edit-question.component';
+import { HighlightService } from './utils/highlight.service';
 
 @NgModule({
   declarations: [
@@ -88,7 +94,12 @@ import { QuestionFeedLinksComponent } from './questions/question-feed-links/ques
     PostFeedComponent,
     PaginationComponent,
     CommentFormComponent,
-    QuestionFeedLinksComponent
+    QuestionFeedLinksComponent,
+    QuestionSuggestionComponent,
+    AskQuestionComponent,
+    QuestionFeedComponent,
+    QuestionDetailComponent,
+    EditQuestionComponent
   ],
   imports: [
     BrowserModule,
@@ -121,6 +132,9 @@ import { QuestionFeedLinksComponent } from './questions/question-feed-links/ques
       { path: 'authors', component : AuthorsComponent},
       { path: 'logout', component : LogoutComponent},
       { path: 'publish/post', component : PublishPostComponent},
+      { path: 'questions/ask', component : AskQuestionComponent},
+      { path: 'q/:id', component : QuestionDetailComponent},
+      { path: 'questions/:id/edit', component : EditQuestionComponent},
       { path: '404', component: NotfoundComponent}
     ])
   ],
@@ -128,7 +142,8 @@ import { QuestionFeedLinksComponent } from './questions/question-feed-links/ques
     {
       provide: AuthServiceConfig,
       useFactory: provideConfig
-    }
+    },
+    HighlightService
   ],
   bootstrap: [AppComponent]
 })

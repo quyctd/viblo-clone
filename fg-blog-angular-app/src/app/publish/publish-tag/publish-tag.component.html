@@ -1,6 +1,3 @@
 <span *ngIf="showTag" class="el-tag el-tag--info el-tag--medium tags-input__tag">
-  <span>{{tag}} </span> <i [ngClass]="{
-    'el-tag__close' : true,
-    'el-icon-close' : true
-  }" (click)="doRemoveTag()"></i>
+  <span>{{tag}} </span> <i class="el-tag__close el-icon-close fas fa-times" (click)="doRemoveTag()"></i>
 </span>

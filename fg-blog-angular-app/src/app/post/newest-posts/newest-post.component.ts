@@ -9,7 +9,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class NewestPostComponent implements OnInit {
 
-  newestPost: [];
+  newestPost = [];
   currPage = 1;
   numPages: number;
   pageSize: number;
@@ -31,7 +31,7 @@ export class NewestPostComponent implements OnInit {
         this.router.navigateByUrl('/newest');
       }
       this.getNewestPost();
-  });
+    });
   }
 
   getNewestPost() {
