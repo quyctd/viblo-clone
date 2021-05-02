@@ -25,7 +25,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.9.0",
     "@ng-bootstrap/ng-bootstrap": "^4.2.1",
     "angularx-social-login": "^1.2.7",
-    "auth0-js": "^9.10.4",
+    "auth0-js": "^9.13.2",
     "bootstrap": "^4.3.1",
     "core-js": "^2.5.4",
     "ng-click-outside": "^4.0.0",
